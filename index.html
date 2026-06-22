@@ -416,7 +416,8 @@ const catColors = {
 };
 const scenarioTagColor = {
   '외과·발치':'#0f6e8c', '식립·골이식':'#7c3aed', '급성 감염':'#dc2626',
-  '치주':'#137a63', '점막·바이러스':'#a855f7', '근골격':'#f97316', '예방':'#0a5066'
+  '치주':'#137a63', '점막·바이러스':'#a855f7', '근골격':'#f97316', '예방':'#0a5066',
+  '특수 환자군':'#475569'
 };
 
 const scenarios = [
@@ -500,6 +501,21 @@ const scenarios = [
     allergy:'PCN 알러지: cephalexin 2g / azithromycin 500mg / doxycycline 100mg (<span class="em">clindamycin 비권장</span>).',
     ped:'Amoxicillin 50mg/kg(최대 2g) 1시간 전.',
     note:'치은·치근단 조작 또는 구강점막 천공 시술이 대상. 일상 칫솔질이 더 큰 균혈증원.' },
+  { n:'임산부·수유부 처방', tag:'특수 환자군',
+    adult:'진통: <span class="em">acetaminophen 1차</span>(전 시기 비교적 안전). NSAID는 1·2기 단기만, <span class="em">3기 금기</span>(동맥관 조기폐쇄·양수감소). aspirin 회피. 항생제: penicillin/amoxicillin·cephalosporin·clindamycin 안전. 국소마취 lidocaine(+소량 epi) 가능. 가급적 <span class="em">2기에 치료</span>.',
+    allergy:'PCN 알러지: cephalosporin 또는 clindamycin. 회피: tetracycline/doxycycline(치아·골 침착); metronidazole·벤조디아제핀·N₂O는 신중.',
+    ped:'해당 없음(성인 대상).',
+    note:'수유: acetaminophen·ibuprofen·penicillin/cephalosporin 호환. 응급 외 선택 시술은 분만 후로 연기 고려.' },
+  { n:'항응고·항혈소판제 환자 발치', tag:'특수 환자군',
+    adult:'<span class="em">대부분 약물 중단 없이</span> 단순발치 가능. 와파린 INR 확인(통상 &lt;4.0), DOAC는 중단·브리징 불필요(필요시 복용시간만 조정). <span class="em">국소지혈 강화</span>: tranexamic acid 함수(4.8%)·gelatin sponge·봉합·압박. 진통은 acetaminophen.',
+    allergy:'항생제 필요 시 metronidazole·macrolide는 <span class="em">와파린 INR↑</span> 주의.',
+    ped:'드묾; 기저질환별 자문.',
+    note:'NSAID·aspirin 진통 회피(출혈 위험). 광범위 수술·복합 항응고는 의과 자문.' },
+  { n:'MRONJ 위험(항흡수제) 환자', tag:'특수 환자군',
+    adult:'비스포스포네이트·denosumab 등 복용 시 발치·골수술로 <span class="em">악골괴사(MRONJ) 위험</span>. 위험도 평가(정맥/암환자=고위험). <span class="em">비외상적 술식·1차 봉합</span> + 술전후 amoxicillin + chlorhexidine 가글 + 추적.',
+    allergy:'PCN 알러지: clindamycin/azithromycin.',
+    ped:'해당 드묾.',
+    note:'<span class="em">임의 약물 중단(drug holiday) 금지</span>(근거 제한) → 처방의와 상의. 가능하면 비발치적 대안 우선.' },
 ];
 
 const catalog = [
