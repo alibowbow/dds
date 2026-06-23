@@ -222,7 +222,7 @@
 
   <!-- ② CATALOG -->
   <section id="catalog">
-    <div class="sec-head"><span class="num">2</span><h2>약물 카탈로그 (대분류 13)</h2></div>
+    <div class="sec-head"><span class="num">2</span><h2>약물 카탈로그 (대분류 14)</h2></div>
     <p class="sec-desc">분류별 성분명 · 국내 예시 제품명 · 적응증 · 용법용량 · 금기/주의 · 상호작용. 상단 검색창으로 전체 필터링됩니다.</p>
     <div class="legend" id="catalog-legend"></div>
     <div id="catalog-body"></div>
@@ -263,7 +263,9 @@
 
     <div class="diagram">
       <h3>① 전체 약물 분류 마인드맵</h3>
+      <p class="maphint">🎨 분기별 색상은 약물 대분류를 구분합니다.</p>
       <pre class="mermaid">
+%%{init: {'theme':'default'}}%%
 mindmap
   root((치과 약물))
     국소마취제
@@ -274,6 +276,12 @@ mindmap
       NSAID
       acetaminophen
       opioid
+    신경병성통증
+      pregabalin
+      gabapentin
+      duloxetine
+      mecobalamin_B12
+      clonazepam
     항생제
       amoxicillin
       augmentin
@@ -458,14 +466,14 @@ flowchart LR
 <script>
 /* ============ DATA ============ */
 const catColors = {
-  anesth:'#3b82f6', analg:'#ef4444', abx:'#10b981', fungal:'#a855f7', viral:'#6366f1',
+  anesth:'#3b82f6', analg:'#ef4444', neuro:'#4f46e5', abx:'#10b981', fungal:'#a855f7', viral:'#6366f1',
   sed:'#f59e0b', hemo:'#e11d48', steroid:'#0ea5e9', fluoride:'#14b8a6', anti:'#8b5cf6',
   gi:'#84cc16', relax:'#f97316', emerg:'#dc2626'
 };
 const scenarioTagColor = {
   '외과·발치':'#0f6e8c', '식립·골이식':'#7c3aed', '급성 감염':'#dc2626',
-  '치주':'#137a63', '점막·바이러스':'#a855f7', '근골격':'#f97316', '예방':'#0a5066',
-  '특수 환자군':'#475569'
+  '치주':'#137a63', '점막·바이러스':'#a855f7', '근골격':'#f97316',
+  '신경병성 통증':'#4f46e5', '예방':'#0a5066', '특수 환자군':'#475569'
 };
 
 const scenarios = [
@@ -495,7 +503,7 @@ const scenarios = [
     ped:'해당 드묾(성장 완료 후 식립).',
     note:'단순 식립 루틴 예방의 근거는 제한적; 단일 술전 용량이 흔히 사용.' },
   { n:'상악동 거상술(Sinus lift)', tag:'식립·골이식',
-    adult:'Augmentin 875/125mg q12h(β-lactamase 산생균 대비), 술전~술후 7일 + 진통제 + 항히스타민/비충혈제거 보조. <span class="em">코 풀기·빨대 사용 금지 교육</span>.',
+    adult:'Augmentin 875/125mg q12h(β-lactamase 산생균 대비), 술전~술후 7일 + 진통제 + pseudoephedrine(슈다펜)·항히스타민 비충혈 보조. <span class="em">코 풀기·빨대 사용 금지 교육</span>.',
     allergy:'PCN 알러지: cefuroxime axetil, 또는 clindamycin/azithromycin.',
     ped:'해당 없음(성인 술식).',
     note:'상악동 천공·점막 손상 시 감염 위험↑. 비강 위생 관리 병행.' },
@@ -524,6 +532,16 @@ const scenarios = [
     allergy:'NSAID 금기 시 acetaminophen; 근이완제 유지.',
     ped:'보존적 치료 우선; 약물 신중.',
     note:'항생제 적응 아님. 대부분 자기한정성·보존적 관리.' },
+  { n:'하치조신경 손상·감각이상', tag:'신경병성 통증',
+    adult:'발치(매복치)·임플란트·신경치료 후 입술·혀 <span class="em">이상감각(저림·통증)</span>. 조기 진단·경과관찰이 핵심. 신경병성 통증: <span class="em">pregabalin(리리카) 75mg</span> 야간 시작→증량, 또는 <span class="em">duloxetine(심발타) 30mg</span> QD. 신경회복 보조 <span class="em">mecobalamin(비타민 B12) 500µg</span> TID. 부종성 압박 의심 초기엔 단기 corticosteroid.',
+    allergy:'약물 과민/부작용 시 gabapentin 또는 삼환계 amitriptyline로 대체.',
+    ped:'드묾; 구강악안면외과·신경과 의뢰.',
+    note:'상병 예: 피부의 감각저하(R20.1). 다수는 수개월 내 호전. 지속·완전마비·심한 통증은 조기 전문의 의뢰(미세신경수술 시기 고려).' },
+  { n:'구강작열감증후군(BMS)·설통', tag:'신경병성 통증',
+    adult:'점막 병변 없이 작열감/통증. <span class="em">국소 clonazepam(리보트릴) 0.5mg 함수 후 뱉기</span> 또는 저용량 경구. 보조: α-lipoic acid, capsaicin 함수, 저용량 삼환계/SNRI. <span class="em">구강건조·칸디다·영양결핍(철·B12·엽산) 감별·교정</span>.',
+    allergy:'벤조 회피 시 gabapentin/pregabalin 또는 삼환계.',
+    ped:'매우 드묾.',
+    note:'상병 예: 설통·혀작열감(K14.6). 만성·다인자성 → 안심교육 + 약물 병행, 야간 이갈이 동반 평가.' },
   { n:'재발성 아프타 구내염', tag:'점막·바이러스',
     adult:'국소 corticosteroid(triamcinolone 0.1% 연고/오라메디), policresulen(알보칠) 도포, benzydamine·CHX 가글. 중증·다발: 단기 전신 prednisolone.',
     allergy:'국소제 위주로 전신약 회피.',
@@ -584,6 +602,13 @@ const catalog = [
     { g:'Acetaminophen', b:'타이레놀', cl:'해열진통(비NSAID)', ind:'NSAID 금기·병용', dose:'325–650mg q4–6h(≤4g/일, 음주자 ↓)', cau:'간독성(과량·음주)', it:'와파린(고용량), 알코올' },
     { g:'Tramadol/APAP', b:'울트라셋', cl:'약한 오피오이드 복합', ind:'중등도~중증, 단기', dose:'1–2정 q6h, 단기(≤3일)', cau:'경련·세로토닌증후군·의존', it:'SSRI/SNRI·MAOI·삼환계' },
     { g:'Codeine', b:'코데인', cl:'오피오이드', ind:'중증, 제한적', dose:'단기 최소용량', cau:'12세 미만 회피·호흡억제', it:'CNS억제제' },
+  ]},
+  { id:'neuro', name:'신경병성·구강안면통증', drugs:[
+    { g:'Pregabalin', b:'리리카', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증·감각이상(하치조신경 손상)', dose:'75mg 야간 시작→150–300mg/일 분2', cau:'졸음·어지럼·부종·체중↑; 신기능 감량', it:'CNS억제제·알코올' },
+    { g:'Gabapentin', b:'뉴론틴', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증(대체)', dose:'100–300mg 야간 시작→점증', cau:'졸음·실조; 신기능 감량', it:'제산제(흡수↓)·CNS억제제' },
+    { g:'Duloxetine', b:'심발타', cl:'SNRI', ind:'신경병성·만성 통증', dose:'30mg QD→60mg', cau:'오심·불면·혈압↑; <span class="em">MAOI·중증 간장애 금기</span>', it:'트라마돌·삼환계(세로토닌)·CYP2D6' },
+    { g:'Mecobalamin (Vit B12)', b:'엠코발', cl:'비타민 B12', ind:'말초신경 회복 보조', dose:'500µg TID 경구(또는 주사)', cau:'대체로 안전', it:'-' },
+    { g:'Clonazepam', b:'리보트릴', cl:'벤조디아제핀', ind:'구강작열감(BMS)·설통(국소/저용량)', dose:'0.5mg 국소 함수 후 뱉기 또는 야간 경구', cau:'졸음·의존·낙상', it:'CNS억제제·CYP3A4' },
   ]},
   { id:'abx', name:'항생제', drugs:[
     { g:'Amoxicillin', b:'곰실린, 종근당아목시실린', cl:'아미노페니실린', ind:'치성감염 1차·예방', dose:'치료 250–500mg TID; 예방 2g 1회', cau:'페니실린 알러지·전염단핵구증 발진', it:'알로퓨리놀, 경구피임 효과↓ 가능' },
@@ -647,6 +672,7 @@ const catalog = [
     { g:'Rebamipide', b:'무코스타', cl:'점막보호', ind:'위점막 보호', dose:'100mg TID', cau:'-', it:'-' },
     { g:'Almagate', b:'알마겔', cl:'제산제', ind:'속쓰림', dose:'식후/취침', cau:'타약 흡수↓(간격)', it:'테트라사이클린·퀴놀론 흡수↓' },
     { g:'PPI(omeprazole 등)', b:'오메프라졸', cl:'양성자펌프억제제', ind:'고위험 위장보호', dose:'표준용량 QD', cau:'장기사용 영향', it:'clopidogrel 등' },
+    { g:'Stillen (애엽 95% ext.)', b:'스티아렌', cl:'생약 위점막보호', ind:'NSAID 위염·위점막 보호', dose:'60mg TID', cau:'국내 다용; 일반적으로 양호', it:'-' },
   ]},
   { id:'relax', name:'근이완제(TMD 등)', drugs:[
     { g:'Eperisone', b:'뮤렉스', cl:'중추성 근이완', ind:'근긴장·TMD', dose:'50mg TID', cau:'졸음·무력', it:'CNS억제제' },
