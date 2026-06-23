@@ -12,7 +12,7 @@
 | 🏠 **메인 허브** | `index.html` | JH의 덴탈시냅스 — 노트 카드 그리드 + 검색. 하위 페이지 진입점 |
 | 💊 **치과 약물·처방 가이드** | `drug-guide.html` | 술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 페니실린 알러지 대체, 소아 용량, 의사결정 맵(Mermaid), 응급, **구강내과 복약지도**, 신경손상 스테로이드 Tapering |
 | 🦴 **MRONJ 임상권고안 2025** | `mronj.html` | 약물관련 악골괴사 **원문 기반 상세** — **약물별 한눈 정리** + 진단·병인·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정. 근거등급 뱃지([권고]/[전문가 의견]/[근거 제한]) (Korean MRONJ Position Paper 2025) |
-| 🫦 **교합학 (Occlusion)** | `occlusion.html` | 교합 심층 정리 — CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·**임플란트 교합(IPO)**·교합과 TMD 근거·스플린트·진단 도구. Posselt 외피 SVG·계측 차트 (GPT-9·Okeson·Dawson·Misch) |
+| 🫦 **교합학 (Occlusion)** | `occlusion.html` | 교합 심층 정리 — CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·**임플란트 교합(IPO)**·교합과 TMD 근거·스플린트·**교합조정(BULL·MUDL·LUBL·DUML)**·진단 도구. Posselt 외피 SVG·계측 차트 (GPT-9·Okeson·Dawson·Misch) |
 
 ## 열람 방법
 - **온라인**: 저장소가 GitHub Pages로 배포되면 루트 주소로 접속 시 메인 허브(`index.html`)가 열립니다.
