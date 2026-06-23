@@ -3,32 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>JH의 덴탈시냅스</title>
-<meta name="description" content="JH의 덴탈시냅스 — 치과 임상 노트 모음(처방·질환·술식)" />
+<title>덴탈시냅스</title>
+<meta name="description" content="덴탈시냅스 — 치과 임상 노트 모음(처방·질환·술식)" />
+<meta name="theme-color" content="#4f46e5" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="assets/theme.css" />
 <style>
-  /* ===== 허브 전용 인터랙티브 스타일 ===== */
-  header.hero{position:relative;overflow:hidden;padding:46px 0 42px}
+  header.hero{padding:var(--sp-7) 0 var(--sp-7)}
   #bg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
   header.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:radial-gradient(58% 120% at 82% -12%, rgba(255,255,255,.20), transparent 60%)}
-  .hero-content{position:relative;z-index:1}
-  header.hero h1{font-size:clamp(26px,5vw,44px);text-shadow:0 2px 18px rgba(0,0,0,.18)}
+    background:radial-gradient(56% 120% at 84% -14%, rgba(255,255,255,.20), transparent 60%)}
   #greet{font-variant-numeric:tabular-nums}
-
-  .count{color:var(--muted);font-size:13px;margin:2px 0 2px}
-
-  /* note cards: cursor glow + entrance */
-  a.note{position:relative;overflow:hidden;--glow:var(--brand)}
-  a.note::before{content:"";position:absolute;inset:-1px;z-index:0;pointer-events:none;opacity:0;transition:opacity .25s;
-    background:radial-gradient(220px circle at var(--mx,50%) var(--my,-30%), color-mix(in srgb,var(--glow) 24%,transparent), transparent 55%)}
+  .count{color:var(--ink-2);font-size:var(--text-sm);margin:2px 0 0}
+  /* note entrance + cursor glow */
+  a.note::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .25s;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,-30%), color-mix(in srgb,var(--accent2,var(--brand)) 16%,transparent), transparent 60%)}
   a.note:hover::before{opacity:1}
-  a.note > *{position:relative;z-index:1}
-  .note .ic{transition:transform .2s}
-  a.note:hover .ic{transform:scale(1.12) rotate(-6deg)}
+  .note .ic{transition:transform .2s var(--ease)}
+  a.note:hover .ic{transform:scale(1.06) rotate(-4deg)}
   @media (prefers-reduced-motion: no-preference){
-    a.note{opacity:0;transform:translateY(16px);animation:riseIn .55s cubic-bezier(.2,.7,.2,1) forwards}
-    @keyframes riseIn{to{opacity:1;transform:none}}
+    a.note{opacity:0;transform:translateY(16px);animation:rise .55s var(--ease) forwards}
+    @keyframes rise{to{opacity:1;transform:none}}
   }
 </style>
 </head>
@@ -36,70 +31,71 @@
 
 <header class="hero" id="hero">
   <canvas id="bg" aria-hidden="true"></canvas>
-  <div class="wrap hero-content">
-    <h1>🦷 JH의 덴탈시냅스</h1>
-    <p class="sub">나의 치과 임상 노트 — 처방·질환·술식을 한곳에.</p>
+  <div class="wrap">
+    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>덴탈시냅스</h1>
+    <p class="sub">나의 치과 임상 노트 — 처방·질환·술식을 한곳에 연결합니다.</p>
     <div class="meta-row">
-      <span id="greet">👋 JH</span>
-      <span id="meta-count">📚 노트 —</span>
+      <span id="greet">JH</span>
+      <span id="meta-count">노트 —</span>
     </div>
   </div>
 </header>
 
 <div class="topbar">
   <div class="wrap topbar-inner">
-    <span class="brand">🦷 JH의 덴탈시냅스</span>
+    <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>덴탈시냅스</a>
     <div class="spacer"></div>
     <div class="search">
-      <input id="q" type="search" placeholder="노트 검색…  ( / )" aria-label="노트 검색" />
-      <button class="themebtn" id="theme" title="다크모드 전환" aria-label="다크모드 전환">🌓</button>
+      <span class="field"><svg class="gl" aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg>
+        <input id="q" type="search" placeholder="노트 검색  ( / )" aria-label="노트 검색" /></span>
+      <button class="themebtn" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
     </div>
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="main">
   <p class="count" id="count"></p>
   <div class="grid" id="note-grid"></div>
   <p class="no-results" id="empty" hidden>검색 결과가 없습니다.</p>
 </main>
 
 <footer class="wrap">
-  JH의 덴탈시냅스 · 처방·시술 전 원전과 환자 상태 확인 · © 2026
+  덴탈시냅스 · 처방·시술 전 원전과 환자 상태 확인 · © 2026
 </footer>
 
 <script>
 /* ===== 노트 메타데이터 — 하위 페이지를 여기에 추가하면 자동 노출 ===== */
 const notes = [
-  { title:'치과 약물 · 처방 가이드', href:'drug-guide.html', icon:'💊', accent:'#0f6e8c', tag:'약물·처방',
+  { title:'치과 약물 · 처방 가이드', href:'drug-guide.html', icon:'i-pill', accent:'#4f46e5', tag:'약물·처방',
     desc:'술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 페니실린 알러지 대체, 소아 용량, 의사결정 맵, 응급, 구강내과 복약지도.',
     keywords:'약물 처방 항생제 진통제 마취 알러지 소아 응급 구강내과 mronj 신경병성 tapering' },
-  { title:'MRONJ 임상권고안 2025', href:'mronj.html', icon:'🦴', accent:'#b3261e', tag:'가이드라인',
-    desc:'원문 기반 상세 — 약물별 한눈 정리 + 진단·병인·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정.',
-    keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 병기 테리파라타이드 재발 ctx 골흡수억제제' },
+  { title:'MRONJ 임상권고안 2025', href:'mronj.html', icon:'i-bone', accent:'#c01f2f', tag:'가이드라인',
+    desc:'약물관련 악골괴사 — 약물별 한눈 정리 + 진단·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정.',
+    keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 병기 테리파라타이드 재발 골흡수억제제' },
 ];
 
 const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
 const grid = document.getElementById('note-grid');
 document.getElementById('count').textContent = `총 ${notes.length}개 노트`;
-document.getElementById('meta-count').textContent = `📚 노트 ${notes.length}개`;
+document.getElementById('meta-count').textContent = `노트 ${notes.length}개`;
 
 function render(){
   grid.innerHTML='';
   notes.forEach((n,i)=>{
-    const card = el(`
-      <a class="note" href="${n.href}" style="border-top-color:${n.accent};--glow:${n.accent};animation-delay:${i*80}ms"
-        data-text="${(n.title+' '+n.desc+' '+n.tag+' '+(n.keywords||'')).toLowerCase()}">
-        <div class="ic">${n.icon}</div>
+    grid.appendChild(el(`
+      <a class="note" href="${n.href}" style="--accent2:${n.accent};animation-delay:${i*80}ms"
+         data-text="${(n.title+' '+n.desc+' '+n.tag+' '+(n.keywords||'')).toLowerCase()}">
+        <span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#${n.icon}"/></svg></span>
         <h3>${n.title}</h3>
         <p>${n.desc}</p>
-        <div class="row"><span class="tag" style="background:${n.accent}">${n.tag}</span><span class="go">열기 →</span></div>
-      </a>`);
-    grid.appendChild(card);
+        <div class="row"><span class="tag" style="background:${n.accent}">${n.tag}</span>
+          <span class="go">열기 <svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></span></div>
+      </a>`));
   });
 }
 render();
 
-/* cursor-follow glow on cards */
+/* cursor-follow glow */
 grid.addEventListener('pointermove', (e)=>{
   const card = e.target.closest('a.note'); if(!card) return;
   const r = card.getBoundingClientRect();
@@ -107,11 +103,10 @@ grid.addEventListener('pointermove', (e)=>{
   card.style.setProperty('--my', (e.clientY-r.top)+'px');
 });
 
-/* search filter */
+/* search */
 const q = document.getElementById('q');
 q.addEventListener('input', ()=>{
-  const term = q.value.trim().toLowerCase();
-  let shown=0;
+  const term = q.value.trim().toLowerCase(); let shown=0;
   grid.querySelectorAll('.note').forEach(c=>{
     const hit = !term || c.dataset.text.includes(term);
     c.style.display = hit?'':'none'; if(hit) shown++;
@@ -126,57 +121,46 @@ document.addEventListener('keydown', (e)=>{
 
 /* time-of-day greeting */
 (function greet(){
-  const g = document.getElementById('greet'); if(!g) return;
-  const d = new Date(), hr = d.getHours();
+  const g=document.getElementById('greet'); if(!g) return;
+  const d=new Date(), hr=d.getHours();
   const msg = hr<6?'고요한 새벽이에요' : hr<11?'좋은 아침이에요' : hr<17?'좋은 오후예요' : hr<21?'좋은 저녁이에요' : '늦은 밤이에요';
-  const ds = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
-  g.textContent = `👋 ${msg}, JH · ${ds}`;
+  const ds=`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+  g.textContent = `${msg}, JH · ${ds}`;
 })();
 
-/* interactive particle network in hero (mouse-reactive) */
+/* interactive synapse particles */
 (function bg(){
-  const canvas = document.getElementById('bg'); if(!canvas) return;
-  const ctx = canvas.getContext && canvas.getContext('2d'); if(!ctx) return;   // jsdom-safe
-  const hero = document.getElementById('hero');
-  const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const canvas=document.getElementById('bg'); if(!canvas) return;
+  const ctx=canvas.getContext && canvas.getContext('2d'); if(!ctx) return;
+  const hero=document.getElementById('hero');
+  const reduce=!!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   let w=0,h=0,parts=[],mouse={x:-1e4,y:-1e4},raf=0,running=false;
   function size(){
-    const dpr = Math.min(window.devicePixelRatio||1, 2);
-    w = hero.clientWidth; h = hero.clientHeight || 220;
-    canvas.width = w*dpr; canvas.height = h*dpr;
-    canvas.style.width=w+'px'; canvas.style.height=h+'px';
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    w=hero.clientWidth; h=hero.clientHeight||240;
+    canvas.width=w*dpr; canvas.height=h*dpr; canvas.style.width=w+'px'; canvas.style.height=h+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n = Math.max(24, Math.min(70, Math.floor(w/22)));
-    parts = Array.from({length:n}, ()=>({ x:Math.random()*w, y:Math.random()*h,
-      vx:(Math.random()-.5)*0.34, vy:(Math.random()-.5)*0.34, r:Math.random()*1.7+0.6 }));
+    const n=Math.max(22,Math.min(64,Math.floor(w/24)));
+    parts=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32,r:Math.random()*1.6+.7}));
   }
   function draw(){
     ctx.clearRect(0,0,w,h);
-    for(const p of parts){ p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1; }
-    for(let i=0;i<parts.length;i++){
-      const a=parts[i];
-      for(let j=i+1;j<parts.length;j++){
-        const b=parts[j], d=Math.hypot(a.x-b.x,a.y-b.y);
-        if(d<118){ ctx.strokeStyle='rgba(255,255,255,'+(0.10*(1-d/118)).toFixed(3)+')'; ctx.lineWidth=1;
-          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
-      }
+    for(const p of parts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1; }
+    for(let i=0;i<parts.length;i++){ const a=parts[i];
+      for(let j=i+1;j<parts.length;j++){ const b=parts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<116){ ctx.strokeStyle='rgba(255,255,255,'+(0.10*(1-d/116)).toFixed(3)+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } }
       const dm=Math.hypot(a.x-mouse.x,a.y-mouse.y);
-      if(dm<170){ ctx.strokeStyle='rgba(255,255,255,'+(0.26*(1-dm/170)).toFixed(3)+')';
-        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
-        a.x += (mouse.x-a.x)*0.0016; a.y += (mouse.y-a.y)*0.0016; }
-    }
-    for(const p of parts){ ctx.fillStyle='rgba(255,255,255,.55)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); }
+      if(dm<170){ ctx.strokeStyle='rgba(255,255,255,'+(0.26*(1-dm/170)).toFixed(3)+')'; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); a.x+=(mouse.x-a.x)*.0016; a.y+=(mouse.y-a.y)*.0016; } }
+    for(const p of parts){ ctx.fillStyle='rgba(255,255,255,.6)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); }
   }
   function loop(){ if(!running) return; draw(); raf=requestAnimationFrame(loop); }
   function start(){ if(running||reduce) return; running=true; loop(); }
   function stop(){ running=false; if(raf) cancelAnimationFrame(raf); }
-  size(); draw();                    // initial frame
-  if(!reduce && typeof requestAnimationFrame==='function') start();
+  size(); draw(); if(!reduce && typeof requestAnimationFrame==='function') start();
   window.addEventListener('resize', size);
-  hero.addEventListener('pointermove', (e)=>{ const r=hero.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
-  hero.addEventListener('pointerleave', ()=>{ mouse.x=-1e4; mouse.y=-1e4; });
-  document.addEventListener('visibilitychange', ()=>{ document.hidden ? stop() : start(); });
+  hero.addEventListener('pointermove',(e)=>{ const r=hero.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
+  hero.addEventListener('pointerleave',()=>{ mouse.x=-1e4; mouse.y=-1e4; });
+  document.addEventListener('visibilitychange',()=>{ document.hidden?stop():start(); });
 })();
 </script>
 <script src="assets/theme.js"></script>
