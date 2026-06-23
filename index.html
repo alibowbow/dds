@@ -187,7 +187,8 @@
       <a href="#pediatric">④ 소아 용량</a>
       <a href="#maps">⑤ 맵·시각화</a>
       <a href="#emergency">⑥ 응급</a>
-      <a href="#refs">⑦ 참고</a>
+      <a href="#oralmed">⑦ 구강내과</a>
+      <a href="#refs">⑧ 참고</a>
     </div>
     <div class="search">
       <input id="q" type="search" placeholder="약물·성분·상황 검색…" aria-label="검색" />
@@ -461,9 +462,20 @@ flowchart LR
     </div>
   </section>
 
-  <!-- ⑦ REFS -->
+  <!-- ⑦ ORAL MEDICINE -->
+  <section id="oralmed">
+    <div class="sec-head"><span class="num">7</span><h2>구강내과 복약지도 (국소 &middot; 함수 처방)</h2></div>
+    <p class="sec-desc">구강내과에서 흔한 <b>국소·함수 제형</b>을 목적별로 정리. 함수제는 보통 <b>5~10분 머금고 뱉은 뒤 30분간 물·음식 금지</b>, 도포제는 <b>거즈로 병소를 말린 뒤 도포(삼키지 않기)</b>.
+      <br>※ 단종·적응증 축소 약물(예: <b>이모튼</b>=치과 적응증 삭제)은 제외하고 현행 통용 제제로 정리.</p>
+    <div class="legend" id="oralmed-legend"></div>
+    <div id="oralmed-body"></div>
+    <p class="no-results" id="oralmed-empty" hidden>검색 결과가 없습니다.</p>
+    <div class="callout">💧 <b>복약지도 공통</b> — 함수 후 30분간 양치·음용 금지(약물 잔류 확보). 전신 스테로이드(소론도 등)는 <b>임의 중단 금지·tapering</b>(<a href="#taper">▸ Tapering 표</a>). 근이완제·항히스타민 복용 시 졸음 → 운전 주의. 보조용품: 턱관절 온찜질팩·무설탕 자일리톨 껌.</div>
+  </section>
+
+  <!-- ⑧ REFS -->
   <section id="refs">
-    <div class="sec-head"><span class="num">7</span><h2>참고문헌 &middot; 출처</h2></div>
+    <div class="sec-head"><span class="num">8</span><h2>참고문헌 &middot; 출처</h2></div>
     <ol class="refs">
       <li>American Dental Association. <i>Oral Health Topics — Antibiotic Prophylaxis Prior to Dental Procedures / Antibiotic Stewardship / Oral Analgesics for Acute Dental Pain.</i></li>
       <li>ADA. <i>Evidence-based clinical practice guideline on antibiotic use for the urgent management of pulpal- and periapical-related dental pain and intraoral swelling.</i> JADA, 2019.</li>
@@ -847,6 +859,66 @@ fillRows('allergy-body', allergyRows);
 fillRows('ped-body', pedRows);
 fillRows('emerg-body', emergRows);
 
+/* ===== ORAL MEDICINE (구강내과 복약지도) ===== */
+const omColors = { 'om-fungal':'#a855f7', 'om-steroid':'#0ea5e9', 'om-pain':'#ef4444', 'om-dry':'#14b8a6', 'om-anti':'#8b5cf6' };
+const oralmed = [
+  { id:'om-fungal', name:'구강 칸디다증 (항진균)', rows:[
+    ['Nystatin 현탁액','니스타틴','4~6mL 1일 3~4회, 5~10분 머금고 뱉기(또는 삼킴)','30분간 헹구지·먹지 않기 · 의치 소독 · 국소 1차'],
+    ['Fluconazole 시럽/캡슐','디푸루칸','100~150mg 1일 1회(중증·재발·의치성)','간독성·와파린 등 상호작용 · 니스타틴 2주 후 단계'],
+    ['Miconazole 겔 / Clotrimazole 트로키','—','국소 도포 / 트로키 용해','구각구순염 동반 시 보조'],
+  ]},
+  { id:'om-steroid', name:'점막질환 국소 스테로이드·면역조절 (아프타·편평태선·박리성치은염)', rows:[
+    ['Dexamethasone 함수(elixir)','—','5~10분 머금고 뱉기 1일 2~3회','다발 병소 · 30분 헹구지 않기 · 삼키지 않기'],
+    ['Dexamethasone 구강연고','페리덱스','병소 건조 후 1일 1~수회 도포','소수 병소 · 삼키지 않기'],
+    ['Triamcinolone 구강연고','오라메디','병소 건조 후 1일 2~4회 도포','난치성 박리성치은염·구내염'],
+    ['Tacrolimus 연고 0.03~0.1%','프로토픽','1일 2회 도포(난치성 편평태선)','일시 작열감 · 장기 시 추적'],
+    ['(중증·광범위) 전신 prednisolone','소론도','단기 + tapering(임의중단 금지)','Tapering 표 참조 · 칸디다 2차감염 주의'],
+  ]},
+  { id:'om-pain', name:'국소 마취·진통 (구내염·점막염·통증)', rows:[
+    ['Lidocaine 함수/점도제','—','5mL 1일 3회, 1~2분 머금고 뱉기','삼키지 않기 · 식전 통증완화 · 인후마취 주의'],
+    ['Lidocaine+prilocaine 연고(EMLA)','—','병소 건조 후 수 분 도포, 마취되면 헹굼','국소 시술·통증부위'],
+    ['Benzydamine 함수','탄툼','15mL 함수/분무','항염·진통'],
+    ['Topical clonazepam 0.5mg','리보트릴','통증부위 ~10분 머금고 뱉기','구강작열감(BMS) · 30분 헹구지 않기'],
+  ]},
+  { id:'om-dry', name:'구강건조증 (xerostomia)', rows:[
+    ['인공타액(겔·스프레이)','바이오텐·탈리바 등','건조 시 1일 수회','보습 · 혀·점막 전체 도포'],
+    ['Pilocarpine','살라겐','5mg 1일 3회(타액선 자극)','국내 유일 분비촉진제 · 발한·서맥 · 천식·녹내장 주의'],
+    ['보조요법','—','무설탕 자일리톨 껌·수분·불소·CHX','카페인·음주·흡연 제한 · 세비멜린 국내 미시판'],
+  ]},
+  { id:'om-anti', name:'소독·구강위생 함수', rows:[
+    ['Chlorhexidine 0.12%','헥사메딘','15mL 1일 2~3회 30초 함수','삼키지 않기 · 2주 이내(착색) · 치약과 30분 간격'],
+  ]},
+];
+const omLegend = document.getElementById('oralmed-legend');
+oralmed.forEach(c=>{
+  const label = c.name.replace(/\s*\(.*$/,'');
+  const chip = el(`<span class="chip" role="button" tabindex="0" title="‘${label}’로 이동"><span class="dot" style="background:${omColors[c.id]||'#0f6e8c'}"></span>${label}</span>`);
+  const jump=()=>{ const t=document.getElementById(c.id); if(t) t.scrollIntoView({behavior:'smooth', block:'start'}); };
+  chip.addEventListener('click', jump);
+  chip.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); jump(); } });
+  omLegend.appendChild(chip);
+});
+const omBody = document.getElementById('oralmed-body');
+function renderOralmed(){
+  omBody.innerHTML='';
+  oralmed.forEach(c=>{
+    const rows = c.rows.map(r=>`
+      <tr data-text="${r.join(' ').replace(/<[^>]+>/g,'').toLowerCase()}">
+        <td><b>${r[0]}</b></td><td><span class="pill">${r[1]}</span></td><td>${r[2]}</td><td>${r[3]}</td>
+      </tr>`).join('');
+    omBody.appendChild(el(`
+      <div class="cat-block" id="${c.id}">
+        <div class="cat-title"><span class="dot" style="background:${omColors[c.id]||'#0f6e8c'}"></span>${c.name}
+          <span class="pill">${c.rows.length}종</span></div>
+        <div class="tablewrap"><table>
+          <thead><tr><th>제제 / 용도</th><th>브랜드(예)</th><th>사용법·용법</th><th>비고 / 주의</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>
+      </div>`));
+  });
+}
+renderOralmed();
+
 /* ============ SEARCH / FILTER ============ */
 function runFilter(){
   const term = q.value.trim().toLowerCase();
@@ -870,6 +942,17 @@ function runFilter(){
     block.style.display = any>0?'':'none';
   });
   document.getElementById('catalog-empty').hidden = catShown>0;
+  // oral medicine rows — term only
+  let omShown=0;
+  omBody.querySelectorAll('.cat-block').forEach(block=>{
+    let any=0;
+    block.querySelectorAll('tbody tr').forEach(tr=>{
+      const hit = !term || tr.dataset.text.includes(term);
+      tr.style.display = hit?'':'none'; if(hit){any++;omShown++;}
+    });
+    block.style.display = any>0?'':'none';
+  });
+  document.getElementById('oralmed-empty').hidden = omShown>0;
   // generic tables — term only
   ['allergy-body','ped-body','emerg-body'].forEach(id=>{
     document.getElementById(id).querySelectorAll('tr').forEach(tr=>{
