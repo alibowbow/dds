@@ -3,19 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MRONJ 임상권고안 2025 — JH의 덴탈노트</title>
-<meta name="description" content="약물관련 악골괴사(MRONJ) 임상권고안 2025 요약 — 진단·위험요인·예방·휴약·보조치료" />
+<title>MRONJ 임상권고안 2025 (상세) — JH의 덴탈노트</title>
+<meta name="description" content="약물관련 악골괴사(MRONJ) 임상권고안 2025 원문 기반 상세 요약 — 진단·병인·위험요인·예방·치료·병기·재발" />
 <link rel="stylesheet" href="assets/theme.css" />
+<style>
+  .ev-legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:13px}
+  .ev-legend span{display:inline-flex;align-items:center;gap:6px}
+  .stage{border-left:5px solid var(--brand)}
+  .stage.risk{border-left-color:#5b6b7d}.stage.s0{border-left-color:#0ea5e9}
+  .stage.s1{border-left-color:#137a63}.stage.s2{border-left-color:#b4540a}.stage.s3{border-left-color:#b3261e}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+  @media (max-width:680px){.cmp{grid-template-columns:1fr}}
+  .cmp .box{border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:13.3px;background:var(--surface)}
+  .cmp .box.old{border-left:4px solid var(--muted)}
+  .cmp .box.new{border-left:4px solid var(--accent)}
+  .cmp .box h4{margin:0 0 5px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  .keylist li{margin:7px 0}
+  ol.flowlist{margin:6px 0 0;padding-left:20px;font-size:13.8px} ol.flowlist li{margin:4px 0}
+  h3 .badge{margin-left:6px}
+</style>
 </head>
 <body>
 
 <header class="hero">
   <div class="wrap">
     <a class="crumb" href="index.html">← JH의 덴탈노트 홈</a>
-    <h1>🦴 MRONJ 임상권고안 2025</h1>
-    <p class="sub">약물관련 악골괴사(Medication-Related Osteonecrosis of the Jaw) — 진단·위험요인·예방·휴약·보조치료 요약</p>
+    <h1>🦴 MRONJ 임상권고안 2025 <span style="font-size:.45em;opacity:.85;font-weight:600">상세</span></h1>
+    <p class="sub">약물관련 악골괴사(MRONJ) — 원문 기반 상세 요약: 진단·병인·위험요인·예방·치료·병기·재발·의사결정</p>
     <div class="meta-row">
-      <span>📚 출처: Korean MRONJ Position Paper 2025 Committee</span>
+      <span>📚 Korean MRONJ Position Paper 2025 Committee</span>
       <span>🔗 onjcohort.org</span>
     </div>
   </div>
@@ -23,14 +39,12 @@
 
 <div class="topbar">
   <div class="wrap topbar-inner">
-    <a class="brand" href="index.html">🦷 JH의 덴탈노트</a>
+    <a class="brand" href="index.html">🦷 홈</a>
     <div class="links">
-      <a href="#dx">진단</a>
-      <a href="#risk">위험요인</a>
-      <a href="#prev-bp">예방·BP</a>
-      <a href="#prev-dmab">예방·데노수맙</a>
-      <a href="#hold">발생 시 휴약</a>
-      <a href="#adj">보조치료</a>
+      <a href="#s1">1·진단</a><a href="#s2">2·빈도</a><a href="#s3">3·병인</a><a href="#s4">4·위험요인</a>
+      <a href="#s5">5·투여전후관리</a><a href="#s6">6·예방휴약</a><a href="#s7">7·발생후중단</a><a href="#s8">8·병기</a>
+      <a href="#s9">9·치료</a><a href="#s10">10·테리파라타이드</a><a href="#s11">11·기타</a><a href="#s12">12·재발</a>
+      <a href="#s13">13·의사결정</a><a href="#s14">14·요약본보완</a><a href="#s15">15·핵심</a>
     </div>
     <div class="spacer"></div>
     <button class="themebtn" id="theme" title="다크모드 전환" aria-label="다크모드 전환">🌓</button>
@@ -39,139 +53,293 @@
 
 <main class="wrap">
 
-  <div class="disclaimer">
-    <span style="font-size:18px">⚠️</span>
-    <div><b>요약본 —</b> 본 페이지는 <b>Korean MRONJ Position Paper 2025</b> 권고안의 <b>개인 정리 요약</b>입니다.
-    개별 환자의 골절·SRE 위험과 MRONJ 상태를 고려하여 <b>의사·치과의사 협의 하</b>에 결정하며, 원문 권고를 반드시 확인하십시오.</div>
+  <div class="callout" style="margin-top:16px">
+    <div class="ev-legend">
+      <b>근거 표시</b>
+      <span><span class="badge rec">권고</span> 위원회의 공식 권고·정리</span>
+      <span><span class="badge exp">전문가 의견</span> 직접 근거는 부족하나 위원회가 제안</span>
+      <span><span class="badge lim">근거 제한</span> 결과가 일관되지 않거나 자료 부족</span>
+    </div>
   </div>
 
-  <!-- 진단 -->
-  <section id="dx">
-    <div class="sec-head"><span class="ic">🩺</span><h2>진단 기준 (Diagnosis)</h2></div>
-    <p class="sec-desc">다음 <b>3가지 조건을 모두 만족</b>할 경우 진단합니다.</p>
+  <!-- 1 -->
+  <section id="s1">
+    <div class="sec-head"><span class="ic">🩺</span><h2>1. 정의와 진단</h2></div>
+    <p class="sec-desc">다음 <b>3가지 조건을 모두 충족</b>할 때 진단.</p>
     <div class="cols">
-      <div class="card bl"><h3>① 병력</h3><p style="margin:0;font-size:13.8px">과거/현재 <b>골흡수억제제</b>(단독 또는 병용) 투여 이력.</p></div>
-      <div class="card bl"><h3>② 임상 소견</h3><p style="margin:0;font-size:13.8px"><span class="em">8주 이상 지속</span>되는 악골 노출(또는 구강 외 누공으로 탐침 가능).</p></div>
-      <div class="card bl"><h3>③ 제외 기준</h3><p style="margin:0;font-size:13.8px">악골 부위 <b>방사선 치료 이력</b> 또는 <b>악성종양 전이</b> 병력이 <b>없음</b>.</p></div>
+      <div class="card bl"><h3>① 관련 약물 투여 이력</h3>
+        <ul class="tight"><li>골흡수억제제를 현재/과거 투여한 병력</li><li>골흡수억제제 단독뿐 아니라 <b>면역조절제·혈관신생억제제 병용</b>도 포함</li></ul>
+        <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">※ 공식 정의는 골흡수억제제 단독/병용을 전제. 면역·혈관신생억제제 단독 증례도 보고는 됨.</p></div>
+      <div class="card bl"><h3>② 악안면부 골괴사 소견</h3>
+        <ul class="tight"><li>구강 내/외로 <b>노출된 골</b> 또는 <b>누공으로 탐침되는 골</b></li><li>위 소견이 <b>8주 이상 지속</b></li></ul>
+        <div class="callout" style="margin:8px 0 0"><b>예외 —</b> 8주 미만이라도 임상/영상으로 <span class="em">괴사골이 확인되면 MRONJ로 간주</span> 가능. ‘8주 노출’만으로 제한하지 않음.</div></div>
+      <div class="card bl"><h3>③ 제외 조건</h3>
+        <ul class="tight"><li>악골 부위 <b>방사선치료 병력 없음</b></li><li>악골에 <b>원발/전이성 악성종양 없음</b></li></ul>
+        <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">방사선골괴사·전이암·원발 악골종양과의 감별 필수.</p></div>
     </div>
-    <div class="callout">🖥️ 영상 검사(CT 등)로 <b>범위 평가</b>, 필요 시 <b>골생검</b>으로 감별 진단.</div>
-  </section>
 
-  <!-- 위험요인 -->
-  <section id="risk">
-    <div class="sec-head"><span class="ic">⚠️</span><h2>주요 위험 요인 (Risk Factors)</h2></div>
+    <h3 style="margin:18px 0 6px">영상 검사</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>검사</th><th>역할 / 주의</th></tr></thead>
+      <tbody>
+        <tr><td><b>파노라마</b></td><td>골용해·부골 확인. <span class="em">초기 병변 놓칠 수 있어 단독 진단 불충분</span>.</td></tr>
+        <tr><td><b>MDCT / CBCT</b></td><td>골경화·골용해·골막반응·발치와 치유지연 평가. <b>실제 범위·수술 범위 판단에 중요</b>.</td></tr>
+        <tr><td><b>MRI</b></td><td>골수염성 변화·괴사골·연조직 침범 범위 평가에 도움.</td></tr>
+        <tr><td><b>골스캔·SPECT/CT</b></td><td>골대사 변화·병변 범위 평가에 활용.</td></tr>
+      </tbody>
+    </table></div>
+
     <div class="cols">
-      <div class="card">
-        <h3>💊 약제 요인</h3>
-        <ul class="tight">
-          <li><b>고용량·장기 투여</b>(특히 <span class="em">4년 이상</span> 주의)</li>
-          <li><span class="em">정주(IV) &gt; 경구(PO)</span> 투여</li>
-          <li>비스포스포네이트 → <b>데노수맙 전환</b> 시 위험 증가</li>
-          <li>병용약물(스테로이드, 항암제, 혈관신생억제제 등)</li>
-        </ul>
-      </div>
-      <div class="card" style="border-left:5px solid var(--danger)">
-        <h3>📍 국소 요인 <span class="pill">가장 중요</span></h3>
-        <ul class="tight">
-          <li><span class="em">발치(가장 흔함)</span>, 치과 임플란트 식립</li>
-          <li>치주염, 치근단 병소(기존 염증)</li>
-          <li>해부학적 요인(골융기 등), 의치에 의한 압박</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🧍 전신 요인</h3>
-        <ul class="tight">
-          <li>고령(65세 이상), 여성(기저질환 관련)</li>
-          <li>동반질환(당뇨, 류마티스, 빈혈, 갑상선기능저하증, 투석 등)</li>
-          <li>생활습관(흡연, 비만)</li>
-        </ul>
-      </div>
+      <div class="callout lim" style="border-left-color:var(--muted)"><span class="badge lim">근거 제한</span> <b>CTX</b> — 혈청 CTX로 MRONJ 발생 위험을 예측하는 것은 <span class="em">권장되지 않음</span>. 골흡수 변화 관찰엔 쓸 수 있으나 발치/수술 후 발생을 신뢰성 있게 예측 못함.</div>
+      <div class="callout"><b>골생검</b> — 악성종양 전이 등 <b>감별 필요 시에만</b> 고려. MRONJ 확인 목적의 일상 생검은 비권장(외상이 병변 악화·신규 병소 유발 가능).</div>
     </div>
+
+    <div class="card"><h3>주요 감별질환</h3>
+      <p style="margin:0;font-size:13.5px">치조골염 · 치주염/치은염 · 치근단 병소 · 만성 골수염 · 방사선골괴사 · 악골 원발/전이성 종양 · 시멘트-골 이형성증 · 임플란트/발치 중 과도한 열·기계적 손상에 의한 골괴사</p></div>
   </section>
 
-  <!-- 예방: BP -->
-  <section id="prev-bp">
-    <div class="sec-head"><span class="ic">💊</span><h2>예방 — 비스포스포네이트</h2></div>
-    <p class="sec-desc">침습적 치과치료(발치 등) 계획 시 <span class="pill">전문가 의견</span> — 환자별 <b>골절 위험도</b> 및 <b>MRONJ 발생 가능성</b>을 평가하여 결정.</p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>약물</th><th>시술 전</th><th>시술 후 재투여</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>알렌/리세/이반드로네이트</b><br/><span class="pill">경구</span></td>
-            <td>시술 <b>2개월 전 중단 고려</b><br/><small>(근거 부족하나 고려)</small></td>
-            <td>시술 후 <b>6–8주</b>(상피화 완료 시) 후</td>
-          </tr>
-          <tr>
-            <td><b>졸레드로네이트</b> <span class="em">!! 고위험 !!</span><br/><span class="pill">IV</span></td>
-            <td>마지막 주사 후 <span class="em">6–12개월 경과 후</span> 시술 권장<br/><small>(긴 반감기 고려)</small></td>
-            <td>시술 후 <b>6–8주</b>(상피화 완료 시) 후</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <!-- 2 -->
+  <section id="s2">
+    <div class="sec-head"><span class="ic">📊</span><h2>2. 발생 빈도</h2></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>대상</th><th>유병률</th><th>발생률 (10만 인-년)</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td><b>골다공증 용량 비스포스포네이트</b></td><td>약 0.01~0.10%</td><td>약 10~45명</td><td>누적 노출량·기간↑ → 위험 점진 증가</td></tr>
+        <tr><td><b>골다공증 용량 데노수맙</b></td><td>약 0~0.18%</td><td>0~283명(연구 간 차 큼)</td><td>BP↔데노수맙 우열 확정 어려움. <span class="em">BP→데노수맙 전환 시 위험↑</span></td></tr>
+        <tr><td><b>암 환자 고용량</b></td><td colspan="2">약 <span class="em">1~15%</span> (고용량 졸레드로네이트/데노수맙)</td><td>장기·항암제·스테로이드·혈관신생억제제 병용 시 ↑</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout lim"><span class="badge lim">근거 제한</span> 연구마다 MRONJ 정의·용량·관찰기간이 달라 <b>발생률을 하나의 숫자로 일반화하지 말 것</b>.</div>
   </section>
 
-  <!-- 예방: 데노수맙 -->
-  <section id="prev-dmab">
-    <div class="sec-head"><span class="ic">💉</span><h2>예방 — 데노수맙 (60mg)</h2></div>
-    <div class="callout danger"><b>!! Rebound Fracture 위험 !!</b> — <span class="em">임의 중단 금지.</span> 마지막 투여 후 <b>총 9개월 이상 지연 금지</b>.</div>
-    <p class="sec-desc">권장 시술 타이밍 (가역성 고려):</p>
-    <div class="flow">
-      <div class="step"><b>1. 마지막 주사</b><small>투여 0개월</small></div>
-      <div class="arrow">→</div>
-      <div class="step"><b>2. 시술 시행</b><small>주사 후 3–4개월 (파골세포 억제 약화)</small></div>
-      <div class="arrow">→</div>
-      <div class="step"><b>3. 다음 주사</b><small>시술 후 6–8주 경과 &amp; 치유 확인 시</small></div>
-    </div>
-    <div class="callout">치유 완료 시, <b>원래 6개월 주기 내</b>에서 다음 주사를 시행합니다.</div>
-  </section>
-
-  <!-- 발생 시 휴약 -->
-  <section id="hold">
-    <div class="sec-head"><span class="ic">🚫</span><h2>MRONJ 발생 시 휴약</h2></div>
-    <p class="sec-desc">MRONJ 확진 후 치료를 위한 약물 중단(치료 완료 시점까지) — <b>골절/SRE 위험도와 MRONJ 상태를 고려</b>하여 의사·치과의사 협의 하에 결정.</p>
+  <!-- 3 -->
+  <section id="s3">
+    <div class="sec-head"><span class="ic">🧬</span><h2>3. 병인 (복합 기전)</h2></div>
+    <p class="sec-desc">단일 원인이 아니라 아래 기전이 복합 작용.</p>
     <div class="cols">
-      <div class="card bl">
-        <h3>비스포스포네이트</h3>
-        <ul class="tight">
-          <li>긴 반감기로 <b>중단 효과 제한적</b>.</li>
-          <li>골절/SRE 위험이 낮다면 <b>일차 치유(6–8주)</b> 시점까지 중단 고려 가능.</li>
-          <li>이후 재투여는 <b>재발 위험 vs 골절 예방 효익</b> 비교.</li>
-        </ul>
-      </div>
-      <div class="card" style="border-left:5px solid var(--danger)">
-        <h3>데노수맙 <span class="em">Rebound 주의</span></h3>
-        <ul class="tight">
-          <li>치유 경과에 따라 투여 연기 가능하나,</li>
-          <li><b>원래 투여 시점 +3개월(마지막 투여 후 총 9개월) 초과 금지</b>.</li>
-          <li><b>완치 확인 후 즉시 재투여</b> 권장.</li>
-        </ul>
-      </div>
+      <div class="card"><h3>① 골재형성 억제</h3><p style="margin:0;font-size:13.5px">파골세포 기능 억제 → 손상·감염골 제거 실패, 미세손상 축적, 골치유 지연.</p></div>
+      <div class="card"><h3>② 염증·감염</h3><p style="margin:0;font-size:13.5px">치주질환·치근단 감염 등 만성 구강염증이 핵심 촉발. 괴사골에 방선균 등 혐기성균 흔함.</p></div>
+      <div class="card"><h3>③ 혈관신생 억제</h3><p style="margin:0;font-size:13.5px">산소·영양 공급 감소 가능. 혈관신생억제제 병용 시 위험↑. (BP의 혈관신생 억제 역할은 논란)</p></div>
+      <div class="card"><h3>④ 연조직 독성</h3><p style="margin:0;font-size:13.5px">일부 BP가 구강 상피·섬유아세포 생존/증식 저해 → 점막장벽 약화, 일차봉합·치유 지연.</p></div>
+      <div class="card"><h3>⑤ 면역조절 이상</h3><p style="margin:0;font-size:13.5px">대식세포·T세포·호중구·NK세포 기능 변화가 만성 염증·감염 지속에 관여.</p></div>
+      <div class="card"><h3>⑥ 유전적 소인</h3><p style="margin:0;font-size:13.5px">일부 변이 제시되나 <b>확립된 유전/예측 검사는 없음</b>.</p></div>
+      <div class="card"><h3>⑦ 악골의 특수성</h3><p style="margin:0;font-size:13.5px">높은 골교체율 · 얇은 점막/골막 · 저작 미세외상 · 구강 미생물·감염 지속 노출.</p></div>
     </div>
   </section>
 
-  <!-- 보조치료 -->
-  <section id="adj">
-    <div class="sec-head"><span class="ic">🧪</span><h2>보조 치료 (Adjunctive Therapy)</h2></div>
-    <div class="card bl">
-      <h3>테리파라타이드 (Teriparatide)</h3>
-      <p style="margin:0;font-size:13.8px"><b>골형성 촉진</b> — MRONJ 치유에 도움을 줄 수 있음(특히 <b>수술 병행 시</b>).
-      <br/><span class="em">단,</span> 데노수맙 사용 중단 후 순차 치료는 <b>골밀도 감소 위험</b>이 있어 주의.</p>
+  <!-- 4 -->
+  <section id="s4">
+    <div class="sec-head"><span class="ic">⚠️</span><h2>4. 주요 위험요인</h2></div>
+    <div class="cols">
+      <div class="card"><h3>4-1. 약제 요인</h3>
+        <ul class="tight"><li>고용량 · 높은 약물 강도</li><li><b>정주 투여</b> · 짧은 투여 간격</li><li>누적 용량↑ · 장기 투여</li><li><span class="em">BP → 데노수맙 전환</span></li><li>스테로이드·항암제·혈관신생억제제 병용</li></ul></div>
+      <div class="card"><h3>4-2. 전신 요인</h3>
+        <ul class="tight"><li>고령(특히 65세↑), 여성<small>(독립 원인보다 골다공증·유방암 등 기저질환 영향)</small></li><li>흡연 · 비만 · 당뇨 · 류마티스관절염</li><li>빈혈(Hb &lt; 10 g/dL) · 갑상선기능저하 · 투석 · 암</li><li>고용량 글루코코르티코이드 · 항암제 · 혈관신생억제제</li></ul></div>
+      <div class="card" style="border-left:5px solid var(--danger)"><h3>4-3. 국소 요인</h3>
+        <ul class="tight">
+          <li><span class="em">발치(가장 흔함, 45~61%)</span> — 단, 발치를 부른 치주염·치근단 감염이 본질일 수 있음</li>
+          <li>치주염·치근단 병소(기존 감염). 방치·발치 지연도 부적절</li>
+          <li>임플란트 — 조기 실패뿐 아니라 <b>골유착 수년 뒤 후기 MRONJ</b>(주위염·교합 스트레스)</li>
+          <li>해부학적: 골융기·얇은 점막·하악 돌출부·의치 압박/궤양</li>
+          <li>수술 범위: 광범위 절골술 동반 시 위험↑</li>
+        </ul></div>
     </div>
+    <div class="callout danger"><span class="badge rec">원문 정정</span> <b>‘3년/4년’ 고정 기준점 폐기</b> — 3·4년이 지나 갑자기 위험해지는 것이 아니라, <span class="em">노출량·기간에 따라 위험이 점진 증가</span>. “4년 미만=안전, 이상=위험”식 이분 구분 금지.</div>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <div class="sec-head"><span class="ic">🪥</span><h2>5. 약물 투여 전·중 치과 관리</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>골다공증 환자 <span class="badge rec">권고</span></h3>
+        <ul class="tight"><li>투여 전 치과검진이 반드시 선행될 필요는 없음</li><li>투여 전 또는 <b>시작 후 6개월 이내</b> 치과검진 권장</li><li>치근단 감염·진행 치주염·예후불량치 → 발치/근관치료로 <b>감염원 조기 제거</b></li></ul></div>
+      <div class="card bl"><h3>고용량 예정 암환자 <span class="badge rec">권고</span></h3>
+        <ul class="tight"><li>투여 전 구강악안면외과/치과 전문의 <b>사전 평가</b></li><li>가능하면 <b>투여 전</b> 발치·침습 치료 완료</li><li>수술 부위 충분히 치유 후 골흡수억제제 시작</li></ul></div>
+      <div class="card bl"><h3>치료 중·후 관리</h3>
+        <ul class="tight"><li><b>3~6개월</b> 정기 검진·구강위생</li><li>우식·치주염·임플란트주위염 조기 발견, 비침습 우선</li><li>부적합 의치/보철 조정 · CHX·치간칫솔·불소 활용</li></ul></div>
+      <div class="card"><h3>침습 치과치료 시</h3>
+        <ul class="tight"><li>비외상성 발치 · 날카로운 골변연 제거</li><li>연조직 <b>일차 폐쇄</b> · 감염조절 · 면밀한 술후 관찰</li></ul>
+        <div class="callout lim" style="margin:8px 0 0"><span class="badge lim">근거 제한</span> 예방적 항생제·항균세정제 효과는 국제 지침 간 이견. <b>고위험군에선 항생제 적극 사용 검토 가능</b>.</div></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <div class="sec-head"><span class="ic">⏸️</span><h2>6. 침습 치과치료 전 예방적 휴약</h2></div>
+    <div class="callout"><b>공통 원칙</b> — 동일 휴약기간을 일괄 적용하지 않음. <b>골절/SRE 위험 vs MRONJ 발생 가능성</b>을 함께 비교, 치과의사·처방의 협의. 아래는 주로 <b>골다공증 용량</b> 권고.</div>
+    <div class="cols">
+      <div class="card bl"><h3>알렌/리세/이반드로네이트 <span class="badge exp">전문가 의견</span></h3>
+        <ul class="tight"><li>예방적 휴약의 MRONJ 감소 근거 <span class="em">부족</span></li><li>침습 치료 필요 시 <b>마지막 투여 후 약 2개월</b> 시점 시술 제안</li><li>술후 상피화 완료까지 <b>약 6~8주</b> 재투여 유예 가능</li></ul></div>
+      <div class="card bl"><h3>졸레드로네이트(골다공증 용량) <span class="badge exp">전문가 의견</span></h3>
+        <ul class="tight"><li>골 내 잔류 길고 억제 강함</li><li><b>마지막 투여 후 6~12개월</b> 시점에 침습 치료 제안</li><li>술후 <b>6~8주</b> 재투여 유예·치유 확인</li></ul>
+        <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">※ 감염 심한 치아를 무조건 6~12개월 방치하라는 뜻 아님 — 급성 감염·골절 위험·필요성 함께 평가.</p></div>
+    </div>
+
+    <div class="card bl"><h3>데노수맙 60mg, 6개월 간격 <span class="badge rec">권고</span></h3>
+      <ul class="tight"><li>예방 목적으로 <span class="em">먼저 임의 중단하지 않음</span></li><li>마지막 주사 후 <b>3~4개월</b>(파골세포 억제 약화 시점)에 침습 치료</li><li>술후 <b>6~8주</b> 다음 투여 유예 → 가능하면 <b>원래 6개월 주기 내</b> 다음 주사</li></ul>
+      <div class="flow">
+        <div class="step"><b>0개월</b><small>데노수맙 주사</small></div><div class="arrow">→</div>
+        <div class="step"><b>3~4개월</b><small>발치 등 침습 시술</small></div><div class="arrow">→</div>
+        <div class="step"><b>+6~8주</b><small>점막·골 치유 확인</small></div><div class="arrow">→</div>
+        <div class="step"><b>~6개월</b><small>다음 데노수맙 주사</small></div>
+      </div>
+      <div class="callout"><b>‘9개월’의 정확한 해석</b> — 우선 권고는 <b>기존 6개월 주기 내 재투여</b>. 다음 투여가 불가피하게 지연돼도 <span class="em">마지막 주사 후 총 9개월을 넘기지 않도록</span> 함. “항상 9개월까지 미뤄도 된다”는 뜻이 아님.</div>
+      <div class="callout lim" style="margin-top:8px"><b>치유 지연 시</b> — 폐경 후 여성에서 SERM 순차치료 고려 가능. 단 SERM이 데노수맙 중단 후 <b>반동성 골절을 완전히 예방하지는 못함</b>.</div></div>
+
+    <div class="cols">
+      <div class="card"><h3>고용량 골흡수억제제 암환자</h3>
+        <ul class="tight"><li>치조골 직접 외상 치료 가급적 회피</li><li>불가피한 발치/수술은 암 치료 필요성·골전이·SRE 위험 함께 협진</li><li>수복 불가치는 치관 제거 후 <b>잔존 치근 근관치료</b> 고려</li><li><span class="em">투여 중 선택적 임플란트는 절대 금기</span></li></ul></div>
+      <div class="card"><h3>저용량 골다공증 환자 임플란트</h3>
+        <ul class="tight"><li>저용량 사용 자체가 <b>절대 금기는 아님</b></li><li>평가: 약물 종류·누적량, BP→데노수맙 전환, 스테로이드, 흡연·당뇨, 치주염·주위염, 구강위생</li><li>정상 기능 임플란트도 장기 추적, <b>후기 MRONJ 가능성 설명</b></li></ul></div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <div class="sec-head"><span class="ic">🛑</span><h2>7. MRONJ 발생 후 치료적 약물 중단</h2></div>
+    <div class="callout"><b>공통 원칙</b> — 중단이 치료 결과를 개선하는지 근거는 제한적·불일치. 확진/의심 시 <b>골절 위험·골전이/SRE 위험·병기·수술 여부·치유 가능성·약동학</b>을 함께 평가.</div>
+    <div class="cols">
+      <div class="card bl"><h3>비스포스포네이트 <span class="badge exp">전문가 의견</span></h3>
+        <ul class="tight"><li>수년 잔류 → <b>단기 중단 효과 제한적</b>(근거 불일치)</li><li>골절/SRE 위험 낮으면 일차 연조직 치유 <b>최소 6~8주</b>까지 휴약 고려</li><li>장기화 시 치료 완료 시점까지 휴약 고려 가능</li><li>고위험 암환자는 <b>상피화 확인 후 신속 재투여</b></li></ul></div>
+      <div class="card" style="border-left:5px solid var(--danger)"><h3>데노수맙 <span class="badge rec">권고</span></h3>
+        <ul class="tight"><li>중단 시 <span class="em">반동성 골흡수·다발성 척추골절</span> 위험</li><li>치유 위해 연기 가능하나 <b>장기 중단 회피</b></li><li>원래 예정일에서 <b>+3개월(마지막 후 총 9개월) 초과 회피</b>가 이상적</li><li>치유 확인 시 가능한 한 신속 재투여</li></ul></div>
+    </div>
+    <div class="card"><h3>재투여 전 치유 확인</h3>
+      <p style="margin:0;font-size:13.5px">골노출 해소 · 누공/배농 없음 · 통증·감염 충분 호전 · 영상상 잔존 병변/진행 없음. → <b>조기 재투여의 재발 위험 vs 지연의 골절·SRE 위험</b>을 비교.</p></div>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <div class="sec-head"><span class="ic">📶</span><h2>8. MRONJ 병기</h2></div>
+    <p class="sec-desc">임상소견 중심 분류 + CT·CBCT로 실제 골손상 범위 함께 평가.</p>
+    <div class="card stage risk"><h3>위험군 (At-risk)</h3><p style="margin:0;font-size:13.5px"><b>정의</b> 약물 투여력 있으나 골노출·누공·명확한 증상 없음. <b>관리</b> 구강위생, 정기 임상·방사선 검사.</p></div>
+    <div class="card stage s0"><h3>0기 (Stage 0)</h3><p style="margin:0 0 6px;font-size:13.5px"><b>정의</b> 골노출 없으나 비특이 증상/소견: 설명되지 않는 통증, 신경감각 변화, 치아 동요, 점막 부종, 비특이 영상변화.</p><p style="margin:0;font-size:13.5px"><b>치료</b> 증상·통증 관리, 면밀한 추적, 위험요인 감소, 환자 교육. <span style="color:var(--muted)">※ 과잉진단 우려 있으나 조기발견 이점으로 유지. 치주염·부비동염·턱관절질환과 감별.</span></p></div>
+    <div class="card stage s1"><h3>1기 (Stage 1)</h3><p style="margin:0;font-size:13.5px"><b>정의</b> 노출 괴사골/골에 닿는 누공, <b>감염·염증 증거 없음</b>, 대체로 무증상. <b>치료</b> 항균 세척제·구강위생·부골 제거·정기 추적, 필요시 골절제술 고려.</p></div>
+    <div class="card stage s2"><h3>2기 (Stage 2)</h3><p style="margin:0;font-size:13.5px"><b>정의</b> 노출 괴사골/누공 + <b>감염·염증 동반</b>(통증·홍반·배농·부종). <b>치료</b> 항균 세척제·<b>전신 항생제</b>·진통제·부골 제거·추적, 필요시 골절제/악골절제술.</p></div>
+    <div class="card stage s3"><h3>3기 (Stage 3)</h3><p style="margin:0 0 6px;font-size:13.5px"><b>정의</b> 2기 + 다음 ≥1: 괴사가 하악 하연·하악지·상악동·관골까지 확장 / 병적 골절 / 구강외·구강비강·구강상악동 누공 / 하악 하연·상악동저까지 골용해.</p><p style="margin:0;font-size:13.5px"><b>치료</b> 항균 세척·전신 항생제·감염관리·진통제, <b>변연/부분 절제술</b>, 가능시 즉시 재건, 장기 추적.</p></div>
+  </section>
+
+  <!-- 9 -->
+  <section id="s9">
+    <div class="sec-head"><span class="ic">🔪</span><h2>9. 보존적 vs 수술적 치료</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>보존적 치료</h3>
+        <ul class="tight"><li>전 병기 가능, 주로 <b>1기</b> 적합. 수술 불가 2·3기 완화에도 적용</li><li>목표: 통증완화·감염조절·바이오필름 감소·진행 억제</li><li>구성: 항균 세척·필요시 항생제·진통제·구강위생·움직이는 부골 제거·추적</li><li><span class="em">한계</span>: 완전치유율 0~54%(편차 큼), 병기 악화로 수술 필요 가능</li></ul></div>
+      <div class="card bl"><h3>수술적 치료 <span class="badge rec">권고</span></h3>
+        <ul class="tight"><li>과거 주로 3기 → <b>현재 모든 병기에서 고려</b></li><li>초기라도 보존 반응 불량·확실한 병변 제거 가능 시 <b>조기 수술 적극 고려</b></li><li>방법: 부골적출·괴사골 제거·골절제·변연/부분절제·즉시 재건·일차 폐쇄</li><li>성공률 대체로 60~90%(일부 완전치유 80~86.5%) — 대부분 후향연구</li></ul></div>
+    </div>
+    <div class="cols">
+      <div class="card"><h3>수술 범위</h3><ul class="tight"><li>불완전 절제·잔존 괴사골 → 재발↑</li><li>가능하면 <b>건강한 골까지 충분 절제</b></li><li>출혈·골색으로 경계 판단하나 신뢰도 제한 → 형광유도/CBCT 가이드가 도움 가능(표준화 안 됨)</li></ul></div>
+      <div class="card"><h3>선택 시 고려 / 추적</h3><ul class="tight"><li>기대여명·전신상태·암/골전이·출혈·감염·기능저하·재건 가능성·위생 관리·삶의 질</li><li><b>재발은 술후 6개월 내 최다</b>, 일부 1년까지 → 임상+영상 장기 병행</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section id="s10">
+    <div class="sec-head"><span class="ic">🧪</span><h2>10. 테리파라타이드</h2></div>
+    <div class="card bl"><h3>요지 <span class="badge rec">권고</span></h3>
+      <ul class="tight"><li>골형성·골재형성 촉진 → MRONJ 치유에 도움 가능</li><li>특히 <b>수술 병행 시</b>, 6개월 이내 단기 투여로 치유 촉진 보고</li><li>보고된 투여법: <b>1일 1회 20μg</b> 또는 <b>주 1회 56.5μg</b>(편의·순응도 고려 선택)</li></ul></div>
+    <div class="cols">
+      <div class="card"><h3>주의</h3><ul class="tight"><li>MRONJ 목적 사용은 <b>비급여·오프라벨</b></li><li>표준 금기·골절 위험 평가 필요</li><li>모든 MRONJ에 일률 적용하는 치료가 아님</li></ul></div>
+      <div class="card" style="border-left:5px solid var(--warn)"><h3>데노수맙 → 테리파라타이드 전환</h3><ul class="tight"><li>데노수맙 중단 후 테리파라타이드 <b>단독 전환</b>은 척추·특히 <span class="em">고관절 골밀도 감소</span> 가능</li><li>단독 순차전환 <b>일반적으로 비권장</b></li><li>필요시 내분비·정형·치과 <b>다학제 협진</b>으로 골절 위험 선평가</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section id="s11">
+    <div class="sec-head"><span class="ic">➕</span><h2>11. 기타 부가적 치료</h2></div>
+    <div class="card"><p style="margin:0 0 6px;font-size:13.5px">수술·감염관리의 <b>보조수단</b>으로 고려 가능:</p>
+      <p style="margin:0;font-size:13.5px">rhBMP-2 · 고압산소요법 · 저출력 레이저 · PRF/PRP(자가혈소판농축) · 오존치료 · 펜톡시필린 · α-토코페롤</p></div>
+    <div class="callout lim"><span class="badge lim">근거 제한</span> 대부분 타 치료 병행 결과. 단독 효과·표준 프로토콜 미확립, 테리파라타이드보다 근거 제한적. <b>기본 괴사골 제거·감염관리를 대체 불가</b>.</div>
+  </section>
+
+  <!-- 12 -->
+  <section id="s12">
+    <div class="sec-head"><span class="ic">🔁</span><h2>12. 재발 위험과 관리</h2></div>
+    <div class="cols">
+      <div class="card"><h3>주요 재발 위험요인</h3><ul class="tight"><li>장기·고용량 사용 · 충분한 치유 전 <b>조기 재투여</b></li><li>높은 병기 · <b>상악 병변</b> · 전이성 골질환</li><li>불완전 절제 · 잔존 괴사골·감염</li></ul></div>
+      <div class="card bl"><h3>재발 예방 전략</h3><ol class="flowlist">
+        <li><b>철저한 치과 평가</b> — 신규 투여 전 감염원 제거, 재투여 중 6~12개월 검진</li>
+        <li><b>충분한 수술 범위</b> — 괴사골·감염조직 충분 제거(과도한 제한 절제 회피)</li>
+        <li><b>수술 전후 항생제</b> — 일부 연구 재발 감소(상태별 적용)</li>
+        <li><b>재투여 시점 개별화</b> — 저위험은 충분 치유, 고위험은 상피화 후 신속; 동일계열 과속 재개는 재발↑ 가능</li>
+        <li><b>대체·순차치료</b> — 테리파라타이드 후 랄록시펜 등 제시되나 소규모 관찰 수준, 추가 근거 필요</li>
+      </ol></div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section id="s13">
+    <div class="sec-head"><span class="ic">🧭</span><h2>13. 임상 의사결정 흐름</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>골흡수억제제 투여 예정</h3><ol class="flowlist"><li>적응증·예정 용량 확인</li><li>골다공증 용량 vs 암 고용량 구분</li><li>구강검진</li><li>치주염·치근단 감염·불량치 제거</li><li>구강위생 교육</li><li>가능한 침습 시술 투여 전 완료</li></ol></div>
+      <div class="card bl"><h3>투여 중 발치 필요</h3><ol class="flowlist"><li>약물명·용량·경로 확인</li><li>마지막 투여일 확인</li><li>총 투여기간·이전 약물력</li><li>BP→데노수맙 전환 여부</li><li>골절/SRE 위험 평가</li><li>국소 감염 정도 평가</li><li>치과·처방의 협의</li><li>비외상성 시술·일차 폐쇄</li><li>6~8주 치유 관찰</li><li>치유에 맞춰 재투여</li></ol></div>
+      <div class="card bl"><h3>MRONJ 의심</h3><ol class="flowlist"><li>관련 약물 투여력</li><li>골노출·누공·통증·감각변화 확인</li><li>지속기간 확인</li><li>CT·CBCT로 범위 평가</li><li>방사선치료·악성종양 배제</li><li>골수염 등 감별</li><li>병기 설정</li><li>보존 vs 수술 결정</li><li>처방의와 중단·재투여 협의</li></ol></div>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section id="s14">
+    <div class="sec-head"><span class="ic">📝</span><h2>14. 1페이지 요약본에서 보완할 점</h2></div>
+    <p class="sec-desc">단순 요약과 <b>원문</b>의 차이 — 흔한 오해 7가지.</p>
+
+    <div class="cmp"><div class="box old"><h4>단순 요약</h4>8주 이상 골노출이 있어야 진단</div>
+      <div class="box new"><h4>원문 ① 진단</h4>8주 노출·탐침 누공이 기본이나, <b>임상/영상으로 괴사골 확인 시 8주 이전에도</b> MRONJ로 간주 가능</div></div>
+    <div class="cmp"><div class="box old"><h4>단순 요약</h4>4년 이상이면 고위험</div>
+      <div class="box new"><h4>원문 ② ‘4년’</h4>고정 3·4년 기준점 <b>사용 안 함</b>. 누적 용량·기간에 따라 <b>점진 증가</b></div></div>
+    <div class="cmp"><div class="box old"><h4>단순 요약</h4>BP 시술 2개월 전 중단</div>
+      <div class="box new"><h4>원문 ③ BP 휴약</h4>일률 휴약 근거 부족. 2개월은 <b>전문가 의견</b>. 졸레드로네이트는 별도 <b>6~12개월</b></div></div>
+    <div class="cmp"><div class="box old"><h4>단순 요약</h4>데노수맙 중단하고 시술 / 9개월 넘기면 안 됨</div>
+      <div class="box new"><h4>원문 ④ 데노수맙</h4>먼저 중단이 아니라 <b>마지막 주사 후 3~4개월</b>에 시술, 술후 6~8주 유예. 우선 <b>6개월 주기 내</b> 재투여, 불가피 지연 시에만 총 9개월 이내</div></div>
+    <div class="cmp"><div class="box old"><h4>단순 요약</h4>진행된 3기에서 수술</div>
+      <div class="box new"><h4>원문 ⑤ 수술</h4><b>모든 병기에서 고려</b>. 초기라도 보존 반응 불량·완전 제거 가능 시 조기 수술 적극 고려</div></div>
+    <div class="cmp"><div class="box old"><h4>단순 요약</h4>(누락되기 쉬움)</div>
+      <div class="box new"><h4>원문 ⑥ CTX</h4>CTX 검사는 <b>MRONJ 위험 예측 목적 비권장</b></div></div>
+    <div class="cmp"><div class="box old"><h4>단순 요약</h4>(임플란트 단순화)</div>
+      <div class="box new"><h4>원문 ⑦ 임플란트</h4>고용량 암환자=선택적 임플란트 <b>절대 금기</b>. 저용량 골다공증=절대 금기 아니나 누적량·<b>후기 MRONJ</b> 설명·장기 추적</div></div>
+  </section>
+
+  <!-- 15 -->
+  <section id="s15">
+    <div class="sec-head"><span class="ic">⭐</span><h2>15. 최종 핵심</h2></div>
+    <div class="card bl"><ul class="tight keylist">
+      <li>MRONJ는 약물 하나의 문제가 아니라 <b>누적 노출·구강감염·외상·전신질환</b>의 복합.</li>
+      <li>최선의 예방 = <b>투여 전 감염원 제거 + 투여 중 정기 구강관리</b>.</li>
+      <li>발치가 필요할 감염을 <span class="em">무조건 방치하는 것은 예방이 아님</span>.</li>
+      <li>BP 휴약기간은 강한 근거가 아니라 <b>전문가 의견 기반 개별화 권고</b>.</li>
+      <li>데노수맙은 임의 중단 X → <b>3~4개월에 시술</b>, 치유 후 가능한 한 <b>6개월 주기 내 재투여</b>.</li>
+      <li>발생 후에도 중단을 자동 결정하지 않음 — <b>골절·SRE 위험 vs 치유 가능성</b> 비교.</li>
+      <li>보존치료는 증상 관리에 적합하나 완전치유·장기예후는 수술보다 낮을 수 있음.</li>
+      <li>수술은 진행 병기뿐 아니라 <b>초기에도 고려</b>.</li>
+      <li>테리파라타이드는 수술 병행 시 치유 촉진 가능, 단 데노수맙 단독 전환은 골밀도 감소 주의.</li>
+      <li>최종 결정은 <b>치과·구강악안면외과 + 골다공증/암 담당의 공동</b>.</li>
+    </ul></div>
   </section>
 
   <div class="callout warn" style="margin-top:18px">
-    📖 <b>출처</b> — Korean MRONJ Position Paper 2025 Committee · Reference: <a href="https://onjcohort.org" target="_blank" rel="noopener">onjcohort.org</a>.
-    관련 약물 처방은 <a href="drug-guide.html">치과 약물·처방 가이드</a>의 ‘MRONJ 위험(항흡수제) 환자’ 시나리오도 함께 참고하세요.
+    📖 <b>출처</b> — Korean MRONJ Position Paper 2025 Committee · <a href="https://onjcohort.org" target="_blank" rel="noopener">onjcohort.org</a>.
+    관련 처방은 <a href="drug-guide.html">치과 약물·처방 가이드</a>의 ‘MRONJ 위험(항흡수제) 환자’ 시나리오도 참고.
   </div>
 
 </main>
 
 <footer class="wrap">
-  MRONJ 임상권고안 2025 (요약) — JH의 덴탈노트 · 처방·시술 전 원문 권고 확인 필수
+  MRONJ 임상권고안 2025 (원문 기반 상세 요약) — JH의 덴탈노트 · 처방·시술 전 원문 권고 확인 필수
 </footer>
 
+<script>
+/* 스크롤스파이 — 현재 섹션을 상단 칩에서 강조 */
+(function(){
+  const links=[...document.querySelectorAll('.topbar .links a')];
+  const map={}; links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+  if(!('IntersectionObserver' in window)) return;
+  const ob=new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.remove('active'));
+      const a=map[e.target.id]; if(a) a.classList.add('active'); } });
+  },{rootMargin:'-35% 0px -60% 0px',threshold:0});
+  Object.keys(map).forEach(id=>{ const t=document.getElementById(id); if(t) ob.observe(t); });
+})();
+</script>
 <script src="assets/theme.js"></script>
 </body>
 </html>
