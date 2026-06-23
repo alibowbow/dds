@@ -41,10 +41,11 @@
   <div class="wrap topbar-inner">
     <a class="brand" href="index.html">🦷 홈</a>
     <div class="links">
+      <a href="#quick">★ 약물별정리</a>
       <a href="#s1">1·진단</a><a href="#s2">2·빈도</a><a href="#s3">3·병인</a><a href="#s4">4·위험요인</a>
       <a href="#s5">5·투여전후관리</a><a href="#s6">6·예방휴약</a><a href="#s7">7·발생후중단</a><a href="#s8">8·병기</a>
       <a href="#s9">9·치료</a><a href="#s10">10·테리파라타이드</a><a href="#s11">11·기타</a><a href="#s12">12·재발</a>
-      <a href="#s13">13·의사결정</a><a href="#s14">14·요약본보완</a><a href="#s15">15·핵심</a>
+      <a href="#s13">13·의사결정</a>
     </div>
     <div class="spacer"></div>
     <button class="themebtn" id="theme" title="다크모드 전환" aria-label="다크모드 전환">🌓</button>
@@ -61,6 +62,49 @@
       <span><span class="badge lim">근거 제한</span> 결과가 일관되지 않거나 자료 부족</span>
     </div>
   </div>
+
+  <!-- ★ 약물별 한눈 정리 -->
+  <section id="quick">
+    <div class="sec-head"><span class="ic">⚡</span><h2>약물별 한눈 정리 <span class="badge rec">Quick Ref</span></h2></div>
+    <p class="sec-desc">골흡수억제제별 <b>침습 시술 전 휴약 · 술후 재투여 · 발생 후 중단</b> 핵심을 한 표로. 모든 휴약은 <b>골절/SRE 위험 vs MRONJ 위험</b>을 비교해 치과의·처방의 협의로 개별 결정.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>약물 (계열)</th><th>투여 · 특징</th><th>침습 시술 전 예방 휴약</th><th>술후 재투여</th><th>MRONJ 발생 후 중단</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>경구 비스포스포네이트</b><br/><span class="pill">알렌·리세·이반드로네이트</span> <span class="pill">골다공증</span></td>
+          <td>경구(주/월) · 골 내 <b>수년 잔류</b> · 위험 비교적 낮음</td>
+          <td>마지막 투여 후 <b>약 2개월</b> 후 시술 <span class="badge exp">전문가 의견</span></td>
+          <td>상피화 완료 <b>6~8주</b> 후</td>
+          <td>단기중단 효과 제한적 · 저위험 6~8주~치료완료까지 휴약 고려</td>
+        </tr>
+        <tr>
+          <td><b>졸레드로네이트 (IV)</b><br/><span class="pill">골다공증 5mg 연1회</span></td>
+          <td>정주 · 골 잔류 길고 <b>억제 강함</b></td>
+          <td>마지막 투여 후 <span class="em">6~12개월</span> 후 시술 <span class="badge exp">전문가 의견</span></td>
+          <td>상피화 <b>6~8주</b> 후</td>
+          <td>BP 공통 원칙 · 고위험 암환자는 상피화 후 신속 재개</td>
+        </tr>
+        <tr>
+          <td><b>데노수맙 60mg</b><br/><span class="pill">프롤리아 · 6개월</span></td>
+          <td>피하 · <span class="em">가역적</span> · 중단 시 <span class="em">반동성 골절</span> 위험</td>
+          <td><span class="em">임의 중단 금지</span> → 마지막 주사 후 <b>3~4개월</b>에 시술 <span class="badge rec">권고</span></td>
+          <td><b>6~8주</b> 후, 가능하면 <b>6개월 주기 내</b><br/>(불가피 지연 시 총 9개월 이내)</td>
+          <td>장기중단 회피 · <b>+3개월(총 9개월) 초과 금지</b> · 치유 후 신속 재개</td>
+        </tr>
+        <tr>
+          <td><b>고용량 (암)</b><br/><span class="pill">졸레드로네이트 고용량</span> <span class="pill">데노수맙 120mg(엑스지바)</span></td>
+          <td>정주/피하 · 매월 등 · <span class="em">MRONJ 위험 현저↑ (1~15%)</span></td>
+          <td>치조골 외상 회피·협진 · <span class="em">투여 중 선택적 임플란트 절대 금기</span> <span class="badge rec">권고</span></td>
+          <td>상피화 후 신속(고위험)</td>
+          <td>골전이·SRE 위험과 함께 협진</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <div class="cols">
+      <div class="callout"><b>공통 원칙</b> — 일괄 휴약 적용 금지. 감염 심한 치아를 무조건 방치하지 않음(급성 감염·골절 위험·필요성 함께 평가). 비외상성 시술·연조직 일차 폐쇄·감염조절·면밀한 추적.</div>
+      <div class="callout" style="border-left-color:var(--accent)"><b>테리파라타이드(치료 보조)</b> — 수술 병행 시 치유 촉진(20μg/일 또는 56.5μg/주, 오프라벨). <span class="em">데노수맙→테리파라타이드 단독 전환은 골밀도 감소 주의</span>.</div>
+    </div>
+  </section>
 
   <!-- 1 -->
   <section id="s1">
@@ -276,44 +320,6 @@
       <div class="card bl"><h3>투여 중 발치 필요</h3><ol class="flowlist"><li>약물명·용량·경로 확인</li><li>마지막 투여일 확인</li><li>총 투여기간·이전 약물력</li><li>BP→데노수맙 전환 여부</li><li>골절/SRE 위험 평가</li><li>국소 감염 정도 평가</li><li>치과·처방의 협의</li><li>비외상성 시술·일차 폐쇄</li><li>6~8주 치유 관찰</li><li>치유에 맞춰 재투여</li></ol></div>
       <div class="card bl"><h3>MRONJ 의심</h3><ol class="flowlist"><li>관련 약물 투여력</li><li>골노출·누공·통증·감각변화 확인</li><li>지속기간 확인</li><li>CT·CBCT로 범위 평가</li><li>방사선치료·악성종양 배제</li><li>골수염 등 감별</li><li>병기 설정</li><li>보존 vs 수술 결정</li><li>처방의와 중단·재투여 협의</li></ol></div>
     </div>
-  </section>
-
-  <!-- 14 -->
-  <section id="s14">
-    <div class="sec-head"><span class="ic">📝</span><h2>14. 1페이지 요약본에서 보완할 점</h2></div>
-    <p class="sec-desc">단순 요약과 <b>원문</b>의 차이 — 흔한 오해 7가지.</p>
-
-    <div class="cmp"><div class="box old"><h4>단순 요약</h4>8주 이상 골노출이 있어야 진단</div>
-      <div class="box new"><h4>원문 ① 진단</h4>8주 노출·탐침 누공이 기본이나, <b>임상/영상으로 괴사골 확인 시 8주 이전에도</b> MRONJ로 간주 가능</div></div>
-    <div class="cmp"><div class="box old"><h4>단순 요약</h4>4년 이상이면 고위험</div>
-      <div class="box new"><h4>원문 ② ‘4년’</h4>고정 3·4년 기준점 <b>사용 안 함</b>. 누적 용량·기간에 따라 <b>점진 증가</b></div></div>
-    <div class="cmp"><div class="box old"><h4>단순 요약</h4>BP 시술 2개월 전 중단</div>
-      <div class="box new"><h4>원문 ③ BP 휴약</h4>일률 휴약 근거 부족. 2개월은 <b>전문가 의견</b>. 졸레드로네이트는 별도 <b>6~12개월</b></div></div>
-    <div class="cmp"><div class="box old"><h4>단순 요약</h4>데노수맙 중단하고 시술 / 9개월 넘기면 안 됨</div>
-      <div class="box new"><h4>원문 ④ 데노수맙</h4>먼저 중단이 아니라 <b>마지막 주사 후 3~4개월</b>에 시술, 술후 6~8주 유예. 우선 <b>6개월 주기 내</b> 재투여, 불가피 지연 시에만 총 9개월 이내</div></div>
-    <div class="cmp"><div class="box old"><h4>단순 요약</h4>진행된 3기에서 수술</div>
-      <div class="box new"><h4>원문 ⑤ 수술</h4><b>모든 병기에서 고려</b>. 초기라도 보존 반응 불량·완전 제거 가능 시 조기 수술 적극 고려</div></div>
-    <div class="cmp"><div class="box old"><h4>단순 요약</h4>(누락되기 쉬움)</div>
-      <div class="box new"><h4>원문 ⑥ CTX</h4>CTX 검사는 <b>MRONJ 위험 예측 목적 비권장</b></div></div>
-    <div class="cmp"><div class="box old"><h4>단순 요약</h4>(임플란트 단순화)</div>
-      <div class="box new"><h4>원문 ⑦ 임플란트</h4>고용량 암환자=선택적 임플란트 <b>절대 금기</b>. 저용량 골다공증=절대 금기 아니나 누적량·<b>후기 MRONJ</b> 설명·장기 추적</div></div>
-  </section>
-
-  <!-- 15 -->
-  <section id="s15">
-    <div class="sec-head"><span class="ic">⭐</span><h2>15. 최종 핵심</h2></div>
-    <div class="card bl"><ul class="tight keylist">
-      <li>MRONJ는 약물 하나의 문제가 아니라 <b>누적 노출·구강감염·외상·전신질환</b>의 복합.</li>
-      <li>최선의 예방 = <b>투여 전 감염원 제거 + 투여 중 정기 구강관리</b>.</li>
-      <li>발치가 필요할 감염을 <span class="em">무조건 방치하는 것은 예방이 아님</span>.</li>
-      <li>BP 휴약기간은 강한 근거가 아니라 <b>전문가 의견 기반 개별화 권고</b>.</li>
-      <li>데노수맙은 임의 중단 X → <b>3~4개월에 시술</b>, 치유 후 가능한 한 <b>6개월 주기 내 재투여</b>.</li>
-      <li>발생 후에도 중단을 자동 결정하지 않음 — <b>골절·SRE 위험 vs 치유 가능성</b> 비교.</li>
-      <li>보존치료는 증상 관리에 적합하나 완전치유·장기예후는 수술보다 낮을 수 있음.</li>
-      <li>수술은 진행 병기뿐 아니라 <b>초기에도 고려</b>.</li>
-      <li>테리파라타이드는 수술 병행 시 치유 촉진 가능, 단 데노수맙 단독 전환은 골밀도 감소 주의.</li>
-      <li>최종 결정은 <b>치과·구강악안면외과 + 골다공증/암 담당의 공동</b>.</li>
-    </ul></div>
   </section>
 
   <div class="callout warn" style="margin-top:18px">
