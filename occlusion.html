@@ -16,6 +16,13 @@
   dl.kv{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:var(--text-sm)}
   dl.kv dt{font-weight:700;color:var(--brand)} dl.kv dd{margin:0}
   ol.flowlist{margin:6px 0 0;padding-left:20px;font-size:var(--text-sm)} ol.flowlist li{margin:5px 0}
+  .tooth{fill:var(--brand-soft);stroke:var(--brand);stroke-width:2;stroke-linejoin:round}
+  .hold{fill:var(--success);stroke:var(--surface);stroke-width:1.5}
+  .grind{stroke:var(--warning);stroke-width:5;stroke-linecap:round}
+  .arch{fill:none;stroke:var(--brand);stroke-width:2.5;opacity:.6}
+  .arr{fill:none;stroke:var(--warning);stroke-width:2.5;stroke-linecap:round}
+  .arrh{fill:var(--warning)}
+  .viz svg text.sm{font-size:10px}
 </style>
 </head>
 <body>
@@ -118,6 +125,24 @@
         <circle class="node" cx="248" cy="128" r="4.5"/><text x="257" y="132" text-anchor="start">회전한계 ~20mm</text>
         <circle class="node on" cx="150" cy="214" r="4.5"/><text class="lab" x="150" y="234" text-anchor="middle">최대개구 ~50mm</text>
         <circle class="node" cx="70" cy="78" r="4.5"/><text x="63" y="74" text-anchor="end">최대전방·절단교합</text>
+      </svg>
+    </div>
+    <div class="viz">
+      <h3>측방운동 — 작업측 vs 비작업측 (상면도)</h3>
+      <p class="cap">하악이 작업측으로 이동 시 — 작업측 과두는 제자리 회전(+Bennett), 비작업측 과두는 하·전·내로 병진(궤도과두).</p>
+      <svg viewBox="0 0 360 200" role="img" aria-label="작업측·비작업측 과두 상면도" style="max-width:440px;margin:0 auto">
+        <path class="arch" d="M64 58 Q58 150 120 178 Q180 194 240 178 Q302 150 296 58"/>
+        <circle class="node on" cx="64" cy="54" r="11"/>
+        <circle class="node on" cx="296" cy="54" r="11"/>
+        <path class="arr" d="M298 33 A17 17 0 1 1 282 40"/>
+        <polygon class="arrh" points="282,40 274,33 286,30"/>
+        <line class="arr" x1="64" y1="54" x2="118" y2="104"/>
+        <polygon class="arrh" points="118,104 105,99 112,112"/>
+        <text class="lab" x="296" y="22" text-anchor="middle">작업측 과두</text>
+        <text class="sm" x="296" y="84" text-anchor="middle">회전 + Bennett</text>
+        <text class="lab" x="58" y="34" text-anchor="start">비작업측 과두</text>
+        <text class="sm" x="124" y="118" text-anchor="start">하·전·내 병진</text>
+        <text class="lab" x="180" y="150" text-anchor="middle">→ 작업측 이동</text>
       </svg>
     </div>
     <div class="cols">
@@ -323,6 +348,26 @@
         <tr><td data-label="유형"><b>전방(protrusive) 간섭(구치)</b></td><td data-label="규칙"><span class="tag" style="background:var(--brand)">DUML</span></td><td data-label="부위"><b>상악 원심사면 · 하악 근심사면</b></td></tr>
       </tbody>
     </table></div>
+
+    <div class="viz">
+      <h3>선택 삭제 — 구치 협설 단면 도식 (작업측 BULL)</h3>
+      <p class="cap">지지교두(상악 설측·하악 협측)는 <b>보존</b>하고, 비지지 교두의 <b>내사면</b>을 삭제 — 작업측 간섭 = BULL.</p>
+      <svg viewBox="0 0 360 232" role="img" aria-label="구치 협설 단면 선택삭제 도식" style="max-width:470px;margin:0 auto">
+        <path class="tooth" d="M50 24 H310 V44 L250 130 L180 74 L110 122 L50 44 Z"/>
+        <path class="tooth" d="M50 208 H310 V188 L250 120 L180 156 L110 110 L50 188 Z"/>
+        <line class="grind" x1="116" y1="116" x2="172" y2="80"/>
+        <line class="grind" x1="244" y1="124" x2="188" y2="152"/>
+        <circle class="hold" cx="250" cy="130" r="6.5"/>
+        <circle class="hold" cx="110" cy="110" r="6.5"/>
+        <text class="lab" x="180" y="16" text-anchor="middle">상악</text>
+        <text class="lab" x="180" y="226" text-anchor="middle">하악</text>
+        <text x="40" y="120" text-anchor="end">협측 B</text>
+        <text x="320" y="120" text-anchor="start">설측 L</text>
+        <text class="sm" x="266" y="146" text-anchor="start">지지(상악 설측)</text>
+        <text class="sm" x="94" y="100" text-anchor="end">지지(하악 협측)</text>
+      </svg>
+      <p class="cap" style="margin:8px 0 0"><span style="color:var(--success);font-weight:800">●</span> 지지교두(보존) &nbsp;·&nbsp; <span style="color:var(--warning);font-weight:800">▬</span> BULL 삭제 사면(상악 협측·하악 설측 내사면)</p>
+    </div>
 
     <div class="cols">
       <div class="card bl"><h3>술식 순서</h3>
