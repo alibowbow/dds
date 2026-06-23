@@ -1,1019 +1,117 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="auto">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>치과 상용 약물 &middot; 술식별 처방 가이드</title>
+<title>JH의 덴탈노트 — 임상 치과 레퍼런스 허브</title>
+<meta name="description" content="JH의 덴탈노트 — 치과 약물·처방, MRONJ 등 임상 치과 레퍼런스 노트 모음" />
+<link rel="stylesheet" href="assets/theme.css" />
 <style>
-  :root{
-    --bg:#f4f6f9; --surface:#ffffff; --ink:#1d2733; --muted:#5b6b7d;
-    --line:#e2e8f0; --brand:#0f6e8c; --brand-d:#0a5066;
-    --accent:#137a63; --warn:#b4540a; --danger:#b3261e; --shadow:0 1px 3px rgba(16,40,64,.08),0 6px 20px rgba(16,40,64,.06);
-    /* category colors */
-    --c-anesth:#3b82f6; --c-analg:#ef4444; --c-abx:#10b981; --c-fungal:#a855f7;
-    --c-viral:#6366f1; --c-sed:#f59e0b; --c-hemo:#e11d48; --c-steroid:#0ea5e9;
-    --c-fluoride:#14b8a6; --c-anti:#8b5cf6; --c-gi:#84cc16; --c-relax:#f97316; --c-emerg:#dc2626;
-    --radius:14px;
-  }
-  @media (prefers-color-scheme: dark){
-    :root[data-theme="auto"]{ --bg:#0f141a; --surface:#161d26; --ink:#e7edf4; --muted:#9fb0c0; --line:#26313d; --shadow:0 1px 3px rgba(0,0,0,.4); }
-  }
-  :root[data-theme="dark"]{ --bg:#0f141a; --surface:#161d26; --ink:#e7edf4; --muted:#9fb0c0; --line:#26313d; --shadow:0 1px 3px rgba(0,0,0,.4); }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth; scroll-padding-top:84px}
-  body{margin:0;font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:var(--brand);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
-
-  /* Header */
-  header.hero{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:30px 0 26px}
-  header.hero h1{margin:0 0 6px;font-size:clamp(22px,3.4vw,32px);letter-spacing:-.5px}
-  header.hero p.sub{margin:0;opacity:.92;font-size:15px}
-  .meta-row{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:12.5px;opacity:.9}
-  .meta-row span{display:inline-flex;align-items:center;gap:5px}
-
-  .disclaimer{background:#fff6e9;border:1px solid #f3d9a8;color:#7a4a06;border-radius:12px;
-    padding:12px 16px;margin:18px auto;font-size:13px;display:flex;gap:10px;align-items:flex-start;max-width:1180px}
-  :root[data-theme="dark"] .disclaimer{background:#2a2113;border-color:#5a431a;color:#f0cf8e}
-  .disclaimer b{color:var(--danger)}
-
-  /* Sticky nav */
-  nav.toc{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 92%,transparent);
-    backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-  .toc-inner{display:flex;align-items:center;gap:10px;padding:10px 0}
-  .toc-links{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
-  .toc a{font-size:13.5px;color:var(--muted);padding:6px 11px;border-radius:999px;white-space:nowrap}
-  .toc a:hover{background:var(--bg);color:var(--brand);text-decoration:none}
-  .toc a.active{background:var(--brand);color:#fff;font-weight:700}
-  .toc a.active:hover{color:#fff}
-  .search{margin-left:auto;display:flex;align-items:center;gap:8px}
-  .search input{border:1px solid var(--line);background:var(--surface);color:var(--ink);
-    border-radius:999px;padding:8px 14px;font-size:13.5px;width:230px;outline:none}
-  .search input:focus{border-color:var(--brand)}
-  .themebtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;
-    width:34px;height:34px;cursor:pointer;font-size:15px}
-
-  section{padding:30px 0 6px}
-  .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 6px}
-  .sec-head h2{font-size:clamp(19px,2.6vw,24px);margin:0;letter-spacing:-.4px}
-  .sec-head .num{background:var(--brand);color:#fff;width:30px;height:30px;border-radius:9px;
-    display:grid;place-items:center;font-size:14px;font-weight:700;flex:0 0 auto}
-  .sec-desc{color:var(--muted);font-size:14px;margin:2px 0 18px}
-
-  /* Legend */
-  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
-  .chip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;background:var(--surface);
-    border:1px solid var(--line);border-radius:999px;padding:5px 11px}
-  .legend .chip{cursor:pointer;user-select:none;transition:border-color .12s,background .12s,color .12s}
-  .legend .chip:hover{border-color:var(--brand)}
-  .legend .chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-  .legend .chip.active{background:var(--brand);color:#fff;border-color:var(--brand)}
-  .legend .chip.active .dot{box-shadow:0 0 0 2px #fff inset}
-  .dot{width:10px;height:10px;border-radius:50%}
-
-  /* Scenario cards */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
-  .card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--brand);
-    border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:transform .12s}
-  .card:hover{transform:translateY(-2px)}
-  .card.flash{animation:cardflash 1.8s ease-out}
-  @keyframes cardflash{0%,38%{outline:3px solid var(--brand);outline-offset:3px}100%{outline:3px solid transparent;outline-offset:3px}}
-  .card h3{margin:0 0 4px;font-size:16.5px;display:flex;align-items:center;gap:8px}
-  .card .tag{font-size:11px;font-weight:700;color:#fff;border-radius:6px;padding:2px 8px;letter-spacing:.3px}
-  .rx{margin:10px 0 0;border-top:1px dashed var(--line);padding-top:10px}
-  .rx dt{font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--brand);margin-top:8px}
-  .rx dt.alg{color:var(--warn)} .rx dt.ped{color:var(--accent)} .rx dt.note{color:var(--muted)}
-  .rx dd{margin:2px 0 0;font-size:13.5px}
-  .rx dd .em{color:var(--danger);font-weight:600}
-
-  /* Tables */
-  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);background:var(--surface);margin-bottom:14px}
-  table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.3px}
-  thead th{position:sticky;top:0;background:var(--brand-d);color:#fff;text-align:left;padding:10px 12px;font-weight:600;white-space:nowrap}
-  tbody td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
-  tbody tr:nth-child(even){background:color-mix(in srgb,var(--bg) 55%,transparent)}
-  .cat-block{margin-bottom:22px}
-  .cat-title{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:700;margin:0 0 8px}
-  .cat-title .dot{width:13px;height:13px}
-  .pill{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted);font-weight:500}
-
-  /* Standard Rx set cards */
-  .rxset{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:6px 0 8px}
-  .rxset .box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
-  .rxset .box h4{margin:0 0 6px;font-size:14.5px;display:flex;align-items:center;gap:7px}
-  .rxset .box .n{background:var(--brand);color:#fff;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px}
-  .rxset .box p{margin:0;font-size:13px;color:var(--muted)}
-
-  /* Mermaid */
-  .diagram{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:14px;box-shadow:var(--shadow);margin-bottom:20px;overflow:auto}
-  .diagram h3{margin:2px 0 8px;font-size:15.5px}
-  .maphint{font-size:12.5px;color:var(--muted);margin:-4px 0 8px}
-  .mermaid{display:flex;justify-content:center;min-width:0}
-  .mermaid .clickable{cursor:pointer}
-  .mermaid .clickable:hover{filter:brightness(.96)}
-
-  /* References / callouts */
-  .callout{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);
-    border-radius:10px;padding:12px 15px;font-size:13.3px;margin:10px 0}
-  ol.refs{font-size:13px;color:var(--muted);padding-left:20px}
-  ol.refs li{margin:5px 0}
-  footer{margin-top:34px;border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:12.5px;text-align:center}
-  .no-results{padding:18px;color:var(--muted);font-style:italic}
-  mark{background:#fde68a;color:inherit;padding:0 1px;border-radius:3px}
-
-  /* Back to top */
-  #toTop{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;
-    border:1px solid var(--line);background:var(--surface);color:var(--brand);box-shadow:var(--shadow);
-    cursor:pointer;font-size:19px;display:grid;place-items:center;opacity:0;visibility:hidden;
-    transition:opacity .2s,visibility .2s,transform .2s;transform:translateY(10px)}
-  #toTop.show{opacity:1;visibility:visible;transform:none}
-  #toTop:hover{border-color:var(--brand);color:var(--brand-d)}
-
-  /* Tablet/mobile: single-row scrollable section nav */
-  @media (max-width:820px){
-    .toc-inner{flex-wrap:nowrap;gap:8px}
-    .toc-links{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
-      -webkit-overflow-scrolling:touch;padding-bottom:1px}
-    .toc-links::-webkit-scrollbar{display:none}
-    .search{flex:0 0 auto;margin-left:auto}
-  }
-  @media (max-width:640px){
-    table{min-width:560px}
-    .search input{width:120px}
-    .toc a{padding:5px 9px;font-size:12.5px}
-    #toTop{right:12px;bottom:12px;width:42px;height:42px}
-  }
-  @media print{ #toTop{display:none!important} }
-  @media print{
-    nav.toc,.search,.themebtn,.disclaimer{display:none!important}
-    body{background:#fff}
-    .card,.diagram,.tablewrap,.rxset .box{box-shadow:none;break-inside:avoid}
-    header.hero{background:#0a5066!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  }
+  /* 허브 전용 소소한 스타일 */
+  .hub-hint{color:var(--muted);font-size:13px;margin:6px 0 0}
+  .count{color:var(--muted);font-size:13px;margin:0 0 4px}
 </style>
 </head>
-<body data-theme="auto">
+<body>
 
 <header class="hero">
   <div class="wrap">
-    <h1>🦷 치과 상용 약물 &middot; 술식별 처방 가이드</h1>
-    <p class="sub">임상 전문가용 통합 레퍼런스 — 술식·상황별 처방 프로토콜(성인 1차 / 약물 알러지 대체 / 소아용량) + 약물 분류 카탈로그 + 의사결정 맵</p>
+    <h1>🦷 JH의 덴탈노트</h1>
+    <p class="sub">임상 치과 레퍼런스 허브 — 처방·질환·술식 노트를 한곳에. 계속 확장됩니다.</p>
     <div class="meta-row">
-      <span>📅 최종 정리: 2026-06-22</span>
-      <span>📚 기준: 국내 처방 관행 + ADA / AHA / AAPD 가이드라인</span>
-      <span>🎯 대상: 치과의사 · 치의학 전공자</span>
+      <span>✍️ 작성: JH</span>
+      <span>🧭 교육·요약용 임상 레퍼런스</span>
+      <span id="meta-count">📚 노트 —</span>
     </div>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="disclaimer">
-    <span style="font-size:18px">⚠️</span>
-    <div><b>면책 고지 —</b> 본 자료는 <b>교육·요약 목적</b>이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.
-    모든 용량·금기는 처방 전 <b>원전과 환자 상태(연령·체중·신/간 기능·병력·복용약)</b>를 반드시 확인하십시오.
-    특히 <b>항생제는 예방요법과 치료요법의 권고가 다릅니다</b>(예: clindamycin은 예방엔 비권장, 감염 치료엔 사용 가능).</div>
-  </div>
-</div>
-
-<nav class="toc">
-  <div class="wrap toc-inner">
-    <div class="toc-links">
-      <a href="#scenarios">① 술식·상황별 처방</a>
-      <a href="#catalog">② 약물 카탈로그</a>
-      <a href="#allergy">③ 알러지 대체</a>
-      <a href="#pediatric">④ 소아 용량</a>
-      <a href="#maps">⑤ 맵·시각화</a>
-      <a href="#emergency">⑥ 응급</a>
-      <a href="#oralmed">⑦ 구강내과</a>
-      <a href="#refs">⑧ 참고</a>
-    </div>
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="brand">🦷 JH의 덴탈노트</span>
+    <div class="spacer"></div>
     <div class="search">
-      <input id="q" type="search" placeholder="약물·성분·상황 검색…" aria-label="검색" />
+      <input id="q" type="search" placeholder="노트 검색…" aria-label="노트 검색" />
       <button class="themebtn" id="theme" title="다크모드 전환" aria-label="다크모드 전환">🌓</button>
     </div>
   </div>
-</nav>
+</div>
 
 <main class="wrap">
+  <p class="count" id="count"></p>
+  <div class="grid" id="note-grid"></div>
+  <p class="no-results" id="empty" hidden>검색 결과가 없습니다.</p>
+  <p class="hub-hint">➕ 새 노트가 계속 추가됩니다. (확장 구조: <code>assets/theme.css</code> 공용 디자인 + 노트 메타데이터 배열)</p>
 
-  <!-- ① SCENARIOS -->
-  <section id="scenarios">
-    <div class="sec-head"><span class="num">1</span><h2>술식·상황별 처방 프로토콜</h2></div>
-    <p class="sec-desc">각 카드: <b>1차 처방(성인)</b> / <b>약물 알러지 대체</b> / <b>소아 용량(체중 기반)</b> / <b>비고</b>.
-      ⚠️ 처방은 <b>정의적 치과 처치(배농·근관·발치·SRP 등)가 우선</b>이며 항생제는 보조입니다.</p>
-    <div class="legend" id="scenario-legend"></div>
-    <div class="grid" id="scenario-grid"></div>
-    <p class="no-results" id="scenario-empty" hidden>검색 결과가 없습니다.</p>
-  </section>
-
-  <!-- Standard Rx set -->
-  <section id="stdset" style="padding-top:14px">
-    <div class="sec-head"><span class="num">★</span><h2>국내 표준 처방 4종 세트</h2></div>
-    <p class="sec-desc">국내 치과에서 가장 흔한 조합. <b>모든 발치/시술에 항생제가 필수는 아님</b>(건강한 환자의 단순 발치 등은 비권장).</p>
-    <div class="rxset">
-      <div class="box"><h4><span class="n">1</span> 항생제</h4><p>Amoxicillin 250–500mg TID, 또는 Augmentin(오구멘틴) 375–625mg TID · 보통 3–5일. PCN 알러지 시 대체(③ 참조).</p></div>
-      <div class="box"><h4><span class="n">2</span> 소염진통제</h4><p>Ibuprofen 400mg TID / Loxoprofen(록소닌) 60mg TID / Aceclofenac(에어탈) 100mg BID. 부족 시 + Acetaminophen, 중증 시 + Tramadol/APAP(울트라셋).</p></div>
-      <div class="box"><h4><span class="n">3</span> 위장보호제</h4><p>Famotidine(가스터) 20mg, 또는 Rebamipide(무코스타) 100mg TID / 제산제. NSAID 위장장애 대비 동반.</p></div>
-      <div class="box"><h4><span class="n">4</span> 가글</h4><p>Chlorhexidine 0.12%(헥사메딘) 15mL, 1일 2회 30초 함수. 착색 우려로 2주 이내 사용.</p></div>
-    </div>
-  </section>
-
-  <!-- ★ Nerve injury protocol + steroid taper -->
-  <section id="nerve" style="padding-top:14px">
-    <div class="sec-head"><span class="num">★</span><h2>신경손상 처방 프로토콜 &amp; 스테로이드 Tapering</h2></div>
-    <p class="sec-desc">하치조·설신경 손상 시 <b>시기별 약물요법</b>과 손상 초기 <b>Prednisolone 점감(tapering) 6일 요법</b>.
-      ⚠️ 술자·환자 상태에 따라 조정하며, 지속·완전마비·심한 통증은 조기 전문의(구강악안면외과·신경과) 의뢰.</p>
-    <div class="rxset">
-      <div class="box"><h4><span class="n">A</span> 손상 초기</h4><p>기구의 신경관 침범 시 즉시 제거. 소켓·드릴링부에 <b>dexamethasone 4mg/mL 국소주입</b> 후 2~3분 대기 후 조작. <b>Prednisolone 3~5일 점감</b>(아래 표) + <b>Methylcobalamin(Vit B<sub>12</sub>)</b> 병용. 1~3개월 내 회복 기대.</p></div>
-      <div class="box"><h4><span class="n">B</span> 3~6개월 경과</h4><p>국소도포 <b>캡사이신+국소마취 연고</b>·<b>topical clonazepam</b>, 비타민 제제 지속. 필요 시 <b>항우울제(nortriptyline·amitriptyline)</b> 또는 <b>gabapentin(뉴론틴)</b>.</p></div>
-      <div class="box"><h4><span class="n">C</span> 장기 경과</h4><p>신경 회복 가능성 낮음 → <b>통증 완화 보조</b> 목적의 약물 사용(가이드라인 1차: gabapentinoid·TCA·SNRI).</p></div>
-    </div>
-    <div class="tablewrap" id="taper">
-      <table>
-        <thead><tr><th>일수</th><th>복용 시기 (Prednisolone, 분복)</th><th>1일 합계</th></tr></thead>
-        <tbody>
-          <tr><td>Day 1</td><td>조식 전 <b>2T</b> · 중식 후 1T · 석식 후 <b>2T</b> · 취침 전 1T</td><td>6T</td></tr>
-          <tr><td>Day 2</td><td>조식 전 2T · 중식 후 1T · 석식 후 1T · 취침 전 1T</td><td>5T</td></tr>
-          <tr><td>Day 3</td><td>조식 전 1T · 중식 후 1T · 석식 후 1T · 취침 전 1T</td><td>4T</td></tr>
-          <tr><td>Day 4</td><td>조식 전 1T · 중식 후 1T · 취침 전 1T</td><td>3T</td></tr>
-          <tr><td>Day 5</td><td>조식 전 1T · 취침 전 1T</td><td>2T</td></tr>
-          <tr><td>Day 6</td><td>조식 전 1T</td><td>1T</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="callout">💊 <b>환산</b> — Prednisolone <b>5mg/정</b> 기준 시 <b>30→25→20→15→10→5mg/일</b>로 6일 점감. 위장보호제 동반, 당뇨·활동성 감염·소화성 궤양 시 주의.</div>
-  </section>
-
-  <!-- ② CATALOG -->
-  <section id="catalog">
-    <div class="sec-head"><span class="num">2</span><h2>약물 카탈로그 (대분류 14)</h2></div>
-    <p class="sec-desc">분류별 성분명 · 국내 예시 제품명 · 적응증 · 용법용량 · 금기/주의 · 상호작용. 상단 검색창으로 전체 필터링됩니다.</p>
-    <div class="legend" id="catalog-legend"></div>
-    <div id="catalog-body"></div>
-    <p class="no-results" id="catalog-empty" hidden>검색 결과가 없습니다.</p>
-  </section>
-
-  <!-- ③ ALLERGY -->
-  <section id="allergy">
-    <div class="sec-head"><span class="num">3</span><h2>약물 알러지 대체처방 매트릭스</h2></div>
-    <p class="sec-desc"><b>페니실린 알러지</b>는 중증도와 <b>목적(예방 vs 치료)</b>에 따라 대체가 달라집니다.</p>
-    <div class="callout">💡 <b>핵심 구분</b> — <b>예방요법</b>(2021 AHA): PCN 알러지 시 cephalexin · azithromycin · clarithromycin · doxycycline (<span style="color:var(--danger)">clindamycin 비권장</span>).
-      <b>감염 치료</b>: PCN 알러지 시 clindamycin(여전히 유효) · azithromycin · doxycycline ± metronidazole.</div>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>상황 / 알러지 유형</th><th>1차 선택</th><th>대체 / 비고</th><th>회피</th></tr></thead>
-        <tbody id="allergy-body"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ④ PEDIATRIC -->
-  <section id="pediatric">
-    <div class="sec-head"><span class="num">4</span><h2>소아 용량 (체중 기반)</h2></div>
-    <p class="sec-desc">소아는 <b>mg/kg</b> 기준 + 1일 최대용량 상한. 현탁액은 농도 확인 후 mL 환산.</p>
-    <div class="callout">🚫 <b>소아 주의</b> — Aspirin 금기(Reye 증후군), Doxycycline/Tetracycline 8세 미만 회피(치아착색), Codeine 12세 미만 회피(FDA), Acetaminophen 1일 최대 75mg/kg(≤4g).</div>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>약물</th><th>소아 용량</th><th>1일 최대</th><th>비고</th></tr></thead>
-        <tbody id="ped-body"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ⑤ MAPS -->
-  <section id="maps">
-    <div class="sec-head"><span class="num">5</span><h2>맵 &middot; 시각화</h2></div>
-    <p class="sec-desc">분류 체계, 통증·항생제 의사결정, 술식→처방, 전신질환 안전 맵. (다이어그램 렌더에는 인터넷 연결 필요)</p>
-
-    <div class="diagram">
-      <h3>① 전체 약물 분류 마인드맵</h3>
-      <p class="maphint">🎨 분기별 색상은 약물 대분류를 구분합니다.</p>
-      <pre class="mermaid">
-%%{init: {'theme':'default'}}%%
-mindmap
-  root((치과 약물))
-    국소마취제
-      lidocaine
-      articaine
-      mepivacaine
-    진통소염제
-      NSAID
-      acetaminophen
-      opioid
-    신경병성통증
-      pregabalin
-      gabapentin
-      duloxetine
-      mecobalamin_B12
-      clonazepam
-    항생제
-      amoxicillin
-      augmentin
-      metronidazole
-      clindamycin
-    항진균제
-      nystatin
-      fluconazole
-    항바이러스제
-      acyclovir
-      valacyclovir
-    진정항불안제
-      midazolam
-      diazepam
-      N2O
-    지혈제
-      tranexamic_acid
-      gelatin_sponge
-    스테로이드
-      triamcinolone
-      policresulen
-    불소우식예방
-      NaF
-      SDF
-    소독가글
-      chlorhexidine
-      povidone_iodine
-    위장보호제
-      famotidine
-      rebamipide
-    근이완제
-      eperisone
-    응급약물
-      epinephrine
-      nitroglycerin
-      albuterol
-      </pre>
-    </div>
-
-    <div class="diagram">
-      <h3>② 급성 치통 진통 의사결정 (ADA 2024)</h3>
-      <pre class="mermaid">
-flowchart TD
-  A["급성 치통 평가<br/>(원인 치료 병행)"] --> B{"강도 / NSAID 금기 확인"}
-  B -->|"경도"| C["아세트아미노펜<br/>또는 단일 NSAID"]
-  B -->|"중등도"| D["NSAID + 아세트아미노펜 병용<br/>(1차 권장·오피오이드보다 우수)"]
-  B -->|"중증·1차 불충분"| E["NSAID+APAP<br/>+ 단기 오피오이드 ≤3일"]
-  B -->|"NSAID 금기<br/>(궤양·신장애·항응고·임신3기)"| F["아세트아미노펜<br/>± 단기 오피오이드"]
-  style D fill:#dcfce7,stroke:#16a34a
-  style E fill:#fee2e2,stroke:#dc2626
-      </pre>
-    </div>
-
-    <div class="diagram">
-      <h3>③ 항생제 선택 + 페니실린 알러지 분기</h3>
-      <pre class="mermaid">
-flowchart TD
-  A["항생제 필요?<br/>(전신징후·면역저하·고위험)"] --> B{"목적"}
-  B -->|"감염 치료"| C{"페니실린 알러지?"}
-  B -->|"예방 (AHA/ADA 2021)"| P{"페니실린 알러지?"}
-  C -->|"없음"| C1["amoxicillin 500mg TID<br/>±metronidazole 500mg TID"]
-  C -->|"경증·지연"| C2["1·2세대 cephalosporin<br/>또는 clindamycin / azithromycin"]
-  C -->|"중증·아나필락시스"| C3["clindamycin 300mg QID 또는<br/>azithromycin / doxycycline ±metronidazole<br/>(cephalosporin 회피)"]
-  P -->|"없음"| P1["amoxicillin 2g, 시술 1시간 전"]
-  P -->|"있음"| P2["cephalexin 2g / azithromycin 500mg /<br/>clarithromycin 500mg / doxycycline 100mg<br/>(clindamycin 비권장)"]
-  style C1 fill:#d1fae5,stroke:#10b981
-  style P1 fill:#d1fae5,stroke:#10b981
-  style C3 fill:#fee2e2,stroke:#dc2626
-      </pre>
-    </div>
-
-    <div class="diagram">
-      <h3>④ 술식·상황 → 처방 맵 (핵심)</h3>
-      <p class="maphint">💡 왼쪽 <b>술식 박스를 클릭</b>하면 ① 해당 처방 카드로 이동합니다.</p>
-      <pre class="mermaid">
-flowchart LR
-  subgraph sg1 [외과·식립]
-    S1["단순 발치"] --> R1["진통제 위주<br/>항생제 일반적으로 불필요"]
-    S2["매복치/외과 발치"] --> R2["amoxicillin·augmentin 3–5일<br/>+ NSAID±트라마돌 + CHX"]
-    S3["임플란트 식립"] --> R3["amoxicillin 2g 예방<br/>+ 진통제 + CHX 가글"]
-    S4["상악동거상술"] --> R4["augmentin 875/125 7일<br/>+ 진통제 + 비충혈 보조"]
-  end
-  subgraph sg2 [급성 감염]
-    S5["치근단농양"] --> R5["배농·근관·발치 우선<br/>전신징후시 amoxicillin±metronidazole"]
-    S6["봉와직염·확산"] --> R6["augmentin or amox+metro<br/>중증시 입원·IV·상급의뢰"]
-    S7["NUG/괴사성"] --> R7["metronidazole±amoxicillin<br/>+ CHX + 디브리망"]
-  end
-  subgraph sg3 [만성·점막·기타]
-    S8["만성 치주염"] --> R8["SRP 핵심; 진행성시 amox+metro<br/>국소 minocycline"]
-    S9["TMD"] --> R9["NSAID+근이완제<br/>만성시 저용량 amitriptyline"]
-    S10["아프타 구내염"] --> R10["국소 스테로이드/policresulen<br/>+ benzydamine·CHX 가글"]
-    S11["구강칸디다증"] --> R11["nystatin 함수 / fluconazole"]
-    S12["HSV·대상포진"] --> R12["acyclovir/valacyclovir 조기"]
-  end
-  click S1 goToScenario "‘단순 발치’ 카드 보기"
-  click S2 goToScenario "‘매복치·외과적 발치’ 카드 보기"
-  click S3 goToScenario "‘임플란트 식립’ 카드 보기"
-  click S4 goToScenario "‘상악동 거상술’ 카드 보기"
-  click S5 goToScenario "‘치근단 농양’ 카드 보기"
-  click S6 goToScenario "‘봉와직염’ 카드 보기"
-  click S7 goToScenario "‘괴사성 치주질환’ 카드 보기"
-  click S8 goToScenario "‘만성 치주염/SRP’ 카드 보기"
-  click S9 goToScenario "‘TMD’ 카드 보기"
-  click S10 goToScenario "‘재발성 아프타 구내염’ 카드 보기"
-  click S11 goToScenario "‘구강 칸디다증’ 카드 보기"
-  click S12 goToScenario "‘단순포진·대상포진’ 카드 보기"
-      </pre>
-    </div>
-
-    <div class="diagram">
-      <h3>⑤ 전신질환·특수환자 안전 맵</h3>
-      <pre class="mermaid">
-flowchart LR
-  P1["임신 / 수유"] --> A1["선호: acetaminophen, penicillin계<br/>회피: NSAID(3기), 테트라사이클린, 벤조"]
-  P2["신장애"] --> A2["NSAID 신독성 주의<br/>amoxicillin·metronidazole 용량조절"]
-  P3["간장애"] --> A3["acetaminophen 용량제한<br/>metronidazole·azole 주의"]
-  P4["소화성 궤양"] --> A4["NSAID 회피→acetaminophen<br/>위장보호제 동반"]
-  P5["항응고제<br/>(와파린/DOAC)"] --> A5["NSAID·aspirin 회피<br/>metronidazole·macrolide INR↑ 주의<br/>국소 지혈(tranexamic)"]
-  P6["심혈관·QT 연장"] --> A6["macrolide·azole·에피네프린 주의"]
-  P7["페니실린 알러지"] --> A7["clindamycin·macrolide·doxycycline<br/>(중증시 cephalosporin 회피)"]
-  style A5 fill:#fef3c7,stroke:#d97706
-  style A1 fill:#e0f2fe,stroke:#0284c7
-      </pre>
-    </div>
-  </section>
-
-  <!-- ⑥ EMERGENCY -->
-  <section id="emergency">
-    <div class="sec-head"><span class="num">6</span><h2>응급상황 → 약물 맵</h2></div>
-    <p class="sec-desc">ADA 권장 필수 응급약물 7종(산소·epinephrine·nitroglycerin·albuterol·diphenhydramine·aspirin·glucose) 기반.</p>
-    <div class="diagram">
-      <pre class="mermaid">
-flowchart LR
-  E1["아나필락시스"] --> D1["epinephrine IM<br/>0.3–0.5mg (1:1000)"]
-  E2["협심증·흉통"] --> D2["nitroglycerin 설하<br/>+ 산소"]
-  E3["천식 발작"] --> D3["albuterol 흡입<br/>+ 산소"]
-  E4["저혈당"] --> D4["경구 글루코스<br/>의식없으면 glucagon"]
-  E5["혈관미주신경 실신"] --> D5["산소 + 앙와위·하지거상"]
-  E6["경련"] --> D6["기도확보 + midazolam"]
-  E7["경증 알레르기"] --> D7["diphenhydramine 25–50mg"]
-  E8["심정지"] --> D8["CPR + AED + epinephrine"]
-  style D1 fill:#fee2e2,stroke:#dc2626
-  style D8 fill:#fee2e2,stroke:#dc2626
-      </pre>
-    </div>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>응급약물</th><th>적응</th><th>용량/투여</th></tr></thead>
-        <tbody id="emerg-body"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ⑦ ORAL MEDICINE -->
-  <section id="oralmed">
-    <div class="sec-head"><span class="num">7</span><h2>구강내과 복약지도 (국소 &middot; 함수 처방)</h2></div>
-    <p class="sec-desc">구강내과에서 흔한 <b>국소·함수 제형</b>을 목적별로 정리. 함수제는 보통 <b>5~10분 머금고 뱉은 뒤 30분간 물·음식 금지</b>, 도포제는 <b>거즈로 병소를 말린 뒤 도포(삼키지 않기)</b>.
-      <br>※ 단종·적응증 축소 약물(예: <b>이모튼</b>=치과 적응증 삭제)은 제외하고 현행 통용 제제로 정리.</p>
-    <div class="legend" id="oralmed-legend"></div>
-    <div id="oralmed-body"></div>
-    <p class="no-results" id="oralmed-empty" hidden>검색 결과가 없습니다.</p>
-    <div class="callout">💧 <b>복약지도 공통</b> — 함수 후 30분간 양치·음용 금지(약물 잔류 확보). 전신 스테로이드(소론도 등)는 <b>임의 중단 금지·tapering</b>(<a href="#taper">▸ Tapering 표</a>). 근이완제·항히스타민 복용 시 졸음 → 운전 주의. 보조용품: 턱관절 온찜질팩·무설탕 자일리톨 껌.</div>
-  </section>
-
-  <!-- ⑧ REFS -->
-  <section id="refs">
-    <div class="sec-head"><span class="num">8</span><h2>참고문헌 &middot; 출처</h2></div>
-    <ol class="refs">
-      <li>American Dental Association. <i>Oral Health Topics — Antibiotic Prophylaxis Prior to Dental Procedures / Antibiotic Stewardship / Oral Analgesics for Acute Dental Pain.</i></li>
-      <li>ADA. <i>Evidence-based clinical practice guideline on antibiotic use for the urgent management of pulpal- and periapical-related dental pain and intraoral swelling.</i> JADA, 2019.</li>
-      <li>ADA. <i>Evidence-based clinical practice guideline for the pharmacologic management of acute dental pain.</i> JADA, 2024 (NSAID±acetaminophen 1차 권장).</li>
-      <li>American Heart Association. <i>Prevention of Viridans Group Streptococcal Infective Endocarditis — Scientific Statement.</i> Circulation, 2021 (clindamycin 예방 제외).</li>
-      <li>American Academy of Pediatric Dentistry. <i>Reference Manual — Useful Medications for Oral Conditions</i> (소아 체중기반 용량).</li>
-      <li>식품의약품안전처 / health.kr 의약품 정보 (아목시실린, 헥사메딘 0.12% 등 국내 허가·용법).</li>
-      <li>대한치과의사협회 · 치의신보 — 국내 치과 항생제 사용 관행 및 적정성 자료.</li>
-      <li>StatPearls — Conscious Sedation in Dentistry; Antibiotic Prophylaxis in Dental and Oral Surgery; Dental Abscess.</li>
-      <li>Finnerup NB, Dworkin RH 외(NeuPSIG/IASP). <i>Pharmacotherapy for neuropathic pain in adults: a systematic review and meta-analysis.</i> Lancet Neurology, 2015 — 1차: gabapentinoid·TCA·SNRI / 2차: tramadol·국소(lidocaine·capsaicin) / 3차: 강 opioid.</li>
-      <li>약업신문. <i>국내외 가이드라인 권고 1차 신경병증성 통증 치료제…리리카·뉴론틴.</i> (신경병성 통증 1차 치료제 개요)</li>
-    </ol>
-  </section>
+  <div class="disclaimer">
+    <span style="font-size:18px">⚠️</span>
+    <div><b>면책 고지 —</b> 본 노트는 <b>교육·요약 목적</b>이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.
+    처방·시술 전 <b>원전과 환자 상태</b>를 반드시 확인하십시오.</div>
+  </div>
 </main>
 
-<button id="toTop" title="맨 위로" aria-label="맨 위로 이동">↑</button>
-
 <footer class="wrap">
-  치과 상용 약물 &middot; 술식별 처방 가이드 — 교육용 인터랙티브 레퍼런스 · 처방 전 공식 허가사항·가이드라인 확인 필수<br/>
-  © 2026 · 데이터 정리 기준일 2026-06-22
+  JH의 덴탈노트 — 임상 치과 레퍼런스 허브 · 교육용 · © 2026
 </footer>
 
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad:true, theme:'neutral', securityLevel:'loose', flowchart:{ htmlLabels:true, curve:'basis' } });
-</script>
-
 <script>
-/* ============ DATA ============ */
-const catColors = {
-  anesth:'#3b82f6', analg:'#ef4444', neuro:'#4f46e5', abx:'#10b981', fungal:'#a855f7', viral:'#6366f1',
-  sed:'#f59e0b', hemo:'#e11d48', steroid:'#0ea5e9', fluoride:'#14b8a6', anti:'#8b5cf6',
-  gi:'#84cc16', relax:'#f97316', emerg:'#dc2626'
-};
-const scenarioTagColor = {
-  '외과·발치':'#0f6e8c', '식립·골이식':'#7c3aed', '급성 감염':'#dc2626',
-  '치주':'#137a63', '점막·바이러스':'#a855f7', '근골격':'#f97316',
-  '신경병성 통증':'#4f46e5', '예방':'#0a5066', '특수 환자군':'#475569'
-};
-
-const scenarios = [
-  { n:'단순 발치', tag:'외과·발치',
-    adult:'NSAID(ibuprofen 400mg / loxoprofen 60mg TID) ± acetaminophen. 건강한 환자에서 <span class="em">항생제는 일반적으로 불필요</span>.',
-    allergy:'NSAID 금기 시 acetaminophen 650mg q6h ± tramadol.',
-    ped:'Ibuprofen 10mg/kg/회 q6–8h, acetaminophen 10–15mg/kg/회.',
-    note:'국내 발치 후 항생제 처방률이 매우 높으나(과처방 지적), 비감염 단순 발치엔 비권장.' },
-  { n:'매복치·외과적 발치(사랑니)', tag:'외과·발치',
-    adult:'Amoxicillin 500mg TID 또는 Augmentin 625mg TID 3–5일 + Loxoprofen 60mg TID(부족 시 +Tramadol/APAP) + 위장약 + CHX 0.12% 가글. 부종 심하면 단기 corticosteroid 고려.',
-    allergy:'PCN 알러지: clindamycin 300mg QID 또는 azithromycin. (치료 목적이므로 clindamycin 사용 가능)',
-    ped:'Amoxicillin 20–40mg/kg/일 분3, ibuprofen 10mg/kg/회.',
-    note:'항생제는 외과적 침습·감염위험 시 선택적. 통증/부종 관리가 핵심.' },
-  { n:'치근단 농양·급성 치성감염', tag:'급성 감염',
-    adult:'<span class="em">배농·근관치료·발치(정의적 처치) 우선</span>. 전신징후(발열·림프절·확산) 또는 면역저하 시 amoxicillin 500mg TID 3–7일, 반응 미흡 시 +metronidazole 500mg TID + 진통제.',
-    allergy:'PCN 알러지: clindamycin 300mg QID, 또는 azithromycin/doxycycline ±metronidazole.',
-    ped:'Amoxicillin 40–50mg/kg/일 분3(중증 시 ↑), 증상 소실 24h 후 중단.',
-    note:'ADA 2019: 국소화된 농양은 항생제 없이 처치 가능. 증상 호전 후 조기 중단.' },
-  { n:'봉와직염·확산성 감염', tag:'급성 감염',
-    adult:'Augmentin 625mg TID 또는 amoxicillin+metronidazole. 기도위협·전신독성·개구장애 시 <span class="em">입원·정맥 항생제·구강악안면외과 의뢰</span>.',
-    allergy:'PCN 알러지: clindamycin ± metronidazole; 중증 시 입원 치료.',
-    ped:'체중기반 augmentin; 중증은 입원.',
-    note:'Ludwig angina 등 심부공간 감염은 응급. 기도 평가 필수.' },
-  { n:'임플란트 식립', tag:'식립·골이식',
-    adult:'예방 amoxicillin 2g 시술 1시간 전(±술후 amoxicillin 500mg TID 단기) + 진통제 + CHX 0.12% 가글.',
-    allergy:'PCN 알러지: clindamycin 600mg 1시간 전 또는 azithromycin 500mg.',
-    ped:'해당 드묾(성장 완료 후 식립).',
-    note:'단순 식립 루틴 예방의 근거는 제한적; 단일 술전 용량이 흔히 사용.' },
-  { n:'상악동 거상술(Sinus lift)', tag:'식립·골이식',
-    adult:'Augmentin 875/125mg q12h(β-lactamase 산생균 대비), 술전~술후 7일 + 진통제 + pseudoephedrine(슈다펜)·항히스타민 비충혈 보조. <span class="em">코 풀기·빨대 사용 금지 교육</span>.',
-    allergy:'PCN 알러지: cefuroxime axetil, 또는 clindamycin/azithromycin.',
-    ped:'해당 없음(성인 술식).',
-    note:'상악동 천공·점막 손상 시 감염 위험↑. 비강 위생 관리 병행.' },
-  { n:'골이식·GBR', tag:'식립·골이식',
-    adult:'예방 amoxicillin/augmentin 단기(술전 1회 ± 술후 3–5일) + 진통제 + CHX 가글.',
-    allergy:'PCN 알러지: clindamycin/azithromycin.',
-    ped:'해당 드묾.',
-    note:'차폐막 노출·이식재 오염 방지가 성패 좌우.' },
-  { n:'근관치료(Endodontics)', tag:'급성 감염',
-    adult:'대부분 <span class="em">항생제 불필요</span>(국소 처치로 해결). 전신징후 동반 시에만 amoxicillin + 진통제(NSAID±APAP).',
-    allergy:'필요 시 clindamycin/azithromycin.',
-    ped:'증상성 비가역성 치수염엔 항생제 부적응.',
-    note:'가역적/비가역적 치수염, 증상성 근단치주염엔 항생제 권고되지 않음.' },
-  { n:'만성 치주염 / SRP', tag:'치주',
-    adult:'<span class="em">SRP(비외과 치주치료)가 핵심</span>. 전신 항생제 통상 불필요. 진행성/공격성: amoxicillin 500mg + metronidazole 400–500mg TID 7일. 국소 minocycline·CHX 보조.',
-    allergy:'PCN 알러지: metronidazole + azithromycin/doxycycline.',
-    ped:'소아 치주염 드묾; 전문의 의뢰.',
-    note:'국소 약물전달(미노사이클린 연고)·구강위생 강화 병행.' },
-  { n:'괴사성 치주질환(NUG/NUP)', tag:'치주',
-    adult:'Metronidazole 250–500mg TID 7일(±amoxicillin) + CHX 0.12% 가글 + 디브리망 + 진통제 + 영양/금연.',
-    allergy:'PCN 알러지: metronidazole 단독 또는 +azithromycin.',
-    ped:'면역저하 동반 평가 필요.',
-    note:'급성 통증·괴사·악취 특징. 전신요인(스트레스·흡연·면역) 교정.' },
-  { n:'TMD / 측두하악장애', tag:'근골격',
-    adult:'NSAID(소염진통) 1차 + 근이완제(eperisone 50mg TID / cyclobenzaprine). 만성통증: 저용량 amitriptyline 야간. 급성/이갈이: 단기 benzodiazepine. <span class="em">교합안정장치·물리치료 병행</span>.',
-    allergy:'NSAID 금기 시 acetaminophen; 근이완제 유지.',
-    ped:'보존적 치료 우선; 약물 신중.',
-    note:'항생제 적응 아님. 대부분 자기한정성·보존적 관리.' },
-  { n:'하치조신경 손상·감각이상', tag:'신경병성 통증',
-    adult:'발치(매복치)·임플란트·신경치료 후 입술·혀 <span class="em">이상감각(저림·통증)</span>. <span class="em">초기</span>: 기구 신경관 침범 시 제거, 소켓·드릴링부에 <span class="em">dexamethasone 4mg/mL 국소주입</span>(2~3분 후 조작) + <span class="em">prednisolone 3~5일 점감</span> + methylcobalamin(Vit B₁₂). <span class="em">3~6개월</span>: 국소 캡사이신/clonazepam·비타민, 필요 시 gabapentin·TCA. 신경병성 통증 1차: pregabalin(리리카)·gabapentin·duloxetine.',
-    allergy:'약물 과민/부작용 시 gabapentin 또는 삼환계 amitriptyline/nortriptyline로 대체.',
-    ped:'드묾; 구강악안면외과·신경과 의뢰.',
-    note:'상병 예: 피부의 감각저하(R20.1). 가이드라인(NeuPSIG): <span class="em">1차 gabapentinoid·TCA·SNRI</span> / 2차 tramadol·국소 / 3차 강 opioid. 다수 수개월 내 호전; 지속·완전마비·심한 통증은 조기 전문의 의뢰. <a href="#taper">▸ 스테로이드 Tapering 6일 표</a>' },
-  { n:'구강작열감증후군(BMS)·설통', tag:'신경병성 통증',
-    adult:'점막 병변 없이 작열감/통증. <span class="em">국소 clonazepam(리보트릴) 0.5mg 함수 후 뱉기</span> 또는 저용량 경구. 보조: α-lipoic acid, capsaicin 함수, 저용량 삼환계/SNRI. <span class="em">구강건조·칸디다·영양결핍(철·B12·엽산) 감별·교정</span>.',
-    allergy:'벤조 회피 시 gabapentin/pregabalin 또는 삼환계.',
-    ped:'매우 드묾.',
-    note:'상병 예: 설통·혀작열감(K14.6). 만성·다인자성 → 안심교육 + 약물 병행, 야간 이갈이 동반 평가.' },
-  { n:'재발성 아프타 구내염', tag:'점막·바이러스',
-    adult:'국소 corticosteroid(triamcinolone 0.1% 연고/오라메디), policresulen(알보칠) 도포, benzydamine·CHX 가글. 중증·다발: 단기 전신 prednisolone.',
-    allergy:'국소제 위주로 전신약 회피.',
-    ped:'국소 스테로이드 소량, 자극성 음식 회피.',
-    note:'2차 감염·전신질환(베체트 등) 감별. 통증 조절 중심.' },
-  { n:'구강 칸디다증', tag:'점막·바이러스',
-    adult:'Nystatin 현탁액 4–6mL QID 함수 후 삼킴(또는 뱉음), 또는 fluconazole 150mg(중증 100mg/일 7–14일). 의치 소독.',
-    allergy:'azole 과민 시 nystatin 국소.',
-    ped:'Nystatin 현탁액 도포; 영아 칸디다 흔함.',
-    note:'기저질환(당뇨·면역저하·흡입스테로이드·구강건조) 교정.' },
-  { n:'단순포진·대상포진(HSV/VZV)', tag:'점막·바이러스',
-    adult:'Acyclovir 400mg 5회/일 또는 valacyclovir 1g BID, <span class="em">발진 72시간 내 조기 시작</span> + 진통.',
-    allergy:'대체 항바이러스 선택, 수분·영양 지지.',
-    ped:'체중기반 acyclovir; 1차 herpetic gingivostomatitis 지지요법.',
-    note:'국소 docosanol/penciclovir는 구순포진 보조.' },
-  { n:'건성 치조와(Dry socket)', tag:'외과·발치',
-    adult:'<span class="em">항생제 아님</span>: 소켓 세척 + 진정드레싱(eugenol 거즈) + NSAID 진통. 재방문 드레싱.',
-    allergy:'진통제만 조정.',
-    ped:'드묾.',
-    note:'발치 3–5일 후 심한 통증·악취·노출골. CHX 가글이 예방에 도움.' },
-  { n:'감염성 심내막염·인공관절 예방', tag:'예방',
-    adult:'<span class="em">고위험 심질환자 + 침습 시술</span>에만: amoxicillin 2g 1시간 전. (인공판막, IE 과거력, 특정 선천성 심질환, 판막병증 동반 심장이식)',
-    allergy:'PCN 알러지: cephalexin 2g / azithromycin 500mg / doxycycline 100mg (<span class="em">clindamycin 비권장</span>).',
-    ped:'Amoxicillin 50mg/kg(최대 2g) 1시간 전.',
-    note:'치은·치근단 조작 또는 구강점막 천공 시술이 대상. 일상 칫솔질이 더 큰 균혈증원.' },
-  { n:'임산부·수유부 처방', tag:'특수 환자군',
-    adult:'진통: <span class="em">acetaminophen 1차</span>(전 시기 비교적 안전). NSAID는 1·2기 단기만, <span class="em">3기 금기</span>(동맥관 조기폐쇄·양수감소). aspirin 회피. 항생제: penicillin/amoxicillin·cephalosporin·clindamycin 안전. 국소마취 lidocaine(+소량 epi) 가능. 가급적 <span class="em">2기에 치료</span>.',
-    allergy:'PCN 알러지: cephalosporin 또는 clindamycin. 회피: tetracycline/doxycycline(치아·골 침착); metronidazole·벤조디아제핀·N₂O는 신중.',
-    ped:'해당 없음(성인 대상).',
-    note:'수유: acetaminophen·ibuprofen·penicillin/cephalosporin 호환. 응급 외 선택 시술은 분만 후로 연기 고려.' },
-  { n:'항응고·항혈소판제 환자 발치', tag:'특수 환자군',
-    adult:'<span class="em">대부분 약물 중단 없이</span> 단순발치 가능. 와파린 INR 확인(통상 &lt;4.0), DOAC는 중단·브리징 불필요(필요시 복용시간만 조정). <span class="em">국소지혈 강화</span>: tranexamic acid 함수(4.8%)·gelatin sponge·봉합·압박. 진통은 acetaminophen.',
-    allergy:'항생제 필요 시 metronidazole·macrolide는 <span class="em">와파린 INR↑</span> 주의.',
-    ped:'드묾; 기저질환별 자문.',
-    note:'NSAID·aspirin 진통 회피(출혈 위험). 광범위 수술·복합 항응고는 의과 자문.' },
-  { n:'MRONJ 위험(항흡수제) 환자', tag:'특수 환자군',
-    adult:'비스포스포네이트·denosumab 등 복용 시 발치·골수술로 <span class="em">악골괴사(MRONJ) 위험</span>. 위험도 평가(정맥/암환자=고위험). <span class="em">비외상적 술식·1차 봉합</span> + 술전후 amoxicillin + chlorhexidine 가글 + 추적.',
-    allergy:'PCN 알러지: clindamycin/azithromycin.',
-    ped:'해당 드묾.',
-    note:'<span class="em">임의 약물 중단(drug holiday) 금지</span>(근거 제한) → 처방의와 상의. 가능하면 비발치적 대안 우선.' },
+/* ===== 노트 메타데이터 — 하위 페이지를 여기에 추가하면 자동 노출 ===== */
+const notes = [
+  { title:'치과 약물 · 처방 가이드', href:'drug-guide.html', icon:'💊', accent:'#0f6e8c', tag:'약물·처방',
+    desc:'술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 페니실린 알러지 대체, 소아 용량, 의사결정 맵, 응급, 구강내과 복약지도.',
+    keywords:'약물 처방 항생제 진통제 마취 알러지 소아 응급 구강내과 mronj 신경병성 tapering' },
+  { title:'MRONJ 임상권고안 2025', href:'mronj.html', icon:'🦴', accent:'#b3261e', tag:'가이드라인',
+    desc:'약물관련 악골괴사(MRONJ) 진단 기준·위험요인·예방(비스포스포네이트·데노수맙 휴약 타이밍)·발생 시 휴약·보조치료 요약.',
+    keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 테리파라타이드 골흡수억제제' },
+  { title:'노트 추가 예정', href:'', icon:'➕', accent:'#5b6b7d', tag:'준비 중', soon:true,
+    desc:'교합·TMD, 임플란트, 방사선 판독, 소아치과 등 임상 노트가 순차적으로 추가됩니다.',
+    keywords:'준비중 예정 coming soon' },
 ];
 
-const catalog = [
-  { id:'anesth', name:'국소마취제', drugs:[
-    { g:'Lidocaine (+epinephrine 1:100k)', b:'리도카인, 옥타프레신', cl:'아마이드', ind:'침윤·전달마취', dose:'2% 1.8mL/카트리지; 최대 ~7mg/kg(에피 포함), 절대 500mg', cau:'심혈관·갑상선항진 시 에피 주의; 과량 시 CNS/심독성', it:'비선택 β-blocker·삼환계와 에피 상호작용' },
-    { g:'Articaine 4% (+epi)', b:'옥타카인', cl:'아마이드', ind:'침윤마취(골침투 우수)', dose:'4% 1.8mL; 최대 7mg/kg', cau:'4–5세 미만 자료 제한; 하치조 전달 시 감각이상 보고', it:'에피 관련 상호작용' },
-    { g:'Mepivacaine 3%', b:'카르보카인', cl:'아마이드', ind:'혈관수축제 회피 필요 시', dose:'3% plain; 최대 6.6mg/kg(≤400mg)', cau:'작용시간 짧음', it:'-' },
-    { g:'Prilocaine', b:'시타네스트', cl:'아마이드', ind:'전달마취', dose:'최대 8mg/kg(≤600mg)', cau:'고용량 시 메트헤모글로빈혈증', it:'메트헤모글로빈 유발제' },
-    { g:'Bupivacaine', b:'마카인', cl:'아마이드(장시간)', ind:'장시간 술후 진통', dose:'0.5%; 최대 1.3mg/kg', cau:'심독성↑', it:'-' },
-  ]},
-  { id:'analg', name:'진통·소염제', drugs:[
-    { g:'Ibuprofen', b:'부루펜', cl:'NSAID', ind:'치성 통증·염증 1차', dose:'400mg q6–8h(≤3200mg/일)', cau:'위궤양·신장애·천식·임신3기 금기', it:'항응고제·ACEi·리튬·SSRI' },
-    { g:'Dexibuprofen', b:'맥시부펜', cl:'NSAID', ind:'염증성 통증', dose:'300mg BID–TID', cau:'NSAID 공통', it:'NSAID 공통' },
-    { g:'Naproxen', b:'낙센', cl:'NSAID(장시간)', ind:'지속성 통증', dose:'250–500mg BID', cau:'심혈관·위장', it:'항응고제' },
-    { g:'Aceclofenac', b:'에어탈', cl:'NSAID', ind:'술후 통증·부종', dose:'100mg BID', cau:'NSAID 공통', it:'NSAID 공통' },
-    { g:'Loxoprofen', b:'록소닌', cl:'NSAID(prodrug)', ind:'국내 치과 다용', dose:'60mg TID', cau:'위장 비교적 양호하나 주의', it:'NSAID 공통' },
-    { g:'Mefenamic acid', b:'폰탈', cl:'NSAID', ind:'경중등도 통증', dose:'250–500mg TID', cau:'설사·신장애', it:'NSAID 공통' },
-    { g:'Acetaminophen', b:'타이레놀', cl:'해열진통(비NSAID)', ind:'NSAID 금기·병용', dose:'325–650mg q4–6h(≤4g/일, 음주자 ↓)', cau:'간독성(과량·음주)', it:'와파린(고용량), 알코올' },
-    { g:'Tramadol/APAP', b:'울트라셋', cl:'약한 오피오이드 복합', ind:'중등도~중증, 단기', dose:'1–2정 q6h, 단기(≤3일)', cau:'경련·세로토닌증후군·의존', it:'SSRI/SNRI·MAOI·삼환계' },
-    { g:'Codeine', b:'코데인', cl:'오피오이드', ind:'중증, 제한적', dose:'단기 최소용량', cau:'12세 미만 회피·호흡억제', it:'CNS억제제' },
-  ]},
-  { id:'neuro', name:'신경병성·구강안면통증', drugs:[
-    { g:'Pregabalin', b:'리리카', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증 1차·감각이상(하치조신경)', dose:'75mg 야간 시작→150–300mg/일 분2', cau:'졸음·어지럼·부종·체중↑; 신기능 감량', it:'CNS억제제·알코올' },
-    { g:'Gabapentin', b:'뉴론틴', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증 1차', dose:'100–300mg 야간 시작→점증(900–3600mg/일)', cau:'졸음·실조; 신기능 감량', it:'제산제(흡수↓)·CNS억제제' },
-    { g:'Duloxetine', b:'심발타', cl:'SNRI', ind:'신경병성·만성 통증 1차(SNRI)', dose:'30mg QD→60mg', cau:'오심·불면·혈압↑; <span class="em">MAOI·중증 간장애 금기</span>', it:'트라마돌·삼환계(세로토닌)·CYP2D6' },
-    { g:'Mecobalamin (Vit B12)', b:'엠코발', cl:'비타민 B12', ind:'말초신경 회복 보조', dose:'500µg TID 경구(또는 주사)', cau:'대체로 안전', it:'-' },
-    { g:'Clonazepam', b:'리보트릴', cl:'벤조디아제핀', ind:'구강작열감(BMS)·설통(국소/저용량)', dose:'0.5mg 국소 함수 후 뱉기 또는 야간 경구', cau:'졸음·의존·낙상', it:'CNS억제제·CYP3A4' },
-  ]},
-  { id:'abx', name:'항생제', drugs:[
-    { g:'Amoxicillin', b:'곰실린, 종근당아목시실린', cl:'아미노페니실린', ind:'치성감염 1차·예방', dose:'치료 250–500mg TID; 예방 2g 1회', cau:'페니실린 알러지·전염단핵구증 발진', it:'알로퓨리놀, 경구피임 효과↓ 가능' },
-    { g:'Amoxicillin/clavulanate', b:'오구멘틴, 크라목신', cl:'β-락탐+억제제', ind:'β-lactamase·상악동·난치 감염', dose:'375–625mg TID 또는 875/125 BID', cau:'설사·간효소↑', it:'페니실린 공통' },
-    { g:'Penicillin VK', b:'페니실린V', cl:'페니실린', ind:'치성감염', dose:'250–500mg QID', cau:'알러지', it:'-' },
-    { g:'Cephalexin', b:'케펙신', cl:'1세대 세팔로스포린', ind:'PCN 경증알러지 대체·예방', dose:'치료 250–500mg QID; 예방 2g', cau:'중증 PCN 알러지 시 회피', it:'-' },
-    { g:'Cefadroxil', b:'듀리세프', cl:'1세대 세팔로스포린', ind:'대체', dose:'500mg BID', cau:'상동', it:'-' },
-    { g:'Azithromycin', b:'지스로맥스', cl:'마크로라이드', ind:'PCN 알러지 대체·예방', dose:'예방 500mg 1회; 치료 500mg→250mg×4d', cau:'QT 연장', it:'QT약물·와파린' },
-    { g:'Clarithromycin', b:'클래리시드', cl:'마크로라이드', ind:'대체', dose:'250–500mg BID', cau:'QT·CYP3A4 억제', it:'스타틴·와파린·다수' },
-    { g:'Clindamycin', b:'클린다마이신', cl:'린코사마이드', ind:'PCN 알러지 감염치료(예방 비권장)', dose:'300mg QID(치료)', cau:'<span class="em">C. difficile 대장염</span>', it:'-' },
-    { g:'Metronidazole', b:'후라시닐', cl:'니트로이미다졸', ind:'혐기성·NUG·치주 보조', dose:'250–500mg TID', cau:'음주 금지(디설피람 반응)', it:'와파린 INR↑·알코올' },
-    { g:'Doxycycline', b:'바이브라마이신', cl:'테트라사이클린', ind:'대체·치주(국소)', dose:'100mg BID', cau:'8세 미만·임신 금기, 광과민', it:'제산제·철분 흡수↓' },
-  ]},
-  { id:'fungal', name:'항진균제', drugs:[
-    { g:'Nystatin', b:'마이코스타틴', cl:'폴리엔(국소)', ind:'구강 칸디다증', dose:'현탁액 4–6mL QID 함수', cau:'전신흡수 적음', it:'-' },
-    { g:'Fluconazole', b:'디푸루칸', cl:'트리아졸(전신)', ind:'중등도~중증 칸디다', dose:'150mg 1회 또는 100mg/일 7–14d', cau:'간독성·QT', it:'와파린·CYP 다수' },
-    { g:'Miconazole oral gel', b:'-', cl:'이미다졸(국소)', ind:'구강·구각 칸디다', dose:'국소 도포 QID', cau:'와파린 상호작용(흡수)', it:'와파린 INR↑' },
-    { g:'Clotrimazole troche', b:'-', cl:'이미다졸(국소)', ind:'구강 칸디다', dose:'트로키 5회/일', cau:'-', it:'-' },
-  ]},
-  { id:'viral', name:'항바이러스제', drugs:[
-    { g:'Acyclovir', b:'조비락스', cl:'뉴클레오시드', ind:'HSV·VZV', dose:'경구 400mg 5회/일(또는 200mg)', cau:'신기능 용량조절·수분', it:'신독성약물' },
-    { g:'Valacyclovir', b:'발트렉스', cl:'프로드러그', ind:'HSV·대상포진', dose:'1g BID(대상포진 1g TID)', cau:'신기능', it:'-' },
-    { g:'Famciclovir', b:'팜비어', cl:'프로드러그', ind:'대상포진·구순포진', dose:'250–500mg', cau:'신기능', it:'-' },
-    { g:'Penciclovir/Docosanol', b:'-', cl:'국소', ind:'구순포진 보조', dose:'국소 도포', cau:'-', it:'-' },
-  ]},
-  { id:'sed', name:'진정·항불안제', drugs:[
-    { g:'Midazolam', b:'도미컴', cl:'벤조디아제핀(단시간)', ind:'정맥/경구 의식하진정', dose:'정맥 적정; 경구 소아 0.5mg/kg', cau:'호흡억제·역설반응', it:'오피오이드·CNS억제제; 역전제 flumazenil' },
-    { g:'Diazepam', b:'바리움', cl:'벤조디아제핀(장시간)', ind:'항불안·전투약', dose:'경구 2–10mg', cau:'축적·진정 지속', it:'CNS억제제' },
-    { g:'Triazolam', b:'할시온', cl:'벤조디아제핀', ind:'경구 진정(술전)', dose:'0.125–0.25mg', cau:'기억상실·낙상', it:'CYP3A4 억제제(케토코나졸 등) 금기' },
-    { g:'Hydroxyzine', b:'유시락스', cl:'항히스타민', ind:'경증 불안·보조', dose:'25–50mg', cau:'진정·항콜린', it:'CNS억제제' },
-    { g:'Nitrous oxide (N₂O)', b:'아산화질소', cl:'흡입진정', ind:'흡입 진정/진통', dose:'O₂와 적정(20–50% N₂O)', cau:'비타민B12·임신 주의·확산저산소', it:'-' },
-  ]},
-  { id:'hemo', name:'지혈제', drugs:[
-    { g:'Tranexamic acid', b:'도란사민', cl:'항섬유소용해', ind:'항응고환자·출혈', dose:'경구 250–500mg TID; 4.8% 함수', cau:'혈전 위험군 주의', it:'-' },
-    { g:'Oxidized cellulose', b:'서지셀', cl:'국소지혈', ind:'발치와 출혈', dose:'국소 충전', cau:'과충전 시 치유지연', it:'-' },
-    { g:'Gelatin sponge', b:'젤폼', cl:'국소지혈', ind:'소켓 지혈', dose:'국소', cau:'감염원 가능', it:'-' },
-    { g:'Epinephrine gauze', b:'-', cl:'혈관수축', ind:'국소 지혈', dose:'국소 압박', cau:'심혈관 흡수 주의', it:'-' },
-    { g:'Bone wax', b:'본왁스', cl:'기계적', ind:'골 출혈', dose:'국소 도포', cau:'이물반응', it:'-' },
-  ]},
-  { id:'steroid', name:'스테로이드·국소소염', drugs:[
-    { g:'Triamcinolone 0.1% paste', b:'오라메디', cl:'국소 코르티코스테로이드', ind:'아프타·궤양', dose:'환부 도포 BID–QID', cau:'2차감염·장기사용', it:'-' },
-    { g:'Dexamethasone', b:'덱사메타손', cl:'전신 스테로이드', ind:'술후 부종', dose:'단기 경구/주사', cau:'혈당↑·감염', it:'NSAID 위장' },
-    { g:'Prednisolone', b:'소론도', cl:'전신 스테로이드', ind:'중증 점막질환', dose:'단기 점감', cau:'면역억제·혈당', it:'-' },
-    { g:'Policresulen', b:'알보칠', cl:'국소 부식·소독', ind:'구내염 도포', dose:'면봉 소량 도포', cau:'강산성·정상점막 자극', it:'-' },
-  ]},
-  { id:'fluoride', name:'불소·우식예방', drugs:[
-    { g:'Sodium fluoride (NaF)', b:'-', cl:'불소', ind:'우식예방·지각과민', dose:'바니시 5% / 양치 0.05%', cau:'소아 삼킴 주의', it:'-' },
-    { g:'APF gel', b:'-', cl:'불소(산성)', ind:'전문가 도포', dose:'1.23% 트레이', cau:'도재 수복물 부식', it:'-' },
-    { g:'Silver diamine fluoride(SDF)', b:'-', cl:'은+불소', ind:'우식정지(소아·노인)', dose:'38% 도포', cau:'<span class="em">병소 흑변</span>', it:'-' },
-    { g:'Stannous fluoride', b:'-', cl:'불소', ind:'지각과민·항균', dose:'양치/겔', cau:'착색', it:'-' },
-  ]},
-  { id:'anti', name:'소독제·가글', drugs:[
-    { g:'Chlorhexidine 0.12%', b:'헥사메딘', cl:'비스비구아니드', ind:'치주·술후·구내염', dose:'15mL BID 30초, 2주 이내', cau:'치아착색·미각변화', it:'치약 후 30분 간격' },
-    { g:'Povidone-iodine', b:'베타딘 가글', cl:'요오드', ind:'구강 소독', dose:'희석 함수', cau:'갑상선·임신·요오드 알러지', it:'-' },
-    { g:'CPC', b:'가그린', cl:'4급암모늄', ind:'일상 구강세정', dose:'함수', cau:'착색 적음', it:'-' },
-    { g:'Hydrogen peroxide', b:'과산화수소', cl:'산화제', ind:'NUG·세정', dose:'1.5–3% 희석', cau:'장기사용 점막자극', it:'-' },
-    { g:'Benzydamine', b:'탄툼', cl:'국소 NSAID', ind:'구내염·인후통 함수', dose:'15mL 함수/분무', cau:'작열감', it:'-' },
-  ]},
-  { id:'gi', name:'위장보호제(동반)', drugs:[
-    { g:'Famotidine', b:'가스터', cl:'H2 차단제', ind:'NSAID 위장보호', dose:'20mg QD–BID', cau:'신기능 조절', it:'-' },
-    { g:'Rebamipide', b:'무코스타', cl:'점막보호', ind:'위점막 보호', dose:'100mg TID', cau:'-', it:'-' },
-    { g:'Almagate', b:'알마겔', cl:'제산제', ind:'속쓰림', dose:'식후/취침', cau:'타약 흡수↓(간격)', it:'테트라사이클린·퀴놀론 흡수↓' },
-    { g:'PPI(omeprazole 등)', b:'오메프라졸', cl:'양성자펌프억제제', ind:'고위험 위장보호', dose:'표준용량 QD', cau:'장기사용 영향', it:'clopidogrel 등' },
-    { g:'Stillen (애엽 95% ext.)', b:'스티아렌', cl:'생약 위점막보호', ind:'NSAID 위염·위점막 보호', dose:'60mg TID', cau:'국내 다용; 일반적으로 양호', it:'-' },
-  ]},
-  { id:'relax', name:'근이완제(TMD 등)', drugs:[
-    { g:'Eperisone', b:'뮤렉스', cl:'중추성 근이완', ind:'근긴장·TMD', dose:'50mg TID', cau:'졸음·무력', it:'CNS억제제' },
-    { g:'Afloqualone', b:'아록사', cl:'중추성 근이완', ind:'근긴장', dose:'20mg TID', cau:'졸음·광과민', it:'-' },
-    { g:'Cyclobenzaprine', b:'-', cl:'중추성 근이완', ind:'근육성 TMD', dose:'5–10mg 야간', cau:'항콜린·진정', it:'MAOI·삼환계' },
-    { g:'Amitriptyline', b:'에트라빌', cl:'삼환계 항우울', ind:'만성 안면통(저용량)', dose:'10–25mg 야간', cau:'항콜린·QT·심전도', it:'MAOI·트라마돌(세로토닌)' },
-  ]},
-];
-
-const allergyRows = [
-  ['예방요법 — PCN 알러지(2021 AHA)','cephalexin 2g / azithromycin 500mg','clarithromycin 500mg, doxycycline 100mg','<span class="em">clindamycin (비권장)</span>'],
-  ['감염 치료 — PCN 경증·지연 알러지','1·2세대 cephalosporin','clindamycin 300mg QID, azithromycin','-'],
-  ['감염 치료 — PCN 중증(아나필락시스)','clindamycin 300mg QID','azithromycin/clarithromycin, doxycycline ±metronidazole','<span class="em">cephalosporin·penicillin</span>'],
-  ['혐기성 보강 필요(농양·NUG)','metronidazole 500mg TID','+amoxicillin 또는 +clindamycin','음주(metronidazole)'],
-  ['NSAID 알러지/금기(궤양·천식·신장애)','acetaminophen 650mg q6h','tramadol/APAP, (선택적 COX-2)','aspirin·비선택 NSAID'],
-  ['Sulfa·다중 알러지','병력 정밀확인·약사협진','doxycycline 등 비교차 계열','교차반응 계열'],
-];
-
-const pedRows = [
-  ['Amoxicillin','20–50mg/kg/일 분3 (중증↑)','체중기반','감염 7일 내외, 증상 소실 24h 후 중단'],
-  ['Amoxicillin/clavulanate','25–45mg/kg/일 분2 (amox 기준)','체중기반','설사 시 감량/변경'],
-  ['예방요법 Amoxicillin','50mg/kg 1회 (시술 1h 전)','최대 2g','심내막염 고위험'],
-  ['Cephalexin','25–50mg/kg/일 분2–4','-','PCN 경증알러지 대체'],
-  ['Azithromycin','10mg/kg 1일차→5mg/kg','-','예방 15mg/kg 1회'],
-  ['Clindamycin','10–20mg/kg/일 분3 (치료)','-','C. difficile 주의'],
-  ['Metronidazole','15–30mg/kg/일 분3','-','혐기성 보강'],
-  ['Ibuprofen','10mg/kg/회 q6–8h','40mg/kg/일','위장·신장; 탈수 시 주의'],
-  ['Acetaminophen','10–15mg/kg/회 q4–6h','75mg/kg/일(≤4g)','간독성 상한 엄수'],
-  ['국소마취 Lidocaine','≤4.4mg/kg(에피 포함)','절대량 체중환산','과량=경련·심독성'],
-];
-
-const emergRows = [
-  ['Epinephrine','아나필락시스(1차)','IM 0.3–0.5mg(1:1000), 5–15분 반복'],
-  ['Oxygen','거의 모든 응급','비강/마스크 고유량'],
-  ['Nitroglycerin','협심증·흉통','설하 0.3–0.4mg, 5분 간격 ×3'],
-  ['Albuterol','천식·기관지경련','MDI 2퍼프 흡입'],
-  ['Diphenhydramine','경증 알레르기','25–50mg 경구/근주'],
-  ['Aspirin','급성 심근경색 의심','162–325mg 저작'],
-  ['Glucose / Glucagon','저혈당','경구 글루코스; 의식없으면 glucagon 1mg IM'],
-  ['Midazolam','경련(보조)','기도확보 후 투여'],
-];
-
-/* ============ RENDER ============ */
 const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
-const esc = (s)=>s; // data is trusted/static authored markup
+const grid = document.getElementById('note-grid');
+const realCount = notes.filter(n=>!n.soon).length;
+document.getElementById('count').textContent = `총 ${realCount}개 노트`;
+document.getElementById('meta-count').textContent = `📚 노트 ${realCount}개`;
 
-// shared state + search input reference
+function render(){
+  grid.innerHTML='';
+  notes.forEach(n=>{
+    const soon = n.soon ? 'note soon' : 'note';
+    const tagName = n.soon ? 'div' : 'a';
+    const hrefAttr = n.soon ? '' : ` href="${n.href}"`;
+    const go = n.soon ? '' : `<span class="go">열기 →</span>`;
+    const card = el(`
+      <${tagName} class="${soon}"${hrefAttr} style="border-top-color:${n.accent}"
+        data-text="${(n.title+' '+n.desc+' '+n.tag+' '+(n.keywords||'')).toLowerCase()}">
+        <div class="ic">${n.icon}</div>
+        <h3>${n.title}</h3>
+        <p>${n.desc}</p>
+        <div class="row"><span class="tag" style="background:${n.accent}">${n.tag}</span>${go}</div>
+      </${tagName}>`);
+    grid.appendChild(card);
+  });
+}
+render();
+
+/* 노트 검색 필터 */
 const q = document.getElementById('q');
-let activeTag = null;
-
-// scenario legend — clickable tag filter
-const scenLegend = document.getElementById('scenario-legend');
-Object.entries(scenarioTagColor).forEach(([k,c])=>{
-  const chip = el(`<span class="chip" role="button" tabindex="0" data-tag="${k}" title="‘${k}’ 시나리오만 보기 (다시 누르면 해제)"><span class="dot" style="background:${c}"></span>${k}</span>`);
-  chip.addEventListener('click', ()=>toggleTag(k));
-  chip.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleTag(k); } });
-  scenLegend.appendChild(chip);
-});
-function syncChips(){
-  scenLegend.querySelectorAll('.chip').forEach(ch=>ch.classList.toggle('active', ch.dataset.tag===activeTag));
-}
-function toggleTag(k){
-  activeTag = (activeTag===k) ? null : k;
-  q.value='';
-  syncChips();
-  runFilter();
-  document.getElementById('scenarios').scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-// scenario cards
-const scenGrid = document.getElementById('scenario-grid');
-function renderScenarios(){
-  scenGrid.innerHTML='';
-  scenarios.forEach((s,i)=>{
-    const c = scenarioTagColor[s.tag] || '#0f6e8c';
-    scenGrid.appendChild(el(`
-      <div class="card" id="sc-${i}" data-tag="${s.tag}" style="border-left-color:${c}" data-text="${(s.n+' '+s.tag+' '+s.adult+' '+s.allergy+' '+s.ped+' '+s.note).replace(/<[^>]+>/g,'').toLowerCase()}">
-        <h3>${s.n} <span class="tag" style="background:${c}">${s.tag}</span></h3>
-        <dl class="rx">
-          <dt>1차 처방 (성인)</dt><dd>${s.adult}</dd>
-          <dt class="alg">약물 알러지 대체</dt><dd>${s.allergy}</dd>
-          <dt class="ped">소아 용량</dt><dd>${s.ped}</dd>
-          <dt class="note">비고</dt><dd>${s.note}</dd>
-        </dl>
-      </div>`));
-  });
-}
-renderScenarios();
-
-// map node (④) -> scenario card navigation
-const mapNode = {
-  S1:'단순 발치', S2:'매복치·외과적 발치(사랑니)', S3:'임플란트 식립', S4:'상악동 거상술(Sinus lift)',
-  S5:'치근단 농양·급성 치성감염', S6:'봉와직염·확산성 감염', S7:'괴사성 치주질환(NUG/NUP)',
-  S8:'만성 치주염 / SRP', S9:'TMD / 측두하악장애', S10:'재발성 아프타 구내염',
-  S11:'구강 칸디다증', S12:'단순포진·대상포진(HSV/VZV)'
-};
-window.goToScenario = function(node){
-  const name = mapNode[node]; if(!name) return;
-  const idx = scenarios.findIndex(s=>s.n===name); if(idx<0) return;
-  if(q.value || activeTag){ q.value=''; activeTag=null; syncChips(); runFilter(); }
-  const card = document.getElementById('sc-'+idx); if(!card) return;
-  card.scrollIntoView({behavior:'smooth', block:'center'});
-  card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
-};
-
-// catalog legend + tables
-const catLegend = document.getElementById('catalog-legend');
-catalog.forEach(c=>{
-  const chip = el(`<span class="chip" role="button" tabindex="0" title="‘${c.name}’ 표로 이동"><span class="dot" style="background:${catColors[c.id]}"></span>${c.name}</span>`);
-  const jump = ()=>{ const t=document.getElementById('cat-'+c.id); if(t) t.scrollIntoView({behavior:'smooth', block:'start'}); };
-  chip.addEventListener('click', jump);
-  chip.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); jump(); } });
-  catLegend.appendChild(chip);
-});
-
-const catBody = document.getElementById('catalog-body');
-function renderCatalog(){
-  catBody.innerHTML='';
-  catalog.forEach(c=>{
-    const rows = c.drugs.map(d=>`
-      <tr data-text="${(d.g+' '+d.b+' '+d.cl+' '+d.ind+' '+d.dose+' '+d.cau+' '+d.it).replace(/<[^>]+>/g,'').toLowerCase()}">
-        <td><b>${d.g}</b><br/><span class="pill">${d.b}</span></td>
-        <td>${d.cl}</td><td>${d.ind}</td><td>${d.dose}</td><td>${d.cau}</td><td>${d.it}</td>
-      </tr>`).join('');
-    catBody.appendChild(el(`
-      <div class="cat-block" id="cat-${c.id}" data-cat="${c.id}">
-        <div class="cat-title"><span class="dot" style="background:${catColors[c.id]}"></span>${c.name}
-          <span class="pill">${c.drugs.length}종</span></div>
-        <div class="tablewrap"><table>
-          <thead><tr><th>성분명 / 제품명(예)</th><th>분류</th><th>적응증</th><th>용법·용량</th><th>금기/주의</th><th>상호작용</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table></div>
-      </div>`));
-  });
-}
-renderCatalog();
-
-// simple tables
-function fillRows(id, rows){
-  const tb=document.getElementById(id);
-  rows.forEach(r=>tb.appendChild(el(`<tr data-text="${r.join(' ').replace(/<[^>]+>/g,'').toLowerCase()}">${r.map(c=>`<td>${c}</td>`).join('')}</tr>`)));
-}
-fillRows('allergy-body', allergyRows);
-fillRows('ped-body', pedRows);
-fillRows('emerg-body', emergRows);
-
-/* ===== ORAL MEDICINE (구강내과 복약지도) ===== */
-const omColors = { 'om-fungal':'#a855f7', 'om-steroid':'#0ea5e9', 'om-pain':'#ef4444', 'om-dry':'#14b8a6', 'om-anti':'#8b5cf6' };
-const oralmed = [
-  { id:'om-fungal', name:'구강 칸디다증 (항진균)', rows:[
-    ['Nystatin 현탁액','니스타틴','4~6mL 1일 3~4회, 5~10분 머금고 뱉기(또는 삼킴)','30분간 헹구지·먹지 않기 · 의치 소독 · 국소 1차'],
-    ['Fluconazole 시럽/캡슐','디푸루칸','100~150mg 1일 1회(중증·재발·의치성)','간독성·와파린 등 상호작용 · 니스타틴 2주 후 단계'],
-    ['Miconazole 겔 / Clotrimazole 트로키','—','국소 도포 / 트로키 용해','구각구순염 동반 시 보조'],
-  ]},
-  { id:'om-steroid', name:'점막질환 국소 스테로이드·면역조절 (아프타·편평태선·박리성치은염)', rows:[
-    ['Dexamethasone 함수(elixir)','—','5~10분 머금고 뱉기 1일 2~3회','다발 병소 · 30분 헹구지 않기 · 삼키지 않기'],
-    ['Dexamethasone 구강연고','페리덱스','병소 건조 후 1일 1~수회 도포','소수 병소 · 삼키지 않기'],
-    ['Triamcinolone 구강연고','오라메디','병소 건조 후 1일 2~4회 도포','난치성 박리성치은염·구내염'],
-    ['Tacrolimus 연고 0.03~0.1%','프로토픽','1일 2회 도포(난치성 편평태선)','일시 작열감 · 장기 시 추적'],
-    ['(중증·광범위) 전신 prednisolone','소론도','단기 + tapering(임의중단 금지)','Tapering 표 참조 · 칸디다 2차감염 주의'],
-  ]},
-  { id:'om-pain', name:'국소 마취·진통 (구내염·점막염·통증)', rows:[
-    ['Lidocaine 함수/점도제','—','5mL 1일 3회, 1~2분 머금고 뱉기','삼키지 않기 · 식전 통증완화 · 인후마취 주의'],
-    ['Lidocaine+prilocaine 연고(EMLA)','—','병소 건조 후 수 분 도포, 마취되면 헹굼','국소 시술·통증부위'],
-    ['Benzydamine 함수','탄툼','15mL 함수/분무','항염·진통'],
-    ['Topical clonazepam 0.5mg','리보트릴','통증부위 ~10분 머금고 뱉기','구강작열감(BMS) · 30분 헹구지 않기'],
-  ]},
-  { id:'om-dry', name:'구강건조증 (xerostomia)', rows:[
-    ['인공타액(겔·스프레이)','바이오텐·탈리바 등','건조 시 1일 수회','보습 · 혀·점막 전체 도포'],
-    ['Pilocarpine','살라겐','5mg 1일 3회(타액선 자극)','국내 유일 분비촉진제 · 발한·서맥 · 천식·녹내장 주의'],
-    ['보조요법','—','무설탕 자일리톨 껌·수분·불소·CHX','카페인·음주·흡연 제한 · 세비멜린 국내 미시판'],
-  ]},
-  { id:'om-anti', name:'소독·구강위생 함수', rows:[
-    ['Chlorhexidine 0.12%','헥사메딘','15mL 1일 2~3회 30초 함수','삼키지 않기 · 2주 이내(착색) · 치약과 30분 간격'],
-  ]},
-];
-const omLegend = document.getElementById('oralmed-legend');
-oralmed.forEach(c=>{
-  const label = c.name.replace(/\s*\(.*$/,'');
-  const chip = el(`<span class="chip" role="button" tabindex="0" title="‘${label}’로 이동"><span class="dot" style="background:${omColors[c.id]||'#0f6e8c'}"></span>${label}</span>`);
-  const jump=()=>{ const t=document.getElementById(c.id); if(t) t.scrollIntoView({behavior:'smooth', block:'start'}); };
-  chip.addEventListener('click', jump);
-  chip.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); jump(); } });
-  omLegend.appendChild(chip);
-});
-const omBody = document.getElementById('oralmed-body');
-function renderOralmed(){
-  omBody.innerHTML='';
-  oralmed.forEach(c=>{
-    const rows = c.rows.map(r=>`
-      <tr data-text="${r.join(' ').replace(/<[^>]+>/g,'').toLowerCase()}">
-        <td><b>${r[0]}</b></td><td><span class="pill">${r[1]}</span></td><td>${r[2]}</td><td>${r[3]}</td>
-      </tr>`).join('');
-    omBody.appendChild(el(`
-      <div class="cat-block" id="${c.id}">
-        <div class="cat-title"><span class="dot" style="background:${omColors[c.id]||'#0f6e8c'}"></span>${c.name}
-          <span class="pill">${c.rows.length}종</span></div>
-        <div class="tablewrap"><table>
-          <thead><tr><th>제제 / 용도</th><th>브랜드(예)</th><th>사용법·용법</th><th>비고 / 주의</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table></div>
-      </div>`));
-  });
-}
-renderOralmed();
-
-/* ============ SEARCH / FILTER ============ */
-function runFilter(){
+q.addEventListener('input', ()=>{
   const term = q.value.trim().toLowerCase();
-  // scenarios — search term AND active tag filter
-  let scShown=0;
-  scenGrid.querySelectorAll('.card').forEach(card=>{
-    const matchTerm = !term || card.dataset.text.includes(term);
-    const matchTag  = !activeTag || card.dataset.tag===activeTag;
-    const hit = matchTerm && matchTag;
-    card.style.display = hit?'':'none'; if(hit) scShown++;
+  let shown=0;
+  grid.querySelectorAll('.note').forEach(c=>{
+    const hit = !term || c.dataset.text.includes(term);
+    c.style.display = hit?'':'none'; if(hit) shown++;
   });
-  document.getElementById('scenario-empty').hidden = scShown>0;
-  // catalog rows — term only
-  let catShown=0;
-  catBody.querySelectorAll('.cat-block').forEach(block=>{
-    let any=0;
-    block.querySelectorAll('tbody tr').forEach(tr=>{
-      const hit = !term || tr.dataset.text.includes(term);
-      tr.style.display = hit?'':'none'; if(hit){any++;catShown++;}
-    });
-    block.style.display = any>0?'':'none';
-  });
-  document.getElementById('catalog-empty').hidden = catShown>0;
-  // oral medicine rows — term only
-  let omShown=0;
-  omBody.querySelectorAll('.cat-block').forEach(block=>{
-    let any=0;
-    block.querySelectorAll('tbody tr').forEach(tr=>{
-      const hit = !term || tr.dataset.text.includes(term);
-      tr.style.display = hit?'':'none'; if(hit){any++;omShown++;}
-    });
-    block.style.display = any>0?'':'none';
-  });
-  document.getElementById('oralmed-empty').hidden = omShown>0;
-  // generic tables — term only
-  ['allergy-body','ped-body','emerg-body'].forEach(id=>{
-    document.getElementById(id).querySelectorAll('tr').forEach(tr=>{
-      tr.style.display = (!term || tr.dataset.text.includes(term))?'':'none';
-    });
-  });
-}
-q.addEventListener('input', ()=>{ if(activeTag){ activeTag=null; syncChips(); } runFilter(); });
-
-// keyboard: "/" focuses search, Esc clears it
-document.addEventListener('keydown', (e)=>{
-  const tag=((document.activeElement&&document.activeElement.tagName)||'').toLowerCase();
-  if(e.key==='/' && tag!=='input' && tag!=='textarea' && tag!=='select'){
-    e.preventDefault(); q.focus(); q.select();
-  } else if(e.key==='Escape' && document.activeElement===q){
-    q.value=''; activeTag=null; syncChips(); runFilter(); q.blur();
-  }
+  document.getElementById('empty').hidden = shown>0;
 });
-
-/* ============ SCROLLSPY — highlight current section in nav ============ */
-const tocLinks = Array.from(document.querySelectorAll('.toc-links a'));
-const idToLink = {};
-tocLinks.forEach(a=>{ idToLink[a.getAttribute('href').slice(1)] = a; });
-if('IntersectionObserver' in window){
-  const spy = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        tocLinks.forEach(a=>a.classList.remove('active'));
-        const lk = idToLink[en.target.id]; if(lk) lk.classList.add('active');
-      }
-    });
-  },{ rootMargin:'-45% 0px -50% 0px', threshold:0 });
-  Object.keys(idToLink).forEach(id=>{ const t=document.getElementById(id); if(t) spy.observe(t); });
-}
-
-/* ============ BACK TO TOP ============ */
-const toTop = document.getElementById('toTop');
-window.addEventListener('scroll', ()=>{ toTop.classList.toggle('show', window.scrollY>600); }, {passive:true});
-toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
-
-/* ============ THEME (persisted) ============ */
-const root = document.documentElement;
-const themeBtn = document.getElementById('theme');
-function effectiveDark(){
-  const t = root.getAttribute('data-theme');
-  if(t==='dark') return true;
-  if(t==='light') return false;
-  return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-}
-function updateThemeIcon(){ themeBtn.textContent = effectiveDark() ? '☀️' : '🌙'; }
-(function initTheme(){
-  let saved=null; try{ saved=localStorage.getItem('dds-theme'); }catch(_){}
-  if(saved==='dark' || saved==='light') root.setAttribute('data-theme', saved);
-  updateThemeIcon();
-})();
-themeBtn.addEventListener('click', ()=>{
-  const next = effectiveDark() ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  try{ localStorage.setItem('dds-theme', next); }catch(_){}
-  updateThemeIcon();
+/* "/" 로 검색 포커스 */
+document.addEventListener('keydown', (e)=>{
+  const t=((document.activeElement&&document.activeElement.tagName)||'').toLowerCase();
+  if(e.key==='/' && t!=='input' && t!=='textarea'){ e.preventDefault(); q.focus(); }
+  else if(e.key==='Escape' && document.activeElement===q){ q.value=''; q.dispatchEvent(new Event('input')); q.blur(); }
 });
 </script>
+<script src="assets/theme.js"></script>
 </body>
 </html>
