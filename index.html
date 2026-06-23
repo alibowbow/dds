@@ -447,6 +447,8 @@ flowchart LR
       <li>식품의약품안전처 / health.kr 의약품 정보 (아목시실린, 헥사메딘 0.12% 등 국내 허가·용법).</li>
       <li>대한치과의사협회 · 치의신보 — 국내 치과 항생제 사용 관행 및 적정성 자료.</li>
       <li>StatPearls — Conscious Sedation in Dentistry; Antibiotic Prophylaxis in Dental and Oral Surgery; Dental Abscess.</li>
+      <li>Finnerup NB, Dworkin RH 외(NeuPSIG/IASP). <i>Pharmacotherapy for neuropathic pain in adults: a systematic review and meta-analysis.</i> Lancet Neurology, 2015 — 1차: gabapentinoid·TCA·SNRI / 2차: tramadol·국소(lidocaine·capsaicin) / 3차: 강 opioid.</li>
+      <li>약업신문. <i>국내외 가이드라인 권고 1차 신경병증성 통증 치료제…리리카·뉴론틴.</i> (신경병성 통증 1차 치료제 개요)</li>
     </ol>
   </section>
 </main>
@@ -536,7 +538,7 @@ const scenarios = [
     adult:'발치(매복치)·임플란트·신경치료 후 입술·혀 <span class="em">이상감각(저림·통증)</span>. 조기 진단·경과관찰이 핵심. 신경병성 통증: <span class="em">pregabalin(리리카) 75mg</span> 야간 시작→증량, 또는 <span class="em">duloxetine(심발타) 30mg</span> QD. 신경회복 보조 <span class="em">mecobalamin(비타민 B12) 500µg</span> TID. 부종성 압박 의심 초기엔 단기 corticosteroid.',
     allergy:'약물 과민/부작용 시 gabapentin 또는 삼환계 amitriptyline로 대체.',
     ped:'드묾; 구강악안면외과·신경과 의뢰.',
-    note:'상병 예: 피부의 감각저하(R20.1). 다수는 수개월 내 호전. 지속·완전마비·심한 통증은 조기 전문의 의뢰(미세신경수술 시기 고려).' },
+    note:'상병 예: 피부의 감각저하(R20.1). 신경병성 통증 가이드라인(NeuPSIG/IASP): <span class="em">1차 = gabapentinoid(pregabalin·gabapentin)·TCA·SNRI(duloxetine)</span>, 2차 = tramadol·국소(lidocaine/capsaicin), 3차 = 강 opioid. 다수는 수개월 내 호전, 지속·완전마비·심한 통증은 조기 전문의 의뢰.' },
   { n:'구강작열감증후군(BMS)·설통', tag:'신경병성 통증',
     adult:'점막 병변 없이 작열감/통증. <span class="em">국소 clonazepam(리보트릴) 0.5mg 함수 후 뱉기</span> 또는 저용량 경구. 보조: α-lipoic acid, capsaicin 함수, 저용량 삼환계/SNRI. <span class="em">구강건조·칸디다·영양결핍(철·B12·엽산) 감별·교정</span>.',
     allergy:'벤조 회피 시 gabapentin/pregabalin 또는 삼환계.',
@@ -604,9 +606,9 @@ const catalog = [
     { g:'Codeine', b:'코데인', cl:'오피오이드', ind:'중증, 제한적', dose:'단기 최소용량', cau:'12세 미만 회피·호흡억제', it:'CNS억제제' },
   ]},
   { id:'neuro', name:'신경병성·구강안면통증', drugs:[
-    { g:'Pregabalin', b:'리리카', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증·감각이상(하치조신경 손상)', dose:'75mg 야간 시작→150–300mg/일 분2', cau:'졸음·어지럼·부종·체중↑; 신기능 감량', it:'CNS억제제·알코올' },
-    { g:'Gabapentin', b:'뉴론틴', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증(대체)', dose:'100–300mg 야간 시작→점증', cau:'졸음·실조; 신기능 감량', it:'제산제(흡수↓)·CNS억제제' },
-    { g:'Duloxetine', b:'심발타', cl:'SNRI', ind:'신경병성·만성 통증', dose:'30mg QD→60mg', cau:'오심·불면·혈압↑; <span class="em">MAOI·중증 간장애 금기</span>', it:'트라마돌·삼환계(세로토닌)·CYP2D6' },
+    { g:'Pregabalin', b:'리리카', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증 1차·감각이상(하치조신경)', dose:'75mg 야간 시작→150–300mg/일 분2', cau:'졸음·어지럼·부종·체중↑; 신기능 감량', it:'CNS억제제·알코올' },
+    { g:'Gabapentin', b:'뉴론틴', cl:'칼슘채널 α2δ 리간드', ind:'신경병성 통증 1차', dose:'100–300mg 야간 시작→점증(900–3600mg/일)', cau:'졸음·실조; 신기능 감량', it:'제산제(흡수↓)·CNS억제제' },
+    { g:'Duloxetine', b:'심발타', cl:'SNRI', ind:'신경병성·만성 통증 1차(SNRI)', dose:'30mg QD→60mg', cau:'오심·불면·혈압↑; <span class="em">MAOI·중증 간장애 금기</span>', it:'트라마돌·삼환계(세로토닌)·CYP2D6' },
     { g:'Mecobalamin (Vit B12)', b:'엠코발', cl:'비타민 B12', ind:'말초신경 회복 보조', dose:'500µg TID 경구(또는 주사)', cau:'대체로 안전', it:'-' },
     { g:'Clonazepam', b:'리보트릴', cl:'벤조디아제핀', ind:'구강작열감(BMS)·설통(국소/저용량)', dose:'0.5mg 국소 함수 후 뱉기 또는 야간 경구', cau:'졸음·의존·낙상', it:'CNS억제제·CYP3A4' },
   ]},
