@@ -38,12 +38,16 @@
 
 ## 파일 구조
 ```
-index.html          # 메인 허브 (JH의 덴탈시냅스)
+index.html          # 메인 허브 (덴탈시냅스)
 drug-guide.html     # 하위: 약물·처방 가이드
 mronj.html          # 하위: MRONJ 임상권고안 2025
-assets/theme.css    # 공용 디자인 시스템
+assets/theme.css    # 디자인 시스템(토큰: 타입 스케일·시맨틱 색·간격·컴포넌트·반응형 표)
 assets/theme.js     # 공용 다크모드(전역 'dds-theme' 동기화)
+assets/charts.js    # 경량 SVG 차트(범위막대·타임라인·심각도·계단·피라미드)
+assets/icons.svg    # 커스텀 아이콘 스프라이트(<use href="assets/icons.svg#i-...">)
+assets/favicon.svg  # 시냅스 로고 마크
 ```
+디자인은 `theme.css`의 CSS 토큰으로 통일(인디고 브랜드 + 상태색), 다크모드 자동 대응. 정량 데이터는 `charts.js`로 표 대신 시각화.
 
 ## ⚠️ 면책 고지
 본 노트는 **개인 정리 목적**이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.

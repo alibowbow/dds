@@ -205,7 +205,7 @@ tbody tr:hover{background:color-mix(in srgb,var(--brand) 5%,transparent)}
 /* responsive: table.cards → 모바일 카드 전환 (가로 스크롤 제거) */
 @media (max-width:720px){
   table.cards thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0)}
-  table.cards, table.cards tbody, table.cards tr, table.cards td{display:block;width:100%}
+  table.cards, table.cards tbody, table.cards tr, table.cards td{display:block;width:100%;min-width:0}
   table.cards tr{border:1px solid var(--line);border-radius:var(--r);margin:0 0 var(--sp-3);padding:6px 12px;background:var(--surface);box-shadow:var(--shadow-sm)}
   table.cards tr:hover{background:var(--surface)}
   table.cards td{border:0;border-top:1px dashed var(--line);padding:9px 0;display:flex;gap:12px}
@@ -230,6 +230,7 @@ tbody tr:hover{background:color-mix(in srgb,var(--brand) 5%,transparent)}
 .viz .node.on{fill:var(--brand)}
 .viz .conn{stroke:var(--brand);stroke-width:2}
 .viz .bar{fill:var(--brand)}
+.viz .v-fill{fill:var(--brand)}
 .viz .seg{stroke:var(--surface);stroke-width:2}
 
 /* ======================= footer / misc ======================= */

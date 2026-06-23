@@ -3,22 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>치과 약물 &middot; 처방 가이드 — JH의 덴탈시냅스</title>
+<title>치과 약물 &middot; 처방 가이드 — 덴탈시냅스</title>
+<meta name="theme-color" content="#4f46e5" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/theme.css" />
 <style>
-  :root{
-    --bg:#f4f6f9; --surface:#ffffff; --ink:#1d2733; --muted:#5b6b7d;
-    --line:#e2e8f0; --brand:#0f6e8c; --brand-d:#0a5066;
-    --accent:#137a63; --warn:#b4540a; --danger:#b3261e; --shadow:0 1px 3px rgba(16,40,64,.08),0 6px 20px rgba(16,40,64,.06);
-    /* category colors */
-    --c-anesth:#3b82f6; --c-analg:#ef4444; --c-abx:#10b981; --c-fungal:#a855f7;
-    --c-viral:#6366f1; --c-sed:#f59e0b; --c-hemo:#e11d48; --c-steroid:#0ea5e9;
-    --c-fluoride:#14b8a6; --c-anti:#8b5cf6; --c-gi:#84cc16; --c-relax:#f97316; --c-emerg:#dc2626;
-    --radius:14px;
-  }
-  @media (prefers-color-scheme: dark){
-    :root[data-theme="auto"]{ --bg:#0f141a; --surface:#161d26; --ink:#e7edf4; --muted:#9fb0c0; --line:#26313d; --shadow:0 1px 3px rgba(0,0,0,.4); }
-  }
-  :root[data-theme="dark"]{ --bg:#0f141a; --surface:#161d26; --ink:#e7edf4; --muted:#9fb0c0; --line:#26313d; --shadow:0 1px 3px rgba(0,0,0,.4); }
+  /* drug-guide 전용 컴포넌트 — 색/타입/다크모드 토큰은 theme.css에서 상속 */
   *{box-sizing:border-box}
   html{scroll-behavior:smooth; scroll-padding-top:84px}
   body{margin:0;font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -27,17 +17,7 @@
   a:hover{text-decoration:underline}
   .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
-  /* Header */
-  header.hero{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:30px 0 26px}
-  header.hero h1{margin:0 0 6px;font-size:clamp(22px,3.4vw,32px);letter-spacing:-.5px}
-  header.hero p.sub{margin:0;opacity:.92;font-size:15px}
-  .meta-row{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:12.5px;opacity:.9}
-  .meta-row span{display:inline-flex;align-items:center;gap:5px}
-
-  .disclaimer{background:#fff6e9;border:1px solid #f3d9a8;color:#7a4a06;border-radius:12px;
-    padding:12px 16px;margin:18px auto;font-size:13px;display:flex;gap:10px;align-items:flex-start;max-width:1180px}
-  :root[data-theme="dark"] .disclaimer{background:#2a2113;border-color:#5a431a;color:#f0cf8e}
-  .disclaimer b{color:var(--danger)}
+  /* header / disclaimer / meta-row → theme.css */
 
   /* Sticky nav */
   nav.toc{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 92%,transparent);
@@ -52,8 +32,7 @@
   .search input{border:1px solid var(--line);background:var(--surface);color:var(--ink);
     border-radius:999px;padding:8px 14px;font-size:13.5px;width:230px;outline:none}
   .search input:focus{border-color:var(--brand)}
-  .themebtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;
-    width:34px;height:34px;cursor:pointer;font-size:15px}
+  /* .themebtn → theme.css */
 
   section{padding:30px 0 6px}
   .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 6px}
@@ -90,8 +69,8 @@
 
   /* Tables */
   .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);background:var(--surface);margin-bottom:14px}
-  table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.3px}
-  thead th{position:sticky;top:0;background:var(--brand-d);color:#fff;text-align:left;padding:10px 12px;font-weight:600;white-space:nowrap}
+  table{border-collapse:collapse;width:100%;font-size:var(--text-sm)}
+  thead th{position:sticky;top:0;background:var(--brand-strong);color:#fff;text-align:left;padding:10px 12px;font-weight:700;white-space:nowrap}
   tbody td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
   tbody tr:nth-child(even){background:color-mix(in srgb,var(--bg) 55%,transparent)}
   .cat-block{margin-bottom:22px}
@@ -141,7 +120,6 @@
     .search{flex:0 0 auto;margin-left:auto}
   }
   @media (max-width:640px){
-    table{min-width:560px}
     .search input{width:120px}
     .toc a{padding:5px 9px;font-size:12.5px}
     #toTop{right:12px;bottom:12px;width:42px;height:42px}
@@ -159,8 +137,8 @@
 
 <header class="hero">
   <div class="wrap">
-    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:#fff;opacity:.85;font-size:13px;margin-bottom:10px;text-decoration:none">← JH의 덴탈시냅스 홈</a>
-    <h1>🦷 치과 상용 약물 &middot; 술식별 처방 가이드</h1>
+    <a class="crumb" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg> 덴탈시냅스 홈</a>
+    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span>치과 약물 &middot; 처방 가이드</h1>
     <p class="sub">임상 전문가용 통합 레퍼런스 — 술식·상황별 처방 프로토콜(성인 1차 / 약물 알러지 대체 / 소아용량) + 약물 분류 카탈로그 + 의사결정 맵</p>
     <div class="meta-row">
       <span>📅 최종 정리: 2026-06-22</span>
@@ -171,7 +149,7 @@
 
 <div class="wrap">
   <div class="disclaimer">
-    <span style="font-size:18px">⚠️</span>
+    <svg aria-hidden="true"><use href="assets/icons.svg#i-alert"/></svg>
     <div><b>면책 고지 —</b> 본 노트는 <b>개인 정리 목적</b>이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.
     모든 용량·금기는 처방 전 <b>원전과 환자 상태(연령·체중·신/간 기능·병력·복용약)</b>를 반드시 확인하십시오.
     특히 <b>항생제는 예방요법과 치료요법의 권고가 다릅니다</b>(예: clindamycin은 예방엔 비권장, 감염 치료엔 사용 가능).</div>
@@ -192,7 +170,7 @@
     </div>
     <div class="search">
       <input id="q" type="search" placeholder="약물·성분·상황 검색…" aria-label="검색" />
-      <button class="themebtn" id="theme" title="다크모드 전환" aria-label="다크모드 전환">🌓</button>
+      <button class="themebtn" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
     </div>
   </div>
 </nav>
@@ -244,7 +222,17 @@
         </tbody>
       </table>
     </div>
+    <div class="viz">
+      <h3>Prednisolone 6일 점감</h3>
+      <p class="cap">5mg/정 기준 · 일자별 정수와 환산 용량(mg/일)</p>
+      <div data-chart="stepbars" data-json='{"max":6,"bars":[{"label":"Day 1","value":6,"top":"30mg","sub":"6정"},{"label":"Day 2","value":5,"top":"25mg","sub":"5정"},{"label":"Day 3","value":4,"top":"20mg","sub":"4정"},{"label":"Day 4","value":3,"top":"15mg","sub":"3정"},{"label":"Day 5","value":2,"top":"10mg","sub":"2정"},{"label":"Day 6","value":1,"top":"5mg","sub":"1정"}]}'></div>
+    </div>
     <div class="callout">💊 <b>환산</b> — Prednisolone <b>5mg/정</b> 기준 시 <b>30→25→20→15→10→5mg/일</b>로 6일 점감. 위장보호제 동반, 당뇨·활동성 감염·소화성 궤양 시 주의.</div>
+    <div class="viz">
+      <h3>신경병성 통증 약물 단계 (NeuPSIG)</h3>
+      <p class="cap">기저(1차)일수록 넓게 — 1차 우선, 단계적 상향</p>
+      <div data-chart="pyramid" data-json='{"tiers":[{"label":"3차","items":"강 opioid · 보툴리눔독소"},{"label":"2차","items":"tramadol · 국소(lidocaine·capsaicin)"},{"label":"1차","items":"gabapentinoid · TCA · SNRI"}]}'></div>
+    </div>
   </section>
 
   <!-- ② CATALOG -->
@@ -500,7 +488,11 @@ flowchart LR
 
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad:true, theme:'neutral', securityLevel:'loose', flowchart:{ htmlLabels:true, curve:'basis' } });
+  mermaid.initialize({ startOnLoad:true, theme:'base', securityLevel:'loose',
+    themeVariables:{ primaryColor:'#ecebfc', primaryBorderColor:'#4f46e5', primaryTextColor:'#1c2230',
+      lineColor:'#7c84a0', secondaryColor:'#eef1f7', tertiaryColor:'#f6f7fb',
+      fontFamily:'Pretendard, system-ui, sans-serif', fontSize:'13px' },
+    flowchart:{ htmlLabels:true, curve:'basis' } });
 </script>
 
 <script>
@@ -834,15 +826,16 @@ function renderCatalog(){
   catalog.forEach(c=>{
     const rows = c.drugs.map(d=>`
       <tr data-text="${(d.g+' '+d.b+' '+d.cl+' '+d.ind+' '+d.dose+' '+d.cau+' '+d.it).replace(/<[^>]+>/g,'').toLowerCase()}">
-        <td><b>${d.g}</b><br/><span class="pill">${d.b}</span></td>
-        <td>${d.cl}</td><td>${d.ind}</td><td>${d.dose}</td><td>${d.cau}</td><td>${d.it}</td>
+        <td data-label="성분/제품"><b>${d.g}</b><br/><span class="pill">${d.b}</span></td>
+        <td data-label="분류">${d.cl}</td><td data-label="적응증">${d.ind}</td><td data-label="용법·용량">${d.dose}</td><td data-label="금기/주의">${d.cau}</td><td data-label="상호작용">${d.it}</td>
       </tr>`).join('');
     catBody.appendChild(el(`
       <div class="cat-block" id="cat-${c.id}" data-cat="${c.id}">
         <div class="cat-title"><span class="dot" style="background:${catColors[c.id]}"></span>${c.name}
           <span class="pill">${c.drugs.length}종</span></div>
-        <div class="tablewrap"><table>
-          <thead><tr><th>성분명 / 제품명(예)</th><th>분류</th><th>적응증</th><th>용법·용량</th><th>금기/주의</th><th>상호작용</th></tr></thead>
+        <div class="tablewrap flat"><table class="cards">
+          <caption class="sr-only">${c.name} 약물</caption>
+          <thead><tr><th scope="col">성분명 / 제품명(예)</th><th scope="col">분류</th><th scope="col">적응증</th><th scope="col">용법·용량</th><th scope="col">금기/주의</th><th scope="col">상호작용</th></tr></thead>
           <tbody>${rows}</tbody>
         </table></div>
       </div>`));
@@ -904,14 +897,15 @@ function renderOralmed(){
   oralmed.forEach(c=>{
     const rows = c.rows.map(r=>`
       <tr data-text="${r.join(' ').replace(/<[^>]+>/g,'').toLowerCase()}">
-        <td><b>${r[0]}</b></td><td><span class="pill">${r[1]}</span></td><td>${r[2]}</td><td>${r[3]}</td>
+        <td data-label="제제/용도"><b>${r[0]}</b></td><td data-label="브랜드"><span class="pill">${r[1]}</span></td><td data-label="사용법">${r[2]}</td><td data-label="비고">${r[3]}</td>
       </tr>`).join('');
     omBody.appendChild(el(`
       <div class="cat-block" id="${c.id}">
-        <div class="cat-title"><span class="dot" style="background:${omColors[c.id]||'#0f6e8c'}"></span>${c.name}
+        <div class="cat-title"><span class="dot" style="background:${omColors[c.id]||'var(--brand)'}"></span>${c.name}
           <span class="pill">${c.rows.length}종</span></div>
-        <div class="tablewrap"><table>
-          <thead><tr><th>제제 / 용도</th><th>브랜드(예)</th><th>사용법·용법</th><th>비고 / 주의</th></tr></thead>
+        <div class="tablewrap flat"><table class="cards">
+          <caption class="sr-only">${c.name}</caption>
+          <thead><tr><th scope="col">제제 / 용도</th><th scope="col">브랜드(예)</th><th scope="col">사용법·용법</th><th scope="col">비고 / 주의</th></tr></thead>
           <tbody>${rows}</tbody>
         </table></div>
       </div>`));
@@ -1002,7 +996,12 @@ function effectiveDark(){
   if(t==='light') return false;
   return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 }
-function updateThemeIcon(){ themeBtn.textContent = effectiveDark() ? '☀️' : '🌙'; }
+function updateThemeIcon(){
+  const id = effectiveDark() ? '#i-sun' : '#i-moon';
+  const u = themeBtn.querySelector('use');
+  if(u){ u.setAttribute('href','assets/icons.svg'+id); u.setAttribute('xlink:href','assets/icons.svg'+id); }
+  themeBtn.setAttribute('aria-label', effectiveDark()?'라이트 모드로 전환':'다크 모드로 전환');
+}
 (function initTheme(){
   let saved=null; try{ saved=localStorage.getItem('dds-theme'); }catch(_){}
   if(saved==='dark' || saved==='light') root.setAttribute('data-theme', saved);
@@ -1015,5 +1014,6 @@ themeBtn.addEventListener('click', ()=>{
   updateThemeIcon();
 });
 </script>
+<script src="assets/charts.js"></script>
 </body>
 </html>
