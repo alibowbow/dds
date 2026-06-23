@@ -220,6 +220,32 @@
     </div>
   </section>
 
+  <!-- ★ Nerve injury protocol + steroid taper -->
+  <section id="nerve" style="padding-top:14px">
+    <div class="sec-head"><span class="num">★</span><h2>신경손상 처방 프로토콜 &amp; 스테로이드 Tapering</h2></div>
+    <p class="sec-desc">하치조·설신경 손상 시 <b>시기별 약물요법</b>과 손상 초기 <b>Prednisolone 점감(tapering) 6일 요법</b>.
+      ⚠️ 술자·환자 상태에 따라 조정하며, 지속·완전마비·심한 통증은 조기 전문의(구강악안면외과·신경과) 의뢰.</p>
+    <div class="rxset">
+      <div class="box"><h4><span class="n">A</span> 손상 초기</h4><p>기구의 신경관 침범 시 즉시 제거. 소켓·드릴링부에 <b>dexamethasone 4mg/mL 국소주입</b> 후 2~3분 대기 후 조작. <b>Prednisolone 3~5일 점감</b>(아래 표) + <b>Methylcobalamin(Vit B<sub>12</sub>)</b> 병용. 1~3개월 내 회복 기대.</p></div>
+      <div class="box"><h4><span class="n">B</span> 3~6개월 경과</h4><p>국소도포 <b>캡사이신+국소마취 연고</b>·<b>topical clonazepam</b>, 비타민 제제 지속. 필요 시 <b>항우울제(nortriptyline·amitriptyline)</b> 또는 <b>gabapentin(뉴론틴)</b>.</p></div>
+      <div class="box"><h4><span class="n">C</span> 장기 경과</h4><p>신경 회복 가능성 낮음 → <b>통증 완화 보조</b> 목적의 약물 사용(가이드라인 1차: gabapentinoid·TCA·SNRI).</p></div>
+    </div>
+    <div class="tablewrap" id="taper">
+      <table>
+        <thead><tr><th>일수</th><th>복용 시기 (Prednisolone, 분복)</th><th>1일 합계</th></tr></thead>
+        <tbody>
+          <tr><td>Day 1</td><td>조식 전 <b>2T</b> · 중식 후 1T · 석식 후 <b>2T</b> · 취침 전 1T</td><td>6T</td></tr>
+          <tr><td>Day 2</td><td>조식 전 2T · 중식 후 1T · 석식 후 1T · 취침 전 1T</td><td>5T</td></tr>
+          <tr><td>Day 3</td><td>조식 전 1T · 중식 후 1T · 석식 후 1T · 취침 전 1T</td><td>4T</td></tr>
+          <tr><td>Day 4</td><td>조식 전 1T · 중식 후 1T · 취침 전 1T</td><td>3T</td></tr>
+          <tr><td>Day 5</td><td>조식 전 1T · 취침 전 1T</td><td>2T</td></tr>
+          <tr><td>Day 6</td><td>조식 전 1T</td><td>1T</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">💊 <b>환산</b> — Prednisolone <b>5mg/정</b> 기준 시 <b>30→25→20→15→10→5mg/일</b>로 6일 점감. 위장보호제 동반, 당뇨·활동성 감염·소화성 궤양 시 주의.</div>
+  </section>
+
   <!-- ② CATALOG -->
   <section id="catalog">
     <div class="sec-head"><span class="num">2</span><h2>약물 카탈로그 (대분류 14)</h2></div>
@@ -535,10 +561,10 @@ const scenarios = [
     ped:'보존적 치료 우선; 약물 신중.',
     note:'항생제 적응 아님. 대부분 자기한정성·보존적 관리.' },
   { n:'하치조신경 손상·감각이상', tag:'신경병성 통증',
-    adult:'발치(매복치)·임플란트·신경치료 후 입술·혀 <span class="em">이상감각(저림·통증)</span>. 조기 진단·경과관찰이 핵심. 신경병성 통증: <span class="em">pregabalin(리리카) 75mg</span> 야간 시작→증량, 또는 <span class="em">duloxetine(심발타) 30mg</span> QD. 신경회복 보조 <span class="em">mecobalamin(비타민 B12) 500µg</span> TID. 부종성 압박 의심 초기엔 단기 corticosteroid.',
-    allergy:'약물 과민/부작용 시 gabapentin 또는 삼환계 amitriptyline로 대체.',
+    adult:'발치(매복치)·임플란트·신경치료 후 입술·혀 <span class="em">이상감각(저림·통증)</span>. <span class="em">초기</span>: 기구 신경관 침범 시 제거, 소켓·드릴링부에 <span class="em">dexamethasone 4mg/mL 국소주입</span>(2~3분 후 조작) + <span class="em">prednisolone 3~5일 점감</span> + methylcobalamin(Vit B₁₂). <span class="em">3~6개월</span>: 국소 캡사이신/clonazepam·비타민, 필요 시 gabapentin·TCA. 신경병성 통증 1차: pregabalin(리리카)·gabapentin·duloxetine.',
+    allergy:'약물 과민/부작용 시 gabapentin 또는 삼환계 amitriptyline/nortriptyline로 대체.',
     ped:'드묾; 구강악안면외과·신경과 의뢰.',
-    note:'상병 예: 피부의 감각저하(R20.1). 신경병성 통증 가이드라인(NeuPSIG/IASP): <span class="em">1차 = gabapentinoid(pregabalin·gabapentin)·TCA·SNRI(duloxetine)</span>, 2차 = tramadol·국소(lidocaine/capsaicin), 3차 = 강 opioid. 다수는 수개월 내 호전, 지속·완전마비·심한 통증은 조기 전문의 의뢰.' },
+    note:'상병 예: 피부의 감각저하(R20.1). 가이드라인(NeuPSIG): <span class="em">1차 gabapentinoid·TCA·SNRI</span> / 2차 tramadol·국소 / 3차 강 opioid. 다수 수개월 내 호전; 지속·완전마비·심한 통증은 조기 전문의 의뢰. <a href="#taper">▸ 스테로이드 Tapering 6일 표</a>' },
   { n:'구강작열감증후군(BMS)·설통', tag:'신경병성 통증',
     adult:'점막 병변 없이 작열감/통증. <span class="em">국소 clonazepam(리보트릴) 0.5mg 함수 후 뱉기</span> 또는 저용량 경구. 보조: α-lipoic acid, capsaicin 함수, 저용량 삼환계/SNRI. <span class="em">구강건조·칸디다·영양결핍(철·B12·엽산) 감별·교정</span>.',
     allergy:'벤조 회피 시 gabapentin/pregabalin 또는 삼환계.',
