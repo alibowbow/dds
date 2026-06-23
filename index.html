@@ -3,24 +3,44 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>JH의 덴탈노트 — 임상 치과 레퍼런스 허브</title>
-<meta name="description" content="JH의 덴탈노트 — 치과 약물·처방, MRONJ 등 임상 치과 레퍼런스 노트 모음" />
+<title>JH의 덴탈노트</title>
+<meta name="description" content="JH의 덴탈노트 — 치과 임상 노트 모음(처방·질환·술식)" />
 <link rel="stylesheet" href="assets/theme.css" />
 <style>
-  /* 허브 전용 소소한 스타일 */
-  .hub-hint{color:var(--muted);font-size:13px;margin:6px 0 0}
-  .count{color:var(--muted);font-size:13px;margin:0 0 4px}
+  /* ===== 허브 전용 인터랙티브 스타일 ===== */
+  header.hero{position:relative;overflow:hidden;padding:46px 0 42px}
+  #bg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+  header.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(58% 120% at 82% -12%, rgba(255,255,255,.20), transparent 60%)}
+  .hero-content{position:relative;z-index:1}
+  header.hero h1{font-size:clamp(26px,5vw,44px);text-shadow:0 2px 18px rgba(0,0,0,.18)}
+  #greet{font-variant-numeric:tabular-nums}
+
+  .count{color:var(--muted);font-size:13px;margin:2px 0 2px}
+
+  /* note cards: cursor glow + entrance */
+  a.note{position:relative;overflow:hidden;--glow:var(--brand)}
+  a.note::before{content:"";position:absolute;inset:-1px;z-index:0;pointer-events:none;opacity:0;transition:opacity .25s;
+    background:radial-gradient(220px circle at var(--mx,50%) var(--my,-30%), color-mix(in srgb,var(--glow) 24%,transparent), transparent 55%)}
+  a.note:hover::before{opacity:1}
+  a.note > *{position:relative;z-index:1}
+  .note .ic{transition:transform .2s}
+  a.note:hover .ic{transform:scale(1.12) rotate(-6deg)}
+  @media (prefers-reduced-motion: no-preference){
+    a.note{opacity:0;transform:translateY(16px);animation:riseIn .55s cubic-bezier(.2,.7,.2,1) forwards}
+    @keyframes riseIn{to{opacity:1;transform:none}}
+  }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
+<header class="hero" id="hero">
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="wrap hero-content">
     <h1>🦷 JH의 덴탈노트</h1>
-    <p class="sub">임상 치과 레퍼런스 허브 — 처방·질환·술식 노트를 한곳에. 계속 확장됩니다.</p>
+    <p class="sub">나의 치과 임상 노트 — 처방·질환·술식을 한곳에.</p>
     <div class="meta-row">
-      <span>✍️ 작성: JH</span>
-      <span>🧭 교육·요약용 임상 레퍼런스</span>
+      <span id="greet">👋 JH</span>
       <span id="meta-count">📚 노트 —</span>
     </div>
   </div>
@@ -31,7 +51,7 @@
     <span class="brand">🦷 JH의 덴탈노트</span>
     <div class="spacer"></div>
     <div class="search">
-      <input id="q" type="search" placeholder="노트 검색…" aria-label="노트 검색" />
+      <input id="q" type="search" placeholder="노트 검색…  ( / )" aria-label="노트 검색" />
       <button class="themebtn" id="theme" title="다크모드 전환" aria-label="다크모드 전환">🌓</button>
     </div>
   </div>
@@ -41,17 +61,10 @@
   <p class="count" id="count"></p>
   <div class="grid" id="note-grid"></div>
   <p class="no-results" id="empty" hidden>검색 결과가 없습니다.</p>
-  <p class="hub-hint">➕ 새 노트가 계속 추가됩니다. (확장 구조: <code>assets/theme.css</code> 공용 디자인 + 노트 메타데이터 배열)</p>
-
-  <div class="disclaimer">
-    <span style="font-size:18px">⚠️</span>
-    <div><b>면책 고지 —</b> 본 노트는 <b>교육·요약 목적</b>이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.
-    처방·시술 전 <b>원전과 환자 상태</b>를 반드시 확인하십시오.</div>
-  </div>
 </main>
 
 <footer class="wrap">
-  JH의 덴탈노트 — 임상 치과 레퍼런스 허브 · 교육용 · © 2026
+  JH의 덴탈노트 · 처방·시술 전 원전과 환자 상태 확인 · © 2026
 </footer>
 
 <script>
@@ -63,38 +76,38 @@ const notes = [
   { title:'MRONJ 임상권고안 2025', href:'mronj.html', icon:'🦴', accent:'#b3261e', tag:'가이드라인',
     desc:'약물관련 악골괴사(MRONJ) 진단 기준·위험요인·예방(비스포스포네이트·데노수맙 휴약 타이밍)·발생 시 휴약·보조치료 요약.',
     keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 테리파라타이드 골흡수억제제' },
-  { title:'노트 추가 예정', href:'', icon:'➕', accent:'#5b6b7d', tag:'준비 중', soon:true,
-    desc:'교합·TMD, 임플란트, 방사선 판독, 소아치과 등 임상 노트가 순차적으로 추가됩니다.',
-    keywords:'준비중 예정 coming soon' },
 ];
 
 const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
 const grid = document.getElementById('note-grid');
-const realCount = notes.filter(n=>!n.soon).length;
-document.getElementById('count').textContent = `총 ${realCount}개 노트`;
-document.getElementById('meta-count').textContent = `📚 노트 ${realCount}개`;
+document.getElementById('count').textContent = `총 ${notes.length}개 노트`;
+document.getElementById('meta-count').textContent = `📚 노트 ${notes.length}개`;
 
 function render(){
   grid.innerHTML='';
-  notes.forEach(n=>{
-    const soon = n.soon ? 'note soon' : 'note';
-    const tagName = n.soon ? 'div' : 'a';
-    const hrefAttr = n.soon ? '' : ` href="${n.href}"`;
-    const go = n.soon ? '' : `<span class="go">열기 →</span>`;
+  notes.forEach((n,i)=>{
     const card = el(`
-      <${tagName} class="${soon}"${hrefAttr} style="border-top-color:${n.accent}"
+      <a class="note" href="${n.href}" style="border-top-color:${n.accent};--glow:${n.accent};animation-delay:${i*80}ms"
         data-text="${(n.title+' '+n.desc+' '+n.tag+' '+(n.keywords||'')).toLowerCase()}">
         <div class="ic">${n.icon}</div>
         <h3>${n.title}</h3>
         <p>${n.desc}</p>
-        <div class="row"><span class="tag" style="background:${n.accent}">${n.tag}</span>${go}</div>
-      </${tagName}>`);
+        <div class="row"><span class="tag" style="background:${n.accent}">${n.tag}</span><span class="go">열기 →</span></div>
+      </a>`);
     grid.appendChild(card);
   });
 }
 render();
 
-/* 노트 검색 필터 */
+/* cursor-follow glow on cards */
+grid.addEventListener('pointermove', (e)=>{
+  const card = e.target.closest('a.note'); if(!card) return;
+  const r = card.getBoundingClientRect();
+  card.style.setProperty('--mx', (e.clientX-r.left)+'px');
+  card.style.setProperty('--my', (e.clientY-r.top)+'px');
+});
+
+/* search filter */
 const q = document.getElementById('q');
 q.addEventListener('input', ()=>{
   const term = q.value.trim().toLowerCase();
@@ -105,12 +118,66 @@ q.addEventListener('input', ()=>{
   });
   document.getElementById('empty').hidden = shown>0;
 });
-/* "/" 로 검색 포커스 */
 document.addEventListener('keydown', (e)=>{
   const t=((document.activeElement&&document.activeElement.tagName)||'').toLowerCase();
   if(e.key==='/' && t!=='input' && t!=='textarea'){ e.preventDefault(); q.focus(); }
   else if(e.key==='Escape' && document.activeElement===q){ q.value=''; q.dispatchEvent(new Event('input')); q.blur(); }
 });
+
+/* time-of-day greeting */
+(function greet(){
+  const g = document.getElementById('greet'); if(!g) return;
+  const d = new Date(), hr = d.getHours();
+  const msg = hr<6?'고요한 새벽이에요' : hr<11?'좋은 아침이에요' : hr<17?'좋은 오후예요' : hr<21?'좋은 저녁이에요' : '늦은 밤이에요';
+  const ds = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+  g.textContent = `👋 ${msg}, JH · ${ds}`;
+})();
+
+/* interactive particle network in hero (mouse-reactive) */
+(function bg(){
+  const canvas = document.getElementById('bg'); if(!canvas) return;
+  const ctx = canvas.getContext && canvas.getContext('2d'); if(!ctx) return;   // jsdom-safe
+  const hero = document.getElementById('hero');
+  const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  let w=0,h=0,parts=[],mouse={x:-1e4,y:-1e4},raf=0,running=false;
+  function size(){
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    w = hero.clientWidth; h = hero.clientHeight || 220;
+    canvas.width = w*dpr; canvas.height = h*dpr;
+    canvas.style.width=w+'px'; canvas.style.height=h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n = Math.max(24, Math.min(70, Math.floor(w/22)));
+    parts = Array.from({length:n}, ()=>({ x:Math.random()*w, y:Math.random()*h,
+      vx:(Math.random()-.5)*0.34, vy:(Math.random()-.5)*0.34, r:Math.random()*1.7+0.6 }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of parts){ p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1; }
+    for(let i=0;i<parts.length;i++){
+      const a=parts[i];
+      for(let j=i+1;j<parts.length;j++){
+        const b=parts[j], d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<118){ ctx.strokeStyle='rgba(255,255,255,'+(0.10*(1-d/118)).toFixed(3)+')'; ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+      }
+      const dm=Math.hypot(a.x-mouse.x,a.y-mouse.y);
+      if(dm<170){ ctx.strokeStyle='rgba(255,255,255,'+(0.26*(1-dm/170)).toFixed(3)+')';
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
+        a.x += (mouse.x-a.x)*0.0016; a.y += (mouse.y-a.y)*0.0016; }
+    }
+    for(const p of parts){ ctx.fillStyle='rgba(255,255,255,.55)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); }
+  }
+  function loop(){ if(!running) return; draw(); raf=requestAnimationFrame(loop); }
+  function start(){ if(running||reduce) return; running=true; loop(); }
+  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); }
+  size(); draw();                    // initial frame
+  if(!reduce && typeof requestAnimationFrame==='function') start();
+  window.addEventListener('resize', size);
+  hero.addEventListener('pointermove', (e)=>{ const r=hero.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
+  hero.addEventListener('pointerleave', ()=>{ mouse.x=-1e4; mouse.y=-1e4; });
+  document.addEventListener('visibilitychange', ()=>{ document.hidden ? stop() : start(); });
+})();
 </script>
 <script src="assets/theme.js"></script>
 </body>
