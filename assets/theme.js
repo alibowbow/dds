@@ -1,4 +1,4 @@
-/* JH의 덴탈노트 — 공용 다크모드 토글 (사이트 전역 'dds-theme' 동기화) */
+/* JH의 덴탈시냅스 — 공용 다크모드 토글 (사이트 전역 'dds-theme' 동기화) */
 (function () {
   var root = document.documentElement;
   function effectiveDark() {
