@@ -14,7 +14,16 @@
   } catch (e) {}
   function updateIcon() {
     var b = document.getElementById('theme');
-    if (b) b.textContent = effectiveDark() ? '☀️' : '🌙';
+    if (!b) return;
+    var id = effectiveDark() ? '#i-sun' : '#i-moon';
+    var u = b.querySelector('use');
+    if (u) {
+      u.setAttribute('href', 'assets/icons.svg' + id);
+      u.setAttribute('xlink:href', 'assets/icons.svg' + id);
+    } else {
+      b.textContent = effectiveDark() ? '☀️' : '🌙'; // fallback
+    }
+    b.setAttribute('aria-label', effectiveDark() ? '라이트 모드로 전환' : '다크 모드로 전환');
   }
   function bind() {
     updateIcon();
