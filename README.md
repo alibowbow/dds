@@ -38,7 +38,7 @@
 
 ## 파일 구조
 ```
-index.html          # 메인 허브 (덴탈시냅스)
+index.html          # 메인 허브 (JH의 덴탈시냅스)
 drug-guide.html     # 하위: 약물·처방 가이드
 mronj.html          # 하위: MRONJ 임상권고안 2025
 assets/theme.css    # 디자인 시스템(토큰: 타입 스케일·시맨틱 색·간격·컴포넌트·반응형 표)
