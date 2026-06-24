@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>라미네이트 (무삭제·최소삭제 베니어) — JH의 덴탈시냅스</title>
+<meta name="description" content="최소삭제·무삭제 라미네이트 — 적응증·삭제·재료·제작·접착·브랜드·근거를 근거 수준과 함께 정리" />
+<meta name="theme-color" content="#4f46e5" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/theme.css?v=2" />
+<style>
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+  .stats .m{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+  .stats .m b{display:block;font-size:var(--text-lg);letter-spacing:-.02em}
+  .stats .m span{display:block;color:var(--ink-2);font-size:var(--text-xs);margin-top:2px}
+  @media(max-width:640px){.stats{grid-template-columns:1fr 1fr}}
+  ol.flowlist{margin:8px 0 0;padding-left:18px;font-size:var(--text-sm)} ol.flowlist li{margin:5px 0}
+  ol.flowlist li b{color:var(--brand)}
+  ul.chk{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:7px}
+  ul.chk li{position:relative;padding-left:24px;color:var(--ink-2);font-size:var(--text-sm)}
+  ul.chk li::before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:800}
+  ul.chk.no li::before{content:"✕";color:var(--danger)}
+  /* 삭제 연속선 */
+  .scale-track{height:18px;border-radius:999px;background:linear-gradient(90deg,#3fb6ab 0 14%,#37a0a6 14% 34%,#d7a23f 34% 68%,#d96a62 68% 100%);position:relative;margin:40px 6px 14px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07)}
+  .scale-tick{position:absolute;top:-28px;transform:translateX(-50%);font-size:var(--text-xs);color:var(--ink-2);font-weight:700}
+  .scale-tick::after{content:"";position:absolute;left:50%;top:20px;height:14px;width:1px;background:var(--ink);opacity:.35}
+  .scale-labels{display:grid;grid-template-columns:14fr 20fr 34fr 32fr;gap:6px}
+  .scale-label{padding:11px 10px;border-radius:10px;background:var(--surface-2)}
+  .scale-label b{font-size:var(--text-sm);display:block} .scale-label span{font-size:var(--text-xs);color:var(--ink-2)}
+  @media(max-width:640px){.scale-labels{grid-template-columns:1fr 1fr}}
+  /* 브랜드 */
+  .facts{display:grid;grid-template-columns:96px 1fr;gap:7px 12px;margin-top:12px;font-size:var(--text-sm)}
+  .facts dt{color:var(--ink-2);font-weight:600} .facts dd{margin:0}
+  .emeter{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:14px 0 6px}
+  .emeter span{height:7px;border-radius:99px;background:var(--line)}
+  .emeter.l1 span:nth-child(-n+1),.emeter.l2 span:nth-child(-n+2),.emeter.l3 span:nth-child(-n+3),.emeter.l4 span:nth-child(-n+4){background:var(--brand)}
+  .claim{margin-top:12px;padding:11px 13px;border-radius:10px;background:var(--warning-soft);font-size:var(--text-xs);color:color-mix(in srgb,var(--ink) 72%,var(--warning))}
+  /* 근거 */
+  .study{display:grid;grid-template-columns:1fr auto;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);align-items:center}
+  .study:last-child{border-bottom:0}
+  .study b{display:block;font-size:var(--text-sm)} .study small{color:var(--ink-2);font-size:var(--text-xs)}
+  .study .rate{font-size:var(--text-xl);font-weight:800;color:var(--brand);white-space:nowrap}
+  .riskgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:640px){.riskgrid{grid-template-columns:1fr}}
+  .risk{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+  .risk b{display:block;font-size:var(--text-sm)} .risk span{font-size:var(--text-xs);color:var(--ink-2)}
+  /* 출처 */
+  .sources{display:grid;gap:9px}
+  .source{display:grid;grid-template-columns:34px 1fr auto;gap:11px;align-items:center;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+  .source .sid{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:var(--surface-2);color:var(--brand);font-size:var(--text-xs);font-weight:800}
+  .source b{display:block;font-size:var(--text-sm)} .source p{margin:2px 0 0;color:var(--ink-2);font-size:var(--text-xs)}
+  .source a{font-size:var(--text-xs);white-space:nowrap}
+  @media(max-width:640px){.source{grid-template-columns:34px 1fr}.source a{grid-column:2;justify-self:start}}
+  .cite{display:inline-flex;align-items:center;justify-content:center;min-width:21px;height:17px;padding:0 4px;margin:0 2px;border-radius:6px;background:var(--brand-soft);color:var(--brand);text-decoration:none;font-size:10px;font-weight:800;vertical-align:.08em}
+  .badge.dgr{color:var(--danger);background:var(--danger-soft)} .badge.inf{color:var(--info);background:var(--info-soft)}
+  .badge.dgr::before{border-radius:0;transform:rotate(45deg)} .badge.inf::before{border-radius:999px}
+  h2 .badge,h3 .badge{margin-left:6px}
+  td b{font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="themebtn hero-toggle" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
+  <div class="wrap">
+    <a class="crumb" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg> JH의 덴탈시냅스 홈</a>
+    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-layers"/></svg></span>라미네이트 <span style="font-size:.5em;opacity:.85;font-weight:600">무삭제·최소삭제 베니어</span></h1>
+    <p class="sub">얇게 만드는 것보다 중요한 건 <b>적응증·남은 법랑질·표면처리·정밀 접착</b> — 재료·삭제·제작·접착·브랜드·근거를 한곳에서 비교합니다.</p>
+    <div class="meta-row">
+      <span>근거·공식자료 기반 정리 · 2026.06</span>
+      <span>ADA · ACP · 문헌 리뷰 · 제조사 IFU</span>
+    </div>
+  </div>
+</header>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-home"/></svg></span>홈</a>
+    <nav class="links" aria-label="섹션 바로가기">
+      <a href="#principles">원칙</a><a href="#prep">삭제</a><a href="#materials">재료</a><a href="#fabrication">제작</a>
+      <a href="#bonding">접착</a><a href="#brands">브랜드</a><a href="#evidence">근거</a><a href="#sources">출처</a>
+    </nav>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- 원칙 -->
+  <section id="principles">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-star"/></svg></span><h2>먼저 기억할 3가지</h2></div>
+    <div class="stats">
+      <div class="m"><b>0–0.7㎜</b><span>임상에서 논의되는 삭제 범위*</span></div>
+      <div class="m"><b>7종</b><span>주요 재료군 비교</span></div>
+      <div class="m"><b>5경로</b><span>재료별 접착 프로토콜</span></div>
+      <div class="m"><b>4단계</b><span>공개 근거 수준 표시</span></div>
+    </div>
+    <div class="cols" style="margin-top:16px">
+      <div class="card bl"><h3>1 · “무삭제”는 재료명이 아니다</h3><p style="margin:0;font-size:var(--text-sm);color:var(--ink-2)">치아가 작거나 안쪽에 있고 바깥으로 더해도 두껍지 않을 때 가능한 <b>치료 설계</b>. 같은 재료도 환자마다 삭제량이 달라집니다.</p></div>
+      <div class="card bl"><h3>2 · 강도 수치만으로 고르지 않는다</h3><p style="margin:0;font-size:var(--text-sm);color:var(--ink-2)">MPa가 높아도 접착이 약하거나 두께·교합이 부적절하면 실패. 초박형은 특히 <b>법랑질 지지와 표면처리</b>가 중요합니다.</p></div>
+      <div class="card bl"><h3>3 · 브랜드명보다 구성품을 확인</h3><p style="margin:0;font-size:var(--text-sm);color:var(--ink-2)">원재료 제조사·제품명·최종 두께·삭제량·시멘트·격리법·보증 범위를 <b>서면</b>으로 확인해야 비교가 됩니다.</p></div>
+    </div>
+    <div class="viz" style="margin-top:16px">
+      <h3>개념도 — 얇은 세라믹 + 레진 시멘트 + 법랑질 = 접착 복합체</h3>
+      <p class="cap">베니어의 강도는 재료 단독이 아니라 법랑질에 지지된 ‘복합체’에서 나옵니다(비례 아님).</p>
+      <svg viewBox="0 0 520 300" role="img" aria-label="치아·법랑질·라미네이트 단면 개념도" style="max-width:520px;margin:0 auto">
+        <defs>
+          <linearGradient id="vG" x1="0" x2="1"><stop stop-color="#57d8ce"/><stop offset="1" stop-color="#087f78"/></linearGradient>
+          <linearGradient id="eG" x1="0" x2="1"><stop stop-color="#fffdf4"/><stop offset="1" stop-color="#e7eadf"/></linearGradient>
+          <linearGradient id="dG" x1="0" x2="1"><stop stop-color="#f4d18a"/><stop offset="1" stop-color="#d7a94f"/></linearGradient>
+        </defs>
+        <path d="M205 35 C133 40 88 92 88 174 C88 244 116 279 133 342 C142 375 160 390 181 369 C201 348 202 305 225 295 C248 284 269 318 280 356 C291 395 323 389 338 353 C359 304 385 260 393 192 C404 98 344 38 270 34 C250 33 226 34 205 35Z" transform="translate(0,-26) scale(0.86)" fill="url(#eG)" stroke="#cbd6d3" stroke-width="4"/>
+        <path d="M214 66 C161 69 129 111 130 177 C131 230 152 263 166 313 C171 332 180 342 190 327 C204 306 210 269 239 263 C271 257 291 291 300 322 C305 340 319 337 328 316 C348 269 366 232 370 180 C376 113 333 70 277 66 C258 65 234 65 214 66Z" transform="translate(0,-26) scale(0.86)" fill="url(#dG)" opacity=".9"/>
+        <path d="M211 96 C176 100 157 130 160 176 C163 219 179 244 187 270 C204 243 219 231 241 227 C267 222 292 235 311 260 C323 234 337 210 340 176 C345 129 316 98 278 95 C257 93 233 94 211 96Z" transform="translate(0,-26) scale(0.86)" fill="#bf6c58" opacity=".62"/>
+        <path d="M78 72 C48 100 38 141 42 185 C48 245 71 282 95 314 C106 328 119 326 124 313 C129 299 119 272 112 248 C97 194 101 126 135 83 C117 75 96 71 78 72Z" transform="translate(0,-26) scale(0.86)" fill="url(#vG)" stroke="#076b66" stroke-width="3"/>
+        <g font-weight="800" font-size="13">
+          <path d="M54 50 L24 30" stroke="#087f78" stroke-width="2"/><text x="14" y="24" fill="#087f78">라미네이트</text>
+          <path d="M126 30 L104 14" stroke="#9aa6a4" stroke-width="2"/><text x="44" y="12" fill="#6e7e7c">법랑질</text>
+          <path d="M286 70 L360 44" stroke="#c28c32" stroke-width="2"/><text x="366" y="46" fill="#a77421">상아질</text>
+          <path d="M276 180 L368 196" stroke="#a2544d" stroke-width="2"/><text x="374" y="200" fill="#a2544d">치수</text>
+        </g>
+      </svg>
+    </div>
+    <div class="callout"><b>핵심 결론</b> — 목표는 “무조건 0㎜”가 아니라 <b>필요한 공간만 만들고 가능한 한 법랑질 안에 머무는 것</b>. ACP는 과도한 부피를 피하려면 소량 삭제가 필요하며 준비는 보통 법랑질에 제한한다고 설명합니다.<a class="cite" href="#s2">S2</a></div>
+  </section>
+
+  <!-- 삭제 -->
+  <section id="prep">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-tool"/></svg></span><h2>삭제량은 연속선이다</h2></div>
+    <p class="sec-desc">‘무삭제/최소삭제/일반’ 사이에 통일된 절대 경계는 없습니다. 아래는 계획 이해용 범위이며 치경부·중앙·절단부마다 달라집니다.</p>
+    <div class="card" style="padding:18px 22px 22px">
+      <div class="scale-track">
+        <span class="scale-tick" style="left:0%">0</span><span class="scale-tick" style="left:14%">0.1</span><span class="scale-tick" style="left:34%">0.25</span><span class="scale-tick" style="left:68%">0.5</span><span class="scale-tick" style="left:100%">0.7㎜+</span>
+      </div>
+      <div class="scale-labels">
+        <div class="scale-label"><b>진정한 additive</b><span>삭제 0 · 선택적 적응증</span></div>
+        <div class="scale-label"><b>표면 정리</b><span>선각·미세균열·무구조 법랑질</span></div>
+        <div class="scale-label"><b>최소삭제</b><span>mock-up guided · 법랑질 내</span></div>
+        <div class="scale-label"><b>전통적 삭제</b><span>변색·돌출·형태 변화 시</span></div>
+      </div>
+      <p style="font-size:var(--text-xs);color:var(--ink-2);margin:14px 0 0">문헌 리뷰는 순면 삭제량을 흔히 0.4–0.7㎜로 설명하며, 치경부 법랑질은 얇아 최소삭제가 특히 중요하다고 정리합니다.<a class="cite" href="#s3">S3</a> 일부 브랜드는 “0.2㎜ 미만 표면 정리”와 “no shaving”을 함께 쓰므로 실제 치아별 삭제 맵 확인이 필요합니다.<a class="cite" href="#s7">S7</a></p>
+    </div>
+    <div class="cols" style="margin-top:14px">
+      <div class="card"><span class="badge rec">무삭제 유리</span><h3 style="margin:10px 0 6px">공간을 더해야 하는 치아</h3>
+        <ul class="chk"><li>왜소치·짧거나 마모된 치아</li><li>치아 사이 간격을 닫는 경우</li><li>치열이 안쪽에 있어 바깥 공간이 있는 경우</li><li>좁은 미소 폭을 넓히는 additive 설계</li><li>밝은 색 변화가 크지 않은 경우</li></ul></div>
+      <div class="card"><span class="badge dgr">무삭제 불리</span><h3 style="margin:10px 0 6px">부피를 줄여야 하는 치아</h3>
+        <ul class="chk no"><li>이미 돌출되거나 큰 치아</li><li>회전·중첩·심한 총생</li><li>강한 변색을 얇은 재료로 가리는 경우</li><li>깊은 교합·절단연 간섭·이갈이</li><li>활동성 우식·치주염·불충분한 법랑질</li></ul></div>
+    </div>
+    <h3 style="margin:18px 0 8px">어떻게 삭제하는가 — 최종 형태 먼저, 필요한 곳만</h3>
+    <div class="flow">
+      <div class="step"><b>① 진단·교합</b><small>사진·방사선·치주·스캔·미소선·이갈이 평가</small></div><div class="arrow"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></div>
+      <div class="step"><b>② 왁스업·mock-up</b><small>‘더할 공간’과 ‘줄일 공간’ 구분</small></div><div class="arrow"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></div>
+      <div class="step"><b>③ 깊이 유도 홈</b><small>실리콘 인덱스·깊이 버로 표면별 목표 표시</small></div><div class="arrow"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></div>
+      <div class="step"><b>④ 수냉 다이아몬드</b><small>선각·돌출 정리, 가능하면 법랑질 내 유지</small></div><div class="arrow"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></div>
+      <div class="step"><b>⑤ 마진·스캔</b><small>finish line·인접면·치은 관리 후 정밀 채득</small></div>
+    </div>
+    <div class="callout danger" style="margin-top:14px"><b>‘되돌릴 수 있다’는 표현에 주의</b> — 삭제가 0이어도 산부식·연마·제거가 법랑질 표면을 변화시키며, 과윤곽은 치은 염증·음식물 정체를 부를 수 있어 무삭제를 완전 가역으로 보기는 어렵습니다.</div>
+  </section>
+
+  <!-- 재료 -->
+  <section id="materials">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-layers"/></svg></span><h2>얇고 강하게 만드는 재료</h2></div>
+    <p class="sec-desc">강도 범위는 제조법·시험법·소성 여부에 따라 달라집니다. 선택은 색차단·접착성·탄성·수리성·최소두께를 함께 봅니다.</p>
+    <div class="viz">
+      <h3>재료 자체 굴곡강도 (상대 범위)</h3>
+      <p class="cap">‘높을수록 좋은 순위’가 아닙니다 — 초박형 강도는 법랑질 접착 복합체에서 나옵니다.</p>
+      <div data-chart="rangebars" data-json='{"max":1200,"unit":" MPa","maxLabel":"1200","rows":[{"label":"장석계 포세린","lo":60,"hi":120,"val":"60–120"},{"label":"PICN","lo":130,"hi":160,"val":"130–160"},{"label":"류사이트","lo":120,"hi":180,"val":"120–180"},{"label":"레진 나노세라믹","lo":150,"hi":250,"val":"150–250"},{"label":"ZLS","lo":210,"hi":370,"val":"210–370"},{"label":"리튬 디실리케이트","lo":360,"hi":500,"val":"360–500"},{"label":"지르코니아","lo":600,"hi":1200,"val":"600–1200"}]}'></div>
+    </div>
+    <div class="tablewrap flat"><table class="cards">
+      <caption class="sr-only">라미네이트 재료군별 특성·강도·적합성·제작·접착·한계</caption>
+      <thead><tr><th scope="col">재료군</th><th scope="col">굴곡강도*</th><th scope="col">초박형</th><th scope="col">제작</th><th scope="col">내면 처리</th><th scope="col">핵심 한계</th></tr></thead>
+      <tbody>
+        <tr><td data-label="재료군"><b>장석계 포세린</b><br/><small>가장 자연스러운 층·투명감</small></td><td data-label="강도">60–120 MPa</td><td data-label="초박형"><span class="badge rec">매우 높음</span></td><td data-label="제작">내화다이·백금박 수작업 축성</td><td data-label="내면">HF + 실란</td><td data-label="한계">취성·기공 의존, 진한 변색 차단 난</td></tr>
+        <tr><td data-label="재료군"><b>류사이트 강화</b><br/><small>광학성 우수</small></td><td data-label="강도">120–180 MPa</td><td data-label="초박형"><span class="badge rec">높음</span></td><td data-label="제작">프레스 또는 CAD/CAM</td><td data-label="내면">HF + 실란</td><td data-label="한계">리튬 디실리케이트보다 강도↓</td></tr>
+        <tr><td data-label="재료군"><b>리튬 디실리케이트</b><br/><small>예: IPS e.max</small></td><td data-label="강도">360–500 MPa<br/><small>Press 470</small><a class="cite" href="#s4">S4</a></td><td data-label="초박형"><span class="badge rec">높음</span></td><td data-label="제작">프레스 또는 밀링 후 결정화</td><td data-label="내면">HF + 실란/세라믹 프라이머</td><td data-label="한계">장석계보다 가공 공간 필요할 수</td></tr>
+        <tr><td data-label="재료군"><b>ZLS</b><br/><small>지르코니아 강화 리튬실리케이트</small></td><td data-label="강도">210(연마)<br/>370(소성)<a class="cite" href="#s6">S6</a></td><td data-label="초박형"><span class="badge rec">높음</span></td><td data-label="제작">밀링 후 연마 또는 소성</td><td data-label="내면">HF + 실란(IFU)</td><td data-label="한계">후처리별 강도차 큼</td></tr>
+        <tr><td data-label="재료군"><b>PICN·하이브리드</b><br/><small>예: VITA ENAMIC</small></td><td data-label="강도">130–160 MPa</td><td data-label="초박형"><span class="badge rec">높음</span><a class="cite" href="#s5">S5</a></td><td data-label="제작">밀링 후 연마(보통 무소성)</td><td data-label="내면">HF/실란 또는 전용 프라이머</td><td data-label="한계">장기 변색·마모, 임상데이터 적을 수</td></tr>
+        <tr><td data-label="재료군"><b>레진 나노세라믹</b><br/><small>고충전 복합재</small></td><td data-label="강도">150–250 MPa</td><td data-label="초박형"><span class="badge exp">조건부</span></td><td data-label="제작">밀링 또는 간접 중합</td><td data-label="내면">샌드블라스트 + 프라이머</td><td data-label="한계">착색·마모·광택 유지 불리할 수</td></tr>
+        <tr><td data-label="재료군"><b>지르코니아</b><br/><small>3Y/4Y/5Y</small></td><td data-label="강도">600–1,200 MPa</td><td data-label="초박형"><span class="badge exp">전치 제한적</span></td><td data-label="제작">밀링 후 소결·글레이즈</td><td data-label="내면"><span class="em">HF 금지</span> · 알루미나 + MDP</td><td data-label="한계">접착 까다롭고 제거·수리 어려움</td></tr>
+        <tr><td data-label="재료군"><b>직접 복합레진</b><br/><small>당일 additive</small></td><td data-label="강도">제품 의존</td><td data-label="초박형"><span class="badge rec">매우 높음</span></td><td data-label="제작">구강 내 층상 축성·광중합</td><td data-label="내면">법랑질 산부식 + 접착제</td><td data-label="한계">변색·마모·칩핑 빠른 경향<a class="cite" href="#s1">S1</a><a class="cite" href="#s3">S3</a></td></tr>
+      </tbody>
+    </table></div>
+    <p class="sec-desc" style="margin-top:6px">* 강도는 비교 편의를 위한 대략적 범위이며 시험법·소성 여부에 따라 달라집니다.</p>
+    <div class="callout"><b>초박형의 강도는 ‘복합체’에서</b> — 세라믹 자체는 얇을수록 쉽게 깨지지만, 적절히 처리된 베니어가 레진 시멘트를 사이에 두고 법랑질에 완전 지지되면 하나의 구조처럼 작동합니다.<a class="cite" href="#s3">S3</a></div>
+  </section>
+
+  <!-- 제작 -->
+  <section id="fabrication">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-flask"/></svg></span><h2>어떻게 제작되는가</h2></div>
+    <p class="sec-desc">같은 재료명이라도 공정이 다르면 두께·변연 정밀도·광학 효과·당일 제작 가능성이 달라집니다.</p>
+    <div class="tablewrap flat"><table class="cards">
+      <caption class="sr-only">제작 방식별 특징과 공정 흐름</caption>
+      <thead><tr><th scope="col">방식</th><th scope="col">특징</th><th scope="col">공정 흐름</th></tr></thead>
+      <tbody>
+        <tr><td data-label="방식"><b>수작업 축성</b><br/><span class="badge inf">초박형 광학</span></td><td data-label="특징">내화다이/백금박 위 층상 축성·반복 소성, 기공사가 투명도·표면 자유 조절</td><td data-label="흐름">스캔 › 내화다이 › 층상축성 › 반복소성 › 광택</td></tr>
+        <tr><td data-label="방식"><b>열가압 프레스</b><br/><span class="badge rec">강도·일관성</span></td><td data-label="특징">왁스 패턴 매몰·소환 후 세라믹 잉곳 주입, staining/cut-back 마무리</td><td data-label="흐름">왁스업 › 매몰·소환 › 프레스 › divest › 착색·글레이즈</td></tr>
+        <tr><td data-label="방식"><b>CAD/CAM 밀링</b><br/><span class="badge rec">정밀·당일</span></td><td data-label="특징">스캔 후 최소두께·마진 디지털 설계, 블록 밀링(리튬 디실리케이트는 결정화)</td><td data-label="흐름">3D스캔 › CAD › 밀링 › 결정화/소성 › 마감</td></tr>
+        <tr><td data-label="방식"><b>하이브리드/PICN 블록</b><br/><span class="badge exp">빠름·수리</span></td><td data-label="특징">중합·소결된 네트워크 블록 밀링·연마, 보통 고온 결정화 없음</td><td data-label="흐름">스캔 › 디자인 › 밀링 › 형태수정 › 연마</td></tr>
+        <tr><td data-label="방식"><b>직접 복합레진</b><br/><span class="badge rec">가장 보존적</span></td><td data-label="특징">입안에서 색 층상 축성·광중합, 당일 변경·수리 쉬움(광택·색안정 관리)</td><td data-label="흐름">격리 › 산부식·접착 › 층상축성 › 광중합 › 연마</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 접착 -->
+  <section id="bonding">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-droplet"/></svg></span><h2>접착은 ‘본드 하나’가 아니다</h2></div>
+    <p class="sec-desc">수복물 내면과 치아 표면을 서로 다르게 처리한 뒤 실란·MDP 등 화학 결합과 레진의 미세기계 결합을 조합합니다.</p>
+    <div class="cols">
+      <div class="card bl"><h3>유리세라믹 <span class="pill">장석·류사이트·리튬·ZLS</span></h3>
+        <p style="margin:4px 0 0;font-size:var(--text-sm);color:var(--ink-2)">실리카 유리상 → HF로 미세요철, 실란으로 화학결합.</p>
+        <ol class="flowlist"><li><b>시적·오염 제거</b> (try-in 후 타액·실리콘 제거)</li><li><b>HF 산부식</b> (재료·농도별 지정 시간 엄수)</li><li><b>세척·건조</b></li><li><b>실란/세라믹 프라이머</b></li><li><b>레진 시멘트</b> (완전 격리 후 얇게)</li></ol></div>
+      <div class="card bl"><h3>PICN·하이브리드</h3>
+        <p style="margin:4px 0 0;font-size:var(--text-sm);color:var(--ink-2)">세라믹·폴리머 망 공존 → 제품별 지침 상이.</p>
+        <ol class="flowlist"><li><b>내면 확인</b> (밀링유·오염 제거)</li><li><b>선택적 HF</b> (적용 여부·시간은 블록 IFU)</li><li><b>세척·건조</b></li><li><b>실란/전용 프라이머</b></li><li><b>접착성 레진</b></li></ol></div>
+      <div class="card bl"><h3>지르코니아</h3>
+        <p style="margin:4px 0 0;font-size:var(--text-sm);color:var(--ink-2)">유리상 거의 없음 → <span class="em">HF·일반 실란 부족</span>.</p>
+        <ol class="flowlist"><li><b>저압 알루미나 샌드블라스트</b></li><li><b>오염 제거</b> (zirconia용 cleaner)</li><li><b>MDP 프라이머</b> (인산 모노머 결합)</li><li><b>MDP 함유 레진</b></li><li><b>철저한 중합</b> (불투명 시 dual-cure)</li></ol></div>
+      <div class="card bl"><h3>레진계 간접재</h3>
+        <p style="margin:4px 0 0;font-size:var(--text-sm);color:var(--ink-2)">제품별 샌드블라스트·실란·universal 조합 상이.</p>
+        <ol class="flowlist"><li><b>거칠기 부여</b> (저압 샌드블라스트)</li><li><b>세척·건조</b></li><li><b>실란/프라이머</b></li><li><b>접착제</b> (용매 충분 건조)</li><li><b>레진 시멘트</b></li></ol></div>
+      <div class="card bl" style="border-left-color:var(--success)"><h3>치아 표면 <span class="pill">법랑질/상아질</span></h3>
+        <p style="margin:4px 0 0;font-size:var(--text-sm);color:var(--ink-2)">접착의 기반 — <b>법랑질 접착 확보</b>·습도/출혈 통제.</p>
+        <ol class="flowlist"><li><b>격리·세정</b> (러버댐/압배, 퍼미스)</li><li><b>인산 산부식</b> (법랑질 충분, 상아질은 시스템대로)</li><li><b>수분 조절</b> (상아질 과건조·오염 회피)</li><li><b>접착제</b> (얇고 균일)</li><li><b>시멘트·광중합</b> (tack→잉여제거→글리세린→최종)</li></ol></div>
+    </div>
+    <div class="callout"><b>시멘트 선택</b> — 얇고 투명한 베니어엔 색안정·광중합을 위해 <b>광중합형 veneer resin cement</b>가 자주 쓰입니다. 두껍거나 불투명하면 이중중합형 고려 — 모든 단계는 <span class="em">제조사 IFU와 실제 광투과도</span>에 맞춥니다.</div>
+  </section>
+
+  <!-- 브랜드 -->
+  <section id="brands">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-clipboard"/></svg></span><h2>브랜드를 같은 잣대로</h2></div>
+    <p class="sec-desc">‘무삭제’라는 이름보다 공개된 재료 조성·실제 삭제량·공정·접착 프로토콜·독립 임상자료를 봅니다. (막대 = 공개 근거 수준 4단계)</p>
+    <div class="cols">
+      <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><h3 style="margin:0">MINISH · 미니쉬</h3><small style="color:var(--ink-2)">한국 · 독점 시스템</small></div><span class="badge exp">공식 홍보 중심</span></div>
+        <dl class="facts"><dt>재료</dt><dd>독일 VITA 독점 공급 “MINISH ceramic block”. 정확한 조성은 공개 페이지에서 미확인.<a class="cite" href="#s7">S7</a></dd><dt>삭제</dt><dd>‘no shaving’ + 법랑질 정리 <b>0.2㎜ 미만</b> → 실질 no-prep~micro-prep.<a class="cite" href="#s7">S7</a></dd><dt>제작</dt><dd>스캔→디자인→CEREC 밀링→3D프린트 모델→수작업 마감, 인하우스·당일.<a class="cite" href="#s8">S8</a></dd><dt>접착</dt><dd>‘chemical bond’ 강조하나 접착제·처리시간 비공개.</dd></dl>
+        <div class="emeter l2"><span></span><span></span><span></span><span></span></div>
+        <div class="claim"><b>해석 주의:</b> 공식 ‘450 MPa’는 원재료 시험값보다 치아 결합 구조 설명. 타 재료 굴곡강도와 직접 비교 금물.</div></div>
+      <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><h3 style="margin:0">Zeronate · 제로네이트</h3><small style="color:var(--ink-2)">국내 사용 명칭</small></div><span class="badge dgr">검증 정보 제한</span></div>
+        <dl class="facts"><dt>재료</dt><dd>공식 제조사 기술자료·IFU·논문을 확인하지 못함.</dd><dt>삭제</dt><dd>명칭만으로 삭제 0㎜를 의미한다 보기 어려움.</dd><dt>독립 근거</dt><dd>브랜드명 기준 독립 장기 임상자료 미확인.</dd></dl>
+        <div class="emeter l1"><span></span><span></span><span></span><span></span></div>
+        <div class="claim"><b>필수 질문:</b> 식약처 등록 제품명/제조사·재료 분류·최종 두께·치아별 삭제량·HF/실란/MDP·시멘트 제품명을 서면 요청.</div></div>
+      <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><h3 style="margin:0">Lumineers®</h3><small style="color:var(--ink-2)">미국 · 중앙 기공소 초박형 포세린</small></div><span class="badge rec">공식자료 확인</span></div>
+        <dl class="facts"><dt>재료</dt><dd>‘porcelain’ 설명, 상세 조성은 공개 미명시.</dd><dt>삭제</dt><dd>contact-lens-like ultra-thin, 보통 주사·aggressive drilling 없이.<a class="cite" href="#s9">S9</a></dd><dt>제작</dt><dd>미국 Apex Dental Laboratory Group 중앙 제작.<a class="cite" href="#s9">S9</a></dd></dl>
+        <div class="emeter l2"><span></span><span></span><span></span><span></span></div>
+        <div class="claim">절차·중앙 제작은 확인 가능. no-prep 전용 독립 장기근거는 일반 세라믹 베니어보다 제한적.</div></div>
+      <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><h3 style="margin:0">e.max thin veneer</h3><small style="color:var(--ink-2)">치료명 아닌 재료 생태계</small></div><span class="badge rec">재료 자료 풍부</span></div>
+        <dl class="facts"><dt>재료</dt><dd>리튬 디실리케이트. IPS e.max Press 공식 470 MPa·thin veneer 적응증.<a class="cite" href="#s4">S4</a></dd><dt>삭제</dt><dd>0㎜ 보장 아님 — 형상·색차단·마진에 따라 최소삭제 일반적.</dd><dt>접착</dt><dd>HF 산부식·실란·레진 시멘트(유리세라믹 표준).</dd></dl>
+        <div class="emeter l3"><span></span><span></span><span></span><span></span></div>
+        <div class="claim">재료 특성·IFU·장기 세라믹 근거는 풍부하나, 특정 병원의 ‘최소삭제’ 술식 품질을 보증하지 않음.</div></div>
+      <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><h3 style="margin:0">DURAthin®</h3><small style="color:var(--ink-2)">미국 · additive no-prep</small></div><span class="badge inf">레거시 공식</span></div>
+        <dl class="facts"><dt>재료</dt><dd>수작업 층상 제작하는 매우 얇은 porcelain.</dd><dt>적응증</dt><dd>작은·마모치, 좁은 미소/아치, 치아 확대 시 직접 접착.<a class="cite" href="#s10">S10</a></dd><dt>현행성</dt><dd>공식 표기 2011–2016 → 현재 네트워크·제품 별도 확인.</dd></dl>
+        <div class="emeter l1"><span></span><span></span><span></span><span></span></div>
+        <div class="claim">브랜드·케이스 중심, 현행성과 독립 장기 데이터 확인 필요.</div></div>
+      <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><h3 style="margin:0">직접 복합레진 베니어</h3><small style="color:var(--ink-2)">무브랜드·재료/술자 중심</small></div><span class="badge rec">가장 수리 친화적</span></div>
+        <dl class="facts"><dt>재료</dt><dd>나노하이브리드/마이크로필 복합레진.</dd><dt>삭제</dt><dd>additive 0㎜~국소 정리까지 유연.</dd><dt>근거</dt><dd>선택 연구 5년 생존 약 80–89%, 광택·착색·마모·수리 빈도는 세라믹보다 불리할 수.<a class="cite" href="#s3">S3</a></dd></dl>
+        <div class="emeter l3"><span></span><span></span><span></span><span></span></div>
+        <div class="claim">결과는 술자 축성·연마 능력과 유지관리의 영향을 크게 받음.</div></div>
+    </div>
+  </section>
+
+  <!-- 근거 -->
+  <section id="evidence">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-chart"/></svg></span><h2>무엇이 근거가 강한가</h2></div>
+    <p class="sec-desc">세라믹 베니어 ‘전체’의 장기 자료와 특정 ‘무삭제 브랜드’ 자료는 구분해야 합니다. 아래는 선택 코호트로 개인 결과를 보장하지 않습니다.</p>
+    <div class="cols">
+      <div class="card"><h3>선택 연구의 장기 생존율</h3>
+        <div class="study"><div><b>도재 베니어 · 10년</b><small>Layton &amp; Walton(2018 리뷰 요약)·법랑질 접착 중요</small></div><div class="rate">96%</div></div>
+        <div class="study"><div><b>도재 베니어 · 20년</b><small>같은 리뷰의 장기 코호트</small></div><div class="rate">91%</div></div>
+        <div class="study"><div><b>도재 베니어 · 10년</b><small>Beier 등·주 실패는 세라믹 파절</small></div><div class="rate">93.5%</div></div>
+        <div class="study"><div><b>직접 복합레진 · 5년</b><small>선택 연구 범위</small></div><div class="rate">80–89%</div></div>
+        <p style="font-size:var(--text-xs);color:var(--ink-2);margin:12px 0 0">출처: Alothman &amp; Bamasoud 문헌 리뷰 및 요약 연구.<a class="cite" href="#s3">S3</a> 환자·술자·재료·설계가 달라 단순 평균 해석 금물.</p></div>
+      <div class="card"><h3>근거의 층위</h3>
+        <div class="study"><div><b>세라믹 베니어 전체</b><small>다수 장기 코호트·리뷰</small></div><span class="badge rec">중간–높음</span></div>
+        <div class="study"><div><b>법랑질 내 최소삭제</b><small>접착 원리·장기 코호트 지지</small></div><span class="badge rec">중간</span></div>
+        <div class="study"><div><b>진정한 0㎜ no-prep</b><small>선택 적응증·연구 이질성 큼</small></div><span class="badge exp">제한적</span></div>
+        <div class="study"><div><b>특정 독점 브랜드 우월성</b><small>독립 비교시험·원재료 공개 필요</small></div><span class="badge dgr">낮음–불명</span></div>
+        <div class="study"><div><b>마케팅 보증기간</b><small>의학적 생존율과 다름</small></div><span class="badge lim">별도 개념</span></div></div>
+    </div>
+    <h3 style="margin:18px 0 8px">실패 위험을 올리는 요인</h3>
+    <div class="riskgrid">
+      <div class="risk"><b>상아질 노출이 많음</b><span>법랑질보다 장기 접착 안정성 불리, 리뷰는 dentin bonding 시 실패 증가 보고.<a class="cite" href="#s3">S3</a></span></div>
+      <div class="risk"><b>준비 없는 무구조 법랑질</b><span>unprepared aprismatic enamel의 약한 결합이 실패 원인으로 제시.<a class="cite" href="#s3">S3</a></span></div>
+      <div class="risk"><b>이갈이·깊은 교합</b><span>파절·탈락↑ — ADA도 이갈이/deep overbite에서 부적합 가능 안내.<a class="cite" href="#s1">S1</a></span></div>
+      <div class="risk"><b>과윤곽·두꺼운 마진</b><span>치은 자극·플라크·부자연스러운 외형 → no-prep 적응증을 좁힘.</span></div>
+      <div class="risk"><b>오염·격리 실패</b><span>타액·혈액·습기는 접착 저하 → 러버댐 등 철저한 격리 중요.</span></div>
+      <div class="risk"><b>진행 중 우식·치주질환</b><span>먼저 치료 — 건강하지 않은 치아 위 베니어는 악화 가능.<a class="cite" href="#s1">S1</a></span></div>
+    </div>
+  </section>
+
+  <!-- 출처 -->
+  <section id="sources">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><h2>주요 출처</h2></div>
+    <p class="sec-desc">재료 물성은 제조사 자료, 치료 원칙은 전문단체·문헌 리뷰, 브랜드 방식은 각 공식 페이지를 우선했습니다. 브랜드 공식 문구는 독립 임상근거와 분리해 표기.</p>
+    <div class="sources">
+      <article class="source" id="s1"><span class="sid">S1</span><div><b>ADA · MouthHealthy — Veneers</b><p>종류·비가역성·적응 전 우식/치주치료·이갈이/깊은 교합·제작 과정.</p></div><a href="https://www.mouthhealthy.org/all-topics-a-z/veneers" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s2"><span class="sid">S2</span><div><b>American College of Prosthodontists — Veneers</b><p>법랑질 접착·과도한 부피 회피 위한 소량 삭제·법랑질 내 준비 원칙.</p></div><a href="https://www.gotoapro.org/veneers/" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s3"><span class="sid">S3</span><div><b>Alothman &amp; Bamasoud (2018) — Success of Dental Veneers by Preparation Design &amp; Material</b><p>준비 디자인·재료·법랑질 접착·장기 생존율 오픈액세스 리뷰. DOI 10.3889/oamjms.2018.353.</p></div><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6311473/" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s4"><span class="sid">S4</span><div><b>Ivoclar — IPS e.max Press</b><p>리튬 디실리케이트, 공식 470 MPa, thin veneer 적응증, 프레스 공정.</p></div><a href="https://www.ivoclar.com/en_us/products/metal-free-ceramics/ips-e.max-press" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s5"><span class="sid">S5</span><div><b>VITA Zahnfabrik — VITA ENAMIC</b><p>세라믹-폴리머 이중망 PICN, CAD/CAM, 최소침습·베니어 적응증.</p></div><a href="https://www.vita-zahnfabrik.com/en/VITA-ENAMIC-24970%2C27568.html" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s6"><span class="sid">S6</span><div><b>Dentsply Sirona — Celtra Duo</b><p>ZLS, mill &amp; polish 210 MPa / mill &amp; fire 370 MPa, CAD/CAM 후처리.</p></div><a href="https://www.dentsplysirona.com/en-us/discover/discover-by-brand/celtra-duo.html" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s7"><span class="sid">S7</span><div><b>MINISH Dental Hospital — Why MINISH Veneers</b><p>VITA 독점 ceramic block, 0.2㎜ 미만 표면 정리, CAD/CAM·인하우스 랩 등 공식 주장.</p></div><a href="https://www.minishteeth.com/why-minish-veneers/" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s8"><span class="sid">S8</span><div><b>MINISH — Process / Comparison Guide</b><p>검사·잇몸 관리·준비·접착 단계와 no-prep 자체 설명.</p></div><a href="https://www.minishteeth.com/how-it-works/" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s9"><span class="sid">S9</span><div><b>Lumineers — Procedure / Official Site</b><p>초박형 포세린·최소침습·Apex Dental Laboratory Group 중앙 제작.</p></div><a href="https://www.lumineers.com/procedure/" target="_blank" rel="noopener">원문 ↗</a></article>
+      <article class="source" id="s10"><span class="sid">S10</span><div><b>DURAthin Veneers — Overview</b><p>선택 환자 no-prep additive porcelain, 작은·마모치·좁은 아치 적응증(현행성 확인 필요).</p></div><a href="https://www.durathinveneers.com/overview.html" target="_blank" rel="noopener">원문 ↗</a></article>
+    </div>
+    <div class="callout danger" style="margin-top:14px"><b>의료 정보 고지</b> — 본 페이지는 비교·정리 목적의 개인 노트이며 개인 진단·치료 권고가 아닙니다. 적합성은 구강검사·방사선·치주/교합 평가·실제 mock-up 후 치과의사가 판단하며, 재료 표면처리는 해당 제품의 최신 IFU를 우선합니다.</div>
+  </section>
+
+</main>
+
+<button id="toTop" title="맨 위로" aria-label="맨 위로"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"/></svg></button>
+
+<footer class="wrap">
+  라미네이트 (무삭제·최소삭제 베니어) — JH의 덴탈시냅스 · 조사 기준 2026.06 · 적합성은 임상 평가 후 판단
+</footer>
+
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.topbar .links a')];
+  const map={}; links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+  if('IntersectionObserver' in window){
+    const ob=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){
+      links.forEach(a=>a.classList.remove('active')); const a=map[e.target.id]; if(a) a.classList.add('active'); } }); },
+      {rootMargin:'-35% 0px -60% 0px',threshold:0});
+    Object.keys(map).forEach(id=>{ const t=document.getElementById(id); if(t) ob.observe(t); });
+  }
+  const toTop=document.getElementById('toTop');
+  if(toTop){ addEventListener('scroll',()=>toTop.classList.toggle('show',scrollY>600),{passive:true});
+    toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'})); }
+})();
+</script>
+<script src="assets/charts.js?v=2"></script>
+<script src="assets/theme.js?v=2"></script>
+</body>
+</html>
