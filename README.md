@@ -15,6 +15,7 @@
 | 🫦 **교합학 (Occlusion)** | `occlusion.html` | 교합 심층 정리 — CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·**임플란트 교합(IPO)**·교합과 TMD 근거·스플린트·**교합조정(BULL·MUDL·LUBL·DUML)**·진단 도구. Posselt 외피 SVG·계측 차트 (GPT-9·Okeson·Dawson·Misch) |
 | 💎 **라미네이트 (베니어)** | `veneer.html` | 무삭제·최소삭제 베니어 — 적응증·삭제 연속선·**재료 7종(굴곡강도 차트)**·제작·**접착 5경로**·브랜드 비교·장기 근거. 단면 개념도 SVG, 인용(S1–S10) (ADA·ACP·문헌리뷰·제조사 IFU) |
 | 🩸 **항혈전제 환자 치과치료** | `antithrombotic.html` | 항혈소판제·항응고제(**Warfarin INR**·**DOAC 약물별 조정**)·혈전용해제 — 시술 출혈위험 분류·중단/조정·국소 지혈·상호작용 (SNUH 분당서울대 + **SDCEP 2022**) |
+| 📖 **KCD 치과 코드 뷰어** | `kcd.html` | 한국표준질병·사인분류(KCD) **치과 관련 코드**(K00–K14·M·Q35–Q38·S00–S03·T85·Z) — **장(章)별 계층 트리**, 실시간 검색·하이라이트, **코드 클릭 복사**, 제외/포함 **교차참조 점프**. 474개 코드 (KCD 고시 발췌·재구성) |
 
 ## 열람 방법
 - **온라인**: 저장소가 GitHub Pages로 배포되면 루트 주소로 접속 시 메인 허브(`index.html`)가 열립니다.
@@ -47,6 +48,7 @@ mronj.html          # 하위: MRONJ 임상권고안 2025
 occlusion.html      # 하위: 교합학 (Occlusion)
 veneer.html         # 하위: 라미네이트 (베니어)
 antithrombotic.html # 하위: 항혈전제 환자 치과치료
+kcd.html            # 하위: KCD 치과 코드 뷰어 (질병분류 계층 트리·검색·복사)
 assets/theme.css    # 디자인 시스템(토큰: 타입 스케일·시맨틱 색·간격·컴포넌트·반응형 표)
 assets/theme.js     # 공용 다크모드(전역 'dds-theme' 동기화)
 assets/charts.js    # 경량 SVG 차트(범위막대·타임라인·심각도·계단·피라미드)
