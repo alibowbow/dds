@@ -58,9 +58,9 @@
     var s = svg(W, H, (d.title || '단계'));
     d.segs.forEach(function (g, i) {
       var x = i * (bw + gap);
-      var op = (0.32 + 0.68 * (i / (n - 1))).toFixed(2);
+      var op = (0.5 + 0.5 * (i / (n - 1))).toFixed(2);
       s += '<rect class="seg v-fill" x="' + x + '" y="14" width="' + bw + '" height="34" rx="8" fill-opacity="' + op + '"/>';
-      s += '<text x="' + (x + bw / 2) + '" y="35" text-anchor="middle" fill="#fff" font-weight="700">' + esc(g.label) + '</text>';
+      s += '<text x="' + (x + bw / 2) + '" y="35" text-anchor="middle" class="onfill">' + esc(g.label) + '</text>';
       if (g.sub) s += '<text x="' + (x + bw / 2) + '" y="' + 8 + '" text-anchor="middle">' + esc(g.sub) + '</text>';
     });
     return s + '</svg>';
@@ -97,10 +97,10 @@
       var nextInset = (n - 1 - i - 1) * (W * 0.13);
       var tx0 = (i === n - 1) ? x0 : nextInset, tx1 = (i === n - 1) ? x1 : (W - nextInset);
       // trapezoid (top narrower for upper tiers): use simple rounded rect with opacity ramp instead for robustness
-      var op = (0.92 - 0.22 * i).toFixed(2);
+      var op = (0.96 - 0.16 * i).toFixed(2);
       s += '<rect class="v-fill" x="' + x0 + '" y="' + y + '" width="' + (x1 - x0) + '" height="' + rowH + '" rx="9" fill-opacity="' + op + '"/>';
-      s += '<text x="' + ((x0 + x1) / 2) + '" y="' + (y + 19) + '" text-anchor="middle" fill="#fff" font-weight="800">' + esc(t.label) + '</text>';
-      s += '<text x="' + ((x0 + x1) / 2) + '" y="' + (y + 35) + '" text-anchor="middle" fill="#fff" fill-opacity=".92">' + esc(t.items) + '</text>';
+      s += '<text x="' + ((x0 + x1) / 2) + '" y="' + (y + 19) + '" text-anchor="middle" class="onfill">' + esc(t.label) + '</text>';
+      s += '<text x="' + ((x0 + x1) / 2) + '" y="' + (y + 35) + '" text-anchor="middle" class="onfill soft">' + esc(t.items) + '</text>';
     });
     return s + '</svg>';
   }
