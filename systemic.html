@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>전신질환자 치과관리 — JH의 덴탈시냅스</title>
+<meta name="description" content="의학적으로 고려가 필요한 환자의 치과관리 — 심혈관·당뇨·신장(투석)·간질환·임신·갑상선/부신·항암/방사선·면역억제 환자의 위험(출혈·감염·스트레스·약물)과 진료 전 확인, 협진 기준" />
+<meta name="theme-color" content="#4f46e5" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/theme.css?v=4" />
+<style>
+  h2 .badge,h3 .badge{margin-left:6px}
+  ol.steps{margin:6px 0 0;padding-left:20px;font-size:var(--text-sm)} ol.steps li{margin:5px 0}
+  .vitals{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:6px 0 0}
+  .vitals .v{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 12px;box-shadow:var(--shadow-sm)}
+  .vitals .v b{display:block;font-size:var(--text-xs);color:var(--ink-2);font-weight:700}
+  .vitals .v span{font-size:var(--text-md);font-weight:800;font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="themebtn hero-toggle" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
+  <div class="wrap">
+    <a class="crumb" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg> JH의 덴탈시냅스 홈</a>
+    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span>전신질환자 치과관리</h1>
+    <p class="sub">의학적으로 고려가 필요한 환자 — <b>출혈 · 감염 · 스트레스 · 약물</b>의 4가지 축으로. <b>조절 여부 확인과 협진</b>이 핵심입니다.</p>
+    <div class="meta-row">
+      <span>심혈관 · 당뇨 · 신장 · 간 · 임신 · 내분비 · 항암 · 면역</span>
+      <span>Little &amp; Falace · Scully · ADA</span>
+    </div>
+  </div>
+</header>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-home"/></svg></span>홈</a>
+    <nav class="links" aria-label="섹션 바로가기">
+      <a href="#quick">핵심</a><a href="#cardio">심혈관</a><a href="#diabetes">당뇨</a><a href="#renal">신장</a>
+      <a href="#liver">간</a><a href="#pregnancy">임신</a><a href="#endocrine">내분비</a><a href="#bleeding">출혈</a>
+      <a href="#cancer">항암·면역</a><a href="#respneuro">호흡·신경</a><a href="#checklist">체크리스트</a><a href="#sources">출처</a>
+    </nav>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- 핵심 -->
+  <section id="quick">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg></span><h2>핵심 한눈 정리 <span class="badge rec">Quick Ref</span></h2></div>
+    <p class="sec-desc">전신질환자 평가는 <b>“조절되는가”</b>에서 출발합니다. 각 질환을 <b>출혈 · 감염 · 스트레스(심혈관) · 약물(상호작용·대사)</b>의 네 축으로 보면 일관됩니다. 불확실하면 <b>주치의 협진</b>.</p>
+    <div class="tablewrap flat"><table class="cards">
+      <caption class="sr-only">전신질환군별 핵심 위험·진료 전 확인·처치 주의</caption>
+      <thead><tr><th scope="col">질환군</th><th scope="col">핵심 위험</th><th scope="col">진료 전 확인</th><th scope="col">처치 주의</th></tr></thead>
+      <tbody>
+        <tr><td data-label="질환군"><b>심혈관</b></td><td data-label="위험">허혈·부정맥·출혈(항혈전)</td><td data-label="확인">혈압·증상·복용약</td><td data-label="주의"><b>epi 제한</b>, 스트레스↓, 짧은 오전 진료</td></tr>
+        <tr><td data-label="질환군"><b>당뇨</b></td><td data-label="위험">저혈당·감염·치유지연</td><td data-label="확인">혈당·HbA1c·식사 여부</td><td data-label="주의">아침 진료, <b>식사·약 유지</b>, 저혈당 대비</td></tr>
+        <tr><td data-label="질환군"><b>신장/투석</b></td><td data-label="위험">출혈·약물축적·감염</td><td data-label="확인">투석일·신기능</td><td data-label="주의"><b>투석 다음 날</b>, NSAID 회피, 누공 팔 금지</td></tr>
+        <tr><td data-label="질환군"><b>간질환</b></td><td data-label="위험">출혈·약물대사 저하</td><td data-label="확인">INR·혈소판</td><td data-label="주의">acetaminophen 제한, 진정 신중</td></tr>
+        <tr><td data-label="질환군"><b>임신</b></td><td data-label="위험">약물·방사선·체위</td><td data-label="확인">임신 주수</td><td data-label="주의"><b>2기 선호</b>, 좌측위, 안전약물</td></tr>
+        <tr><td data-label="질환군"><b>갑상선/부신</b></td><td data-label="위험">갑상선중독·부신위기</td><td data-label="확인">조절상태·스테로이드력</td><td data-label="주의">미조절 시 연기, 외과 시 커버</td></tr>
+        <tr><td data-label="질환군"><b>항암/방사선</b></td><td data-label="위험">감염·출혈·골괴사</td><td data-label="확인">ANC·혈소판·조사부위</td><td data-label="주의"><b>치료 전 정리</b>, 조사야 발치 회피</td></tr>
+        <tr><td data-label="질환군"><b>면역억제</b></td><td data-label="위험">감염·약물 상호작용</td><td data-label="확인">약물·이식 여부</td><td data-label="주의">감염관리, 협진</td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin:16px 0 4px">활력징후 정상 범위(성인)</h3>
+    <div class="vitals">
+      <div class="v"><b>혈압</b><span>&lt;120/80</span></div>
+      <div class="v"><b>맥박</b><span>60–100</span></div>
+      <div class="v"><b>호흡수</b><span>12–20</span></div>
+      <div class="v"><b>SpO₂</b><span>≥95%</span></div>
+      <div class="v"><b>체온</b><span>36–37.5℃</span></div>
+      <div class="v"><b>공복혈당</b><span>70–100</span></div>
+    </div>
+  </section>
+
+  <!-- 심혈관 -->
+  <section id="cardio">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span><h2>심혈관 질환</h2></div>
+    <p class="sec-desc">조절되는 환자는 대개 치료 가능하나 <b>스트레스·통증·혈관수축제</b>를 절제합니다. 응급 발생 시 <a href="emergency.html">응급상황 대응</a> 참고.</p>
+    <div class="cols">
+      <div class="card bl"><h3>고혈압</h3>
+        <ul class="tight">
+          <li>조절 고혈압: 통상 치료 가능, 스트레스·통증 관리</li>
+          <li><b>BP ≥ 180/110 → 선택적 치료 연기·의뢰</b></li>
+          <li>혈관수축제 1–2 카트리지(흡인·서서히)</li>
+          <li>기립성 저혈압 주의(천천히 일으키기)</li>
+        </ul></div>
+      <div class="card bl"><h3>허혈성 심질환(협심증·MI)</h3>
+        <ul class="tight">
+          <li><b>최근 심근경색(4–6주, 보수적 6개월) → 선택적 연기</b></li>
+          <li>NTG 지참 확인, 짧은 오전 진료, 불안 완화</li>
+          <li>흉통 시 <a href="emergency.html">응급(흉통)</a> 프로토콜</li>
+        </ul></div>
+      <div class="card bl"><h3>부정맥 · 심부전 · 판막</h3>
+        <ul class="tight">
+          <li>페이스메이커/ICD: <b>전기소작 주의</b>(초음파 스케일러 등)</li>
+          <li>항응고·항혈소판 → <a href="antithrombotic.html">항혈전제 페이지</a></li>
+          <li><b>IE 예방요법은 고위험군만</b> — <a href="drug-guide.html">약물가이드(예방요법)</a></li>
+        </ul></div>
+    </div>
+    <div class="callout warn"><b>혈관수축제(epinephrine) 한도</b> — 심혈관 고위험 환자는 <b>1회 ~0.04mg(1:100,000 약 2카트리지)</b>로 제한하고 흡인·분할 주입. <b>epi 함유 치은압배사(retraction cord)는 회피</b>합니다.</div>
+  </section>
+
+  <!-- 당뇨 -->
+  <section id="diabetes">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-droplet"/></svg></span><h2>당뇨</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>진료 운영</h3>
+        <ul class="tight">
+          <li><b>아침 진료</b>(내인성 코르티솔↑), 짧게</li>
+          <li><span class="em">평소 식사·약 유지</span> — 거르고 오지 않게 사전 안내</li>
+          <li>저혈당 대비(당 비치) → <a href="emergency.html">응급(저혈당)</a></li>
+          <li>조절 지표 HbA1c(&lt;7% 양호) 참고</li>
+        </ul></div>
+      <div class="card bl"><h3>감염·치유</h3>
+        <ul class="tight">
+          <li>감염 취약·치유 지연 → <b>구강위생·혈당조절</b>이 핵심</li>
+          <li>광범위 급성 감염 시 항생제 적극, 배농</li>
+          <li>스테로이드·감염은 혈당↑ 유발 — 모니터</li>
+          <li>치주염 ↔ 혈당조절 양방향 영향</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 신장 -->
+  <section id="renal">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-refresh"/></svg></span><h2>만성신장병 · 투석</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>타이밍 · 출혈</h3>
+        <ul class="tight">
+          <li><b>혈액투석 다음 날</b> 진료(투석일은 헤파린·피로)</li>
+          <li><b>요독성 혈소판기능 저하 → 출혈경향</b>, 국소지혈 철저</li>
+          <li><b>동정맥루 팔: 혈압·정맥주사 금지</b></li>
+        </ul></div>
+      <div class="card" style="border-left:4px solid var(--warning)"><h3>약물 · 감염</h3>
+        <ul class="tight">
+          <li><b>신배설 약물 용량조정/회피</b> — <span class="em">NSAID 회피</span>, 일부 항생제 감량(아미노글리코사이드·아시클로비르 주의)</li>
+          <li>진통은 <b>acetaminophen</b> 선호</li>
+          <li>감염 위험↑, B/C형 간염 선별, 신성골이영양증</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 간 -->
+  <section id="liver">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-flask"/></svg></span><h2>간질환 · 간경변</h2></div>
+    <div class="cols">
+      <div class="card" style="border-left:4px solid var(--danger)"><h3>출혈</h3>
+        <ul class="tight">
+          <li>응고인자↓ + 비장비대 <b>혈소판↓</b> → <b>INR·혈소판 확인</b></li>
+          <li>관혈적 처치 전 출혈경향 평가, 국소지혈</li>
+        </ul></div>
+      <div class="card bl"><h3>약물</h3>
+        <ul class="tight">
+          <li><b>Acetaminophen 저용량</b>(≤2g/일) 또는 회피</li>
+          <li>아미드 국소마취제·진정제 <b>대사 저하 → 감량/신중</b></li>
+          <li>감염 취약, 알코올·간염력 확인</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 임신 -->
+  <section id="pregnancy">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-baby"/></svg></span><h2>임신 · 수유</h2></div>
+    <p class="sec-desc"><b>2기(4–6개월)</b>가 선택적 치료에 가장 적합합니다. 응급·감염·통증은 <b>어느 시기든</b> 치료(미치료 감염이 더 위험). 앙와위저혈압 → <b>좌측위(우측 둔부 거상)</b>.</p>
+    <div class="tablewrap flat"><table class="cards">
+      <caption class="sr-only">임신부 치과 약물 안전성</caption>
+      <thead><tr><th scope="col">분류</th><th scope="col">안전(권고)</th><th scope="col">회피/금기</th></tr></thead>
+      <tbody>
+        <tr><td data-label="분류"><b>진통제</b></td><td data-label="안전"><b>Acetaminophen</b>(전 기간 1차)</td><td data-label="회피"><b>NSAID 1·3기 회피</b>(3기 동맥관조기폐쇄), 아스피린</td></tr>
+        <tr><td data-label="분류"><b>항생제</b></td><td data-label="안전">Amoxicillin·페니실린·<b>세팔로스포린</b>·클린다마이신</td><td data-label="회피"><b>테트라사이클린·플루오로퀴놀론 금기</b>, metronidazole 1기 신중</td></tr>
+        <tr><td data-label="분류"><b>국소마취</b></td><td data-label="안전">Lidocaine + epi(통상량 가능)</td><td data-label="회피">felypressin 다량(자궁수축) 주의</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><b>방사선</b> — 필요 시 어느 시기든 촬영 가능(저선량). <b>차폐(복부·갑상선)는 최신 지침상 필수 아님</b>(과거 권장). 선택적 영상은 출산 후로 미룰 수 있음. <b>수유</b> 중 대부분의 치과 약물(국소마취·acetaminophen·amoxicillin)은 사용 가능.</div>
+  </section>
+
+  <!-- 내분비 -->
+  <section id="endocrine">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span><h2>내분비 — 갑상선 · 부신</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>갑상선</h3>
+        <ul class="tight">
+          <li><b>미조절 항진증</b>: 카테콜아민(epi) 주의, 감염·스트레스 시 <span class="em">갑상선중독발작</span> 위험 → <b>연기·의뢰</b></li>
+          <li>조절되면 통상 치료 가능</li>
+          <li>심한 저하증: 진정제 민감·점액부종 주의</li>
+        </ul></div>
+      <div class="card bl"><h3>부신부전 · 장기 스테로이드</h3>
+        <ul class="tight">
+          <li><b>일상(비외과) 치과처치엔 스테로이드 커버 불필요</b></li>
+          <li><b>1차성 부신부전 + 외과처치/큰 스트레스</b> 시 보충 고려(처치 전 ± 24h), 대수술은 병원 IV</li>
+          <li>2차·3차성은 대개 보충 불필요</li>
+          <li>부신위기(저혈압·쇠약·오심) → hydrocortisone·119</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 출혈 -->
+  <section id="bleeding">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-droplet"/></svg></span><h2>출혈성 경향 · 혈액질환</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>항혈전제</h3>
+        <ul class="tight">
+          <li>항혈소판·항응고(와파린·DOAC)는 <b>대개 중단 없이 국소지혈</b></li>
+          <li>상세는 <a href="antithrombotic.html">항혈전제 환자 치과치료</a></li>
+        </ul></div>
+      <div class="card" style="border-left:4px solid var(--danger)"><h3>혈액질환</h3>
+        <ul class="tight">
+          <li><b>혈소판 &lt; 50,000</b>·혈우병·심한 간질환 → <b>혈액내과 협진·인자보충</b></li>
+          <li>국소지혈(봉합·산화셀룰로오스·<b>TXA</b>), 비외상적 처치</li>
+          <li>백혈병·심한 빈혈 → 감염·출혈 평가</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 항암·면역 -->
+  <section id="cancer">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-alert"/></svg></span><h2>항암화학 · 방사선 · 면역억제</h2></div>
+    <div class="cols">
+      <div class="card" style="border-left:4px solid var(--danger)"><h3>화학요법</h3>
+        <ul class="tight">
+          <li><b>호중구감소(감염)·혈소판감소(출혈)</b> → ANC·혈소판 확인, <b>수치 회복기에 처치</b></li>
+          <li><span class="em">치료 시작 전 치과 정리</span>(감염원 제거), 점막염 관리</li>
+          <li>침습 처치는 종양내과 협진</li>
+        </ul></div>
+      <div class="card" style="border-left:4px solid var(--warning)"><h3>두경부 방사선</h3>
+        <ul class="tight">
+          <li>구강건조·우식·<b>골괴사(ORN)</b> 위험</li>
+          <li><b>조사 부위 발치 회피</b> — 필요 발치는 <b>방사선 전(2–3주 여유)</b></li>
+          <li>불소 적용·구강위생, 골흡수억제제는 <a href="mronj.html">MRONJ</a></li>
+        </ul></div>
+      <div class="card bl"><h3>면역억제 · 이식</h3>
+        <ul class="tight">
+          <li>감염관리·예방요법 개별화, 침습 전 협진</li>
+          <li><b>Cyclosporine·CCB·phenytoin → 치은비대</b></li>
+          <li>약물 상호작용 검토</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 호흡·신경 -->
+  <section id="respneuro">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span><h2>호흡기 · 신경/정신</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>호흡기(천식·COPD)</h3>
+        <ul class="tight">
+          <li><b>흡입제 지참</b> 확인, 유발자극 회피</li>
+          <li>아스피린 과민 천식 → <b>NSAID 회피</b>, acetaminophen</li>
+          <li>중증 COPD: 진정·아산화질소 신중 → <a href="emergency.html">응급(천식)</a></li>
+        </ul></div>
+      <div class="card bl"><h3>신경 · 정신</h3>
+        <ul class="tight">
+          <li>뇌졸중: 항혈전·자세·의사소통, <b>최근 6개월 선택적 연기</b></li>
+          <li>간질: <a href="emergency.html">응급(경련)</a>, phenytoin 치은비대</li>
+          <li>정신과약: 구강건조·기립저혈압, <b>삼환계·MAOI ↔ epi 주의</b></li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 체크리스트 -->
+  <section id="checklist">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-clipboard"/></svg></span><h2>진료 전 체크리스트 · 협진</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>진료 전 확인</h3>
+        <ul class="tight">
+          <li>병력 · <b>복용약</b> · 알레르기(매 내원 갱신)</li>
+          <li><b>활력징후</b>, 질환 <b>조절 상태</b></li>
+          <li>최근 입원·시술·사건(MI·뇌졸중·수술)</li>
+          <li>출혈·감염·스트레스·약물 4축 평가</li>
+        </ul></div>
+      <div class="card bl"><h3>협진을 고려할 때</h3>
+        <ul class="tight">
+          <li>미조절·불안정·최근 사건 환자</li>
+          <li>고위험 침습 시술(다발 발치·외과)</li>
+          <li>약물 중단/조정·인자보충·스테로이드 커버 판단</li>
+          <li><b>불확실하면 주치의에게 확인</b></li>
+        </ul></div>
+    </div>
+    <div class="callout ok"><b>원칙</b> — “이 환자에게 <b>출혈·감염·스트레스·약물</b> 중 무엇이 문제인가?”를 먼저 정리하면 대부분의 결정이 단순해집니다.</div>
+  </section>
+
+  <!-- 출처 -->
+  <section id="sources">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><h2>출처 · 면책</h2></div>
+    <ul class="tight" style="font-size:var(--text-sm)">
+      <li><b>Little JW, Falace DA, et al.</b> <i>Dental Management of the Medically Compromised Patient.</i></li>
+      <li><b>Scully C.</b> <i>Medical Problems in Dentistry.</i></li>
+      <li><b>ADA</b> Oral Health Topics — 임신·심혈관·당뇨·방사선 안전. <b>AHA 2021</b> 감염성 심내막염 예방요법.</li>
+      <li>약물·출혈 관리 상세: <a href="antithrombotic.html">항혈전제</a> · <a href="drug-guide.html">약물 가이드</a> · <a href="mronj.html">MRONJ</a> · 응급: <a href="emergency.html">응급상황 대응</a>.</li>
+    </ul>
+    <div class="callout danger" style="margin-top:12px"><b>면책</b> — 본 페이지는 개인 정리 노트이며 개별 임상판단·주치의 협진·최신 가이드라인을 대체하지 않습니다. 약물 조정·중단은 처방의와 협의하고 환자 상태를 반드시 확인하십시오.</div>
+  </section>
+
+</main>
+
+<button id="toTop" title="맨 위로" aria-label="맨 위로"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"/></svg></button>
+
+<footer class="wrap">
+  전신질환자 치과관리 — JH의 덴탈시냅스 · 출혈·감염·스트레스·약물 4축, 불확실하면 협진
+</footer>
+
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.topbar .links a')];
+  const map={}; links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+  if('IntersectionObserver' in window){
+    const ob=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){
+      links.forEach(a=>a.classList.remove('active')); const a=map[e.target.id]; if(a) a.classList.add('active'); } }); },
+      {rootMargin:'-35% 0px -60% 0px',threshold:0});
+    Object.keys(map).forEach(id=>{ const t=document.getElementById(id); if(t) ob.observe(t); });
+  }
+  const toTop=document.getElementById('toTop');
+  if(toTop){ addEventListener('scroll',()=>toTop.classList.toggle('show',scrollY>600),{passive:true});
+    toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'})); }
+})();
+</script>
+<script src="assets/theme.js?v=4"></script>
+</body>
+</html>
