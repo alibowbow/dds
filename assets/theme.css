@@ -187,9 +187,12 @@ ul.tight li small{color:var(--ink-2)}
 .badge::before{content:"";width:7px;height:7px;border-radius:2px;background:currentColor}
 .badge.rec{color:var(--success);background:var(--success-soft)}
 .badge.exp{color:var(--warning);background:var(--warning-soft)}
+.badge.dgr{color:var(--danger);background:var(--danger-soft)}
 .badge.lim{color:var(--ink-2);background:var(--surface-2)}
 .badge.rec::before{border-radius:999px}            /* 색+모양 이중 인코딩 */
 .badge.lim::before{border-radius:0;transform:rotate(45deg)}
+.badge.dgr::before{width:0;height:0;border-radius:0;background:transparent;
+  border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:7px solid currentColor}
 
 /* step flow */
 .flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:10px 0}

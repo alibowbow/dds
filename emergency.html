@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>치과 진료 중 응급상황 대응 — JH의 덴탈시냅스</title>
+<meta name="description" content="치과 진료실 의료 응급상황 대응 — 실신·아나필락시스·저혈당·흉통·천식·경련·기도폐쇄 인지와 P-A-B-C-D 알고리즘, 응급약물 용량, 응급키트 체크리스트" />
+<meta name="theme-color" content="#4f46e5" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/theme.css?v=4" />
+<style>
+  h2 .badge,h3 .badge{margin-left:6px}
+  ol.steps{margin:6px 0 0;padding-left:20px;font-size:var(--text-sm)} ol.steps li{margin:5px 0}
+  .abcd{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+  .abcd .step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--danger);
+    border-radius:var(--r-sm);padding:11px 13px;box-shadow:var(--shadow-sm)}
+  .abcd .step .l{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--danger);
+    color:#fff;font-weight:800;font-size:var(--text-xs);margin-right:7px}
+  .abcd .step b{font-size:var(--text-sm)} .abcd .step small{display:block;color:var(--ink-2);font-size:var(--text-xs);margin-top:3px}
+  .kbd{font-weight:800;color:var(--danger)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="themebtn hero-toggle" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
+  <div class="wrap">
+    <a class="crumb" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg> JH의 덴탈시냅스 홈</a>
+    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span>치과 진료 중 응급상황 대응</h1>
+    <p class="sub">예방 · 인지 · 대응 — <b>P-A-B-C-D</b> 알고리즘과 상황별 첫 처치, 응급약물 용량을 한곳에. <b>예방과 조기 인지</b>가 핵심입니다.</p>
+    <div class="meta-row">
+      <span>실신 · 아나필락시스 · 흉통 · 천식 · 저혈당 · 경련 · 기도폐쇄</span>
+      <span>ADA · Malamed · 소생술 지침</span>
+    </div>
+  </div>
+</header>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-home"/></svg></span>홈</a>
+    <nav class="links" aria-label="섹션 바로가기">
+      <a href="#quick">핵심</a><a href="#prepare">준비</a><a href="#syncope">실신</a><a href="#anaphylaxis">아나필락시스</a>
+      <a href="#cardiac">흉통</a><a href="#respiratory">천식·과호흡</a><a href="#hypoglycemia">저혈당</a><a href="#seizure">경련</a>
+      <a href="#airway">기도폐쇄</a><a href="#other">기타</a><a href="#drugs">응급약물</a><a href="#sources">출처</a>
+    </nav>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- 핵심 -->
+  <section id="quick">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg></span><h2>핵심 한눈 정리 <span class="badge rec">Quick Ref</span></h2></div>
+    <p class="sec-desc">대부분의 응급은 <b>예방 가능</b>하며, 발생 시 <b>조기 인지 + 기본 처치(자세·기도·산소)</b>로 호전됩니다. 가장 흔한 것은 <b>혈관미주신경성 실신</b>입니다. 모든 술자는 <b>BLS</b>를 숙지하고 역할을 미리 정해 둡니다.</p>
+    <div class="tablewrap flat"><table class="cards">
+      <caption class="sr-only">치과 진료 중 흔한 응급상황별 핵심 징후·첫 대응·약물</caption>
+      <thead><tr><th scope="col">상황</th><th scope="col">핵심 징후</th><th scope="col">첫 대응</th><th scope="col">약물</th></tr></thead>
+      <tbody>
+        <tr><td data-label="상황"><b>실신</b><br/><small>vasovagal</small></td><td data-label="징후">창백·식은땀·어지럼 → 의식소실·서맥</td><td data-label="대응"><b>앙와위 + 다리 거상</b>, 산소, 회복 확인</td><td data-label="약물"><span class="badge lim">대개 불필요</span></td></tr>
+        <tr><td data-label="상황"><b>아나필락시스</b></td><td data-label="징후">두드러기 + <b>호흡곤란/천명·저혈압</b></td><td data-label="대응"><span class="em">즉시 Epinephrine IM</span>, 다리 거상, 산소, 119</td><td data-label="약물"><b>Epinephrine</b></td></tr>
+        <tr><td data-label="상황"><b>저혈당</b></td><td data-label="징후">발한·떨림·혼동·공복감</td><td data-label="대응">의식 有 <b>당 경구</b> / 의식 無 <b>glucagon</b></td><td data-label="약물">Glucose · Glucagon</td></tr>
+        <tr><td data-label="상황"><b>협심증/심근경색</b></td><td data-label="징후">흉통·방사통(좌측 팔·턱)·식은땀</td><td data-label="대응">휴식·산소·<b>NTG 설하</b>, 지속 시 aspirin + 119</td><td data-label="약물">NTG · Aspirin</td></tr>
+        <tr><td data-label="상황"><b>천식발작</b></td><td data-label="징후">천명·호기 연장·호흡곤란</td><td data-label="대응"><b>Salbutamol 흡입</b> 2–4puff, 산소, 좌위</td><td data-label="약물">Salbutamol</td></tr>
+        <tr><td data-label="상황"><b>경련</b></td><td data-label="징후">강직-간대·의식소실</td><td data-label="대응">주변 보호·기도·산소, <b>&gt;5분 → 벤조 + 119</b></td><td data-label="약물"><span class="badge exp">Midazolam</span></td></tr>
+        <tr><td data-label="상황"><b>기도폐쇄</b></td><td data-label="징후">질식·말/기침 불가·청색증</td><td data-label="대응">기침 유도 → <b>복부 밀어내기(Heimlich)</b></td><td data-label="약물">—</td></tr>
+        <tr><td data-label="상황"><b>과호흡</b></td><td data-label="징후">빠른 호흡·손발 저림·어지럼</td><td data-label="대응"><b>안심·호흡 조절</b>(봉투 호흡은 피함)</td><td data-label="약물"><span class="badge lim">대개 불필요</span></td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin:18px 0 4px">대응 순서 — <span class="kbd">P-A-B-C-D</span></h3>
+    <div class="abcd">
+      <div class="step"><b><span class="l">P</span>Position</b><small>자세 — 의식 無/실신 앙와위·다리거상, 호흡곤란 좌위</small></div>
+      <div class="step"><b><span class="l">A</span>Airway</b><small>기도 개방 — 머리젖히기·턱들기, 이물 제거</small></div>
+      <div class="step"><b><span class="l">B</span>Breathing</b><small>호흡 — 보고·듣고·느끼기, <b>산소</b> 투여</small></div>
+      <div class="step"><b><span class="l">C</span>Circulation</b><small>순환 — 맥박·의식, 무반응·무호흡 시 <b>CPR 30:2 + AED</b></small></div>
+      <div class="step"><b><span class="l">D</span>Definitive</b><small>확정 처치 — 상황별 <b>약물</b>·제세동·119 이송</small></div>
+    </div>
+    <div class="callout danger"><b>무반응 + 정상 호흡 없음</b> → 즉시 <b>119 신고·AED 요청</b> 후 <b>가슴압박(분당 100–120회, 5–6cm) 30 : 인공호흡 2</b>를 시작합니다. 망설이지 말고 CPR.</div>
+  </section>
+
+  <!-- 준비 -->
+  <section id="prepare">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-shield"/></svg></span><h2>예방 · 준비 <span class="badge rec">Prevention</span></h2></div>
+    <p class="sec-desc">응급의 최선은 <b>예방</b>입니다 — 충실한 병력·복용약 청취, 활력징후, 불안 완화, 적절한 자세. 그리고 <b>키트·역할·연락체계</b>를 미리 갖춥니다.</p>
+    <div class="cols">
+      <div class="card bl"><h3>사전 예방</h3>
+        <ul class="tight">
+          <li><b>병력·복용약·알레르기</b> 확인(매 내원 갱신) — <a href="systemic.html">전신질환자 관리</a> 참고</li>
+          <li>기저 활력징후(혈압·맥박·SpO₂) 기록</li>
+          <li><b>공복·수면부족 회피</b>, 불안 완화, 짧은 오전 진료</li>
+          <li>국소마취 <b>흡인 후 천천히</b>, 혈관수축제 용량 주의</li>
+        </ul></div>
+      <div class="card bl"><h3>준비 태세</h3>
+        <ul class="tight">
+          <li><b>응급키트·산소·AED</b> 위치/유효기간 정기 점검</li>
+          <li>전 직원 <b>BLS 정기 교육</b> + 모의훈련</li>
+          <li>역할 분담(리더·기도·약물·기록·119)</li>
+          <li>119 신고 문구·주소·후송 병원 게시</li>
+        </ul></div>
+    </div>
+    <div class="card" style="border-left:4px solid var(--warning);margin-top:6px"><h3><span class="badge exp">필수</span> 응급키트(ADA 권고) 체크리스트</h3>
+      <ul class="tight">
+        <li><b>산소</b>(휴대용 + 양압 환기수단 BVM) · <b>AED</b></li>
+        <li><b>1차 약물</b>: Epinephrine(1:1,000) · Nitroglycerin · Salbutamol(MDI) · 항히스타민(diphenhydramine) · Aspirin · 경구 포도당 · (Glucagon)</li>
+        <li><b>2차/선택</b>: Hydrocortisone · Midazolam · Naloxone · Flumazenil · Atropine</li>
+        <li>보조: 혈압계·맥박산소측정·혈당측정·주사기·기도유지기·구급기록지</li>
+      </ul></div>
+  </section>
+
+  <!-- 실신 -->
+  <section id="syncope">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span><h2>혈관미주신경성 실신 <span class="badge rec">가장 흔함</span></h2></div>
+    <p class="sec-desc">치과 응급의 <b>대부분</b>을 차지합니다. 불안·통증·공복이 유발하며, <b>전구증상</b>(창백·식은땀·오심·어지럼) 후 의식소실·서맥이 옵니다. 대개 자세 교정으로 빠르게 회복됩니다.</p>
+    <div class="cols">
+      <div class="card bl"><h3>대응</h3>
+        <ol class="steps">
+          <li>진료 중단, <b>앙와위 + 다리 거상</b>(Trendelenburg)</li>
+          <li>기도 개방, <b>산소</b> 투여, 조이는 옷 풀기</li>
+          <li>차가운 물수건, 의식·맥박 확인</li>
+          <li>수 분 내 회복 — 천천히 일으키기</li>
+        </ol></div>
+      <div class="card"><h3><span class="badge exp">감별·주의</span></h3>
+        <ul class="tight">
+          <li><b>회복 지연(&gt;수 분)</b>이면 저혈당·심장성·아나필락시스 등 재평가</li>
+          <li>기립성 저혈압(고령·약물) → 천천히 체위 변경</li>
+          <li>의식 회복 후 당일 시술 연기 고려</li>
+        </ul></div>
+    </div>
+    <div class="callout"><b>봉투(재호흡) 호흡은 권장하지 않습니다</b> — 저산소 위험. 과호흡과 혼동 주의.</div>
+  </section>
+
+  <!-- 아나필락시스 -->
+  <section id="anaphylaxis">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-alert"/></svg></span><h2>아나필락시스 · 알레르기 <span class="badge dgr">생명위협</span></h2></div>
+    <p class="sec-desc"><b>피부(두드러기·부종)</b> + <b>호흡(천명·후두부종)</b> 또는 <b>순환(저혈압·실신)</b>이 빠르게 동반되면 아나필락시스입니다. <span class="em">치료의 핵심은 즉각적인 Epinephrine 근육주사</span> — 지체하지 않습니다.</p>
+    <div class="cols">
+      <div class="card" style="border-left:4px solid var(--danger)"><h3><span class="badge dgr">즉시</span> Epinephrine IM</h3>
+        <ul class="tight">
+          <li><b>Epinephrine 1:1,000</b> (1mg/mL)</li>
+          <li>성인 <b>0.3–0.5 mg IM</b> · 소아 0.15 mg(체중 0.01mg/kg)</li>
+          <li>부위: <b>대퇴 외측(vastus lateralis)</b></li>
+          <li>호전 없으면 <b>5–15분마다 반복</b></li>
+        </ul></div>
+      <div class="card bl"><h3>동시에</h3>
+        <ol class="steps">
+          <li><b>119</b> 신고 · 도움 요청</li>
+          <li>앙와위 + <b>다리 거상</b>(호흡곤란 시 반좌위)</li>
+          <li>고농도 <b>산소</b>, 기도 확보</li>
+          <li>2차: 항히스타민·hydrocortisone·수액(보조일 뿐, epi 대체 아님)</li>
+          <li>천명 동반 시 salbutamol 흡입 병용</li>
+        </ol></div>
+    </div>
+    <div class="callout danger"><b>경증 알레르기</b>(국소 두드러기·가려움, 호흡/순환 증상 없음)는 <b>항히스타민(diphenhydramine 25–50mg)</b>으로 관찰. 단 <b>진행 징후</b>(호흡곤란·부종 확대·저혈압)면 즉시 epinephrine.</div>
+  </section>
+
+  <!-- 흉통 -->
+  <section id="cardiac">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span><h2>흉통 — 협심증 · 심근경색</h2></div>
+    <p class="sec-desc"><b>흉골 뒤 압박감</b>이 좌측 팔·턱·어깨로 방사, 식은땀·오심 동반. <b>휴식·NTG에 5–15분 내 호전</b>되면 협심증, <b>지속·악화</b>하면 심근경색을 의심합니다.</p>
+    <div class="cols">
+      <div class="card bl"><h3>대응</h3>
+        <ol class="steps">
+          <li>시술 중단, <b>편안한 자세</b>(반좌위), 안정</li>
+          <li><b>산소</b> 투여, 활력징후</li>
+          <li><b>Nitroglycerin 설하 0.3–0.6mg</b>, 5분 간격 최대 3회</li>
+          <li>흉통 지속 → <b>심근경색 의심, 119</b></li>
+          <li>금기 없으면 <b>Aspirin 162–325mg 씹어서</b> 복용</li>
+        </ol></div>
+      <div class="card"><h3><span class="badge exp">주의</span></h3>
+        <ul class="tight">
+          <li>NTG는 <b>수축기 &lt;90mmHg</b>·발기부전제(실데나필 등) 복용 시 <b>금기</b></li>
+          <li>무반응·무호흡 → <b>CPR + AED</b></li>
+          <li>고위험·기왕력 환자: <a href="systemic.html">전신질환자 관리(심혈관)</a> 참고</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 천식·과호흡 -->
+  <section id="respiratory">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span><h2>천식발작 · 과호흡</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>천식(기관지경련)</h3>
+        <ol class="steps">
+          <li>시술 중단, <b>좌위</b>로 호흡 편하게</li>
+          <li><b>Salbutamol(벤톨린) MDI 2–4 puff</b> 흡입, 필요 시 반복</li>
+          <li><b>산소</b> 투여, 활력징후</li>
+          <li>호전 없으면(중증) <b>Epinephrine IM</b> 고려 · <b>119</b></li>
+        </ol>
+        <p style="margin:8px 0 0;font-size:var(--text-xs);color:var(--ink-2)">아스피린/NSAID 과민 천식 주의 — 진통은 acetaminophen.</p>
+      </div>
+      <div class="card bl"><h3>과호흡(불안)</h3>
+        <ol class="steps">
+          <li><b>안심</b>시키고 유발 자극 제거</li>
+          <li><b>천천히 호흡</b> 유도(말로 코칭)</li>
+          <li>손발 저림·어지럼은 보통 자가 회복</li>
+          <li>심하면 벤조디아제핀 고려</li>
+        </ol>
+        <p style="margin:8px 0 0;font-size:var(--text-xs);color:var(--ink-2)">종이봉투 재호흡은 <b>저산소 위험</b>으로 권장하지 않습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 저혈당 -->
+  <section id="hypoglycemia">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-droplet"/></svg></span><h2>저혈당</h2></div>
+    <p class="sec-desc">당뇨 환자가 <b>식사를 거르고</b> 내원했을 때 흔합니다 — 발한·떨림·빈맥·혼동·이상행동. 의심되면 <b>지체 없이 당 공급</b>(혈당측정은 가능할 때).</p>
+    <div class="cols">
+      <div class="card bl"><h3>의식 있음</h3>
+        <ul class="tight">
+          <li><b>15–20g 속효성 당</b>(주스·포도당정·설탕물)</li>
+          <li><b>15분 후 재평가</b>(15-15 규칙), 반복</li>
+          <li>회복 후 복합 탄수화물 섭취</li>
+        </ul></div>
+      <div class="card" style="border-left:4px solid var(--danger)"><h3>의식 없음/삼킴 불가</h3>
+        <ul class="tight">
+          <li>경구 투여 <b>금지</b>(흡인 위험)</li>
+          <li><b>Glucagon 1mg IM</b> 또는 정맥로 <b>포도당</b></li>
+          <li>기도·산소, <b>119</b></li>
+        </ul></div>
+    </div>
+    <div class="callout"><b>불확실하면 당을 준다</b> — 고혈당을 잠깐 악화시키는 것보다 저혈당 방치가 훨씬 위험합니다.</div>
+  </section>
+
+  <!-- 경련 -->
+  <section id="seizure">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg></span><h2>경련(발작)</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>대응</h3>
+        <ol class="steps">
+          <li>기구 제거, <b>주변 위험물 치우고 보호</b></li>
+          <li><b>억제하지 말 것</b>, 입에 아무것도 넣지 않기</li>
+          <li>발작 후 <b>측위</b>(회복자세)·기도·산소</li>
+          <li>발작 시간 측정</li>
+        </ol></div>
+      <div class="card" style="border-left:4px solid var(--danger)"><h3><span class="badge dgr">중적상태</span> &gt;5분</h3>
+        <ul class="tight">
+          <li>5분 이상 지속/반복 → <b>간질지속상태</b></li>
+          <li><b>Midazolam</b>(협측 10mg / IM) 등 벤조디아제핀</li>
+          <li>고농도 산소, <b>119</b> 이송</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 기도폐쇄 -->
+  <section id="airway">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span><h2>기도폐쇄 · 이물 흡인/연하</h2></div>
+    <p class="sec-desc">치과 기구·수복물·치아 조각의 낙하 위험. <b>러버댐·거즈 스크린·결찰</b>로 예방하고, 떨어지면 <b>흡인과 연하를 감별</b>합니다.</p>
+    <div class="cols">
+      <div class="card" style="border-left:4px solid var(--danger)"><h3>완전 기도폐쇄</h3>
+        <ul class="tight">
+          <li>말·기침·호흡 불가, 청색증 → <b>응급</b></li>
+          <li>의식 有: <b>복부 밀어내기(Heimlich)</b> 반복</li>
+          <li>의식 잃으면 <b>CPR + 119</b>, 입안 보이는 이물만 제거</li>
+        </ul></div>
+      <div class="card bl"><h3>흡인 vs 연하</h3>
+        <ul class="tight">
+          <li><b>흡인</b>(기관): 기침·천명·호흡곤란 → <b>흉부 영상</b>·기관지내시경 의뢰</li>
+          <li><b>연하</b>(식도/위): 대개 자연 배출, 증상 시 영상 확인</li>
+          <li>낙하 물체·시각·증상 기록 후 의뢰</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- 기타 -->
+  <section id="other">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-flask"/></svg></span><h2>기타 — 국소마취제 독성 · 뇌혈관</h2></div>
+    <div class="cols">
+      <div class="card bl"><h3>국소마취제 전신독성(LAST)</h3>
+        <ul class="tight">
+          <li>과량·혈관내 주입 → <b>초기 CNS</b>(입주위 저림·이명·혼동·경련)</li>
+          <li>이후 <b>심혈관 억제</b>(서맥·저혈압·정지)</li>
+          <li><b>예방</b>: 흡인·분할·최대용량 준수, 천천히 주입</li>
+          <li>처치: 기도·산소, 경련 시 벤조, <b>지질유화제(병원)</b>, 119</li>
+        </ul></div>
+      <div class="card bl"><h3>뇌졸중 의심</h3>
+        <ul class="tight">
+          <li><b>F.A.S.T</b> — 안면 비대칭·팔 처짐·말장애·발생시각</li>
+          <li>시술 중단, 자세·기도·산소, 활력징후</li>
+          <li><span class="em">즉시 119</span> — 시간이 뇌(time is brain)</li>
+        </ul></div>
+    </div>
+    <div class="callout warn"><b>아드레날린 반응(épinephrine reaction)</b> — 국소마취제의 혈관수축제로 인한 일시적 빈맥·두근거림·불안. 대개 <b>수 분 내 자연 소실</b>되며 안정·관찰로 충분(아나필락시스와 감별: 두드러기·호흡곤란 없음).</div>
+  </section>
+
+  <!-- 응급약물 -->
+  <section id="drugs">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span><h2>응급약물 · 용량 (성인)</h2></div>
+    <p class="sec-desc">치과 진료실 표준 응급약물과 성인 기준 용량입니다. 소아·체중기반 용량과 금기는 투여 전 반드시 확인하십시오.</p>
+    <div class="tablewrap flat"><table class="cards">
+      <caption class="sr-only">치과 응급약물별 적응·용량·경로·비고</caption>
+      <thead><tr><th scope="col">약물</th><th scope="col">적응</th><th scope="col">용량 · 경로</th><th scope="col">비고</th></tr></thead>
+      <tbody>
+        <tr><td data-label="약물"><b>산소</b></td><td data-label="적응">거의 모든 응급</td><td data-label="용량"><b>6–15 L/min</b> 마스크/BVM</td><td data-label="비고">최우선 보조</td></tr>
+        <tr><td data-label="약물"><b>Epinephrine</b><br/><small>1:1,000</small></td><td data-label="적응">아나필락시스·중증 천식</td><td data-label="용량"><b>0.3–0.5mg IM</b>(대퇴), 5–15분 반복</td><td data-label="비고">소아 0.01mg/kg</td></tr>
+        <tr><td data-label="약물"><b>Nitroglycerin</b></td><td data-label="적응">협심증 흉통</td><td data-label="용량"><b>설하 0.3–0.6mg</b>, 5분 간격 ×3</td><td data-label="비고">SBP&lt;90·발기부전제 금기</td></tr>
+        <tr><td data-label="약물"><b>Aspirin</b></td><td data-label="적응">심근경색 의심</td><td data-label="용량"><b>162–325mg 씹어서</b></td><td data-label="비고">출혈·과민 시 주의</td></tr>
+        <tr><td data-label="약물"><b>Salbutamol</b><br/><small>MDI</small></td><td data-label="적응">천식·기관지경련</td><td data-label="용량"><b>2–4 puff 흡입</b>, 반복</td><td data-label="비고">스페이서 권장</td></tr>
+        <tr><td data-label="약물"><b>경구 포도당</b></td><td data-label="적응">저혈당(의식 有)</td><td data-label="용량"><b>15–20g</b> 경구</td><td data-label="비고">15-15 규칙</td></tr>
+        <tr><td data-label="약물"><b>Glucagon</b></td><td data-label="적응">저혈당(의식 無)</td><td data-label="용량"><b>1mg IM</b></td><td data-label="비고">정맥로 불가 시</td></tr>
+        <tr><td data-label="약물"><b>Diphenhydramine</b><br/><small>항히스타민</small></td><td data-label="적응">경증 알레르기</td><td data-label="용량"><b>25–50mg</b> IM/IV/PO</td><td data-label="비고">아나필락시스는 보조</td></tr>
+        <tr><td data-label="약물"><b>Midazolam</b><br/><small>2차</small></td><td data-label="적응">경련 지속(&gt;5분)</td><td data-label="용량"><b>10mg 협측/IM</b></td><td data-label="비고">호흡억제 감시</td></tr>
+        <tr><td data-label="약물"><b>Hydrocortisone</b><br/><small>2차</small></td><td data-label="적응">아나필락시스·부신위기</td><td data-label="용량"><b>100–200mg</b> IV/IM</td><td data-label="비고">지연효과(보조)</td></tr>
+        <tr><td data-label="약물"><b>Naloxone</b><br/><small>2차</small></td><td data-label="적응">오피오이드 과량</td><td data-label="용량"><b>0.4mg</b> IM/IV</td><td data-label="비고">필요 시 반복</td></tr>
+        <tr><td data-label="약물"><b>Flumazenil</b><br/><small>2차</small></td><td data-label="적응">벤조 과진정</td><td data-label="용량"><b>0.2mg IV</b> 적정</td><td data-label="비고">재진정 주의</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 출처 -->
+  <section id="sources">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><h2>출처 · 면책</h2></div>
+    <ul class="tight" style="font-size:var(--text-sm)">
+      <li><b>ADA</b> — <i>Preparing for Medical Emergencies</i>(JADA) · 치과 응급키트 권고(산소·Epinephrine·NTG·Salbutamol·항히스타민·Aspirin·포도당).</li>
+      <li><b>Malamed SF.</b> <i>Medical Emergencies in the Dental Office</i> — P-A-B-C-D, 상황별 처치.</li>
+      <li>심정지 시 <b>기본소생술(BLS)</b> — 가슴압박 100–120/min, 30:2, AED(대한심폐소생협회/AHA·ERC).</li>
+      <li>아나필락시스 Epinephrine 근육주사 — Resuscitation Council·WAO 지침.</li>
+    </ul>
+    <div class="callout danger" style="margin-top:12px"><b>면책</b> — 본 페이지는 개인 정리 노트이며 정식 BLS/ACLS 교육·기관 프로토콜·개별 임상판단을 대체하지 않습니다. 용량·금기는 투여 전 반드시 확인하고, 응급 시 <b>119</b>를 우선하십시오.</div>
+  </section>
+
+</main>
+
+<button id="toTop" title="맨 위로" aria-label="맨 위로"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"/></svg></button>
+
+<footer class="wrap">
+  치과 진료 중 응급상황 대응 — JH의 덴탈시냅스 · 예방·조기 인지·BLS, 응급 시 119 우선
+</footer>
+
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.topbar .links a')];
+  const map={}; links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+  if('IntersectionObserver' in window){
+    const ob=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){
+      links.forEach(a=>a.classList.remove('active')); const a=map[e.target.id]; if(a) a.classList.add('active'); } }); },
+      {rootMargin:'-35% 0px -60% 0px',threshold:0});
+    Object.keys(map).forEach(id=>{ const t=document.getElementById(id); if(t) ob.observe(t); });
+  }
+  const toTop=document.getElementById('toTop');
+  if(toTop){ addEventListener('scroll',()=>toTop.classList.toggle('show',scrollY>600),{passive:true});
+    toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'})); }
+})();
+</script>
+<script src="assets/theme.js?v=4"></script>
+</body>
+</html>

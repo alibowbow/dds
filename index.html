@@ -7,7 +7,7 @@
 <meta name="description" content="JH의 덴탈시냅스 — 치과 임상 노트 모음(처방·질환·술식)" />
 <meta name="theme-color" content="#4f46e5" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="assets/theme.css?v=3" />
+<link rel="stylesheet" href="assets/theme.css?v=4" />
 <style>
   header.hero{padding:var(--sp-7) 0 var(--sp-7)}
   #bg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
@@ -84,6 +84,12 @@ const notes = [
   { title:'KCD 치과 코드 뷰어', href:'kcd.html', icon:'i-book', accent:'#7c3aed', tag:'질병분류·청구',
     desc:'한국표준질병사인분류(KCD) 치과 관련 코드 — 구강·턱·침샘 질환, TMJ, 외상, 임플란트 합병증, 보철 상태를 계층 구조로 검색·복사.',
     keywords:'kcd 질병분류 질병코드 상병 청구 진단 icd k00 k02 치아우식 k04 치수염 k05 치주염 치은염 k07 부정교합 턱관절 tmj k08 q35 구순구개열 s02 치아파절 외상 t85 임플란트 합병증 z96 보철 코드 검색 복사' },
+  { title:'치과 진료 중 응급상황 대응', href:'emergency.html', icon:'i-siren', accent:'#dc2626', tag:'응급·안전',
+    desc:'실신·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄 — P-A-B-C-D 알고리즘, 상황별 첫 처치, 응급약물 용량, 키트 체크리스트.',
+    keywords:'응급 emergency 실신 syncope 아나필락시스 anaphylaxis 에피네프린 epinephrine 흉통 협심증 심근경색 ntg 니트로글리세린 천식 salbutamol 벤톨린 저혈당 glucagon 경련 seizure 발작 기도폐쇄 heimlich 하임리히 흡인 cpr bls aed 과호흡 응급키트 산소 119' },
+  { title:'전신질환자 치과관리', href:'systemic.html', icon:'i-stethoscope', accent:'#0e7490', tag:'전신질환·관리',
+    desc:'심혈관·당뇨·신장(투석)·간·임신·갑상선/부신·항암·면역억제 — 출혈·감염·스트레스·약물 4축 위험과 진료 전 확인, 협진 기준.',
+    keywords:'전신질환 의학적 고려 medically compromised 고혈압 심혈관 epinephrine 한도 당뇨 hba1c 저혈당 신장 투석 dialysis 간경변 간질환 inr 임신 pregnancy 임신부 acetaminophen nsaid 갑상선 부신 스테로이드 커버 항암 화학요법 방사선 orn 골괴사 면역억제 이식 협진 활력징후 vital' },
 ];
 
 const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
@@ -175,6 +181,6 @@ document.addEventListener('keydown', (e)=>{
   document.addEventListener('visibilitychange',()=>{ document.hidden?stop():start(); });
 })();
 </script>
-<script src="assets/theme.js?v=3"></script>
+<script src="assets/theme.js?v=4"></script>
 </body>
 </html>
