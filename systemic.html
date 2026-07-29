@@ -15,6 +15,17 @@
   .vitals .v{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 12px;box-shadow:var(--shadow-sm)}
   .vitals .v b{display:block;font-size:var(--text-xs);color:var(--ink-2);font-weight:700}
   .vitals .v span{font-size:var(--text-md);font-weight:800;font-variant-numeric:tabular-nums}
+  .trimester-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--sp-3);margin:0 0 var(--sp-4)}
+  .trimester-card{margin:0;border-top:4px solid var(--brand);overflow:hidden}
+  .trimester-card.t1{border-top-color:var(--info)}
+  .trimester-card.t2{border-top-color:var(--success)}
+  .trimester-card.t3{border-top-color:var(--warning)}
+  .trimester-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+  .trimester-label{display:block;color:var(--ink-2);font-size:var(--text-xs);font-weight:700;letter-spacing:.02em}
+  .trimester-card h3{margin:1px 0 0;font-size:var(--text-lg)}
+  .trimester-period{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);padding:4px 9px;color:var(--ink-2);font-size:var(--text-xs);font-weight:800;font-variant-numeric:tabular-nums}
+  .trimester-card .badge{margin:0 0 4px}
+  .trimester-card ul.tight{margin-top:8px}
 </style>
 </head>
 <body>
@@ -58,7 +69,7 @@
         <tr><td data-label="질환군"><b>당뇨</b></td><td data-label="위험">저혈당·감염·치유지연</td><td data-label="확인">혈당·HbA1c·식사 여부</td><td data-label="주의">아침 진료, <b>식사·약 유지</b>, 저혈당 대비</td></tr>
         <tr><td data-label="질환군"><b>신장/투석</b></td><td data-label="위험">출혈·약물축적·감염</td><td data-label="확인">투석일·신기능</td><td data-label="주의"><b>투석 다음 날</b>, NSAID 회피, 누공 팔 금지</td></tr>
         <tr><td data-label="질환군"><b>간질환</b></td><td data-label="위험">출혈·약물대사 저하</td><td data-label="확인">INR·혈소판</td><td data-label="주의">acetaminophen 제한, 진정 신중</td></tr>
-        <tr><td data-label="질환군"><b>임신</b></td><td data-label="위험">약물·방사선·체위</td><td data-label="확인">임신 주수</td><td data-label="주의"><b>2기 선호</b>, 좌측위, 안전약물</td></tr>
+        <tr><td data-label="질환군"><b>임신</b></td><td data-label="위험">약물·방사선·체위</td><td data-label="확인">임신 주수</td><td data-label="주의"><b>전 기간 진료 가능</b>, 2기 계획진료 편의, 좌측 경사</td></tr>
         <tr><td data-label="질환군"><b>갑상선/부신</b></td><td data-label="위험">갑상선중독·부신위기</td><td data-label="확인">조절상태·스테로이드력</td><td data-label="주의">미조절 시 연기, 외과 시 커버</td></tr>
         <tr><td data-label="질환군"><b>항암/방사선</b></td><td data-label="위험">감염·출혈·골괴사</td><td data-label="확인">ANC·혈소판·조사부위</td><td data-label="주의"><b>치료 전 정리</b>, 조사야 발치 회피</td></tr>
         <tr><td data-label="질환군"><b>면역억제</b></td><td data-label="위험">감염·약물 상호작용</td><td data-label="확인">약물·이식 여부</td><td data-label="주의">감염관리, 협진</td></tr>
@@ -164,17 +175,56 @@
   <!-- 임신 -->
   <section id="pregnancy">
     <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-baby"/></svg></span><h2>임신 · 수유</h2></div>
-    <p class="sec-desc"><b>2기(4–6개월)</b>가 선택적 치료에 가장 적합합니다. 응급·감염·통증은 <b>어느 시기든</b> 치료(미치료 감염이 더 위험). 앙와위저혈압 → <b>좌측위(우측 둔부 거상)</b>.</p>
+    <p class="sec-desc">예방·진단·수복·치주 및 필요한 외과 처치는 <b>임신 전 기간에 시행 가능</b>합니다. <b>2기는 비교적 긴 선택적 치료를 받기 편한 시기</b>라는 뜻이며, 1기·3기의 필요한 치료를 미루라는 의미는 아닙니다. 응급·감염·통증은 어느 시기든 지체하지 않습니다.</p>
+    <div class="trimester-grid" role="group" aria-label="임신 시기별 치과진료 분류">
+      <article class="card trimester-card t1">
+        <div class="trimester-head">
+          <div><span class="trimester-label">제1삼분기</span><h3>1기</h3></div>
+          <span class="trimester-period">0–13주</span>
+        </div>
+        <span class="badge lim">필요 진료 가능</span>
+        <ul class="tight">
+          <li><b>예방·진단과 필요한 수복·치주·근관·발치</b>는 시행 가능</li>
+          <li>기관형성기이므로 <b>불필요한 약물·진정은 최소화</b>하고 처방 전 임신 주수·복용약 확인</li>
+          <li>입덧·구역반사·피로를 고려해 짧게 진료하고, 긴 선택 처치는 가능하면 2기로 조정</li>
+        </ul>
+      </article>
+      <article class="card trimester-card t2">
+        <div class="trimester-head">
+          <div><span class="trimester-label">제2삼분기</span><h3>2기</h3></div>
+          <span class="trimester-period">14–27주</span>
+        </div>
+        <span class="badge rec">선택 진료 선호</span>
+        <ul class="tight">
+          <li>입덧이 줄고 체위 부담이 비교적 적어 <b>계획 진료에 가장 편한 시기</b></li>
+          <li>수복·치주·근관·발치 등 필요한 진료를 통상적으로 시행 가능</li>
+          <li><b>20주 이후</b> 장시간 앙와위를 피하고, NSAID는 원칙적으로 회피·필요 시 산부인과와 협의</li>
+        </ul>
+      </article>
+      <article class="card trimester-card t3">
+        <div class="trimester-head">
+          <div><span class="trimester-label">제3삼분기</span><h3>3기</h3></div>
+          <span class="trimester-period">28주–분만</span>
+        </div>
+        <span class="badge exp">체위·약물 주의</span>
+        <ul class="tight">
+          <li>응급·감염·통증 및 필요한 치료는 <b>미루지 않고 시행</b></li>
+          <li>짧은 진료로 나누고 <b>좌측 경사 또는 우측 둔부 거상</b>으로 앙와위저혈압 예방</li>
+          <li><b>30주 이후 NSAID 회피</b>. 분만 임박·고위험 임신의 긴 선택 처치는 산부인과와 협의</li>
+        </ul>
+      </article>
+    </div>
     <div class="tablewrap flat"><table class="cards">
       <caption class="sr-only">임신부 치과 약물 안전성</caption>
       <thead><tr><th scope="col">분류</th><th scope="col">안전(권고)</th><th scope="col">회피/금기</th></tr></thead>
       <tbody>
-        <tr><td data-label="분류"><b>진통제</b></td><td data-label="안전"><b>Acetaminophen</b>(전 기간 1차)</td><td data-label="회피"><b>NSAID 1·3기 회피</b>(3기 동맥관조기폐쇄), 아스피린</td></tr>
-        <tr><td data-label="분류"><b>항생제</b></td><td data-label="안전">Amoxicillin·페니실린·<b>세팔로스포린</b>·클린다마이신</td><td data-label="회피"><b>테트라사이클린·플루오로퀴놀론 금기</b>, metronidazole 1기 신중</td></tr>
+        <tr><td data-label="분류"><b>진통제</b></td><td data-label="안전"><b>Acetaminophen</b>(필요 시 최소 유효용량·단기간)</td><td data-label="회피"><b>NSAID: 20–30주 최소화, 30주 이후 회피</b>. 산부인과 처방 저용량 aspirin은 예외</td></tr>
+        <tr><td data-label="분류"><b>항생제</b></td><td data-label="안전">Amoxicillin·페니실린·<b>세팔로스포린</b>·클린다마이신·metronidazole</td><td data-label="회피"><b>테트라사이클린·플루오로퀴놀론 회피</b></td></tr>
         <tr><td data-label="분류"><b>국소마취</b></td><td data-label="안전">Lidocaine + epi(통상량 가능)</td><td data-label="회피">felypressin 다량(자궁수축) 주의</td></tr>
+        <tr><td data-label="분류"><b>진정</b></td><td data-label="안전">비약물 불안조절·짧은 진료</td><td data-label="회피"><b>아산화질소 노출 회피</b>, 약물진정은 산부인과 협의</td></tr>
       </tbody>
     </table></div>
-    <div class="callout"><b>방사선</b> — 필요 시 어느 시기든 촬영 가능(저선량). <b>차폐(복부·갑상선)는 최신 지침상 필수 아님</b>(과거 권장). 선택적 영상은 출산 후로 미룰 수 있음. <b>수유</b> 중 대부분의 치과 약물(국소마취·acetaminophen·amoxicillin)은 사용 가능.</div>
+    <div class="callout"><b>방사선</b> — 임상적으로 필요하면 어느 시기든 촬영 가능하며, 최신 ADA 지침은 <b>복부·갑상선 차폐를 권고하지 않습니다</b>. <b>수유</b> 중 국소마취·acetaminophen·amoxicillin 등은 대체로 사용 가능하나 개별 약물은 LactMed·허가사항을 확인합니다.</div>
   </section>
 
   <!-- 내분비 -->
@@ -287,7 +337,9 @@
     <ul class="tight" style="font-size:var(--text-sm)">
       <li><b>Little JW, Falace DA, et al.</b> <i>Dental Management of the Medically Compromised Patient.</i></li>
       <li><b>Scully C.</b> <i>Medical Problems in Dentistry.</i></li>
-      <li><b>ADA</b> Oral Health Topics — 임신·심혈관·당뇨·방사선 안전. <b>AHA 2021</b> 감염성 심내막염 예방요법.</li>
+      <li><b>ADA</b> <a href="https://www.ada.org/resources/ada-library/oral-health-topics/pregnancy" target="_blank" rel="noopener">Pregnancy (2025 업데이트)</a> · <b>ACOG</b> <a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2013/08/oral-health-care-during-pregnancy-and-through-the-lifespan" target="_blank" rel="noopener">Oral Health Care During Pregnancy (2025 재확인)</a> — 임신 전 기간 치과진료·방사선·국소마취 안전.</li>
+      <li><b>FDA</b> <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-recommends-avoiding-use-nsaids-pregnancy-20-weeks-or-later-because-they-can-result-low-amniotic" target="_blank" rel="noopener">NSAID 임신 안전성 통지</a> — 20–30주 최소 용량·최단 기간, 30주 이후 회피.</li>
+      <li><b>ADA</b> Oral Health Topics — 심혈관·당뇨·방사선 안전. <b>AHA 2021</b> 감염성 심내막염 예방요법.</li>
       <li>약물·출혈 관리 상세: <a href="antithrombotic.html">항혈전제</a> · <a href="drug-guide.html">약물 가이드</a> · <a href="mronj.html">MRONJ</a> · 응급: <a href="emergency.html">응급상황 대응</a>.</li>
     </ul>
     <div class="callout danger" style="margin-top:12px"><b>면책</b> — 본 페이지는 개인 정리 노트이며 개별 임상판단·주치의 협진·최신 가이드라인을 대체하지 않습니다. 약물 조정·중단은 처방의와 협의하고 환자 상태를 반드시 확인하십시오.</div>
