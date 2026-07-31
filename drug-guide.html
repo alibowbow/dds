@@ -142,7 +142,7 @@
     <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span>치과 약물 &middot; 처방 가이드</h1>
     <p class="sub">임상 전문가용 통합 레퍼런스 — 술식·상황별 처방 프로토콜(성인 1차 / 약물 알레르기 대체 / 소아용량) + 약물 분류 카탈로그 + 의사결정 맵</p>
     <div class="meta-row">
-      <span>📅 최종 정리: 2026-07-31</span>
+      <span>📅 최종 정리: 2026-08-01</span>
       <span>📚 기준: 국내 처방 관행 + ADA / AHA / AAPD 가이드라인</span>
     </div>
   </div>
@@ -163,7 +163,7 @@
       <a href="#scenarios">① 술식·상황별 처방</a>
       <a href="#catalog">② 약물 카탈로그</a>
       <a href="#allergy">③ 알레르기 대체</a>
-      <a href="#pediatric">④ 소아 용량</a>
+      <a href="#pediatric">④ 소아 처방</a>
       <a href="#maps">⑤ 맵·시각화</a>
       <a href="#emergency">⑥ 응급</a>
       <a href="#oralmed">⑦ 구강내과</a>
@@ -229,10 +229,10 @@
   <section id="allergy">
     <div class="sec-head"><span class="num">3</span><h2>약물 알레르기 대체처방 매트릭스</h2></div>
     <p class="sec-desc"><b>페니실린 알레르기</b>는 즉시형 여부와 <b>목적(예방·치료)</b>에 따라 대체약이 달라집니다.</p>
-    <div class="callout">💡 <b>핵심 구분</b> — <b>IE 예방</b>: cephalexin · azithromycin · clarithromycin · doxycycline 중 하나(<span style="color:var(--danger)">clindamycin 비권장</span>). 즉시형 PCN 알레르기에는 cephalosporin 회피.
-      <b>감염 치료</b>: 비즉시형은 cephalexin, 즉시형은 azithromycin 우선 고려. Clindamycin은 다른 대안이 부적절할 때만 사용.</div>
+    <div class="callout">💡 <b>핵심 구분</b> — 아래 표는 <b>성인 용량</b>입니다. <b>IE 예방</b>: cephalexin · azithromycin · clarithromycin · doxycycline 중 하나(<span style="color:var(--danger)">clindamycin 비권장</span>). 즉시형 PCN 알레르기에는 cephalosporin 회피.
+      <b>감염 치료</b>: 비즉시형은 cephalexin, 즉시형은 azithromycin 우선 고려. Clindamycin은 다른 대안이 부적절할 때만 사용. 소아는 <a href="#pediatric">④ 소아 처방</a>의 20kg 예시를 확인합니다.</div>
     <div class="tablewrap">
-      <table>
+      <table class="cards">
         <thead><tr><th>상황 / 알레르기 유형</th><th>1차 선택</th><th>대체 / 비고</th><th>회피</th></tr></thead>
         <tbody id="allergy-body"></tbody>
       </table>
@@ -241,12 +241,13 @@
 
   <!-- ④ PEDIATRIC -->
   <section id="pediatric">
-    <div class="sec-head"><span class="num">4</span><h2>소아 용량 (체중 기반)</h2></div>
-    <p class="sec-desc">소아는 <b>mg/kg</b> 기준 + 1일 최대용량 상한. 현탁액은 농도 확인 후 mL 환산.</p>
-    <div class="callout">🚫 <b>소아 주의</b> — Aspirin 금기(Reye 증후군), Doxycycline/Tetracycline 8세 미만 회피(치아착색), Codeine 12세 미만 회피(FDA), Acetaminophen 1일 최대 75mg/kg(≤4g).</div>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>약물</th><th>소아 용량</th><th>1일 최대</th><th>비고</th></tr></thead>
+    <div class="sec-head"><span class="num">4</span><h2>소아 처방: 용량 · 하루 횟수 · 체중 예시</h2></div>
+    <p class="sec-desc">체중당 기준만 제시하지 않고 <b>하루 투여 횟수</b>와 <b>20kg 소아의 실제 계산 예시</b>를 함께 표시합니다. 항생제는 정해진 시각에 투여하고, 진통제는 필요 시 간격과 24시간 상한을 모두 지킵니다.</p>
+    <div class="callout"><b>20kg 예시를 읽는 법</b> — 정상 신·간기능의 소아를 가정한 계산 예시이며 실제 처방은 당일 체중으로 다시 계산합니다. 현탁액의 mL 예시는 괄호 안 농도에만 해당하므로 <b>조제된 제품의 mg/mL를 먼저 확인</b>합니다. 용량 범위가 있는 약은 예시에 사용한 계산 기준을 함께 표시했습니다.</div>
+    <div class="callout">🚫 <b>소아 주의</b> — Aspirin은 바이러스 감염 소아에서 회피(Reye 증후군). Doxycycline/Tetracycline은 일반적으로 8세 미만에서 회피하되 특정 감염의 단기 doxycycline은 예외가 있습니다. Codeine은 12세 미만에서 금기입니다. Acetaminophen은 모든 복합제를 합산해 75mg/kg/일과 제품별 24시간 투여 횟수 상한을 넘지 않습니다.</div>
+    <div class="tablewrap flat">
+      <table class="cards">
+        <thead><tr><th>약물 · 적응증</th><th>소아 기준 용량</th><th>하루 투여 횟수</th><th>20kg 소아 계산 예시</th><th>용량 상한 · 기간 · 주의</th></tr></thead>
         <tbody id="ped-body"></tbody>
       </table>
     </div>
@@ -356,7 +357,7 @@ flowchart TD
 flowchart LR
   subgraph sg1 [외과·식립]
     S1["단순 발치"] --> R1["진통제 위주<br/>항생제 일반적으로 불필요"]
-    S2["매복치/외과 발치"] --> R2["amoxicillin·augmentin 3–5일<br/>+ NSAID±트라마돌 + CHX"]
+    S2["매복치/외과 발치"] --> R2["NSAID±acetaminophen<br/>항생제는 일률적 처방 아님"]
     S3["임플란트 식립"] --> R3["amoxicillin 2g 예방<br/>+ 진통제 + CHX 가글"]
     S4["상악동거상술"] --> R4["augmentin 875/125 7일<br/>+ 진통제 + 비충혈 보조"]
   end
@@ -367,7 +368,7 @@ flowchart LR
   end
   subgraph sg3 [만성·점막·기타]
     S8["만성 치주염"] --> R8["SRP 핵심; 진행성시 amox+metro<br/>국소 minocycline"]
-    S9["TMD"] --> R9["NSAID+근이완제<br/>만성시 저용량 amitriptyline"]
+    S9["TMD"] --> R9["진단·교육·운동·수기치료<br/>약물은 단기 보조"]
     S10["아프타 구내염"] --> R10["국소 스테로이드/policresulen<br/>+ benzydamine·CHX 가글"]
     S11["구강칸디다증"] --> R11["nystatin 함수 / fluconazole"]
     S12["HSV·대상포진"] --> R12["acyclovir/valacyclovir 조기"]
@@ -411,14 +412,14 @@ flowchart LR
     <div class="diagram">
       <pre class="mermaid">
 flowchart LR
-  E1["아나필락시스"] --> D1["즉시 EMS<br/>epinephrine 1mg/mL<br/>0.01mg/kg IM"]
+  E1["아나필락시스"] --> D1["즉시 EMS<br/>epinephrine 1mg/mL<br/>0.01mg/kg IM<br/>20kg: 0.2mg = 0.2mL"]
   E2["협심증·흉통"] --> D2["즉시 EMS 평가<br/>nitroglycerin 설하<br/>산소는 저산소증 시"]
   E3["천식 발작"] --> D3["albuterol 흡입<br/>+ 산소"]
   E4["저혈당"] --> D4["경구 글루코스<br/>의식없으면 glucagon"]
   E5["혈관미주신경 실신"] --> D5["산소 + 앙와위·하지거상"]
   E6["경련"] --> D6["기도확보 + midazolam"]
   E7["경증 알레르기"] --> D7["diphenhydramine 25–50mg"]
-  E8["심정지"] --> D8["CPR + AED + epinephrine"]
+  E8["심정지"] --> D8["CPR + AED<br/>epinephrine은 EMS·ALS 프로토콜<br/>아나필락시스용 IM 제형과 구분"]
   style D1 fill:#fee2e2,stroke:#dc2626
   style D8 fill:#fee2e2,stroke:#dc2626
       </pre>
@@ -449,7 +450,9 @@ flowchart LR
       <li>American Dental Association. <a href="https://www.ada.org/-/media/project/ada-organization/ada/ada-org/files/resources/research/2024-pain-guidelines/14205c_chairside_guide_adult_extraction_final.pdf" target="_blank" rel="noopener"><i>2024 Acute Dental Pain Chairside Guide</i></a> — NSAID 단독 또는 acetaminophen 병용, 일일 최대량, opioid 제한.</li>
       <li>American Heart Association. <a href="https://www.heart.org/-/media/files/health-topics/infective-endocarditis/infective-endocarditis-wallet-card.pdf" target="_blank" rel="noopener"><i>Prevention of Infective Endocarditis Wallet Card</i></a> — 술전 30–60분 1회 용법 및 clindamycin 제외.</li>
       <li>American Academy of Pediatric Dentistry. <a href="https://www.aapd.org/globalassets/media/policies_guidelines/r_usefulmeds25.pdf" target="_blank" rel="noopener"><i>Useful Medications for Oral Conditions, 2025</i></a> — 소아·성인 진통제, 항균제, 항진균제, 국소 스테로이드 및 불소.</li>
+      <li>American Academy of Pediatric Dentistry. <a href="https://www.aapd.org/globalassets/media/policies_guidelines/bp_localanesthesia.pdf" target="_blank" rel="noopener"><i>Use of Local Anesthesia for Pediatric Dental Patients</i></a> — 소아 lidocaine의 보수적 치과 상한 4.4mg/kg, 국소마취제 총량 합산과 감량 조건.</li>
       <li>American Academy of Pediatric Dentistry. <a href="https://www.aapd.org/globalassets/media/policies_guidelines/r_medemergencies25.pdf" target="_blank" rel="noopener"><i>Management of Medical Emergencies, 2025</i></a> — 아나필락시스·저혈당·지속성 경련의 응급약 용량과 투여경로.</li>
+      <li>U.S. National Library of Medicine DailyMed — <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=152189e5-391c-42d3-a03b-c8364e2de6bf" target="_blank" rel="noopener">Children's ibuprofen</a>, <a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=333f6231-3778-4c1f-9558-2afddca22c86" target="_blank" rel="noopener">Children's acetaminophen</a> — 필요 시 투여 간격과 24시간 최대 투여 횟수.</li>
       <li>Infectious Diseases Society of America. <a href="https://www.idsociety.org/practice-guideline/candidiasis/" target="_blank" rel="noopener"><i>Candidiasis Guideline</i></a> — 구인두 칸디다증의 국소·전신 치료.</li>
       <li>Electronic Medicines Compendium. <a href="https://www.medicines.org.uk/emc/product/14746/smpc" target="_blank" rel="noopener"><i>Miconazole 2% Oral Gel SmPC</i></a> — 1회량·횟수·치료 종료 기준과 warfarin 상호작용.</li>
       <li>FDA. <a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-recommends-avoiding-use-nsaids-pregnancy-20-weeks-or-later-because-they-can-result-low-amniotic" target="_blank" rel="noopener">NSAIDs in Pregnancy Safety Communication</a> — 임신 20주 이후 원칙적 회피와 30주 이후 회피.</li>
@@ -497,22 +500,22 @@ const scenarios = [
   { n:'단순 발치', tag:'외과·발치',
     adult:'Ibuprofen 400mg PO q6–8h PRN(최대 2,400mg/일) ± acetaminophen 500mg PO q6h PRN(최대 4,000mg/일). 대안: loxoprofen 60mg PO TID 식후(최대 180mg/일). 건강한 환자에서 <span class="em">항생제는 일반적으로 불필요</span>.',
     allergy:'NSAID 금기 시 acetaminophen 500–1,000mg PO q6h PRN(최대 4,000mg/일; 간질환·저체중·과음 시 상한 감량).',
-    ped:'Ibuprofen 10mg/kg/회 PO q6–8h PRN(최대 40mg/kg/일), acetaminophen 10–15mg/kg/회 PO q4–6h PRN(최대 75mg/kg/일, 4g/일 중 낮은 값).',
-    note:'국내 발치 후 항생제 처방률이 매우 높으나(과처방 지적), 비감염 단순 발치엔 비권장 <b>(ADA Antibiotic Stewardship · Cochrane 2021, CD003811)</b>.' },
+    ped:'<b>20kg 대표 처방:</b> ibuprofen 200mg(100mg/5mL 현탁액 10mL) PO를 필요 시 8시간마다, 1일 최대 3회. Acetaminophen을 선택하거나 병용하면 300mg(160mg/5mL 현탁액 약 9.4mL) PO를 필요 시 6시간마다, 1일 최대 4회. 모든 acetaminophen 제형의 총량 합산.',
+    note:'비감염 단순 발치에는 항생제를 일률적으로 처방하지 않음. 술식과 합병증 관리는 <a href="extraction.html#principles">현대 발치술 노트</a> 참조 <b>(ADA Antibiotic Stewardship · Cochrane 2021, CD003811)</b>.' },
   { n:'매복치·외과적 발치(사랑니)', tag:'외과·발치',
     adult:'통증: ibuprofen 400mg PO q6–8h PRN ± acetaminophen 500mg PO q6h PRN. 치태 조절이 필요하면 CHX 0.12% 15mL로 1분간 함수 후 뱉기 BID, 통상 10일 이내. <span class="em">항생제는 일률적 처방 아님</span>; 감염·전신 확산이 있으면 치성감염 처방 적용.',
     allergy:'예방항생제를 선택하는 경우의 PCN 알레르기 대체약은 수술 범위·알레르기 유형·기관 프로토콜에 따라 결정. IE 예방용 clindamycin 처방을 그대로 적용하지 않음.',
-    ped:'Ibuprofen 10mg/kg/회 PO q6–8h PRN(최대 40mg/kg/일); 항생제는 감염 적응증이 있을 때 체중기반 투여.',
-    note:'수술 난이도만으로 술후 항생제를 일률적으로 정하지 않음. 진통제는 최소 유효용량·최단기간.' },
+    ped:'대표 처방: ibuprofen 10mg/kg/회 PO를 필요 시 8시간마다, 1일 최대 3회. <b>20kg 예:</b> 200mg(100mg/5mL 현탁액 10mL)씩 필요 시 1일 최대 3회. 통증 조절이 부족해 6시간 간격을 선택하면 24시간 최대 4회·40mg/kg/일을 넘지 않음. 항생제는 감염 적응증이 있을 때만 체중에 맞춰 투여.',
+    note:'수술 난이도만으로 술후 항생제를 일률적으로 정하지 않음. 관상절제술·piezosurgery·신경 위험은 <a href="extraction.html#third-molar">매복 제3대구치 파트</a> 참조.' },
   { n:'치근단 농양·급성 치성감염', tag:'급성 감염',
     adult:'<span class="em">배농·근관치료·발치 우선</span>. 전신징후 또는 확산이 있으면 amoxicillin 500mg PO TID 3–7일. 반응 불충분 시 metronidazole 500mg PO TID 7일 추가 또는 amoxicillin/clavulanate 500/125mg PO TID 7일로 변경.',
     allergy:'비즉시형 PCN 알레르기: cephalexin 500mg PO QID 3–7일. 즉시형 알레르기: azithromycin 500mg 첫날, 이후 250mg PO QD 4일. Clindamycin 300mg PO QID는 다른 대안이 부적절할 때만 고려(C. difficile 위험).',
-    ped:'Amoxicillin 20–40mg/kg/일 PO q8h 분할(1회 최대 500mg) 또는 25–45mg/kg/일 q12h 분할(1회 최대 875mg).',
+    ped:'Amoxicillin은 1일 총 20–40mg/kg을 3회(8시간마다) 균등 분할하거나, 1일 총 25–45mg/kg을 2회(12시간마다) 균등 분할. <b>20kg 예:</b> 30mg/kg/일 요법은 200mg(250mg/5mL이면 4mL)씩 1일 3회, 40mg/kg/일 요법은 400mg(250mg/5mL이면 8mL)씩 1일 2회.',
     note:'면역기능이 정상인 성인 기준. 3일 이내 재평가, 증상 소실 24시간 후 중단. 발열성 호중구감소·심부공간 감염은 병원 프로토콜 적용.' },
   { n:'봉와직염·확산성 감염', tag:'급성 감염',
     adult:'경증·외래 관리가 가능한 경우 amoxicillin/clavulanate 500/125mg PO TID 7일 또는 amoxicillin 500mg PO TID + metronidazole 500mg PO TID 7일. 기도위협·전신독성·개구장애 시 <span class="em">응급 입원·정맥 항생제·외과적 배농</span>.',
     allergy:'즉시형 PCN 알레르기에서 경증이면 azithromycin 500mg 첫날, 이후 250mg PO QD 4일. 빠르게 진행하거나 중증이면 경구 대체 처방보다 입원·배양·정맥치료 우선.',
-    ped:'Amoxicillin/clavulanate는 amoxicillin 기준 25–45mg/kg/일 PO q12h 분할; 중증·기도 위험은 입원.',
+    ped:'Amoxicillin/clavulanate는 amoxicillin 기준으로 7:1 제형 25–45mg/kg/일을 1일 2회, 4:1 제형 20–40mg/kg/일을 1일 3회 균등 분할. <b>20kg 예:</b> 7:1 400/57mg/5mL 제형은 5mL씩 1일 2회(40mg/kg/일), 4:1 250/62.5mg/5mL 제형은 4mL씩 1일 3회(30mg/kg/일). 제형 간 mL를 서로 바꾸지 않음. 중증·기도 위험은 입원.',
     note:'Ludwig angina 등 심부공간 감염은 응급. 기도 평가 필수.' },
   { n:'임플란트 식립', tag:'식립·골이식',
     adult:'통증: ibuprofen 400mg PO q6–8h PRN ± acetaminophen 500mg PO q6h PRN. 예방항생제를 선택한 기관 프로토콜의 예: amoxicillin 2g PO 1회, 술전 30–60분. 술후 반복 항생제는 일률적으로 추가하지 않음.',
@@ -532,7 +535,7 @@ const scenarios = [
   { n:'근관치료(Endodontics)', tag:'급성 감염',
     adult:'대부분 <span class="em">항생제 불필요</span>. 전신징후·확산이 있으면 amoxicillin 500mg PO TID 3–7일. 통증: ibuprofen 400mg PO q6–8h PRN ± acetaminophen 500mg PO q6h PRN.',
     allergy:'항생제 적응증이 있을 때 비즉시형 PCN 알레르기: cephalexin 500mg PO QID 3–7일. 즉시형: azithromycin 500mg 첫날, 이후 250mg QD 4일.',
-    ped:'증상성 비가역성 치수염엔 항생제 부적응.',
+    ped:'증상성 비가역성 치수염에는 항생제를 사용하지 않음. <b>20kg 대표 처방:</b> ibuprofen 200mg(100mg/5mL 현탁액 10mL) PO를 필요 시 8시간마다, 1일 최대 3회. NSAID 금기 시 acetaminophen 300mg(160mg/5mL 현탁액 약 9.4mL) PO를 필요 시 6시간마다, 1일 최대 4회.',
     note:'가역적/비가역적 치수염, 증상성 근단치주염엔 항생제 권고되지 않음.' },
   { n:'만성 치주염 / SRP', tag:'치주',
     adult:'<span class="em">SRP(비외과 치주치료)가 핵심</span>. 전신 항생제 통상 불필요. 진행성/공격성: amoxicillin 500mg + metronidazole 400–500mg TID 7일. 국소 minocycline·CHX 보조.',
@@ -545,10 +548,10 @@ const scenarios = [
     ped:'면역저하 동반 평가 필요.',
     note:'급성 통증·괴사·악취 특징. 전신요인(스트레스·흡연·면역) 교정.' },
   { n:'TMD / 측두하악장애', tag:'근골격',
-    adult:'급성 통증: ibuprofen 400mg PO q6–8h PRN, 최단기간. 근육성 통증: eperisone 50mg PO TID 식후 또는 cyclobenzaprine 5–10mg PO 취침 전 단기(허가·가용성 확인). 만성통증: amitriptyline 10–25mg PO 취침 전부터 적정. <span class="em">교합안정장치·물리치료 병행</span>.',
-    allergy:'NSAID 금기 시 acetaminophen; 근이완제 유지.',
-    ped:'보존적 치료 우선; 약물 신중.',
-    note:'항생제 적응 아님. 대부분 자기한정성·보존적 관리.' },
+    adult:'급성 통증: ibuprofen 400mg PO q6–8h PRN, 최단기간. 근육성 통증: eperisone 50mg PO TID 식후 또는 cyclobenzaprine 5–10mg PO 취침 전 단기(허가·가용성 확인). 만성통증: amitriptyline 10–25mg PO 취침 전부터 적정. <span class="em">진단·교육·운동·수기치료가 중심</span>.',
+    allergy:'NSAID 금기 시 acetaminophen. 근이완제·만성통증 약물은 별도 적응증과 금기를 확인해 선택.',
+    ped:'보존적 치료 우선. <b>20kg 예:</b> ibuprofen 200mg(100mg/5mL이면 10mL) PO, 필요 시 8시간 간격으로 24시간 최대 3회. 대안으로 acetaminophen 300mg(160mg/5mL이면 약 9.4mL) PO, 필요 시 6시간 간격으로 24시간 최대 4회.',
+    note:'항생제 적응 아님. 분류·진찰, MMD와 상세 물리치료는 <a href="tmd-mmd.html">TMD·MMD 진단과 치료 노트</a> 참조.' },
   { n:'하치조신경 손상·감각이상', tag:'신경병성 통증',
     adult:'발치·임플란트 후 새로 발생한 감각저하·작열통은 영상 확인과 조기 구강악안면외과 의뢰. <span class="em">국소 dexamethasone 주입, 전신 steroid taper, methylcobalamin의 표준 용량·효과는 확립되지 않음</span>. 지속성 신경병성 통증은 pregabalin 75mg 취침 전 시작 후 150–300mg/일 분2, gabapentin 100–300mg 취침 전부터 점증, 또는 duloxetine 30mg QD→60mg QD를 신장·간 기능과 병용약에 맞춰 선택.',
     allergy:'약물 과민/부작용 시 gabapentin 또는 삼환계 amitriptyline/nortriptyline로 대체.',
@@ -562,27 +565,27 @@ const scenarios = [
   { n:'재발성 아프타 구내염', tag:'점막·바이러스',
     adult:'Triamcinolone 0.1% 구강연고를 병소 건조 후 얇게 1일 2–4회, 식후·취침 전 도포(최대 14일). 다발 병소: dexamethasone 0.5mg/5mL 5mL로 2분간 함수 후 뱉기 1일 2–4회(최대 14일, 허가 외일 수 있음).',
     allergy:'국소제 위주로 전신약 회피.',
-    ped:'국소 스테로이드 소량, 자극성 음식 회피.',
+    ped:'Triamcinolone 0.1% 구강연고를 병소에 얇게 1일 2–4회, 식후·취침 전에 도포하며 최대 14일 사용. 도포 후 30분간 음식·음료 제한. 체중에 따라 증량하지 않음.',
     note:'2차 감염·전신질환(베체트 등) 감별. 통증 조절 중심.' },
   { n:'구강 칸디다증', tag:'점막·바이러스',
     adult:'Nystatin 100,000U/mL 현탁액 4–6mL를 수분간 머금은 뒤 삼키거나 뱉기 QID, 7–14일(증상 소실 후 ≥48시간 지속). 중등도–중증: fluconazole 첫날 200mg PO, 이후 100–200mg PO QD 7–14일. 의치 별도 소독.',
     allergy:'azole 과민 시 nystatin 국소.',
-    ped:'Nystatin 현탁액 도포; 영아 칸디다 흔함.',
+    ped:'Nystatin 100,000U/mL 현탁액: 영아는 2mL/회(양쪽 구강에 절반씩), 소아는 4–6mL/회를 수분간 머금은 뒤 삼켜 1일 4회, 7–14일 사용. 증상 소실 후 최소 48시간 지속하며 투여 후 30분간 음식·음료 제한.',
     note:'기저질환(당뇨·면역저하·흡입스테로이드·구강건조) 교정.' },
   { n:'단순포진·대상포진(HSV/VZV)', tag:'점막·바이러스',
     adult:'구순포진: valacyclovir 2g PO, 12시간 후 2g 추가(총 1일) 또는 famciclovir 1,500mg PO 1회, 전구증상 때 시작. 대상포진: valacyclovir 1g PO TID 7일 또는 acyclovir 800mg PO 1일 5회 7–10일. 가능하면 발진 72시간 이내 시작하되, 이후라도 새 수포가 계속되거나 안구·귀 침범 또는 면역저하가 있으면 즉시 항바이러스 치료 평가.',
     allergy:'대체 항바이러스 선택, 수분·영양 지지.',
-    ped:'체중기반 acyclovir; 1차 herpetic gingivostomatitis 지지요법.',
+    ped:'원발성 헤르페스 치은구내염: acyclovir 20mg/kg/회 PO를 1일 4회, 5–7일(1회 최대 800mg, 허가 외). <b>20kg 예:</b> 400mg씩 1일 4회(200mg/5mL 현탁액이면 10mL/회). 수분·통증·영양 관리 병행.',
     note:'Penciclovir 1%는 깨어 있는 동안 q2h 4일, docosanol 10%는 1일 5회 최대 10일. 항바이러스제는 신기능 감량.' },
   { n:'건성 치조와(Dry socket)', tag:'외과·발치',
     adult:'<span class="em">항생제 적응증 아님</span>. 생리식염수로 소켓 세척 후 진정 드레싱, 필요 시 24–48시간 간격 재평가·교체. 통증: ibuprofen 400mg PO q6–8h PRN ± acetaminophen 500mg PO q6h PRN.',
     allergy:'진통제만 조정.',
     ped:'드묾.',
-    note:'발치 3–5일 후 심한 통증·악취·노출골. CHX 가글이 예방에 도움.' },
+    note:'발치 3–5일 후 심한 통증·악취·노출골. 진단·세척·드레싱과 예방 근거는 <a href="extraction.html#complications">발치 합병증 파트</a> 참조.' },
   { n:'감염성 심내막염·인공관절 예방', tag:'예방',
     adult:'<span class="em">고위험 심질환자 + 침습 시술</span>에만 amoxicillin 2g PO 1회, 술전 30–60분. 인공관절만으로는 일률적 예방항생제 적응증 아님.',
     allergy:'PCN 알레르기: cephalexin 2g, azithromycin/clarithromycin 500mg 또는 doxycycline 100mg 중 하나를 술전 30–60분 1회. 아나필락시스·혈관부종·두드러기 병력이면 cephalosporin 회피. <span class="em">Clindamycin 비권장</span>.',
-    ped:'Amoxicillin 50mg/kg(최대 2g) PO 1회, 술전 30–60분.',
+    ped:'술전 30–60분 <b>단 1회</b>. <b>20kg 예:</b> amoxicillin 1,000mg. PCN 알레르기 시 cephalexin 1,000mg(아나필락시스·혈관부종·두드러기 병력이면 회피), azithromycin 또는 clarithromycin 300mg, doxycycline 44mg 중 하나를 단 1회. Clindamycin은 사용하지 않음.',
     note:'치은·치근단 조작 또는 구강점막 천공 시술이 대상. 일상 칫솔질이 더 큰 균혈증원.' },
   { n:'임산부·수유부 처방', tag:'특수 환자군',
     adult:'진통: acetaminophen 500–1,000mg PO q6h PRN, 최소 유효용량·최단기간(총 4,000mg/일 이하; 개인 위험에 따라 감량). NSAID는 <span class="em">임신 20주부터 원칙적으로 회피</span>; 20–30주에 불가피하면 최소량·최단기간, 30주 이후 회피. 항생제는 적응증별 표준 성인 용량 사용. Lidocaine(+최소 유효 epinephrine) 가능.',
@@ -603,11 +606,11 @@ const scenarios = [
 
 const catalog = [
   { id:'anesth', name:'국소마취제', drugs:[
-    { g:'Lidocaine (+epinephrine 1:100k)', b:'리도카인, 옥타프레신', cl:'아마이드', ind:'침윤·전달마취', dose:'2% 1.8mL/카트리지; 최대 ~7mg/kg(에피 포함), 절대 500mg', cau:'심혈관·갑상선항진 시 에피 주의; 과량 시 CNS/심독성', it:'비선택 β-blocker·삼환계와 에피 상호작용' },
-    { g:'Articaine 4% (+epi)', b:'옥타카인', cl:'아마이드', ind:'침윤마취(골침투 우수)', dose:'4% 1.8mL; 최대 7mg/kg', cau:'4–5세 미만 자료 제한; 하치조 전달 시 감각이상 보고', it:'에피 관련 상호작용' },
-    { g:'Mepivacaine 3%', b:'카르보카인', cl:'아마이드', ind:'혈관수축제 회피 필요 시', dose:'3% plain; 최대 6.6mg/kg(≤400mg)', cau:'작용시간 짧음', it:'-' },
-    { g:'Prilocaine', b:'시타네스트', cl:'아마이드', ind:'전달마취', dose:'최대 8mg/kg(≤600mg)', cau:'고용량 시 메트헤모글로빈혈증', it:'메트헤모글로빈 유발제' },
-    { g:'Bupivacaine', b:'마카인', cl:'아마이드(장시간)', ind:'장시간 술후 진통', dose:'0.5% 치과용; 최대 90mg/회', cau:'심독성↑; 혈관 내 주입 금지', it:'-' },
+    { g:'Lidocaine (+epinephrine 1:100k)', b:'리도카인, 옥타프레신', cl:'아마이드', ind:'침윤·전달마취', dose:'성인 제조사 상한 7mg/kg(≤500mg). <b>소아 치과 AAPD 보수 상한 4.4mg/kg</b>. <b>20kg 예: 총 88mg=2% 제제 4.4mL 이하</b>', cau:'모든 lidocaine 제형 총량 합산; 심혈관·갑상선항진 시 에피 주의; 과량 시 CNS/심독성', it:'비선택 β-blocker·삼환계와 에피 상호작용' },
+    { g:'Articaine 4% (+epi)', b:'옥타카인', cl:'아마이드', ind:'침윤마취(골침투 우수)', dose:'최대 7mg/kg. <b>20kg 예: 총 140mg=3.5mL 이하</b>. 1.7mL 카트리지 2개는 136mg이지만, 1.8mL 카트리지 2개는 144mg으로 상한 초과', cau:'실제 카트리지 충전량 확인; <b>4세 미만 소아 사용 비권장</b>; 하치조 전달 시 감각이상 보고', it:'에피 관련 상호작용' },
+    { g:'Mepivacaine 3%', b:'카르보카인', cl:'아마이드', ind:'혈관수축제 회피 필요 시', dose:'성인 제조사 상한 6.6mg/kg(≤400mg). <b>소아 치과 AAPD 상한 4.4mg/kg</b>. <b>20kg 예: 총 88mg=3% 제제 약 2.9mL 이하</b>. 1.7mL·1.8mL 카트리지 2개 전량은 각각 102mg·108mg으로 상한 초과', cau:'완전한 카트리지는 1개만 사용 가능하며 두 번째는 총량 2.9mL 이내에서 일부만 사용; 6개월 미만 영아·진정 병용 시 추가 감량', it:'-' },
+    { g:'Prilocaine', b:'시타네스트', cl:'아마이드', ind:'전달마취', dose:'성인 제조사 상한 8mg/kg(≤600mg); 소아는 제품 허가사항과 위험요인에 따라 별도 계산', cau:'메트헤모글로빈혈증 위험; 매우 어린 소아·빈혈·저산소증·G6PD 결핍 등에서 회피', it:'메트헤모글로빈 유발제' },
+    { g:'Bupivacaine', b:'마카인', cl:'아마이드(장시간)', ind:'장시간 술후 진통', dose:'성인 0.5% 치과용 최대 90mg/회. 소아 AAPD 상한 1.3mg/kg', cau:'<b>12세 미만 사용 비권장</b>; 심독성·연조직 자해 위험, 혈관 내 주입 금지', it:'-' },
   ]},
   { id:'analg', name:'진통·소염제', drugs:[
     { g:'Ibuprofen', b:'부루펜', cl:'NSAID', ind:'치성 통증·염증 1차', dose:'400mg PO q6–8h PRN; 최대 2,400mg/일', cau:'최단기간; 위궤양·신장애·천식·임신 20주 이후 주의/회피', it:'항응고제·ACEi·리튬·SSRI' },
@@ -700,7 +703,7 @@ const catalog = [
 ];
 
 const allergyRows = [
-  ['IE 예방 — PCN 알레르기','Cephalexin 2g PO 1회','Azithromycin/clarithromycin 500mg 또는 doxycycline 100mg PO 1회','모두 술전 30–60분 · clindamycin 비권장 · 즉시형 PCN 알레르기에는 cephalosporin 회피'],
+  ['IE 예방 — 성인 PCN 알레르기','Cephalexin 2g PO 1회','Azithromycin/clarithromycin 500mg 또는 doxycycline 100mg PO 1회','모두 술전 30–60분 · clindamycin 비권장 · 즉시형 PCN 알레르기에는 cephalosporin 회피'],
   ['감염 치료 — PCN 비즉시형 알레르기','Cephalexin 500mg PO QID','3–7일','3일 이내 재평가 · 증상 소실 24시간 후 중단'],
   ['감염 치료 — PCN 즉시형 알레르기','Azithromycin 500mg 첫날','이후 250mg PO QD 4일','Clindamycin 300mg QID 3–7일은 다른 대안이 부적절할 때만 · C. difficile 위험'],
   ['혐기성 보강 필요','Metronidazole 500mg PO TID','Amoxicillin에 추가 시 7일','음주 금지 · warfarin INR 상승 · Child-Pugh C 50% 감량'],
@@ -709,27 +712,38 @@ const allergyRows = [
 ];
 
 const pedRows = [
-  ['Amoxicillin','20–40mg/kg/일 PO q8h 분할 또는 25–45mg/kg/일 q12h 분할','1회 최대 500mg(q8h) 또는 875mg(q12h)','3–7일 · 3일 이내 재평가 · 증상 소실 24h 후 중단'],
-  ['Amoxicillin/clavulanate','25–45mg/kg/일 PO q12h 분할(amoxicillin 기준)','1회 최대 875mg amoxicillin','제품의 amoxicillin:clavulanate 비율 확인 · 식사 시작 시'],
-  ['IE 예방 Amoxicillin','50mg/kg PO 1회, 술전 30–60분','최대 2g','AHA 고위험 심질환에만'],
-  ['Cephalexin','경·중등도 25–50mg/kg/일 PO q6–12h 분할','최대 2g/일','중증 75–100mg/kg/일 q6–8h, 최대 4g/일 · 즉시형 PCN 알레르기 회피 · 신기능 감량'],
-  ['Azithromycin','10mg/kg PO 첫날, 이후 5mg/kg QD 4일','첫날 최대 500mg, 이후 최대 250mg/일','IE 예방은 15mg/kg(최대 500mg) 술전 30–60분 1회'],
-  ['Clindamycin','20–30mg/kg/일 PO q8h 분할','1회 최대 450mg','다른 대안이 부적절할 때만 · C. difficile 위험'],
-  ['Metronidazole','치주·괴사성 치은염: 10mg/kg/회 PO q8h','1회 최대 250mg','통상 7일 · 소아 치성감염의 일률적 대체항생제로 사용하지 않음'],
-  ['Ibuprofen','4–10mg/kg/회 PO q6–8h PRN','1회 최대 600mg, 최대 40mg/kg/일','6개월 미만·탈수·신장애 주의'],
-  ['Acetaminophen','10–15mg/kg/회 PO q4–6h PRN','최대 75mg/kg/일, 4g/일 중 낮은 값','복합제 포함 총량 계산'],
-  ['국소마취 Lidocaine','제품·혈관수축제에 따른 mg/kg 상한 적용','카트리지 수가 아닌 총 mg 계산','소아 보수 기준과 성인 허가 최대량을 혼용하지 않음'],
+  ['<b>Amoxicillin</b><br>치성감염','<b>1일 총량</b> A: 20–40mg/kg · B: 25–45mg/kg','A: 1일 3회(8시간마다)<br>B: 1일 2회(12시간마다)','A를 30mg/kg/일로 계산: <b>200mg씩 1일 3회</b><br>B를 40mg/kg/일로 계산: <b>400mg씩 1일 2회</b><br><span class="pill">250mg/5mL</span> 각각 4mL·8mL/회','3개월 초과·40kg 미만 기준. 1회 최대 A 500mg, B 875mg. 통상 3–7일, 3일 이내 재평가, 증상 소실 24시간 후 중단'],
+  ['<b>Amoxicillin/<br>clavulanate</b><br>치성감염','<b>1일 총 amoxicillin</b><br>7:1 제형 25–45mg/kg<br>4:1 제형 20–40mg/kg','7:1 제형: <b>1일 2회</b>(12시간마다)<br>4:1 제형: <b>1일 3회</b>(8시간마다)','7:1을 40mg/kg/일로 계산: <b>400/57mg씩 1일 2회</b> = 400/57mg/5mL 제형 5mL/회<br>4:1을 30mg/kg/일로 계산: <b>200/50mg씩 1일 3회</b> = 250/62.5mg/5mL 제형 4mL/회','3개월 초과·40kg 이하 기준. 7:1 제형은 1회 amoxicillin 최대 875mg·1일 1,750mg. clavulanate가 적은 제형 우선, 식사 시작 시 복용'],
+  ['<b>Amoxicillin</b><br>IE 예방','<b>1회량</b> 50mg/kg','시술 30–60분 전 <b>단 1회</b><br>시술 후 반복 없음','<b>1,000mg 1회</b>','1회 최대 2g. AHA 고위험 심질환과 대상 시술에만 적용'],
+  ['<b>IE 예방 대체약</b><br>PCN 알레르기','Cephalexin 50mg/kg<br>또는 azithromycin/clarithromycin 15mg/kg<br>또는 doxycycline 2.2mg/kg(&lt;45kg)','각 약물 중 하나를 시술 30–60분 전 <b>단 1회</b><br>시술 후 반복 없음','Cephalexin <b>1,000mg 1회</b><br>또는 azithromycin/clarithromycin <b>300mg 1회</b><br>또는 doxycycline 계산량 <b>44mg 1회</b>','Cephalexin·macrolide·doxycycline 1회 최대 각각 2g·500mg·100mg. PCN 아나필락시스·혈관부종·두드러기 병력이면 cephalexin 회피. Doxycycline은 실제 조제 가능 용량을 약사와 확인. Clindamycin 제외'],
+  ['<b>Penicillin V</b><br>치성감염','<b>1일 총량</b> 25–50mg/kg','<b>1일 4회</b>(6시간마다)','40mg/kg/일로 계산: <b>200mg씩 1일 4회</b><br><span class="pill">250mg/5mL</span> 4mL/회','1일 최대 2g. 페니실린 알레르기 확인. 통상 3–7일 및 조기 재평가'],
+  ['<b>Cephalexin</b><br>감염 치료','<b>1일 총량</b><br>경·중등도 25–50mg/kg<br>중증 75–100mg/kg','허용 간격: 경·중등도 6–12시간, 중증 6–8시간<br><b>대표 처방: 1일 4회</b>(6시간마다)','경·중등도 40mg/kg/일을 4회로 계산: <b>200mg씩 1일 4회</b><br><span class="pill">250mg/5mL</span> 4mL/회','경·중등도 1일 최대 2g, 중증 4g. 처방한 간격을 고정. 즉시형 penicillin 알레르기에서는 회피. 신기능 감량'],
+  ['<b>Azithromycin</b><br>감염 치료','<b>1회량</b> 첫날 10–12mg/kg<br>이후 5–6mg/kg','첫날부터 마지막 날까지 <b>1일 1회</b>','10→5mg/kg 5일 요법: 첫날 <b>200mg 1회</b>, 2–5일째 <b>100mg 1회</b><br><span class="pill">200mg/5mL</span> 5mL → 2.5mL/회','첫날 최대 500mg, 이후 최대 250mg/일. QT 연장·간질환·상호작용 확인. IE 예방은 15mg/kg을 술전 단 1회'],
+  ['<b>Clarithromycin</b><br>감염 치료','<b>1회량</b> 7.5mg/kg','<b>1일 2회</b>(12시간마다)','<b>150mg씩 1일 2회</b><br><span class="pill">125mg/5mL</span> 6mL/회','1회 최대 500mg. QT 연장과 CYP3A4 상호작용 확인. IE 예방은 15mg/kg을 술전 단 1회'],
+  ['<b>Clindamycin</b><br>연조직 감염 대안','<b>1일 총량</b> 20–30mg/kg','<b>1일 3회</b>(8시간마다)','30mg/kg/일로 계산: <b>200mg씩 1일 3회</b>','1회 최대 450mg. 다른 대안이 부적절할 때만 사용. C. difficile 대장염 위험. IE 예방에는 사용하지 않음'],
+  ['<b>Metronidazole</b><br>치주질환·괴사성 치은염','<b>1회량</b> 10mg/kg','<b>1일 3회</b>(8시간마다)','<b>200mg씩 1일 3회</b><br><span class="pill">조제 50mg/mL</span> 4mL/회','1회 최대 250mg, 통상 7일. 소아의 일반 혐기성 치성감염에는 확립된 권장 용량이 없음. 음주·warfarin 상호작용 확인'],
+  ['<b>Ibuprofen</b><br>급성 치성 통증','<b>1회량</b> 4–10mg/kg, 필요 시','허용 간격 6–8시간<br><b>대표 처방: 필요 시 1일 최대 3회</b>(8시간마다)','10mg/kg을 8시간 간격으로 계산: <b>200mg(10mL)/회, 필요 시 1일 최대 3회</b><br><span class="pill">100mg/5mL</span>','통증 조절이 부족해 6시간 간격을 선택하면 24시간 최대 4회. 1회 최대 600mg·1일 최대 40mg/kg. 6개월 미만·탈수·신장애·NSAID 과민 주의. 다른 NSAID와 중복 금지'],
+  ['<b>Acetaminophen</b><br>급성 치성 통증','<b>1회량</b> 10–15mg/kg, 필요 시','4–6시간 간격. 처방 예: <b>1일 4회</b>(6시간마다)<br>24시간 최대 5회','15mg/kg을 6시간 간격으로 계산: <b>300mg/회, 필요 시 최대 1일 4회</b><br><span class="pill">160mg/5mL</span> 약 9.4mL/회','모든 제형·복합제를 합산해 1일 75mg/kg 또는 4g 중 낮은 값. 1회량이 클수록 총량 상한이 먼저 적용됨'],
+  ['<b>Naproxen</b><br>지속성 통증 대안','<b>1회량</b> 5–7mg/kg, 필요 시','허용 간격 8–12시간<br><b>대표 처방: 필요 시 1일 최대 2회</b>(12시간마다)','5mg/kg으로 계산: <b>100mg(4mL)/회, 필요 시 12시간 간격, 1일 최대 2회</b><br><span class="pill">125mg/5mL</span>','1일 최대 1,000mg. 다른 NSAID와 병용하지 않으며 최소 유효용량·최단기간 사용'],
+  ['<b>Nystatin</b><br>구강 칸디다증','영아 2mL/회<br>소아·청소년 4–6mL/회<br><span class="pill">100,000U/mL</span>','<b>1일 4회</b>','소아 예: <b>5mL씩 1일 4회</b>, 수분간 입안에 머금은 뒤 삼킴','7–14일, 증상 소실 후 최소 48시간 지속. 영아는 2mL를 양쪽 구강에 절반씩 도포. 투여 후 30분간 음식·음료 제한'],
+  ['<b>Fluconazole</b><br>구인두 칸디다증','생후 6개월 이상: 첫날 <b>6mg/kg</b><br>2일째부터 <b>3mg/kg</b>','첫날부터 <b>1일 1회</b>','<b>첫날 120mg(3mL) 1회</b><br><b>2일째부터 60mg(1.5mL) 1일 1회</b><br><span class="pill">40mg/mL</span>','최소 14일. FDA DIFLUCAN 허가용법 기준. 중증·면역저하·식도 또는 전신 침범은 소아과·감염내과와 별도 용량 결정. 신기능 감량·간독성·QT·상호작용 확인'],
+  ['<b>Clotrimazole troche</b><br>구강 칸디다증','10mg 트로키 1정/회','<b>1일 5회</b>','체중과 무관. <b>3세 초과이며 안전하게 완전히 녹일 수 있는 소아</b>: 1정씩 1일 5회','7–14일, 녹인 뒤 30분간 음식·음료 제한. 그대로 삼키거나 질식할 위험이 있으면 사용하지 않음'],
+  ['<b>Acyclovir</b><br>원발성 헤르페스 치은구내염','<b>1회량</b> 20mg/kg','<b>1일 4회</b>','<b>400mg씩 1일 4회</b><br><span class="pill">200mg/5mL</span> 10mL/회','허가 외. 5–7일, 1회 최대 800mg. 면역저하 소아는 7–10일. 신기능 감량·충분한 수분 섭취'],
+  ['<b>Valacyclovir</b><br>원발성 헤르페스 치은구내염','<b>1회량</b> 20mg/kg','<b>1일 2회</b>','<b>400mg씩 1일 2회</b>','허가 외. 생후 3개월 이상, 5–7일, 1회 최대 1,000mg. 신기능 감량'],
+  ['<b>Triamcinolone 0.1%</b><br>아프타·비감염성 궤양','병소를 건조한 뒤 얇게 도포','허용 범위 1일 2–4회<br><b>대표 처방: 1일 4회</b>(식후 3회·취침 전)','체중과 무관. 병소에 얇게 <b>1일 4회</b>','최대 14일. 도포 후 30분간 음식·음료 제한. 바이러스·진균·화농성 병변에는 사용하지 않음'],
+  ['<b>Chlorhexidine 0.12%</b><br>치은염·치주염 보조','8세 이상이며 함수·배출 가능: 15mL로 30초 함수 후 뱉기','<b>1일 2회</b><br>아침 식후·취침 전','체중으로 계산하지 않음. <b>20kg이어도 8세 미만이거나 뱉지 못하면 이 용법 적용 안 함</b><br>조건 충족 시 15mL씩 1일 2회','삼키지 않음. 치약과 30분 간격. 착색·미각 변화. 점막염 예방 목적으로 일률적 사용하지 않음'],
+  ['<b>Lidocaine 2%</b><br>국소마취','AAPD의 보수적 치과 상한: <b>1회 진료 총 4.4mg/kg</b>','정기 복용 아님<br><b>1회 진료 중 분할 주입</b>','총 상한 <b>88mg = 4.4mL</b>. 1.8mL 카트리지(36mg)라면 완전한 카트리지는 <b>최대 2개(72mg)</b>','계산 상한은 목표 용량이 아님. 최소 유효량 사용. 모든 국소·도포 lidocaine 총량 합산. 다른 국소마취제와 병용할 때 각 약물을 각각 최대량까지 사용하지 않음. 진정제 병용·6개월 미만 영아·혈관이 많은 부위에서는 추가 감량'],
 ];
 
 const emergRows = [
-  ['Epinephrine','아나필락시스(1차)','아나필락시스 의심 즉시 EMS 호출. 1mg/mL 제제 0.01mg/kg IM(대퇴 외측), 사춘기 전 소아 최대 0.3mg/회·청소년/성인 최대 0.5mg/회. 반응이 없으면 5분 간격으로 총 3회까지 또는 EMS 도착 시까지 반복'],
+  ['Epinephrine','아나필락시스(1차)','정기 투여가 아닌 응급약. 아나필락시스 의심 즉시 EMS 호출 후 1mg/mL 제제 0.01mg/kg IM(대퇴 외측)을 초회 1회 투여. <b>20kg 예: 0.2mg=0.2mL IM</b>. 사춘기 전 소아 최대 0.3mg/회·청소년/성인 최대 0.5mg/회. 반응이 없으면 5분 간격으로 최대 2회 추가(총 최대 3회 또는 EMS 도착 시까지). 심정지용 epinephrine의 농도·경로와 혼동 금지'],
   ['Oxygen','저산소증·응급','비재호흡 마스크 10–15L/min, 목표 SpO₂와 질환별 기준에 맞춰 적정'],
   ['Nitroglycerin','협심증·급성관상동맥증후군 의심','흉통이 5분 내 호전되지 않거나 급성관상동맥증후군이 의심되면 즉시 EMS 호출. 수축기혈압 ≥90mmHg이고 평소보다 30mmHg 이상 저하되지 않았으며 PDE-5 억제제 복용이 없을 때 0.3–0.4mg 설하, 5분 간격 최대 3회'],
-  ['Albuterol','천식·기관지경련','MDI 4–8퍼프(스페이서), 필요 시 20분 간격으로 2회 더 반복'],
-  ['Diphenhydramine','기도·호흡·순환 이상이 없는 경증 알레르기','성인 25–50mg PO/IM; 소아 1mg/kg PO/IM, 최대 50mg. 아나필락시스에서는 epinephrine을 지연하거나 대체하지 않음'],
+  ['Albuterol','천식·기관지경련','정기 투여가 아닌 구조요법. MDI 4–8퍼프(스페이서)를 초회 1회 흡입하고 필요 시 20분 간격으로 최대 2회 추가(한 발작에서 총 최대 3차례)'],
+  ['Diphenhydramine','기도·호흡·순환 이상이 없는 경증 알레르기','정기 복용이 아닌 초기 보조요법 1회. 성인 25–50mg PO/IM; 소아 1mg/kg PO/IM, 1회 최대 50mg. <b>20kg 예: 20mg 1회</b>. 이후 반복은 제품 허가사항·의료진 지시에 따르며, 아나필락시스에서는 epinephrine을 지연하거나 대체하지 않음'],
   ['Aspirin','급성심근경색 의심','즉시 EMS 호출. 알레르기·활동성 출혈·대동맥박리 의심이 없으면 162–325mg 저작'],
-  ['Glucose / Glucagon','저혈당','의식 있으면 성인 glucose 15–20g PO 후 15분 뒤 재측정·반복. 의식 없으면 즉시 EMS 호출 후 보유한 glucagon 제품의 허가 체중·연령 기준에 따라 IM/SC 투여(성인 1mg; 소아 0.5mg 또는 1mg). 회복 후 경구 탄수화물 및 의료평가'],
-  ['Midazolam','5분 이상 지속되는 경련','즉시 EMS 호출·기도·산소·모니터링. 0.2mg/kg IM/IN/IV, 최대 10mg; 협측은 전용 제제·기관 프로토콜 적용'],
+  ['Glucose / Glucagon','저혈당','의식 있으면 glucose 15–20g PO를 1회 투여하고 15분 뒤 재측정해 지속 시 반복. 의식 없으면 즉시 EMS 호출 후 보유한 glucagon 제품의 허가 기준 적용. 표준 응급키트 예: 25kg 미만 또는 체중 미상 6세 미만 0.5mg, 25kg 이상 또는 체중 미상 6세 이상 1mg IM/SC 초회 1회. <b>20kg 예: 0.5mg 1회</b>. 15분 뒤 반응이 없으면 허가사항에 따라 새 키트로 1회 추가. 회복 후 경구 탄수화물 및 의료평가'],
+  ['Midazolam','5분 이상 지속되는 경련','정기 투여가 아닌 경련 구조용 초기 1회. 즉시 EMS 호출·기도·산소·모니터링 후 0.2mg/kg IM/IN/IV, 최대 10mg. <b>20kg 예: 4mg 초기 1회</b>. 재투여 간격·횟수와 협측 투여는 전용 제제·기관 응급 프로토콜 및 EMS 지시에 따름'],
 ];
 
 /* ============ RENDER ============ */
@@ -771,7 +785,7 @@ function renderScenarios(){
         <dl class="rx">
           <dt>1차 처방 (성인)</dt><dd>${s.adult}</dd>
           <dt class="alg">약물 알레르기 대체</dt><dd>${s.allergy}</dd>
-          <dt class="ped">소아 용량</dt><dd>${s.ped}</dd>
+          <dt class="ped">소아 용량 · 횟수 · 20kg 예시</dt><dd>${s.ped}</dd>
           <dt class="note">비고</dt><dd>${s.note}</dd>
         </dl>
       </div>`));
@@ -831,7 +845,8 @@ renderCatalog();
 // simple tables
 function fillRows(id, rows){
   const tb=document.getElementById(id);
-  rows.forEach(r=>tb.appendChild(el(`<tr data-text="${r.join(' ').replace(/<[^>]+>/g,'').toLowerCase()}">${r.map(c=>`<td>${c}</td>`).join('')}</tr>`)));
+  const labels=[...tb.closest('table').querySelectorAll('thead th')].map(th=>th.textContent.trim());
+  rows.forEach(r=>tb.appendChild(el(`<tr data-text="${r.join(' ').replace(/<[^>]+>/g,'').toLowerCase()}">${r.map((c,i)=>`<td data-label="${labels[i]||''}">${c}</td>`).join('')}</tr>`)));
 }
 fillRows('allergy-body', allergyRows);
 fillRows('ped-body', pedRows);

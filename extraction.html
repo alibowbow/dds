@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>현대 발치술: 최소침습 원칙과 고위험 치근 관리 — JH의 덴탈시냅스</title>
+<meta name="description" content="발치의 술전 평가, 최소침습 PDL 분리·치근 분할, periotome·luxator·vertical extraction·physics forceps·piezosurgery, 관상절제술, 치조제 보존, 디지털 내비게이션과 합병증 관리를 정리한 임상 노트" />
+<meta name="theme-color" content="#9a3412" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/theme.css?v=4" />
+<style>
+  body{--hero-1:#422006;--hero-2:#9a3412;--hero-3:#b45309}
+  header.hero p.sub{max-width:84ch}
+  .kicker{display:inline-flex;margin-bottom:8px;border:1px solid rgba(255,255,255,.36);border-radius:var(--r-pill);padding:4px 10px;font-size:var(--text-xs);font-weight:850;letter-spacing:.04em}
+  .mobile-sections{display:none}
+  .goal-grid,.phase-grid,.tech-grid,.source-grid,.stop-grid{display:grid;gap:var(--sp-3)}
+  .goal-grid{grid-template-columns:repeat(3,1fr)}.phase-grid{grid-template-columns:repeat(3,1fr)}.tech-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stop-grid{grid-template-columns:repeat(2,1fr)}
+  .goal,.phase,.tech,.source,.stop{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-sm)}
+  .goal{border-top:5px solid var(--brand)}.goal:nth-child(2){border-top-color:var(--success)}.goal:nth-child(3){border-top-color:var(--danger)}
+  .goal h3,.phase h3,.tech h3{margin:0 0 6px;font-size:var(--text-base)}.goal p,.phase p,.tech p{margin:0;color:var(--ink-2);font-size:var(--text-sm)}
+  .phase{position:relative;padding-left:52px}.phase .letter{position:absolute;left:14px;top:14px;width:27px;height:27px;display:grid;place-items:center;border-radius:8px;background:var(--brand-soft);color:var(--brand);font-size:var(--text-xs);font-weight:900}
+  .tech{border-left:4px solid var(--success)}.tech.selective{border-left-color:var(--warning)}.tech.emerging{border-left-color:var(--ink-3)}
+  .tech .top{display:flex;align-items:start;justify-content:space-between;gap:8px;margin-bottom:7px}.tech .top h3{margin:0}
+  .sequence{counter-reset:seq;list-style:none;margin:10px 0;padding:0;display:grid;gap:8px}.sequence li{counter-increment:seq;position:relative;padding:10px 12px 10px 46px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);font-size:var(--text-sm)}.sequence li::before{content:counter(seq);position:absolute;left:11px;top:9px;width:24px;height:24px;border-radius:8px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:var(--text-xs);font-weight:900}
+  .stop{background:var(--danger-soft);border-color:color-mix(in srgb,var(--danger) 25%,var(--line));font-size:var(--text-sm)}.stop b{display:block;margin-bottom:2px}
+  .evidence-key{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+  .source{font-size:var(--text-sm)}.source p{margin:3px 0 0;color:var(--ink-2);font-size:var(--text-xs)}.source .refid{color:var(--brand);font-weight:900;margin-right:5px}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 12px}.stat strong{display:block;color:var(--brand);font-size:var(--text-lg);font-variant-numeric:tabular-nums}.stat span{display:block;color:var(--ink-2);font-size:var(--text-xs)}
+  .mini{font-size:var(--text-xs);color:var(--ink-2)}
+  details.evidence{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:0 14px;margin:10px 0}details.evidence summary{cursor:pointer;font-weight:800;padding:12px 0}details.evidence>div{border-top:1px solid var(--line);padding:12px 0}
+  @media(max-width:960px){.goal-grid,.phase-grid,.stat-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:720px){.topbar .links{display:none}.mobile-sections{display:block;position:relative;margin-left:auto}.mobile-sections>summary{list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);padding:7px 11px;font-size:var(--text-xs);font-weight:800}.mobile-sections>summary::-webkit-details-marker{display:none}.mobile-sections nav{position:absolute;right:0;top:43px;width:min(360px,calc(100vw - 32px));display:grid;grid-template-columns:1fr 1fr;gap:5px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px;box-shadow:var(--shadow-lg)}.mobile-sections a{padding:7px 8px;border-radius:var(--r-sm);color:var(--ink-2);font-size:var(--text-xs);font-weight:700}.tech-grid,.source-grid,.stop-grid{grid-template-columns:1fr}}
+  @media(max-width:520px){.goal-grid,.phase-grid,.stat-grid{grid-template-columns:1fr}}
+  @media print{.goal,.phase,.tech,.source,.stop{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="themebtn hero-toggle" id="theme" type="button" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
+  <div class="wrap">
+    <a class="crumb" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg> JH의 덴탈시냅스 홈</a>
+    <div class="kicker">구강외과 · 발치 술식</div>
+    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-tool"/></svg></span>현대 발치술: 최소침습 원칙과 고위험 치근 관리</h1>
+    <p class="sub">기본 생역학과 술식 전환 기준부터 periotome·luxator, 치근 분할, 축방향 견인, physics forceps, piezosurgery, <b>관상절제술·치조제 보존·디지털 내비게이션</b>까지 근거 수준과 함께 정리한 임상 노트</p>
+    <div class="meta-row"><span>최신 근거 검색: 2026-08-01</span><span>RCS England · AAOMS · EFP · Cochrane · 2024–2026 systematic reviews</span></div>
+  </div>
+</header>
+
+<div class="wrap"><div class="disclaimer"><svg aria-hidden="true"><use href="assets/icons.svg#i-alert"/></svg><div><b>최소침습의 기준 —</b> 특정 기구나 무피판 접근 자체가 아니라 연조직·피질골·치간골·인접치·신경·상악동 손상을 줄이면서 치아를 예측 가능하게 제거하는 것입니다. 폐쇄법이 진행되지 않으면 반복 지렛질보다 작은 피판, 치근 분할과 제한적 골삭제가 더 보존적일 수 있습니다.</div></div></div>
+
+<div class="topbar"><div class="wrap topbar-inner">
+  <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-home"/></svg></span>홈</a>
+  <nav class="links" aria-label="섹션 바로가기"><a href="#quick">한눈에</a><a href="#planning">술전 평가</a><a href="#principles">기본 원칙</a><a href="#simple">최소침습</a><a href="#surgical">분할·개방</a><a href="#third-molar">제3대구치</a><a href="#coronectomy">관상절제</a><a href="#roots">잔존치근</a><a href="#socket">발치와</a><a href="#ridge">치조제 보존</a><a href="#digital">최신 기술</a><a href="#postop">술후 관리</a><a href="#complications">합병증</a><a href="#special">고위험 환자</a><a href="#sources">근거</a></nav>
+  <details class="mobile-sections"><summary>섹션 메뉴</summary><nav aria-label="모바일 섹션 바로가기"><a href="#quick">한눈에</a><a href="#planning">술전 평가</a><a href="#principles">기본 원칙</a><a href="#simple">최소침습</a><a href="#surgical">분할·개방</a><a href="#third-molar">제3대구치</a><a href="#coronectomy">관상절제</a><a href="#roots">잔존치근</a><a href="#socket">발치와</a><a href="#ridge">치조제 보존</a><a href="#digital">최신 기술</a><a href="#postop">술후 관리</a><a href="#complications">합병증</a><a href="#special">고위험 환자</a><a href="#sources">근거</a></nav></details>
+  <div class="spacer"></div>
+</div></div>
+
+<main class="wrap">
+<section id="quick">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-compass"/></svg></span><h2>술식 선택 한눈에 보기</h2></div>
+  <div class="goal-grid">
+    <article class="goal"><h3>보존 목표</h3><p>치은·치조정·협설측판·치간골·인접치 보존, 신경·상악동·근막공간 보호, 병적 조직의 적절한 제거.</p></article><article class="goal"><h3>계획된 전환</h3><p>A 폐쇄법 → B 치근 분할·제한적 피판/골삭제 → C 중단·영상·의뢰 조건을 술전 결정.</p></article><article class="goal"><h3>중단 기준</h3><p>치근이 보이지 않는 해부학적 공간으로 이동, 골절·대량 출혈·신경 손상·기구 파절 또는 상악동 개통.</p></article>
+  </div>
+  <div class="tablewrap flat"><table class="cards"><caption>해부학과 치아 상태에 따른 1차 술식 선택</caption><thead><tr><th>상황</th><th>우선 선택</th><th>전환·회피</th></tr></thead><tbody>
+    <tr><td data-label="상황"><b>치관이 남은 단근치</b></td><td data-label="선택">치은·PDL 360° 분리 후 해부학적 겸자, 장축과 치근 형태에 맞는 힘</td><td data-label="전환">동요도 증가가 없으면 힘 증대보다 원인 재평가</td></tr>
+    <tr><td data-label="상황"><b>얇은 협측판·심미부</b></td><td data-label="선택">Periotome/luxator로 점진적 PDL 분리, 협설 rocking 최소화</td><td data-label="전환">무리한 지렛질 회피. 치조제 보존 필요성은 발치와 확인 후 별도 결정</td></tr>
+    <tr><td data-label="상황"><b>치관이 붕괴된 단근 잔존치근</b></td><td data-label="선택">근관 축을 확보할 수 있으면 축방향 견인 장치 선택 가능</td><td data-label="전환">치근 균열·나사 유지 실패·장축 불일치 시 중단 후 개방법</td></tr>
+    <tr><td data-label="상황"><b>다근치·이개/만곡</b></td><td data-label="선택">조기 치관·치근 분할 후 단근 단위 제거</td><td data-label="전환">불완전 분할 상태의 비틀기 금지</td></tr>
+    <tr><td data-label="상황"><b>IAN 밀접 하악 제3대구치</b></td><td data-label="선택">완전 발치와 관상절제술의 이득·위험 비교</td><td data-label="전환">고위험 해부학 또는 부적합 치아는 구강악안면외과 의뢰</td></tr>
+    <tr><td data-label="상황"><b>신경·상악동 인접 골삭제</b></td><td data-label="선택">Piezosurgery 선택 가능, 충분한 냉각과 직접 시야</td><td data-label="전환">연조직 선택성이 절대적 보호를 의미하지 않음</td></tr>
+    <tr><td data-label="상황"><b>깊은 매복·잔존치근</b></td><td data-label="선택">3차원 정보가 계획을 바꿀 때 CBCT, navigation·내시경은 선택적 보조</td><td data-label="전환">치근이 시야에서 사라지면 맹목적 회수 중단</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="planning">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-clipboard"/></svg></span><h2>술전 평가와 계획</h2></div>
+  <div class="cols">
+    <article class="card bl"><h3>치아 보존 가능성</h3><ul class="tight"><li>수복·근관·치주 예후와 치아의 전략적 가치</li><li>통증·감염의 원인 치아 일치 여부</li><li>환자의 선호, 향후 보철·교정·임플란트 계획</li><li>발치 적응증과 대안의 기록</li></ul></article>
+    <article class="card bl"><h3>임상 접근</h3><ul class="tight"><li>개구량·시야·기구 접근, 치관 잔존량과 우식</li><li>치근 치료·포스트·파절·유착·동요도</li><li>치은 두께, 협측판, 인접 수복물·임플란트</li><li>심미부와 치조제 보존·즉시 임플란트 계획</li></ul></article>
+    <article class="card bl"><h3>전신·약물</h3><ul class="tight"><li>항혈전제·출혈질환·조절되지 않는 당뇨</li><li>골흡수억제제·혈관신생억제제·항암·면역억제</li><li>두경부 방사선 조사 범위·선량, ORN/MRONJ</li><li>알레르기, 신·간기능, 진정·마취 위험</li></ul></article>
+    <article class="card bl"><h3>영상</h3><ul class="tight"><li>치근 수·길이·만곡·이개·비후백악질·유착</li><li>치근단 병소, 인접치, 상악동·IAN·mental foramen</li><li>PA·파노라마 우선, CBCT는 술식 또는 의뢰 결정에 필요한 경우</li><li>영상의 날짜·왜곡과 현재 임상상태 대조</li></ul></article>
+  </div>
+  <div class="phase-grid"><article class="phase"><span class="letter">A</span><h3>폐쇄법</h3><p>PDL 분리, luxation과 겸자. 충분한 시도 후 진행 여부 판단.</p></article><article class="phase"><span class="letter">B</span><h3>통제된 개방법</h3><p>분할, 작은 전층피판, 제한적 trough/window와 직접 시야.</p></article><article class="phase"><span class="letter">C</span><h3>중단·의뢰</h3><p>위험 공간 이동, 해부학 불확실, 예상보다 큰 골·신경·출혈 위험.</p></article></div>
+</section>
+
+<section id="principles">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span><h2>최소침습 발치의 기본 생역학</h2></div>
+  <ol class="sequence">
+    <li><b>치은과 supracrestal fiber 분리</b> — 치경부를 원주 방향으로 확인하고 연조직 열상과 치조정 손상을 방지.</li>
+    <li><b>PDL 공간 확보</b> — 접근 가능한 line angle부터 치근 장축과 평행하게 작은 깊이 증가. 협측판·인접치를 지렛점으로 사용하지 않음.</li>
+    <li><b>치근 형태에 맞는 운동</b> — 원추형 단근은 제한적 회전, 편평·만곡·다근치는 협설 방향과 분할을 사용. 저항의 방향을 해부학과 대조.</li>
+    <li><b>치근단 파지</b> — 겸자를 가능한 치근단 쪽에 적합시키고 미끄러짐·치관 분쇄를 줄임. 과도한 압착보다 지속적이고 통제된 힘.</li>
+    <li><b>조기 분할</b> — 다근치와 이개치근은 단근 단위로 바꾸어 제거 경로를 단순화. 치간골·협측판을 희생해 한 덩어리로 제거하지 않음.</li>
+    <li><b>진전 기반 전환</b> — 충분한 PDL 분리 후에도 동요도 증가가 없으면 힘을 키우지 않고 영상·시야·분할·골삭제 계획을 변경.</li>
+  </ol>
+  <div class="callout danger"><b>공기배출식 turbine 주의</b> — 피판 또는 연조직 아래에서 압축공기가 유입되면 피하기종과 종격동기종이 발생할 수 있습니다. 외과용 전기 handpiece와 충분한 주수·흡인을 사용합니다.</div>
+</section>
+
+<section id="simple">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-tool"/></svg></span><h2>Periotome·luxator·축방향 견인·physics forceps</h2></div>
+  <div class="tech-grid">
+    <article class="tech"><div class="top"><h3>Periotome·luxator</h3><span class="badge rec">선택적 보조</span></div><p><b>술식:</b> 360° 섬유 분리 → line angle부터 장축 평행 삽입 → 치근단 방향의 짧은 압력 → 원주 이동 → 동요도 확보 후 겸자. Periotome은 PDL 절단, luxator는 더 두꺼운 쐐기·미세 거상 성격입니다.</p><ul class="tight"><li><b>근거:</b> 단근치 소규모 RCT에서 치은 열상·초기 통증과 소켓벽 보존의 이점 신호</li><li><b>미확립:</b> 장기 치조제 치수·임플란트 결과 우월성</li><li><b>전환:</b> 팁 휨·치근 밀림 또는 동요도 증가 없음 → 분할·개방법</li></ul></article>
+    <article class="tech selective"><div class="top"><h3>Vertical extraction system</h3><span class="badge exp">선택 증례</span></div><p><b>대상:</b> 근관 축을 확보할 수 있는 단근 잔존치근·심미부. PDL 분리 후 치근 장축으로 pilot hole과 나사를 형성하고 지지 tray로 힘을 분산해 축방향 견인.</p><ul class="tight"><li>관찰연구 성공률 약 83–85%, 다근치에서 성공 감소</li><li>2024 소규모 비교연구의 협측판 보존 신호는 장기 골폭 보존을 뜻하지 않음</li><li>근관 내 우식·근관치료치·장축 불일치·나사/치근 균열 주의</li></ul></article>
+    <article class="tech selective"><div class="top"><h3>Physics forceps</h3><span class="badge exp">낮음–중등도</span></div><p>설·구개측 beak와 협측 전정의 bumper를 이용해 느린 손목 회전과 지속력을 적용합니다. 손잡이를 반복 압착하거나 치아를 당기는 방식이 아닙니다.</p><ul class="tight"><li>RCT 메타분석: 술식시간·전체 부작용 감소 신호</li><li>협측판 파절 감소는 명확하지 않음</li><li>범퍼 압박성 통증·궤양, 얇거나 결손된 협측판, 유착·exostosis에서 주의</li></ul></article>
+    <article class="tech selective"><div class="top"><h3>Piezosurgery</h3><span class="badge exp">정밀 골삭제</span></div><p><b>대상:</b> 신경·상악동·얇은 피질골 인접의 선택적 trough/window, 제3대구치·관상절제술. 적절한 tip, 가벼운 brush stroke, 충분한 냉각과 흡인을 적용합니다.</p><ul class="tight"><li>제3대구치 수술 후 초기 통증·부종·개구장애 감소 신호</li><li>수술시간 증가, 장기 골치유·치조제 보존 우월성 미확립</li><li>한곳을 강하게 누르거나 정지하면 열손상·팁 파절 위험</li></ul></article>
+  </div>
+</section>
+
+<section id="surgical">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-layers"/></svg></span><h2>치근 분할과 제한적 개방법</h2></div>
+  <p class="sec-desc">다근치의 조기 분할은 제거 경로를 단순화하고 피질골·치간골에 전달되는 힘을 줄이는 재현성 높은 방법입니다.</p>
+  <div class="tablewrap flat"><table class="cards"><thead><tr><th>상황</th><th>분할·접근</th><th>확인</th></tr></thead><tbody>
+    <tr><td data-label="상황"><b>상악 대구치</b></td><td data-label="접근">치관을 제거하거나 Y/T 형태로 furcation까지 완전 분할해 협측 2근과 구개근을 개별 제거</td><td data-label="확인">상악동·결절, 이개·만곡 치근. 큰 구개근의 회전 경로와 협측판 보호</td></tr>
+    <tr><td data-label="상황"><b>하악 대구치</b></td><td data-label="접근">근심·원심 치근을 furcation을 통해 완전 분리 후 각 치근 형태에 맞춰 제거</td><td data-label="확인">불완전 절단 상태의 비틀기 금지. IAN 위치와 치근단 병소 확인</td></tr>
+    <tr><td data-label="상황"><b>폐쇄법 실패</b></td><td data-label="접근">최소 전층피판, 작은 buccal trough/window, 직접 보이는 purchase point</td><td data-label="확인">피판 혈류·봉합 위치, 냉각, 골삭제량. ‘무피판 유지’를 위해 맹목적 힘 반복 금지</td></tr>
+    <tr><td data-label="상황"><b>치근단 파절</b></td><td data-label="접근">조명·확대·흡인 후 PDL 재확보, 보이는 경우 purchase point·root pick. 필요 시 작은 window</td><td data-label="확인">신경·상악동 방향으로 밀지 않음. 위해가 더 크면 잔존 또는 의뢰 검토</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="third-molar">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-map"/></svg></span><h2>매복 제3대구치</h2></div>
+  <div class="cols">
+    <article class="card"><h3>적응증과 시기</h3><ul class="tight"><li>감염·우식·치주결손·흡수·낭종/종양·통증 등 병적 상태 확인</li><li>무증상·무병변 치아는 제거 위험과 평생 관찰 가능성을 비교</li><li>연령 증가에 따른 수술 난이도와 합병증, 환자의 추적 가능성 고려</li></ul></article>
+    <article class="card"><h3>영상과 해부학</h3><ul class="tight"><li>파노라마에서 IAN 중첩, 치근 암화·관 협착/편위·백선 단절 등 확인</li><li>CBCT는 3차원 관계가 관상절제·완전 발치·의뢰 결정을 바꿀 때 선택</li><li>CBCT 촬영 자체가 IAN 손상을 자동으로 줄이지는 않음</li></ul></article>
+    <article class="card"><h3>술식</h3><ul class="tight"><li>충분한 시야의 피판, 계획된 buccal gutter, 치관·치근 분할</li><li>설측 과도한 기구 조작과 원심설측 치근 밀림 방지</li><li>충분한 냉각·세척, IAN·설신경의 직접 손상 회피</li></ul></article>
+    <article class="card"><h3>설명·동의</h3><ul class="tight"><li>통증·부종·개구장애, 건성와·감염·출혈</li><li>IAN·설신경 감각변화, 인접치 손상, 하악골 골절</li><li>관상절제술 선택 시 치근 이동·노출·재수술 가능성</li></ul></article>
+  </div>
+</section>
+
+<section id="coronectomy">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-shield"/></svg></span><h2>관상절제술(coronectomy)</h2></div>
+  <p class="sec-desc">치료가 필요한 하악 제3대구치가 하치조신경관과 밀접해 완전 발치의 신경손상 위험이 높은 경우, 적합한 치아를 선별해 치관만 제거하고 치근을 남기는 술식입니다. <a href="#s5">[S5]</a></p>
+  <div class="stat-grid"><article class="stat"><strong>RR 0.10</strong><span>IAN 손상 — 완전 발치 대비</span></article><article class="stat"><strong>RR 0.20</strong><span>설신경 손상</span></article><article class="stat"><strong>3.63%</strong><span>재개입률</span></article><article class="stat"><strong>2.66%</strong><span>잔존 치근 노출</span></article></div>
+  <p class="mini">2025년 34개 연구·7,115치 메타분석의 통합값. 연구 설계·추적기간 차이가 있으며 개별 환자 위험을 그대로 예측하는 수치는 아닙니다.</p>
+  <div class="tablewrap flat"><table class="cards"><thead><tr><th>구분</th><th>기준</th></tr></thead><tbody>
+    <tr><td data-label="구분"><b>적응</b></td><td data-label="기준">치료가 필요한 생활치 하악 제3대구치, IAN과 밀접, 치관 제거 후 병적 조직 해소 가능, 장기 추적 가능</td></tr>
+    <tr><td data-label="구분"><b>부적합 치아</b></td><td data-label="기준">비생활치, 치수까지 진행한 우식, 치근단 병소, 치근 동요, 잔존 시 해소되지 않는 낭성 병변 또는 종양 의심</td></tr>
+    <tr><td data-label="구분"><b>환자 주의</b></td><td data-label="기준">면역저하, 두경부 방사선 과거·예정, 불량한 상처치유, 추적 불가능. 당뇨는 조절 상태와 치유 위험으로 개별 평가</td></tr>
+    <tr><td data-label="구분"><b>술식 핵심</b></td><td data-label="기준">치관 완전 분리, 치근에 지렛질 금지, 법랑질 잔존 없이 치근을 치조정 아래 약 2–4mm로 낮추고 날카로운 면 정리·세척·봉합</td></tr>
+    <tr><td data-label="구분"><b>전환</b></td><td data-label="기준">치근이 움직이면 일반적으로 완전 제거로 전환. 잔존 치근의 예방적 근관치료는 시행하지 않음</td></tr>
+    <tr><td data-label="구분"><b>추적</b></td><td data-label="기준">치근 이동·노출·감염·드문 재수술 가능성 설명, 증상과 영상 추적</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="roots">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg></span><h2>파절·잔존치근의 회수와 잔존 판단</h2></div>
+  <ol class="sequence"><li><b>조작 중단과 위치 확인</b> — 조명·확대·흡인, 현재 PA. 깊이와 이동 방향이 불확실하면 CBCT 검토.</li><li><b>PDL 공간 재확보</b> — 보이는 면을 따라 periotome/luxator 사용. 치근단·신경·상악동 방향으로 밀지 않음.</li><li><b>직접 시야의 회수</b> — purchase point·root pick, 접근 가능한 근관의 제한적 file 사용, 다근치 재분할.</li><li><b>통제된 접근 확대</b> — 작은 buccal trough/window. 해부학적 위해가 커지면 내시경·navigation 또는 전문의 의뢰.</li><li><b>잔존 또는 제거 결정</b> — 크기의 단일 기준이 아니라 감염·병소·동요·노출·향후 치료 간섭과 제거 위해를 비교.</li></ol>
+  <div class="callout"><b>의도적 잔존을 고려할 수 있는 조건</b> — 작고 움직이지 않으며 감염·병소·통증이 없고, 제거가 IAN·상악동·치조골에 더 큰 위해를 줄 것으로 판단되는 경우. 위치·크기·판단 근거·환자 설명과 추적계획을 기록합니다. 임의의 ‘몇 mm 이하면 안전’ 규칙은 사용하지 않습니다.</div>
+  <div class="callout danger"><b>맹목적 탐색 중단</b> — 치근이 상악동, 설하·악하·익돌하악·측두하 공간 방향으로 이동해 완전히 보이지 않으면 추가 조작을 멈추고 영상과 구강악안면외과 의뢰를 시행합니다.</div>
+</section>
+
+<section id="socket">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-clipboard"/></svg></span><h2>발치와 검사·세척·봉합</h2></div>
+  <div class="tablewrap flat"><table class="cards"><thead><tr><th>단계</th><th>시행</th><th>피해야 할 조작</th></tr></thead><tbody>
+    <tr><td data-label="단계"><b>검사</b></td><td data-label="시행">협·설측판, 치간골, 치근 잔존, 육아조직, 골·치아·수복물 파편의 직접 확인</td><td data-label="회피">소켓 형태 확인 없이 압박·이식·즉시 식립 결정</td></tr>
+    <tr><td data-label="단계"><b>Debridement</b></td><td data-label="시행">분리된 병적 조직과 이물 제거. 근단 병소·감염·즉시 임플란트/ARP 예정 시 시야 아래 괴사·육아조직 제거</td><td data-label="회피">정상 bundle bone을 출혈시키기 위한 일률적 강한 소파</td></tr>
+    <tr><td data-label="단계"><b>세척</b></td><td data-label="시행">Rotary/piezo 후 멸균 생리식염수로 충분히 세척, 비전형 조직은 병리검사</td><td data-label="회피">상악동·신경관·근막공간 인접 부위의 가압 세척</td></tr>
+    <tr><td data-label="단계"><b>단순 발치와</b></td><td data-label="시행">혈병 안정, 열상·출혈·큰 소켓에서 선택 봉합. 밀폐성 일차봉합은 필수 아님</td><td data-label="회피">일반 소켓을 봉인하기 위한 불필요한 피판 전진</td></tr>
+    <tr><td data-label="단계"><b>피판 거상</b></td><td data-label="시행">원래 해부학적 위치로 무긴장 재봉합. OAC·광범위 피판·지혈 문제는 별도 폐쇄 원칙</td><td data-label="회피">장력이 큰 봉합, 피판 가장자리 허혈</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="ridge">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-bone"/></svg></span><h2>치조제 보존술(ARP)</h2></div>
+  <div class="callout warn"><b>최소침습 발치와 ARP는 같은 개념이 아닙니다.</b> 최소침습 발치는 남아 있는 골벽을 보존하지만 발치 후 bundle bone의 생리적 흡수를 막지는 못합니다. ARP도 흡수를 완전히 없애지는 못합니다. <a href="#s6">[S6]</a></div>
+  <div class="stat-grid"><article class="stat"><strong>3.79mm</strong><span>무처치 6개월 평균 수평 변화</span></article><article class="stat"><strong>1.24mm</strong><span>평균 수직 변화</span></article><article class="stat"><strong>1.5–2.4mm</strong><span>ARP의 추가 수평 보존</span></article><article class="stat"><strong>1–2.5mm</strong><span>중앙 협측 수직 보존</span></article></div>
+  <div class="cols"><article class="card"><h3>고려 대상</h3><ul class="tight"><li>향후 임플란트·심미 pontic, 얇은 협측판·심미부</li><li>임플란트 시기가 지연되거나 불확실한 경우</li><li>상악동·대구치부, 자연치유 시 추가 GBR 가능성이 높은 부위</li></ul></article><article class="card"><h3>한계와 선택</h3><ul class="tight"><li>발치 후 실제 소켓 벽·연조직 형태 확인 후 즉시 임플란트·ARP·GBR 결정</li><li>큰 3차원 결손에서 ARP는 GBR을 대체하지 않음</li><li>Flapless ARP의 초기 연조직·통증 이점 가능, 경조직 우월성은 명확하지 않음</li></ul></article></div>
+</section>
+
+<section id="digital">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg></span><h2>디지털·최신 보조 술식</h2></div>
+  <div class="tech-grid">
+    <article class="tech selective"><div class="top"><h3>Dynamic navigation</h3><span class="badge exp">선택적 보조</span></div><p>깊은 수평 매복 제3대구치의 절단·골삭제 경로, 관상절제 cut plane, 깊은 잔존치근·이물 회수에 사용될 수 있습니다. 2024년 단일기관 RCT는 수술단계 단축 신호를 보였으나 준비·등록 시간이 추가됩니다.</p><ul class="tight"><li>등록오차·tracking loss·기구 굽힘·학습곡선</li><li>비용·계획시간·추가 영상과 환자결과의 불확실성</li><li>2026 체계적 문헌고찰: 일상 표준이 아닌 고위험 선택 증례의 보조수단</li></ul></article>
+    <article class="tech emerging"><div class="top"><h3>정적 가이드·내시경 회수</h3><span class="badge lim">초기 임상</span></div><p>직접 시야가 제한된 깊은 치근·이물과 신경 인접 접근의 공간 제어에 유용할 수 있으나 증례·소규모 연구가 중심입니다. 가이드 적합·드릴 편향·관류 제한을 확인합니다.</p></article>
+    <article class="tech emerging"><div class="top"><h3>AR·자기식 말렛·레이저·로봇</h3><span class="badge lim">실험적</span></div><p>파일럿·증례 또는 초기 개발 단계입니다. ‘무외상’, 신경손상 방지 또는 장기 골보존 효과가 입증된 일상 술식으로 설명하지 않습니다.</p></article>
+    <article class="tech emerging"><div class="top"><h3>Socket shield·partial extraction therapy</h3><span class="badge lim">별도 고급 술식</span></div><p>일반 발치법이 아니라 임플란트와 연계해 의도적으로 치근 일부를 유지하는 술식입니다. 심미부 이점 가능성과 함께 노출·감염·동요·술자 의존성이 있어 일반 발치 대안과 구분합니다.</p></article>
+  </div>
+</section>
+
+<section id="postop">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-clipboard"/></svg></span><h2>술후 처방·관리</h2></div>
+  <div class="tablewrap flat"><table class="cards"><thead><tr><th>항목</th><th>원칙</th></tr></thead><tbody>
+    <tr><td data-label="항목"><b>지혈</b></td><td data-label="원칙">거즈 직접 압박, 출혈원 확인, 필요 시 봉합·국소지혈재. 항혈전제 환자는 <a href="antithrombotic.html">항혈전제 노트</a> 기준 적용</td></tr>
+    <tr><td data-label="항목"><b>진통</b></td><td data-label="원칙">NSAID 단독 또는 acetaminophen 병용 우선, 최소 유효용량·최단기간. 성인·소아 용량은 <a href="drug-guide.html">약물 가이드</a> 참조</td></tr>
+    <tr><td data-label="항목"><b>항생제</b></td><td data-label="원칙">건강한 환자의 비감염 단순 발치에 일률적으로 처방하지 않음. 감염 확산·전신소견·면역상태와 수술 위험으로 결정</td></tr>
+    <tr><td data-label="항목"><b>건성와 예방</b></td><td data-label="원칙">금연·혈병 보호. 고위험 하악 제3대구치에서 chlorhexidine rinse 또는 0.2% intrasocket gel을 금기·제품 허가사항에 따라 고려</td></tr>
+    <tr><td data-label="항목"><b>생활 안내</b></td><td data-label="원칙">첫날 강한 헹굼·빨대·흡연·격한 운동 회피, 부드러운 식사와 구강위생. 지속 출혈·호흡/연하 곤란·악화되는 종창·감각변화 시 연락</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="complications">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span><h2>합병증과 즉시 중단·의뢰 기준</h2></div>
+  <div class="stop-grid"><div class="stop"><b>치근·기구의 위험 공간 이동</b>상악동·설하·악하·익돌하악·측두하 공간, 직접 시야에서 소실</div><div class="stop"><b>골절</b>큰 상악결절·치조골 segment 동요, 하악골 골절 의심</div><div class="stop"><b>출혈·기도</b>직접 압박과 국소지혈로 제어되지 않는 출혈, 호흡·연하 문제</div><div class="stop"><b>신경</b>새 IAN·설신경 감각이상, 신경 구조 노출·절단 의심</div><div class="stop"><b>상악동</b>구강상악동 개통·치근 전위, 비강 공기·액체 통과 의심</div><div class="stop"><b>피하기종·기구 파절</b>갑작스러운 얼굴·목 종창과 염발음, 파절 팁을 직접 확인할 수 없음</div></div>
+  <div class="tablewrap flat"><table class="cards"><thead><tr><th>합병증</th><th>초기 대응</th><th>추적·의뢰</th></tr></thead><tbody>
+    <tr><td data-label="합병증"><b>지속 출혈</b></td><td data-label="대응">혈병 제거 후 출혈원 확인, 직접 압박·봉합·국소지혈. 활력징후와 약물·검사 확인</td><td data-label="의뢰">제어되지 않거나 혈역학 이상 시 응급 전원</td></tr>
+    <tr><td data-label="합병증"><b>건성와</b></td><td data-label="대응">진단 후 부드러운 세척, 진정 드레싱·진통. 일률적 전신 항생제 적응증 아님</td><td data-label="의뢰">비전형 통증·발열·진행 종창은 감염·잔존치근·골괴사 감별</td></tr>
+    <tr><td data-label="합병증"><b>감각이상</b></td><td data-label="대응">발생 시점·영역·감각검사 기록, 영상과 약물 검토</td><td data-label="의뢰">신경 절단·이물 압박 의심 또는 중증 결손은 조기 신경수술 경험 OMFS 의뢰</td></tr>
+    <tr><td data-label="합병증"><b>OAC</b></td><td data-label="대응">크기·감염·동 위치 평가, 혈병 보존과 적절한 폐쇄. 코 풀기·압력 변화 금지 안내</td><td data-label="의뢰">큰 결손·치근 전위·부비동염·폐쇄 실패는 OMFS/ENT</td></tr>
+    <tr><td data-label="합병증"><b>감염</b></td><td data-label="대응">배농·원인 제거, 기도·전신징후 평가, 적응 시 항생제</td><td data-label="의뢰">빠른 확산, 개구·연하·호흡장애, 패혈증 위험은 응급 입원</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="special">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-shield"/></svg></span><h2>고위험 환자 연결</h2></div>
+  <div class="cols"><article class="card"><h3><a href="antithrombotic.html">항혈전제·출혈</a></h3><p class="mini">약물 임의 중단 금지, 시술 출혈위험과 국소지혈 계획.</p></article><article class="card"><h3><a href="mronj.html">BMA·MRONJ</a></h3><p class="mini">적응증·용량·누적노출과 골괴사 위험, 비수술 대안.</p></article><article class="card"><h3><a href="cancer-care.html#radiation">두경부 방사선·암 치료</a></h3><p class="mini">해당 치아 위치의 선량, CBC·치료주기, ORN와 치유 위험.</p></article><article class="card"><h3><a href="systemic.html">기타 전신질환</a></h3><p class="mini">당뇨·신장·간·심혈관·임신과 감염·출혈·약물 조정.</p></article></div>
+</section>
+
+<section id="sources">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><h2>근거와 참고문헌</h2></div>
+  <div class="evidence-key"><span class="badge rec">지침·체계적 문헌고찰</span><span class="badge exp">선택적 보조·낮음–중등도</span><span class="badge lim">초기·제한적 근거</span></div>
+  <div class="source-grid">
+    <article class="source" id="s1"><span class="refid">S1</span><b>RCS England 2021 제3대구치 지침</b><p>적응증, CBCT, coronectomy, IAN 위험과 합병증. <a href="https://www.rcseng.ac.uk/-/media/files/rcs/fds/guidelines/3rd-molar-guidelines--april-2021-v2.pdf" target="_blank" rel="noopener">PDF</a></p></article>
+    <article class="source" id="s2"><span class="refid">S2</span><b>AAOMS — Impacted Third Molars</b><p>제3대구치 병리·평가·치료 선택. <a href="https://aaoms.org/wp-content/uploads/2024/07/impacted_third_molars.pdf" target="_blank" rel="noopener">PDF</a></p></article>
+    <article class="source" id="s3"><span class="refid">S3</span><b>Periotome·vertical extraction·physics forceps</b><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4511886/" target="_blank" rel="noopener">Periotome RCT</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11352974/" target="_blank" rel="noopener">Benex 2024</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8871009/" target="_blank" rel="noopener">Physics forceps review</a></p></article>
+    <article class="source" id="s4"><span class="refid">S4</span><b>Piezosurgery 체계적 문헌고찰</b><p>제3대구치 수술시간·통증·부종·개구장애. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11676273/" target="_blank" rel="noopener">2024 review</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/36442532/" target="_blank" rel="noopener">2023 meta-analysis</a></p></article>
+    <article class="source" id="s5"><span class="refid">S5</span><b>Coronectomy 2025 meta-analysis</b><p>34개 연구·7,115치의 신경손상·건성와·감염·재개입 결과. <a href="https://pubmed.ncbi.nlm.nih.gov/39956152/" target="_blank" rel="noopener">PubMed</a></p></article>
+    <article class="source" id="s6"><span class="refid">S6</span><b>EFP 치조제 보존 근거 요약</b><p>자연치유 변화량, ARP의 효과와 술식 비교. <a href="https://www.efp.org/publications-hub/which-is-best-technique-for-preserving-the-alveolar-ridge-after-tooth-extraction/" target="_blank" rel="noopener">EFP</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/31215112/" target="_blank" rel="noopener">Consensus</a></p></article>
+    <article class="source" id="s7"><span class="refid">S7</span><b>Dynamic navigation</b><p>깊은 수평 매복치 RCT와 2026 체계적 문헌고찰. <a href="https://link.springer.com/article/10.1186/s12903-024-05016-9" target="_blank" rel="noopener">2024 RCT</a> · <a href="https://link.springer.com/article/10.1186/s12903-026-08564-4" target="_blank" rel="noopener">2026 review</a></p></article>
+    <article class="source" id="s8"><span class="refid">S8</span><b>Cochrane — 건성와·항생제</b><p><a href="https://www.cochrane.org/evidence/CD006968_what-treatments-can-be-used-prevent-and-treat-alveolar-osteitis-dry-socket" target="_blank" rel="noopener">건성와 예방·치료</a> · <a href="https://www.cochrane.org/evidence/CD003811_are-antibiotics-effective-way-prevent-infection-following-tooth-removal" target="_blank" rel="noopener">발치 후 항생제</a></p></article>
+    <article class="source" id="s9"><span class="refid">S9</span><b>Extraction of Roots</b><p>잔존치근 평가·회수·잔존 판단의 기본 원칙. <a href="https://www.ncbi.nlm.nih.gov/books/NBK589696/" target="_blank" rel="noopener">NCBI Bookshelf</a></p></article>
+    <article class="source" id="s10"><span class="refid">S10</span><b>제3대구치 봉합 방식 Cochrane review</b><p>일차·이차/부분 봉합의 술후 결과와 불확실성. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7389870/" target="_blank" rel="noopener">원문</a></p></article>
+  </div>
+  <div class="callout danger" style="margin-top:16px"><b>면책</b> — 본 페이지는 술식 계획을 위한 개인 임상 노트이며 정규 구강외과 수련, 환자별 진단·영상 판독과 기관 프로토콜을 대체하지 않습니다. 고위험 해부학, 예상 밖의 골·신경·출혈 합병증에서는 조작을 중단하고 구강악안면외과에 의뢰합니다.</div>
+</section>
+</main>
+
+<button id="toTop" type="button" title="맨 위로" aria-label="맨 위로"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"/></svg></button>
+<footer class="wrap">현대 발치술: 최소침습 원칙과 고위험 치근 관리 — JH의 덴탈시냅스</footer>
+<script>
+(()=>{
+  const links=[...document.querySelectorAll('.topbar .links a')],map={};links.forEach(a=>{map[a.getAttribute('href').slice(1)]=a;});
+  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(a=>a.classList.remove('active'));if(map[entry.target.id])map[entry.target.id].classList.add('active');}});},{rootMargin:'-34% 0px -60% 0px'});Object.keys(map).forEach(id=>{const section=document.getElementById(id);if(section)observer.observe(section);});}
+  document.querySelectorAll('.mobile-sections a').forEach(a=>a.addEventListener('click',()=>a.closest('details').removeAttribute('open')));
+  const top=document.getElementById('toTop');addEventListener('scroll',()=>top.classList.toggle('show',scrollY>600),{passive:true});top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+})();
+</script>
+<script src="assets/theme.js?v=4"></script>
+</body>
+</html>
