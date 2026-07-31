@@ -215,9 +215,10 @@ tbody tr:hover{background:color-mix(in srgb,var(--brand) 5%,transparent)}
 @media (max-width:720px){
   table.cards thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0)}
   table.cards, table.cards tbody, table.cards tr, table.cards td{display:block;width:100%;min-width:0}
+  table.cards > caption:not(.sr-only){display:block;width:100%;min-width:0;box-sizing:border-box;padding:8px 0 var(--sp-3);line-height:var(--lh);white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
   table.cards tr{border:1px solid var(--line);border-radius:var(--r);margin:0 0 var(--sp-3);padding:6px 12px;background:var(--surface);box-shadow:var(--shadow-sm)}
   table.cards tr:hover{background:var(--surface)}
-  table.cards td{border:0;border-top:1px dashed var(--line);padding:9px 0;display:flex;gap:12px}
+  table.cards td{border:0;border-top:1px dashed var(--line);padding:9px 0;display:flex;gap:12px;word-break:keep-all;overflow-wrap:anywhere}
   table.cards tr td:first-child{border-top:0}
   table.cards td::before{content:attr(data-label);flex:0 0 36%;max-width:36%;color:var(--ink-2);font-weight:700;font-size:var(--text-xs);padding-top:1px}
   .tablewrap.flat{border:0;box-shadow:none;background:transparent;overflow:visible}
