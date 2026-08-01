@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>치과 진료 중 응급상황 대응 — JH의 덴탈시냅스</title>
-<meta name="description" content="치과 진료실 의료 응급상황 대응 — 실신·아나필락시스·저혈당·흉통·천식·경련·기도폐쇄 인지와 P-A-B-C-D 알고리즘, 응급약물 용량, 응급키트 체크리스트" />
+<meta name="description" content="치과 진료실 의료 응급상황 대응 — 실신·저혈압·쇼크·아나필락시스·저혈당·흉통·천식·경련·기도폐쇄 인지와 P-A-B-C-D 알고리즘, 응급약물 용량, 응급키트 체크리스트" />
 <meta name="theme-color" content="#4f46e5" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="assets/theme.css?v=5" />
@@ -29,8 +29,8 @@
     <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span>치과 진료 중 응급상황 대응</h1>
     <p class="sub">예방 · 인지 · 대응 — <b>P-A-B-C-D</b> 알고리즘과 상황별 첫 처치, 응급약물 용량을 한곳에. <b>예방과 조기 인지</b>가 핵심입니다.</p>
     <div class="meta-row">
-      <span>실신 · 아나필락시스 · 흉통 · 천식 · 저혈당 · 경련 · 기도폐쇄</span>
-      <span>ADA · Malamed · 소생술 지침</span>
+      <span>실신 · 저혈압/쇼크 · 아나필락시스 · 흉통 · 천식 · 저혈당 · 경련 · 기도폐쇄</span>
+      <span>ADA · AHA/Red Cross · RCUK · 소생술 지침</span>
     </div>
   </div>
 </header>
@@ -39,7 +39,7 @@
   <div class="wrap topbar-inner">
     <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-home"/></svg></span>홈</a>
     <nav class="links" aria-label="섹션 바로가기">
-      <a href="#quick">핵심</a><a href="#prepare">준비</a><a href="#syncope">실신</a><a href="#anaphylaxis">아나필락시스</a>
+      <a href="#quick">핵심</a><a href="#prepare">준비</a><a href="#syncope">실신</a><a href="#hypotension">저혈압</a><a href="#anaphylaxis">아나필락시스</a>
       <a href="#cardiac">흉통</a><a href="#respiratory">천식·과호흡</a><a href="#hypoglycemia">저혈당</a><a href="#seizure">경련</a>
       <a href="#airway">기도폐쇄</a><a href="#other">기타</a><a href="#drugs">응급약물</a><a href="#sources">출처</a>
     </nav>
@@ -57,8 +57,9 @@
       <caption class="sr-only">치과 진료 중 흔한 응급상황별 핵심 징후·첫 대응·약물</caption>
       <thead><tr><th scope="col">상황</th><th scope="col">핵심 징후</th><th scope="col">첫 대응</th><th scope="col">약물</th></tr></thead>
       <tbody>
-        <tr><td data-label="상황"><b>실신</b><br/><small>vasovagal</small></td><td data-label="징후">창백·식은땀·어지럼 → 의식소실·서맥</td><td data-label="대응"><b>앙와위 + 다리 거상</b>, 산소, 회복 확인</td><td data-label="약물"><span class="badge lim">대개 불필요</span></td></tr>
-        <tr><td data-label="상황"><b>아나필락시스</b></td><td data-label="징후">두드러기 + <b>호흡곤란/천명·저혈압</b></td><td data-label="대응"><span class="em">즉시 Epinephrine IM</span>, 다리 거상, 산소, 119</td><td data-label="약물"><b>Epinephrine</b></td></tr>
+        <tr><td data-label="상황"><b>실신</b><br/><small>vasovagal</small></td><td data-label="징후">창백·식은땀·어지럼 → 의식소실·서맥</td><td data-label="대응"><b>앙와위</b>, 조건이 맞으면 다리 거상, 회복 확인</td><td data-label="약물"><span class="badge lim">대개 불필요</span></td></tr>
+        <tr><td data-label="상황"><b>저혈압·순환저하</b></td><td data-label="징후"><b>SBP &lt;90mmHg</b> 또는 평소보다 뚜렷한 하강 + 어지럼·창백·의식변화</td><td data-label="대응"><b>재측정·앙와위·ABCDE</b>, 원인 감별, 지속/관류저하 시 119</td><td data-label="약물">원인별 처치</td></tr>
+        <tr><td data-label="상황"><b>아나필락시스</b></td><td data-label="징후">두드러기 + <b>호흡곤란/천명·저혈압</b></td><td data-label="대응"><span class="em">즉시 Epinephrine IM</span>, 앙와위, 산소, 119</td><td data-label="약물"><b>Epinephrine</b></td></tr>
         <tr><td data-label="상황"><b>저혈당</b></td><td data-label="징후">발한·떨림·혼동·공복감</td><td data-label="대응">의식 有 <b>당 경구</b> / 의식 無 <b>glucagon</b></td><td data-label="약물">Glucose · Glucagon</td></tr>
         <tr><td data-label="상황"><b>협심증/심근경색</b></td><td data-label="징후">흉통·방사통(좌측 팔·턱)·식은땀</td><td data-label="대응">휴식·산소·<b>NTG 설하</b>, 지속 시 aspirin + 119</td><td data-label="약물">NTG · Aspirin</td></tr>
         <tr><td data-label="상황"><b>천식발작</b></td><td data-label="징후">천명·호기 연장·호흡곤란</td><td data-label="대응"><b>Salbutamol 흡입</b> 2–4puff, 산소, 좌위</td><td data-label="약물">Salbutamol</td></tr>
@@ -69,10 +70,10 @@
     </table></div>
     <h3 style="margin:18px 0 4px">대응 순서 — <span class="kbd">P-A-B-C-D</span></h3>
     <div class="abcd">
-      <div class="step"><b><span class="l">P</span>Position</b><small>자세 — 의식 無/실신 앙와위·다리거상, 호흡곤란 좌위</small></div>
+      <div class="step"><b><span class="l">P</span>Position</b><small>자세 — 저혈압/실신 앙와위, 호흡곤란 편한 좌위, 임신부 좌측위</small></div>
       <div class="step"><b><span class="l">A</span>Airway</b><small>기도 개방 — 머리젖히기·턱들기, 이물 제거</small></div>
       <div class="step"><b><span class="l">B</span>Breathing</b><small>호흡 — 보고·듣고·느끼기, <b>산소</b> 투여</small></div>
-      <div class="step"><b><span class="l">C</span>Circulation</b><small>순환 — 맥박·의식, 무반응·무호흡 시 <b>CPR 30:2 + AED</b></small></div>
+      <div class="step"><b><span class="l">C</span>Circulation</b><small>순환 — 혈압·맥박·피부·관류, 무반응·무호흡 시 <b>CPR 30:2 + AED</b></small></div>
       <div class="step"><b><span class="l">D</span>Definitive</b><small>확정 처치 — 상황별 <b>약물</b>·제세동·119 이송</small></div>
     </div>
     <div class="callout danger"><b>무반응 + 정상 호흡 없음</b> → 즉시 <b>119 신고·AED 요청</b> 후 <b>가슴압박(분당 100–120회, 5–6cm) 30 : 인공호흡 2</b>를 시작합니다. 망설이지 말고 CPR.</div>
@@ -103,7 +104,7 @@
         <li><b>산소</b>(휴대용 + 양압 환기수단 BVM) · <b>AED</b></li>
         <li><b>1차 약물</b>: Epinephrine(1:1,000) · Nitroglycerin · Salbutamol(MDI) · 항히스타민(diphenhydramine) · Aspirin · 경구 포도당 · (Glucagon)</li>
         <li><b>2차/선택</b>: Hydrocortisone · Midazolam · Naloxone · Flumazenil · Atropine</li>
-        <li>보조: 혈압계·맥박산소측정·혈당측정·주사기·기도유지기·구급기록지</li>
+        <li>보조: 혈압계·맥박산소측정·혈당측정·주사기·기도유지기·구급기록지 · <b>등장성 정질액과 정맥로 물품</b>(교육·기관 프로토콜 범위)</li>
       </ul></div>
   </section>
 
@@ -114,7 +115,7 @@
     <div class="cols">
       <div class="card bl"><h3>대응</h3>
         <ol class="steps">
-          <li>진료 중단, <b>앙와위 + 다리 거상</b>(Trendelenburg)</li>
+          <li>진료 중단, <b>앙와위</b>. 호흡곤란·외상이 없으면 다리를 약 30–45° 올리는 수동 거상 고려</li>
           <li>기도 개방, <b>산소</b> 투여, 조이는 옷 풀기</li>
           <li>차가운 물수건, 의식·맥박 확인</li>
           <li>수 분 내 회복 — 천천히 일으키기</li>
@@ -122,11 +123,57 @@
       <div class="card"><h3><span class="badge exp">감별·주의</span></h3>
         <ul class="tight">
           <li><b>회복 지연(&gt;수 분)</b>이면 저혈당·심장성·아나필락시스 등 재평가</li>
-          <li>기립성 저혈압(고령·약물) → 천천히 체위 변경</li>
+          <li>기립성 저혈압(고령·약물) → <a href="#hypotension">저혈압·순환저하</a> 절차로 재평가</li>
           <li>의식 회복 후 당일 시술 연기 고려</li>
         </ul></div>
     </div>
     <div class="callout"><b>봉투(재호흡) 호흡은 권장하지 않습니다</b> — 저산소 위험. 과호흡과 혼동 주의.</div>
+  </section>
+
+  <!-- 저혈압 -->
+  <section id="hypotension">
+    <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span><h2>저혈압 · 순환저하 <span class="badge exp">원인별 대응</span></h2></div>
+    <p class="sec-desc"><b>저혈압은 하나의 진단명이 아니라 순환 상태를 보여주는 소견</b>입니다. 성인 <b>수축기혈압(SBP) &lt;90mmHg</b>는 실무상 경고선으로 사용하되, 평소 혈압·증상·의식·피부 관류를 함께 봅니다. <b>기립성 저혈압</b>은 일어서거나 의자를 세운 뒤 3분 이내 SBP가 20mmHg 이상 또는 DBP가 10mmHg 이상 지속 하강한 경우입니다.</p>
+
+    <div class="cols">
+      <div class="card bl"><h3>발견 즉시: 0–5분</h3>
+        <ol class="steps">
+          <li>진료 중단, 구강 내 기구 제거. <b>반응·정상 호흡</b>부터 확인</li>
+          <li>커프 크기·팔 위치를 확인해 <b>혈압 재측정</b>(가능하면 수동 확인). 맥박·호흡수·SpO₂·의식 기록</li>
+          <li>정상 호흡이 가능하면 <b>앙와위</b>. 외상·호흡곤란·흉통·폐부종이 없으면 다리 거상 고려</li>
+          <li>호흡곤란은 편한 좌위, 임신 후반기는 <b>좌측위</b>, 무의식이나 구토 위험이 있으면서 정상 호흡이면 회복자세</li>
+          <li>순환·호흡·신경계 부전 또는 저산소증이면 <b>고농도 산소</b>를 시작하고, 측정 가능 시 SpO₂ 94–98%로 조절(고탄산혈증 위험군 88–92%)</li>
+          <li>출혈·발진/부종·천명·흉통·부정맥·복용약·공복 여부를 확인하고, 의식변화 시 <b>혈당</b> 측정</li>
+        </ol></div>
+      <div class="card" style="border-left:4px solid var(--danger)"><h3><span class="badge dgr">119</span> 즉시 이송 기준</h3>
+        <ul class="tight">
+          <li>초기 자세 교정과 재평가 후에도 <b>SBP &lt;90mmHg가 지속</b>되거나 더 하강</li>
+          <li><b>의식저하·혼동·반복 실신</b>, 차고 축축한 피부, 청색증 등 관류저하</li>
+          <li><b>흉통·호흡곤란·새 부정맥</b>, 편측마비·말장애, 활동성 출혈</li>
+          <li>아나필락시스·부신위기·심장성 쇼크·중증 감염 또는 약물 과량이 의심</li>
+          <li>원인이 불명확하거나 짧은 관찰 중 정상 상태로 안정되지 않음</li>
+        </ul></div>
+    </div>
+
+    <h3 style="margin:18px 0 6px">원인 감별과 첫 처치</h3>
+    <div class="tablewrap flat"><table class="cards">
+      <caption class="sr-only">저혈압 원인별 단서와 치과 진료실 첫 처치</caption>
+      <thead><tr><th scope="col">가능 원인</th><th scope="col">구분 단서</th><th scope="col">첫 처치</th><th scope="col">전환 기준</th></tr></thead>
+      <tbody>
+        <tr><td data-label="원인"><b>혈관미주신경성</b></td><td data-label="단서">불안·통증 직후, 오심·창백·발한, 서맥 경향</td><td data-label="첫 처치">앙와위, 필요 시 다리 거상, 기도·산소화·활력징후 확인</td><td data-label="전환">수 분 내 빠른 회복이 없으면 다른 원인 재평가</td></tr>
+        <tr><td data-label="원인"><b>기립성 저혈압</b></td><td data-label="단서">의자를 세우거나 일어설 때 발생, 항고혈압제·이뇨제·탈수·고령</td><td data-label="첫 처치">즉시 앙와위 복귀, 안정 후 단계적으로 천천히 일으킴</td><td data-label="전환">반복·지속되면 진료 연기 및 의료 평가</td></tr>
+        <tr><td data-label="원인"><b>아나필락시스</b></td><td data-label="단서">노출 직후 발진·점막부종 또는 천명/기도증상과 저혈압</td><td data-label="첫 처치"><b>Epinephrine 1mg/mL 0.5mg IM</b>, 산소, 119; 5분 후 지속 시 반복</td><td data-label="전환">저혈압 지속 시 교육·프로토콜 범위에서 조기 IV 정질액</td></tr>
+        <tr><td data-label="원인"><b>출혈·탈수</b></td><td data-label="단서">출혈, 섭취저하·구토/설사, 빈맥, 차고 축축한 피부</td><td data-label="첫 처치">외부 출혈 직접 압박, 앙와위, 119. 불안정 환자 경구 수분은 보류</td><td data-label="전환">훈련된 술자는 정맥로 확보 후 등장성 정질액, 반복 재평가</td></tr>
+        <tr><td data-label="원인"><b>심장성</b></td><td data-label="단서">흉통·호흡곤란·불규칙 맥박·폐부종·심장질환 병력</td><td data-label="첫 처치">119·AED 준비, 호흡이 편한 자세, 산소화·리듬/활력징후 감시</td><td data-label="전환"><b>SBP &lt;90mmHg이면 NTG 보류</b>; 일률적 다리 거상·급속 수액 대신 전문 처치</td></tr>
+        <tr><td data-label="원인"><b>부신위기</b></td><td data-label="단서">부신기능저하/장기 스테로이드, 심한 쇠약·구토·복통·저혈압</td><td data-label="첫 처치"><b>Hydrocortisone 100mg IM/IV</b>, 119, 교육·프로토콜 범위에서 정질액</td><td data-label="전환">투여 후에도 반드시 응급실 이송</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="cols" style="margin-top:10px">
+      <div class="card bl"><h3>수액 적용 범위</h3><p style="margin:0;font-size:var(--text-sm)">정맥로 확보와 수액소생 교육을 받은 술자가 기관 프로토콜 안에서 시행합니다. 성인 수액소생이 필요한 경우 등장성 정질액 <b>500mL를 15분 이내</b> 투여하고 혈압·맥박·호흡·폐음과 반응을 재평가합니다. 심부전·신부전·폐부종 가능성이 있으면 용량과 속도를 줄이고 전문 처치를 우선합니다.</p></div>
+      <div class="card bl"><h3>약물 선택 원칙</h3><p style="margin:0;font-size:var(--text-sm)"><b>비특이적 저혈압 자체에 일률적으로 투여하는 치과 진료실 약물은 없습니다.</b> Epinephrine은 아나필락시스, hydrocortisone은 부신위기, glucose/glucagon은 저혈당처럼 원인에 맞춰 사용합니다. 혈관수축제·정맥 epinephrine은 고급소생술/응급의료 범위입니다.</p></div>
+    </div>
+    <div class="callout warn"><b>무반응 + 정상 호흡 없음</b>은 저혈압 관찰 대상이 아니라 심정지로 간주합니다. 즉시 <b>119·CPR·AED</b>로 전환합니다.</div>
   </section>
 
   <!-- 아나필락시스 -->
@@ -137,16 +184,17 @@
       <div class="card" style="border-left:4px solid var(--danger)"><h3><span class="badge dgr">즉시</span> Epinephrine IM</h3>
         <ul class="tight">
           <li><b>Epinephrine 1:1,000</b> (1mg/mL)</li>
-          <li>성인 <b>0.3–0.5 mg IM</b> · 소아 0.15 mg(체중 0.01mg/kg)</li>
+          <li>성인 <b>0.5mg IM</b>(0.5mL) · 소아는 연령/체중별 용량</li>
           <li>부위: <b>대퇴 외측(vastus lateralis)</b></li>
-          <li>호전 없으면 <b>5–15분마다 반복</b></li>
+          <li>호전 없으면 <b>5분 후 반복</b></li>
         </ul></div>
       <div class="card bl"><h3>동시에</h3>
         <ol class="steps">
           <li><b>119</b> 신고 · 도움 요청</li>
-          <li>앙와위 + <b>다리 거상</b>(호흡곤란 시 반좌위)</li>
+          <li>앙와위 + <b>다리 거상</b>. 갑자기 앉히거나 세우지 않으며, 호흡곤란은 상체를 받친 편한 자세</li>
           <li>고농도 <b>산소</b>, 기도 확보</li>
-          <li>2차: 항히스타민·hydrocortisone·수액(보조일 뿐, epi 대체 아님)</li>
+          <li>저혈압/쇼크 지속 + 정맥로·교육이 있으면 <b>등장성 정질액 500–1,000mL</b>를 조기에 투여</li>
+          <li>항히스타민은 안정화 후 피부증상에 사용. <b>Hydrocortisone은 일상적 초기치료가 아님</b></li>
           <li>천명 동반 시 salbutamol 흡입 병용</li>
         </ol></div>
     </div>
@@ -291,7 +339,7 @@
       <thead><tr><th scope="col">약물</th><th scope="col">적응</th><th scope="col">용량 · 경로</th><th scope="col">비고</th></tr></thead>
       <tbody>
         <tr><td data-label="약물"><b>산소</b></td><td data-label="적응">거의 모든 응급</td><td data-label="용량"><b>6–15 L/min</b> 마스크/BVM</td><td data-label="비고">최우선 보조</td></tr>
-        <tr><td data-label="약물"><b>Epinephrine</b><br/><small>1:1,000</small></td><td data-label="적응">아나필락시스·중증 천식</td><td data-label="용량"><b>0.3–0.5mg IM</b>(대퇴), 5–15분 반복</td><td data-label="비고">소아 0.01mg/kg</td></tr>
+        <tr><td data-label="약물"><b>Epinephrine</b><br/><small>1mg/mL (1:1,000)</small></td><td data-label="적응">아나필락시스·중증 천식</td><td data-label="용량"><b>성인 0.5mg IM</b>(대퇴), 필요 시 5분 후 반복</td><td data-label="비고">소아는 연령/체중별 용량 확인</td></tr>
         <tr><td data-label="약물"><b>Nitroglycerin</b></td><td data-label="적응">협심증 흉통</td><td data-label="용량"><b>설하 0.3–0.6mg</b>, 5분 간격 ×3</td><td data-label="비고">SBP&lt;90·발기부전제 금기</td></tr>
         <tr><td data-label="약물"><b>Aspirin</b></td><td data-label="적응">심근경색 의심</td><td data-label="용량"><b>162–325mg 씹어서</b></td><td data-label="비고">출혈·과민 시 주의</td></tr>
         <tr><td data-label="약물"><b>Salbutamol</b><br/><small>MDI</small></td><td data-label="적응">천식·기관지경련</td><td data-label="용량"><b>2–4 puff 흡입</b>, 반복</td><td data-label="비고">스페이서 권장</td></tr>
@@ -299,7 +347,8 @@
         <tr><td data-label="약물"><b>Glucagon</b></td><td data-label="적응">저혈당(의식 無)</td><td data-label="용량"><b>1mg IM</b></td><td data-label="비고">정맥로 불가 시</td></tr>
         <tr><td data-label="약물"><b>Diphenhydramine</b><br/><small>항히스타민</small></td><td data-label="적응">경증 알레르기</td><td data-label="용량"><b>25–50mg</b> IM/IV/PO</td><td data-label="비고">아나필락시스는 보조</td></tr>
         <tr><td data-label="약물"><b>Midazolam</b><br/><small>2차</small></td><td data-label="적응">경련 지속(&gt;5분)</td><td data-label="용량"><b>10mg 협측/IM</b></td><td data-label="비고">호흡억제 감시</td></tr>
-        <tr><td data-label="약물"><b>Hydrocortisone</b><br/><small>2차</small></td><td data-label="적응">아나필락시스·부신위기</td><td data-label="용량"><b>100–200mg</b> IV/IM</td><td data-label="비고">지연효과(보조)</td></tr>
+        <tr><td data-label="약물"><b>Hydrocortisone</b><br/><small>원인별</small></td><td data-label="적응">부신위기</td><td data-label="용량"><b>100mg IM/IV</b></td><td data-label="비고">아나필락시스 일상적 초기치료 아님</td></tr>
+        <tr><td data-label="약물"><b>등장성 정질액</b><br/><small>0.9% saline/Hartmann</small></td><td data-label="적응">쇼크·저혈량·아나필락시스성 저혈압</td><td data-label="용량"><b>성인 500mL IV</b> 후 재평가<br/><small>아나필락시스 500–1,000mL</small></td><td data-label="비고">교육·프로토콜 범위, 심부전/신부전 감량</td></tr>
         <tr><td data-label="약물"><b>Naloxone</b><br/><small>2차</small></td><td data-label="적응">오피오이드 과량</td><td data-label="용량"><b>0.4mg</b> IM/IV</td><td data-label="비고">필요 시 반복</td></tr>
         <tr><td data-label="약물"><b>Flumazenil</b><br/><small>2차</small></td><td data-label="적응">벤조 과진정</td><td data-label="용량"><b>0.2mg IV</b> 적정</td><td data-label="비고">재진정 주의</td></tr>
       </tbody>
@@ -313,7 +362,10 @@
       <li><b>ADA</b> — <i>Preparing for Medical Emergencies</i>(JADA) · 치과 응급키트 권고(산소·Epinephrine·NTG·Salbutamol·항히스타민·Aspirin·포도당).</li>
       <li><b>Malamed SF.</b> <i>Medical Emergencies in the Dental Office</i> — P-A-B-C-D, 상황별 처치.</li>
       <li>심정지 시 <b>기본소생술(BLS)</b> — 가슴압박 100–120/min, 30:2, AED(대한심폐소생협회/AHA·ERC).</li>
-      <li>아나필락시스 Epinephrine 근육주사 — Resuscitation Council·WAO 지침.</li>
+      <li><a href="https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines" target="_blank" rel="noopener"><b>AHA/American Red Cross 2024 First Aid</b></a> — 쇼크 환자의 앙와위와 선택적 수동 다리 거상.</li>
+      <li><a href="https://professional.heart.org/en/science-news/orthostatic-hypotension-in-adults-with-hypertension" target="_blank" rel="noopener"><b>AHA Scientific Statement</b></a> — 기립성 저혈압의 20/10mmHg·3분 정의와 평가.</li>
+      <li><a href="https://www.resus.org.uk/library/abcde-approach" target="_blank" rel="noopener"><b>Resuscitation Council UK — ABCDE</b></a> · <a href="https://www.resus.org.uk/library/additional-guidance/guidance-anaphylaxis" target="_blank" rel="noopener">아나필락시스 지침</a> — 자세·산소·IM adrenaline·조기 수액.</li>
+      <li><a href="https://www.nice.org.uk/guidance/cg174/chapter/recommendations" target="_blank" rel="noopener"><b>NICE CG174</b></a> — 성인 정질액 500mL 수액소생 · <a href="https://www.nice.org.uk/guidance/ng243/chapter/recommendations" target="_blank" rel="noopener"><b>NICE NG243</b></a> — 부신위기 hydrocortisone 100mg IM/IV.</li>
     </ul>
     <div class="callout danger" style="margin-top:12px"><b>면책</b> — 본 페이지는 개인 정리 노트이며 정식 BLS/ACLS 교육·기관 프로토콜·개별 임상판단을 대체하지 않습니다. 용량·금기는 투여 전 반드시 확인하고, 응급 시 <b>119</b>를 우선하십시오.</div>
   </section>
