@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>현대 발치술: 최소침습 원칙과 고위험 치근 관리 — JH의 덴탈시냅스</title>
-<meta name="description" content="발치의 술전 평가, 최소침습 PDL 분리·치근 분할, periotome·luxator·vertical extraction·physics forceps·piezosurgery, 관상절제술, 치조제 보존, 디지털 내비게이션과 합병증 관리를 정리한 임상 노트" />
+<title>현대 발치술과 발치 기구: 최소침습 발치와 고위험 치근 관리 — JH의 덴탈시냅스</title>
+<meta name="description" content="발치 기구의 선택과 사용법, manual·powered periotome, elevator·forceps, 축방향 치근 견인기, piezosurgery·magnetic mallet, 치근 분할과 잔존치근 회수를 정리한 임상 노트" />
 <meta name="theme-color" content="#9a3412" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="assets/theme.css?v=5" />
@@ -13,8 +13,8 @@
   header.hero p.sub{max-width:84ch}
   .kicker{display:inline-flex;margin-bottom:8px;border:1px solid rgba(255,255,255,.36);border-radius:var(--r-pill);padding:4px 10px;font-size:var(--text-xs);font-weight:850;letter-spacing:.04em}
   .mobile-sections{display:none}
-  .goal-grid,.phase-grid,.tech-grid,.source-grid,.stop-grid{display:grid;gap:var(--sp-3)}
-  .goal-grid{grid-template-columns:repeat(3,1fr)}.phase-grid{grid-template-columns:repeat(3,1fr)}.tech-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stop-grid{grid-template-columns:repeat(2,1fr)}
+  .goal-grid,.phase-grid,.tech-grid,.source-grid,.stop-grid,.buy-grid{display:grid;gap:var(--sp-3)}
+  .goal-grid{grid-template-columns:repeat(3,1fr)}.phase-grid{grid-template-columns:repeat(3,1fr)}.tech-grid{grid-template-columns:repeat(2,1fr)}.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stop-grid{grid-template-columns:repeat(2,1fr)}.buy-grid{grid-template-columns:repeat(3,1fr)}
   .goal,.phase,.tech,.source,.stop{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-sm)}
   .goal{border-top:5px solid var(--brand)}.goal:nth-child(2){border-top-color:var(--success)}.goal:nth-child(3){border-top-color:var(--danger)}
   .goal h3,.phase h3,.tech h3{margin:0 0 6px;font-size:var(--text-base)}.goal p,.phase p,.tech p{margin:0;color:var(--ink-2);font-size:var(--text-sm)}
@@ -27,9 +27,12 @@
   .source{font-size:var(--text-sm)}.source p{margin:3px 0 0;color:var(--ink-2);font-size:var(--text-xs)}.source .refid{color:var(--brand);font-weight:900;margin-right:5px}
   .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 12px}.stat strong{display:block;color:var(--brand);font-size:var(--text-lg);font-variant-numeric:tabular-nums}.stat span{display:block;color:var(--ink-2);font-size:var(--text-xs)}
   .mini{font-size:var(--text-xs);color:var(--ink-2)}
+  .device-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:10px 0}.device-facts div{background:var(--surface-2);border-radius:var(--r-sm);padding:9px 10px;font-size:var(--text-xs);color:var(--ink-2)}.device-facts b{display:block;color:var(--ink);margin-bottom:2px}
+  .buy-tier{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--success);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-sm)}.buy-tier:nth-child(2){border-top-color:var(--warning)}.buy-tier:nth-child(3){border-top-color:var(--ink-3)}.buy-tier h3{margin:0 0 6px;font-size:var(--text-base)}
+  .role-tag{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:var(--r-pill);padding:3px 8px;background:var(--surface-2);color:var(--ink-2);font-size:var(--text-xs);font-weight:800;white-space:nowrap}
   details.evidence{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:0 14px;margin:10px 0}details.evidence summary{cursor:pointer;font-weight:800;padding:12px 0}details.evidence>div{border-top:1px solid var(--line);padding:12px 0}
-  @media(max-width:960px){.goal-grid,.phase-grid,.stat-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:720px){.topbar .links{display:none}.mobile-sections{display:block;position:relative;margin-left:auto}.mobile-sections>summary{list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);padding:7px 11px;font-size:var(--text-xs);font-weight:800}.mobile-sections>summary::-webkit-details-marker{display:none}.mobile-sections nav{position:absolute;right:0;top:43px;width:min(360px,calc(100vw - 32px));display:grid;grid-template-columns:1fr 1fr;gap:5px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px;box-shadow:var(--shadow-lg)}.mobile-sections a{padding:7px 8px;border-radius:var(--r-sm);color:var(--ink-2);font-size:var(--text-xs);font-weight:700}.tech-grid,.source-grid,.stop-grid{grid-template-columns:1fr}}
+  @media(max-width:960px){.goal-grid,.phase-grid,.stat-grid,.buy-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:720px){.topbar .links{display:none}.mobile-sections{display:block;position:relative;margin-left:auto}.mobile-sections>summary{list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);padding:7px 11px;font-size:var(--text-xs);font-weight:800}.mobile-sections>summary::-webkit-details-marker{display:none}.mobile-sections nav{position:absolute;right:0;top:43px;width:min(360px,calc(100vw - 32px));display:grid;grid-template-columns:1fr 1fr;gap:5px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px;box-shadow:var(--shadow-lg)}.mobile-sections a{padding:7px 8px;border-radius:var(--r-sm);color:var(--ink-2);font-size:var(--text-xs);font-weight:700}.tech-grid,.source-grid,.stop-grid,.buy-grid,.device-facts{grid-template-columns:1fr}}
   @media(max-width:520px){.goal-grid,.phase-grid,.stat-grid{grid-template-columns:1fr}}
   @media print{.goal,.phase,.tech,.source,.stop{box-shadow:none;break-inside:avoid}}
 </style>
@@ -41,9 +44,9 @@
   <div class="wrap">
     <a class="crumb" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg> JH의 덴탈시냅스 홈</a>
     <div class="kicker">구강외과 · 발치 술식</div>
-    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-tool"/></svg></span>현대 발치술: 최소침습 원칙과 고위험 치근 관리</h1>
-    <p class="sub">기본 생역학과 술식 전환 기준부터 periotome·luxator, 치근 분할, 축방향 견인, physics forceps, piezosurgery, <b>관상절제술·치조제 보존·디지털 내비게이션</b>까지 근거 수준과 함께 정리한 임상 노트</p>
-    <div class="meta-row"><span>최신 근거 검색: 2026-08-01</span><span>RCS England · AAOMS · EFP · Cochrane · 2024–2026 systematic reviews</span></div>
+    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-tool"/></svg></span>현대 발치술과 발치 기구: 최소침습 발치와 고위험 치근 관리</h1>
+    <p class="sub">기본 elevator·forceps부터 manual·powered periotome, Benex-type 축방향 견인기, Physics Forceps, piezosurgery, magnetic mallet, <b>치근 분할·잔존치근 회수·디지털 내비게이션</b>까지 기구 선택과 전환 기준을 정리한 임상 노트</p>
+    <div class="meta-row"><span>최신 근거·기기자료 검색: 2026-08-01</span><span>지침 · 체계적 문헌고찰 · 2024–2026 임상연구 · 제조사 IFU</span></div>
   </div>
 </header>
 
@@ -51,8 +54,8 @@
 
 <div class="topbar"><div class="wrap topbar-inner">
   <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-home"/></svg></span>홈</a>
-  <nav class="links" aria-label="섹션 바로가기"><a href="#quick">한눈에</a><a href="#planning">술전 평가</a><a href="#principles">기본 원칙</a><a href="#simple">최소침습</a><a href="#surgical">분할·개방</a><a href="#third-molar">제3대구치</a><a href="#coronectomy">관상절제</a><a href="#roots">잔존치근</a><a href="#socket">발치와</a><a href="#ridge">치조제 보존</a><a href="#digital">최신 기술</a><a href="#postop">술후 관리</a><a href="#complications">합병증</a><a href="#special">고위험 환자</a><a href="#sources">근거</a></nav>
-  <details class="mobile-sections"><summary>섹션 메뉴</summary><nav aria-label="모바일 섹션 바로가기"><a href="#quick">한눈에</a><a href="#planning">술전 평가</a><a href="#principles">기본 원칙</a><a href="#simple">최소침습</a><a href="#surgical">분할·개방</a><a href="#third-molar">제3대구치</a><a href="#coronectomy">관상절제</a><a href="#roots">잔존치근</a><a href="#socket">발치와</a><a href="#ridge">치조제 보존</a><a href="#digital">최신 기술</a><a href="#postop">술후 관리</a><a href="#complications">합병증</a><a href="#special">고위험 환자</a><a href="#sources">근거</a></nav></details>
+  <nav class="links" aria-label="섹션 바로가기"><a href="#quick">한눈에</a><a href="#planning">술전 평가</a><a href="#instruments">기구 지도</a><a href="#assisted">보조기구</a><a href="#vertical">축방향 견인</a><a href="#surgical">분할·개방</a><a href="#roots">잔존치근</a><a href="#third-molar">제3대구치</a><a href="#ridge">발치와·ARP</a><a href="#digital">최신 기술</a><a href="#setup">구성안</a><a href="#complications">합병증</a><a href="#sources">근거</a></nav>
+  <details class="mobile-sections"><summary>섹션 메뉴</summary><nav aria-label="모바일 섹션 바로가기"><a href="#quick">한눈에</a><a href="#planning">술전 평가</a><a href="#principles">기본 원칙</a><a href="#instruments">기구 지도</a><a href="#assisted">동력·보조기구</a><a href="#vertical">축방향 견인</a><a href="#surgical">분할·개방</a><a href="#roots">잔존치근</a><a href="#third-molar">제3대구치</a><a href="#coronectomy">관상절제</a><a href="#socket">발치와</a><a href="#ridge">치조제 보존</a><a href="#digital">최신 기술</a><a href="#setup">기구 구성안</a><a href="#postop">술후 관리</a><a href="#complications">합병증</a><a href="#special">고위험 환자</a><a href="#sources">근거</a></nav></details>
   <div class="spacer"></div>
 </div></div>
 
@@ -97,14 +100,62 @@
   <div class="callout danger"><b>공기배출식 turbine 주의</b> — 피판 또는 연조직 아래에서 압축공기가 유입되면 피하기종과 종격동기종이 발생할 수 있습니다. 외과용 전기 handpiece와 충분한 주수·흡인을 사용합니다.</div>
 </section>
 
-<section id="simple">
-  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-tool"/></svg></span><h2>Periotome·luxator·축방향 견인·physics forceps</h2></div>
+<section id="instruments">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-tool"/></svg></span><h2>발치 기구 지도: 상황·힘의 방향·전환 기준</h2></div>
+  <p class="sec-desc">발치 기구는 PDL 절단, 확장·거상, 치근 파지, 분할·골삭제, 잔존치근 회수 기능으로 구분합니다.</p>
+  <div class="tablewrap flat"><table class="cards"><caption>임상상황에 따른 1차 기구 선택</caption><thead><tr><th>임상상황</th><th>1차 기구·힘의 방향</th><th>실패 신호</th><th>다음 단계</th></tr></thead><tbody>
+    <tr><td data-label="상황"><b>치관이 온전한 단근치</b></td><td data-label="기구·방향">Syndesmotome/periotome으로 원주 PDL 절단 → 치아별 forceps를 치근단 쪽에 적합. 장축·치근 형태에 맞춘 느린 luxation</td><td data-label="실패">겸자 미끄러짐, 치관 균열, 충분한 PDL 분리 후에도 동요도 없음</td><td data-label="다음">치근 형태와 유착 재평가, 추가 분리 또는 제한적 분할·개방법</td></tr>
+    <tr><td data-label="상황"><b>얇은 협측판·심미부</b></td><td data-label="기구·방향">얇은 periotome/luxator를 line angle에서 장축 평행으로 진행. 협설 rocking 최소화</td><td data-label="실패">blade 휨, 치근이 협측으로 밀림, 치조정 변형</td><td data-label="다음">powered periotome 또는 축방향 견인 검토; 지속 저항 시 작은 개방법</td></tr>
+    <tr><td data-label="상황"><b>치관이 붕괴된 직선형 단근</b></td><td data-label="기구·방향">Bayonet/root forceps 또는 좁은 luxator. 근관 축과 건전 상아질 확보 시 screw–traction형 견인기</td><td data-label="실패">파지점 소실, 나사 공회전, 장축 불일치, 세로 균열</td><td data-label="다음">맹목적인 반복 재천공을 피하고 치질·장축·파절 위험 재평가. 유지력 확보가 어렵다면 PDL 재분리 후 forceps·분할·개방법으로 전환</td></tr>
+    <tr><td data-label="상황"><b>발산형 대구치</b></td><td data-label="기구·방향">외과용 전기 handpiece·fissure/Lindemann bur로 furcation까지 완전 분할 후 각 치근을 고유 경로로 제거</td><td data-label="실패">치근이 함께 움직임, 절단선이 furcation에 도달하지 않음</td><td data-label="다음">절단 완성 확인 후 Cryer/Warwick James 또는 root forceps를 선택적으로 사용</td></tr>
+    <tr><td data-label="상황"><b>빈 소켓 옆에 남은 대구치근</b></td><td data-label="기구·방향">직접 보이는 purchase point에 Cryer/Winter. 빈 소켓 방향으로 회전시켜 치근을 들어 올림</td><td data-label="실패">설·구개측판을 지렛점으로 삼게 됨, 치근이 위험 공간으로 이동</td><td data-label="다음">즉시 중단, 시야·영상 확보 후 작은 trough/window</td></tr>
+    <tr><td data-label="상황"><b>얕고 보이는 치근단편</b></td><td data-label="기구·방향">Apexo/root-tip pick·micro elevator·microforceps. 치근단 쪽으로 누르지 않고 소켓 입구 방향으로 유도</td><td data-label="실패">시야 소실, 치근이 더 깊어짐, 팁이 치근을 관통</td><td data-label="다음">확대·micro-suction·방사선 확인, 필요 시 작은 골창</td></tr>
+    <tr><td data-label="상황"><b>하악 대구치 치관이 남음</b></td><td data-label="기구·방향">Cowhorn forceps를 furcation에 정확히 위치시켜 점진적 치근단 방향 압력과 협설 운동</td><td data-label="실패">beak가 furcation 밖에서 미끄러짐, 치관만 분쇄, 치근 발산 저항</td><td data-label="다음">조기 치관·치근 분할. forceps 압착력 증대 금지</td></tr>
+    <tr><td data-label="상황"><b>유착·비후백악질·심한 만곡</b></td><td data-label="기구·방향">반복 elevator보다 조기 피판·분할·제한적 골삭제. 필요 시 piezo로 정밀 접근</td><td data-label="실패">기구 힘만 증가하고 이동 없음, 치조골 segment 동요</td><td data-label="다음">영상 재평가, 위험 해부학이면 의뢰</td></tr>
+  </tbody></table></div>
+  <div class="tablewrap flat"><table class="cards"><caption>기구군별 역할과 피해야 할 사용</caption><thead><tr><th>기구군</th><th>주된 역할</th><th>사용 핵심</th><th>피해야 할 사용</th></tr></thead><tbody>
+    <tr><td data-label="기구"><b>Syndesmotome·periotome</b></td><td data-label="역할">치은·supracrestal fiber와 PDL 절단</td><td data-label="핵심">얇은 blade를 치근면에 밀착해 장축 평행으로 짧게 진행</td><td data-label="회피">elevator처럼 비틀기, 협측판·인접치에 지렛질</td></tr>
+    <tr><td data-label="기구"><b>Luxator·proximator</b></td><td data-label="역할">PDL 절단과 좁은 공간의 점진적 확장</td><td data-label="핵심">line angle별 폭·곡률 선택, 치근 둘레를 이동하며 깊이 증가</td><td data-label="회피">구부러진 팁 사용, 깊이 보이지 않는 방향의 강한 apical pressure, elevator처럼 강하게 비틀거나 지렛질</td></tr>
+    <tr><td data-label="기구"><b>Straight·Coupland elevator</b></td><td data-label="역할">초기 luxation과 보이는 치근의 controlled elevation</td><td data-label="핵심">견고한 치조골을 제한적 받침으로 사용하고 힘의 진행 방향을 계속 확인</td><td data-label="회피">인접치·임플란트·얇은 피질골을 지렛점으로 사용</td></tr>
+    <tr><td data-label="기구"><b>Warwick James·Cryer/Winter</b></td><td data-label="역할">분할된 치근 또는 빈 소켓 옆 치근의 회전 거상</td><td data-label="핵심">좌·우형 선택, 직접 보이는 purchase point에만 적용</td><td data-label="회피">분할되지 않은 다근치, 맹목적 설측·상악동 방향 회전</td></tr>
+    <tr><td data-label="기구"><b>Anatomic·bayonet·root forceps</b></td><td data-label="역할">동요된 치아·치근의 최종 파지와 전달</td><td data-label="핵심">치아와 악궁에 맞는 beak 선택, 치근단 쪽으로 적합</td><td data-label="회피">손잡이 압착으로 치아를 분쇄하거나 forceps만으로 PDL을 찢는 방식</td></tr>
+    <tr><td data-label="기구"><b>Root pick·micro elevator</b></td><td data-label="역할">직접 보이는 작은 잔존치근의 미세 이동</td><td data-label="핵심">확대·동축 조명·micro-suction과 함께 소켓 입구 방향으로 유도</td><td data-label="회피">보이지 않는 치근단을 찌르거나 위험 공간 쪽으로 밀기</td></tr>
+    <tr><td data-label="기구"><b>Surgical handpiece·bur</b></td><td data-label="역할">치관·치근 분할, purchase point, 제한적 trough/window</td><td data-label="핵심">외과용 전기 handpiece, 멸균 주수·흡인, 절단 완성 직접 확인</td><td data-label="회피">공기배출식 turbine, 무관류 절삭, 신경·상악동 방향의 맹목적 절삭</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="assisted">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg></span><h2>동력형·기계식 발치 보조기구</h2></div>
   <div class="tech-grid">
-    <article class="tech"><div class="top"><h3>Periotome·luxator</h3><span class="badge rec">선택적 보조</span></div><p><b>술식:</b> 360° 섬유 분리 → line angle부터 장축 평행 삽입 → 치근단 방향의 짧은 압력 → 원주 이동 → 동요도 확보 후 겸자. Periotome은 PDL 절단, luxator는 더 두꺼운 쐐기·미세 거상 성격입니다.</p><ul class="tight"><li><b>근거:</b> 단근치 소규모 RCT에서 치은 열상·초기 통증과 소켓벽 보존의 이점 신호</li><li><b>미확립:</b> 장기 치조제 치수·임플란트 결과 우월성</li><li><b>전환:</b> 팁 휨·치근 밀림 또는 동요도 증가 없음 → 분할·개방법</li></ul></article>
-    <article class="tech selective"><div class="top"><h3>Vertical extraction system</h3><span class="badge exp">선택 증례</span></div><p><b>대상:</b> 근관 축을 확보할 수 있는 단근 잔존치근·심미부. PDL 분리 후 치근 장축으로 pilot hole과 나사를 형성하고 지지 tray로 힘을 분산해 축방향 견인.</p><ul class="tight"><li>관찰연구 성공률 약 83–85%, 다근치에서 성공 감소</li><li>2024 소규모 비교연구의 협측판 보존 신호는 장기 골폭 보존을 뜻하지 않음</li><li>근관 내 우식·근관치료치·장축 불일치·나사/치근 균열 주의</li></ul></article>
-    <article class="tech selective"><div class="top"><h3>Physics forceps</h3><span class="badge exp">낮음–중등도</span></div><p>설·구개측 beak와 협측 전정의 bumper를 이용해 느린 손목 회전과 지속력을 적용합니다. 손잡이를 반복 압착하거나 치아를 당기는 방식이 아닙니다.</p><ul class="tight"><li>RCT 메타분석: 술식시간·전체 부작용 감소 신호</li><li>협측판 파절 감소는 명확하지 않음</li><li>범퍼 압박성 통증·궤양, 얇거나 결손된 협측판, 유착·exostosis에서 주의</li></ul></article>
-    <article class="tech selective"><div class="top"><h3>Piezosurgery</h3><span class="badge exp">정밀 골삭제</span></div><p><b>대상:</b> 신경·상악동·얇은 피질골 인접의 선택적 trough/window, 제3대구치·관상절제술. 적절한 tip, 가벼운 brush stroke, 충분한 냉각과 흡인을 적용합니다.</p><ul class="tight"><li>제3대구치 수술 후 초기 통증·부종·개구장애 감소 신호</li><li>수술시간 증가, 장기 골치유·치조제 보존 우월성 미확립</li><li>한곳을 강하게 누르거나 정지하면 열손상·팁 파절 위험</li></ul></article>
+    <article class="tech selective"><div class="top"><h3>Powered periotome</h3><span class="badge lim">사람 비교근거 부족</span></div><span class="role-tag">PDL 분리 편의 장비</span><p><b>대표 유형:</b> Luxator LX·WestPort Medical Powertome® 자동 periotome형 미세 왕복 팁. 접근 가능한 단근치에서 PDL 분리를 보조합니다. 두 제품은 2026년 제조사의 현행 판매·지원이 확인되지 않아 구형 장비로 구분하며, 수동 기구인 PowerTome Flex와 구별합니다.</p><ol class="sequence"><li>접근에 맞는 2mm short/long tip을 선택하고 체결 상태와 구강 밖 시험 작동 확인</li><li>Luxator LX는 전기모터 2,000–4,000rpm, 4,000rpm 이하로 사용하며 implant motor는 별도 IFU 설정 적용</li><li>탐침으로 sulcus의 약한 지점을 찾아 시작하고 치근면을 따라 치근 둘레 전체로 진행</li><li>동요도 확보 후 일반 forceps로 마무리</li></ol><ul class="tight"><li>Luxator LX 사용 시 내부 water·spray는 끄고, 기기 세척·윤활·멸균은 구형 IFU 적용</li><li>팁을 elevator처럼 비틀거나 측방으로 누르지 않음</li><li>사람 대상 RCT가 없어 통증·시간·장기 골보존 비교자료는 없음</li></ul></article>
+    <article class="tech selective"><div class="top"><h3>Physics Forceps</h3><span class="badge rec">체계적 문헌고찰</span></div><span class="role-tag">지속 회전 하중형 맹출치 발치 보조</span><p>설·구개측 beak와 협측 bumper 사이의 지속적인 회전력을 이용합니다. 손잡이를 반복 압착하는 일반 forceps 동작과 다릅니다.</p><ol class="sequence"><li>치은 부착을 분리. 사전 elevation은 필수가 아니며 periotome은 선택적으로 사용</li><li>Beak를 설·구개측 sulcus의 견고한 치근면에 가능한 깊게 위치</li><li>1회용 bumper guard를 장착하고 bumper를 치아에 수직으로 MGJ 높이 또는 가능한 깊은 vestibule에 위치</li><li>손잡이를 쥐어짜지 않고 매우 느리고 지속적인 회전력만 적용. 저항이 느껴지면 15–20초 유지하고 손목을 조금 더 회전해 반복. 1–3mm 이동하면 일반 forceps·hemostat로 마무리</li></ol><ul class="tight"><li>끝까지 Physics Forceps로 회전해 꺼내지 않으며 bumper guard는 재사용하지 않음</li><li>매복 사랑니·유착치·견고한 치근면을 확보할 수 없는 치아는 제조사 IFU상 금기</li><li>하악 다근 대구치는 파절 감소를 위해 치근 분할 권고</li><li>11개 연구·1,028치 review의 시간 단축 추정치는 유의했지만 이질성이 높았고(I²=79%), 전체 근거는 비뚤림 위험이 높고 확실성이 낮음</li></ul></article>
+    <article class="tech selective"><div class="top"><h3>Piezosurgery·초음파 팁</h3><span class="badge rec">체계적 문헌고찰</span></div><span class="role-tag">정밀 골삭제·분할</span><p><b>대상:</b> 신경·상악동·인접치에 가까운 trough/window, 매복치 절단, 유착부 절개. 치근별 extraction tip·lever tip의 용도와 출력은 기종별 IFU에 따릅니다.</p><ul class="tight"><li>Mectron 기준 EX1–3은 root osteoplasty·syndesmotomy용; 지렛대 동작은 EXL1·EXL2처럼 lever로 지정된 팁에만 적용</li><li>가벼운 brush stroke, 지속적인 관류·흡인, 닳거나 휜 팁 교체</li><li>단순 발치 RCT에서는 periotome보다 시간·술중 불편이 증가</li><li>하악 제3대구치에서는 초기 통증·부종·개구장애 감소 가능, 대체로 수술시간 증가</li></ul></article>
+    <article class="tech emerging"><div class="top"><h3>Magnetic mallet·magnetodynamic system</h3><span class="badge lim">매우 제한적 근거</span></div><span class="role-tag">전자기 충격을 이용한 원주형 PDL 분리·luxation 보조</span><p>전용 extraction insert가 PDL 공간에 짧은 충격과 점진적 wedge effect를 가해 치근 둘레를 분리하는 장비입니다. 현행 Essential kit는 Extractor 1→2→3-RVS 순서를 제시하며, 출력은 handpiece 세대와 지역 IFU에 따릅니다.</p><ul class="tight"><li>낮은 단계에서 시작해 전용 팁을 치근 장축에 맞추고, 2023 pilot에서는 모든 다근치에 odontotomy 시행</li><li>22명 split-mouth pilot에서 수술시간은 piezo보다 짧았고 술후 통증과 10일 창상치유는 차이가 없었음</li><li>2026 review의 6개 비교연구 중 발치 연구는 2개로 임상 결과의 비교자료가 제한적</li><li>심박조율기·ICD 등 삽입형 전자기기 환자는 해당 제품 최신 IFU의 호환성·금기를 확인</li></ul></article>
   </div>
+  <div class="callout warn"><b>‘무외상 발치기’라는 표현의 한계</b> — 이 기구들은 측방력이나 술자의 손 힘을 줄이는 데 도움을 줄 수 있지만 발치 후 bundle bone의 생리적 흡수를 차단하지는 않습니다. 장기 치조제 보존은 별도의 결과변수입니다.</div>
+</section>
+
+<section id="vertical">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"/></svg></span><h2>Benex-type 축방향 치근 견인기</h2></div>
+  <p class="sec-desc">근관 또는 치근 중앙에 self-tapping screw를 고정하고 지지대·cable·traction head로 힘을 치근 장축에 전달하는 방식입니다. Benex, Easy X-Trac 등 제품은 구성과 drill·screw 규격이 다르므로 서로의 수치를 대입하지 않습니다.</p>
+  <div class="device-facts"><div><b>적합</b>직선형 단근·잔존치근, 중앙 장축 천공과 나사 유지가 가능한 견고한 치질, 안정적인 평면 지지 확보</div><div><b>불리·금기 확인</b>분리하지 않은 다근치, 심한 만곡·비후백악질, 내부우식, 매우 얇은 근관치료치. 유착은 Benex-Control IFU상 금기</div><div><b>즉시 전환</b>screw 공회전·탈락, 치근 균열음·파절, cable와 치근 장축 불일치, 지지대 불안정</div></div>
+  <div class="callout"><b>제품별 workflow</b> — 아래 순서는 Benex-Control IFU의 예입니다. Easy X-Trac은 3개 drill의 순차 사용, self-cutting screw와 좌·우 protector plate를 사용하는 별도 방식이므로 Benex의 7mm·30초·30–40초 수치를 적용하지 않습니다.</div>
+  <ol class="sequence">
+    <li><b>PDL 사전 분리</b> — 원주 방향 섬유를 먼저 절단. 강하고 긴 치근은 근심·원심에서 가는 lever/Twister로 약 30초간 장축성 luxation을 시행하고 횡방향 운동은 피함.</li>
+    <li><b>다근치 완전 분할</b> — 각 치근을 독립된 단근 단위로 만든 뒤 이동 여부 확인.</li>
+    <li><b>Pilot hole</b> — Benex-Control 제조사 IFU는 치근 중앙의 견고한 경조직에 약 7mm 깊이의 축방향 삽입공을 제시. 충분한 냉각과 간헐적 상하 운동을 적용하며 실제 bur·속도는 해당 IFU 적용.</li>
+    <li><b>Screw 고정</b> — 적합한 직경을 선택해 유지력을 확인. 우식·근관충전재·얇은 잔존벽을 나사 유지부로 사용하지 않음.</li>
+    <li><b>지지대와 축 정렬</b> — 평평하고 치근 장축에 직각인 지지면 확보. 불균일 지지면·free-end·무치악·인접 크라운이 있으면 quadrant support로 하중을 분산하고 screw와 cable의 축을 일치.</li>
+    <li><b>점진적 견인</b> — hand screw를 천천히 조여 지속 장력 적용. 강하고 긴 치근은 최대하 장력을 30–40초 유지한 뒤 조금 더 조이고 같은 과정을 반복.</li>
+  </ol>
+  <div class="tablewrap flat"><table class="cards"><thead><tr><th>확인 항목</th><th>임상 판단</th><th>실패 시 대응</th></tr></thead><tbody>
+    <tr><td data-label="항목"><b>근관 축·치질</b></td><td data-label="판단">나사가 치근 중심을 따라 건전 상아질에 충분히 유지될 수 있는지 확인</td><td data-label="대응">더 굵은 나사나 반복 재천공보다 forceps·분할·개방법으로 전환</td></tr>
+    <tr><td data-label="항목"><b>지지대</b></td><td data-label="판단">인접 수복물·동요치·연조직에 과도한 점하중이 생기지 않도록 넓게 분산</td><td data-label="대응">지지 불안정 시 장치 사용 중단</td></tr>
+    <tr><td data-label="항목"><b>장축 정렬</b></td><td data-label="판단">치근의 실제 제거 경로와 cable 방향을 영상·시야로 대조</td><td data-label="대응">만곡·장축 불일치가 크면 screw 파절 전 개방법 선택</td></tr>
+    <tr><td data-label="항목"><b>임상연구 결과</b></td><td data-label="판단">2024 소규모 RCT에서 발치 성공률 차이는 없었고 협측판 보존과 10일 창상치유 지표는 Benex군이 우수</td><td data-label="대응">2026년 20개 발치부위의 1년 분석에서는 연조직 용적·PES·인접치 치은퇴축의 군간 차이가 확인되지 않음</td></tr>
+  </tbody></table></div>
+  <details class="evidence"><summary>Easy X-Trac 제조사 술식 구성</summary><div><ol class="sequence"><li><b>접근 확보</b> — 치관을 필요한 만큼 낮추고 치근 중앙의 직선 접근 확인.</li><li><b>순차 천공</b> — 제조사 제품자료는 1.1→1.3→1.5mm 전용 drill을 8,000–10,000rpm에서 순차 사용하도록 제시.</li><li><b>Screw 선택</b> — 치근 길이에 맞는 self-cutting screw를 수동으로 시작한 뒤 ratchet으로 고정.</li><li><b>Protector plate</b> — 좌·우 plate에 silicone을 적용해 인접치의 금속 노출을 없애고 screw와 plate를 약 90°로 정렬.</li><li><b>축방향 견인</b> — extractor jaw가 screw head를 완전히 감싸도록 연결하고 손잡이 screw를 천천히 열어 견인.</li></ol><p class="mini">위 수치는 Easy X-Trac 현행 제조사 제품·술식 페이지에 제시된 값이며 정식 독립 비교지침이 아닙니다. 나사는 변형되는 1회용 부품으로 안내됩니다.</p></div></details>
+  <div class="callout warn"><b>Benex-Control 기기 제한</b> — 제조사 IFU는 치아 유착·골절뿐 아니라 두경부 방사선/항암치료와 일부 급성 혈관·조혈계 질환도 기기 사용 금기로 기재합니다. 이는 Benex-Control 기기의 제한이며 모든 발치의 일반 금기로 확대하지 않습니다. 실제 사용 전 현행 지역 IFU를 확인합니다.</div>
 </section>
 
 <section id="surgical">
@@ -115,6 +166,13 @@
     <tr><td data-label="상황"><b>하악 대구치</b></td><td data-label="접근">근심·원심 치근을 furcation을 통해 완전 분리 후 각 치근 형태에 맞춰 제거</td><td data-label="확인">불완전 절단 상태의 비틀기 금지. IAN 위치와 치근단 병소 확인</td></tr>
     <tr><td data-label="상황"><b>폐쇄법 실패</b></td><td data-label="접근">최소 전층피판, 작은 buccal trough/window, 직접 보이는 purchase point</td><td data-label="확인">피판 혈류·봉합 위치, 냉각, 골삭제량. ‘무피판 유지’를 위해 맹목적 힘 반복 금지</td></tr>
     <tr><td data-label="상황"><b>치근단 파절</b></td><td data-label="접근">조명·확대·흡인 후 PDL 재확보, 보이는 경우 purchase point·root pick. 필요 시 작은 window</td><td data-label="확인">신경·상악동 방향으로 밀지 않음. 위해가 더 크면 잔존 또는 의뢰 검토</td></tr>
+  </tbody></table></div>
+  <div class="tablewrap flat"><table class="cards"><caption>분할·골삭제 기구 선택</caption><thead><tr><th>기구</th><th>주된 용도</th><th>사용 기준</th></tr></thead><tbody>
+    <tr><td data-label="기구"><b>Long-shank fissure bur</b></td><td data-label="용도">치관·치근 분할, 좁은 절단선과 깊은 furcation 접근</td><td data-label="기준">절단축을 영상과 대조하고 충분히 주수. 절단선 양쪽이 독립적으로 움직이는지 확인</td></tr>
+    <tr><td data-label="기구"><b>Round bur</b></td><td data-label="용도">시야 확보용 작은 trough, purchase point, 제한적 buccal window</td><td data-label="기준">치근을 찾기 위해 넓게 삭제하지 않고 직접 보이는 범위에서 점진적 확대</td></tr>
+    <tr><td data-label="기구"><b>Lindemann·cross-cut bur</b></td><td data-label="용도">효율적인 치관 절단과 계획된 골홈 형성</td><td data-label="기준">절삭력이 큰 만큼 인접치·연조직 보호와 관류 유지. 절단 깊이를 반복 확인</td></tr>
+    <tr><td data-label="기구"><b>Piezo saw·extraction tip</b></td><td data-label="용도">좁은 절단선, 유착부 분리, 신경·상악동 인접 골삭제</td><td data-label="기준">tip별 지정 출력과 관류 적용. PDL용 얇은 tip은 lever로 사용하지 않음</td></tr>
+    <tr><td data-label="기구"><b>Surgical contra-angle</b></td><td data-label="용도">회전식 bur의 구동</td><td data-label="기준">외과용 전기 구동·멸균 관류·충분한 흡인. 피판 아래 공기배출식 turbine 사용 회피</td></tr>
   </tbody></table></div>
 </section>
 
@@ -146,6 +204,15 @@
 <section id="roots">
   <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg></span><h2>파절·잔존치근의 회수와 잔존 판단</h2></div>
   <ol class="sequence"><li><b>조작 중단과 위치 확인</b> — 조명·확대·흡인, 현재 PA. 깊이와 이동 방향이 불확실하면 CBCT 검토.</li><li><b>PDL 공간 재확보</b> — 보이는 면을 따라 periotome/luxator 사용. 치근단·신경·상악동 방향으로 밀지 않음.</li><li><b>직접 시야의 회수</b> — purchase point·root pick, 접근 가능한 근관의 제한적 file 사용, 다근치 재분할.</li><li><b>통제된 접근 확대</b> — 작은 buccal trough/window. 해부학적 위해가 커지면 내시경·navigation 또는 전문의 의뢰.</li><li><b>잔존 또는 제거 결정</b> — 크기의 단일 기준이 아니라 감염·병소·동요·노출·향후 치료 간섭과 제거 위해를 비교.</li></ol>
+  <div class="tablewrap flat"><table class="cards"><caption>잔존치근 회수 기구의 단계적 선택</caption><thead><tr><th>상태</th><th>기구·방법</th><th>적용과 중단 기준</th></tr></thead><tbody>
+    <tr><td data-label="상태"><b>얕고 이미 동요</b></td><td data-label="기구">Heidbrink/Howard root-tip pick, micro elevator, slender root forceps</td><td data-label="기준">확대·동축조명·좁은 suction 아래 소켓 입구로 유도. 치근이 깊어지면 즉시 중단</td></tr>
+    <tr><td data-label="상태"><b>보이는 PDL 공간</b></td><td data-label="기구">Micro-periotome, 좁은 luxator/proximator</td><td data-label="기준">치근면을 따라 장축 평행으로 진행. 협측판·인접치를 지렛점으로 사용하지 않음</td></tr>
+    <tr><td data-label="상태"><b>빈 소켓 옆 분할근</b></td><td data-label="기구">Cryer/Winter 또는 Warwick James와 직접 보이는 purchase point</td><td data-label="기준">빈 소켓 방향으로 회전. 설측판·상악동 방향으로 밀리거나 fulcrum이 불안정하면 중단</td></tr>
+    <tr><td data-label="상태"><b>곧고 보이는 근관</b></td><td data-label="기구">안전실을 연결한 H-file 또는 canal-engaging manual root extractor</td><td data-label="기준">선택된 짧은 단근편의 축방향 회수. 근관치료치·넓은 근관·만곡·유착에서는 유지 실패 가능</td></tr>
+    <tr><td data-label="상태"><b>견고한 단근편</b></td><td data-label="기구">Benex-type screw–traction 또는 piezo PDL tip</td><td data-label="기준">건전 치질·장축·지지대 확보 시 선택. 균열·나사 공회전·이동 없음은 개방법 전환 신호</td></tr>
+    <tr><td data-label="상태"><b>깊거나 직접 시야 제한</b></td><td data-label="기구">작은 전층피판과 buccal window, 필요 시 내시경·navigation</td><td data-label="기준">해부학을 확인한 최소 골창. 자연치 잔존근에 trephine을 일상적으로 적용하지 않음</td></tr>
+  </tbody></table></div>
+  <div class="callout"><b>근관 결합형 회수기의 근거</b> — 2024년 상악 전치부 잔존치근 52개 단일군 연구에서 수동 extractor 성공률 84.6%가 보고되었습니다. 근관치료치·유착·흡수·병소가 있는 치근은 제외되었고, 대조군이 없는 선택 증례 자료입니다.</div>
   <div class="callout"><b>의도적 잔존을 고려할 수 있는 조건</b> — 작고 움직이지 않으며 감염·병소·통증이 없고, 제거가 IAN·상악동·치조골에 더 큰 위해를 줄 것으로 판단되는 경우. 위치·크기·판단 근거·환자 설명과 추적계획을 기록합니다. 임의의 ‘몇 mm 이하면 안전’ 규칙은 사용하지 않습니다.</div>
   <div class="callout danger"><b>맹목적 탐색 중단</b> — 치근이 상악동, 설하·악하·익돌하악·측두하 공간 방향으로 이동해 완전히 보이지 않으면 추가 조작을 멈추고 영상과 구강악안면외과 의뢰를 시행합니다.</div>
 </section>
@@ -171,11 +238,29 @@
 <section id="digital">
   <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg></span><h2>디지털·최신 보조 술식</h2></div>
   <div class="tech-grid">
-    <article class="tech selective"><div class="top"><h3>Dynamic navigation</h3><span class="badge exp">선택적 보조</span></div><p>깊은 수평 매복 제3대구치의 절단·골삭제 경로, 관상절제 cut plane, 깊은 잔존치근·이물 회수에 사용될 수 있습니다. 2024년 단일기관 RCT는 수술단계 단축 신호를 보였으나 준비·등록 시간이 추가됩니다.</p><ul class="tight"><li>등록오차·tracking loss·기구 굽힘·학습곡선</li><li>비용·계획시간·추가 영상과 환자결과의 불확실성</li><li>2026 체계적 문헌고찰: 일상 표준이 아닌 고위험 선택 증례의 보조수단</li></ul></article>
-    <article class="tech emerging"><div class="top"><h3>정적 가이드·내시경 회수</h3><span class="badge lim">초기 임상</span></div><p>직접 시야가 제한된 깊은 치근·이물과 신경 인접 접근의 공간 제어에 유용할 수 있으나 증례·소규모 연구가 중심입니다. 가이드 적합·드릴 편향·관류 제한을 확인합니다.</p></article>
-    <article class="tech emerging"><div class="top"><h3>AR·자기식 말렛·레이저·로봇</h3><span class="badge lim">실험적</span></div><p>파일럿·증례 또는 초기 개발 단계입니다. ‘무외상’, 신경손상 방지 또는 장기 골보존 효과가 입증된 일상 술식으로 설명하지 않습니다.</p></article>
-    <article class="tech emerging"><div class="top"><h3>Socket shield·partial extraction therapy</h3><span class="badge lim">별도 고급 술식</span></div><p>일반 발치법이 아니라 임플란트와 연계해 의도적으로 치근 일부를 유지하는 술식입니다. 심미부 이점 가능성과 함께 노출·감염·동요·술자 의존성이 있어 일반 발치 대안과 구분합니다.</p></article>
+    <article class="tech selective"><div class="top"><h3>Dynamic navigation</h3><span class="badge exp">선택적 임상 적용</span></div><span class="role-tag">깊은 매복치의 절삭 경로 표시</span><p>CBCT 계획과 tracker를 연결해 bur의 위치·각도·깊이를 실시간 표시합니다. 깊은 수평 매복 제3대구치, 과잉치, 인접치·IAN에 가까운 절단·골삭제에 연구 적용되었습니다.</p><ol class="sequence"><li>CBCT·구강스캔과 해부학 구조 분할</li><li>골삭제·분할 경로와 안전거리 계획</li><li>환자·handpiece 등록 후 여러 기준점에서 오차 확인</li><li>추적 상태를 유지하며 관류하 절삭; tracker가 움직이면 재등록</li></ol><ul class="tight"><li>2024년 160명 단일기관 RCT: 계획·설정시간이 추가되었고 수술단계 시간은 단축</li><li>2026 review: 정확도·시간 결과는 유망하며 통증·신경 결과는 연구별 차이</li><li>X-Guide·Navident의 미국 허가 적응은 주로 임플란트 수술로, 발치 적용 전 지역 허가·IFU 확인</li></ul></article>
+    <article class="tech emerging"><div class="top"><h3>정적 가이드·내시경 회수</h3><span class="badge lim">증례·소규모 연구</span></div><span class="role-tag">정해진 경로·직접 시야 보조</span><p>정적 가이드는 계획한 방향과 깊이를 물리적으로 제한하고, 내시경은 깊은 치근·이물의 위치를 직접 확인하는 데 사용됩니다. 가이드 seating·sleeve 유격·관류 공간과 수술 중 경로 변경 가능성을 확인합니다.</p></article>
+    <article class="tech emerging"><div class="top"><h3>AR 내비게이션</h3><span class="badge lim">임상 증례 단계</span></div><span class="role-tag">해부학 정보 중첩</span><p>CBCT 기반 치근·신경·절삭경로를 실제 수술 시야에 중첩합니다. 2025년 문헌은 개발 플랫폼과 임상 증례를 정리하고 있으며, 등록 정확도·시야 가림·기기 이동을 수술 중 확인하는 구조입니다.</p></article>
+    <article class="tech emerging"><div class="top"><h3>Er:YAG laser-assisted osteotomy</h3><span class="badge lim">초기 무작위연구</span></div><span class="role-tag">Er:YAG laser 골절삭·치아 분할</span><p>매복 제3대구치의 골삭제·절단에 Er:YAG 레이저를 적용한 2024년 60명 무작위연구가 보고되었습니다. 회전식·piezo와 비교한 절삭시간, 열관리, 술후 결과 자료가 축적되는 단계이며 파장·energy·주수·접촉 조건을 연구별로 구분합니다.</p></article>
+    <article class="tech emerging"><div class="top"><h3>Robot-assisted surgery</h3><span class="badge lim">임상보고 단계</span></div><span class="role-tag">계획된 절삭 경로 구속</span><p>2025년 매복 하악치의 robot-assisted windowing 임상보고가 있습니다. 현재 상용 치과 로봇의 주요 허가 적응은 임플란트·골성형이며, 자동 치관·치근 분할용으로 허가된 표준 장비는 확인되지 않았습니다.</p></article>
+    <article class="tech emerging"><div class="top"><h3>Socket shield·partial extraction therapy</h3><span class="badge lim">임플란트 연계 술식</span></div><span class="role-tag">의도적 치근 일부 유지</span><p>일반적인 완전 발치와 달리 심미부 임플란트의 협측 치근편을 계획적으로 남깁니다. 적용 시 치근편의 생활력·두께·위치, 노출·감염·동요와 재개입 계획을 별도로 평가합니다.</p></article>
   </div>
+</section>
+
+<section id="setup">
+  <div class="sec-head"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-clipboard"/></svg></span><h2>진료 범위별 발치 기구 구성</h2></div>
+  <p class="sec-desc">구매 순위가 아니라 진료 빈도와 증례 범위에 따른 구성 예입니다. 멸균·재처리, 소모품 공급, 팁 교체, 국내 허가와 교육 체계를 함께 확인합니다.</p>
+  <div class="buy-grid">
+    <article class="buy-tier"><h3>기본 세트</h3><ul class="tight"><li>날카로운 syndesmotome·manual periotome</li><li>폭·곡률이 다른 luxator/proximator</li><li>Straight/Coupland, Warwick James, Cryer</li><li>치아별 forceps, bayonet/root forceps, cowhorn</li><li>Root-tip pick·micro elevator·slender root forceps</li><li>확대경·동축조명·좁은 suction</li></ul></article>
+    <article class="buy-tier"><h3>외과·고빈도 확장</h3><ul class="tight"><li>외과용 전기 contra-angle과 멸균 관류</li><li>Round·fissure·Lindemann long-shank bur</li><li>피판·견인·봉합·국소지혈 세트</li><li>Benex-type 축방향 견인기: 잔존 단근 증례가 많은 경우</li><li>Physics Forceps: IFU에 맞는 맹출치 폐쇄발치 증례와 전용 bumper 공급·교육이 확보된 경우</li></ul></article>
+    <article class="buy-tier"><h3>전문·선택 장비</h3><ul class="tight"><li>Piezosurgery와 extraction·saw tip</li><li>Magnetic mallet와 전용 blade</li><li>내시경·dynamic navigation·정적 가이드 workflow</li><li>CBCT·구강스캔·계획 소프트웨어</li><li>신경·상악동 고위험 증례의 의뢰 체계</li></ul></article>
+  </div>
+  <div class="tablewrap flat"><table class="cards"><caption>장비 도입 전 확인</caption><thead><tr><th>확인 항목</th><th>구체적 내용</th></tr></thead><tbody>
+    <tr><td data-label="항목"><b>현행 판매·소모품</b></td><td data-label="내용">본체보다 replacement tip·screw·bumper·protector·torque wrench의 공급과 호환성 확인. Powertome·Luxator LX는 2026년 현행 제조사 지원이 확인되지 않음</td></tr>
+    <tr><td data-label="항목"><b>재처리</b></td><td data-label="내용">재사용·1회용 부품 구분, 세척·윤활·autoclave 조건, 팁 사용횟수와 변형 검사</td></tr>
+    <tr><td data-label="항목"><b>기기별 IFU</b></td><td data-label="내용">출력·속도·관류·금기·지지대·액세서리를 사용 중인 모델과 지역판 문서에서 확인</td></tr>
+    <tr><td data-label="항목"><b>성과 기록</b></td><td data-label="내용">총 술식시간, 피판·골삭제 전환, 치근·골판 파절, 통증·치유와 기기 소모품 비용을 같은 기준으로 기록</td></tr>
+  </tbody></table></div>
 </section>
 
 <section id="postop">
@@ -212,7 +297,7 @@
   <div class="source-grid">
     <article class="source" id="s1"><span class="refid">S1</span><b>RCS England 2021 제3대구치 지침</b><p>적응증, CBCT, coronectomy, IAN 위험과 합병증. <a href="https://www.rcseng.ac.uk/-/media/files/rcs/fds/guidelines/3rd-molar-guidelines--april-2021-v2.pdf" target="_blank" rel="noopener">PDF</a></p></article>
     <article class="source" id="s2"><span class="refid">S2</span><b>AAOMS — Impacted Third Molars</b><p>제3대구치 병리·평가·치료 선택. <a href="https://aaoms.org/wp-content/uploads/2024/07/impacted_third_molars.pdf" target="_blank" rel="noopener">PDF</a></p></article>
-    <article class="source" id="s3"><span class="refid">S3</span><b>Periotome·vertical extraction·physics forceps</b><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4511886/" target="_blank" rel="noopener">Periotome RCT</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11352974/" target="_blank" rel="noopener">Benex 2024</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8871009/" target="_blank" rel="noopener">Physics forceps review</a></p></article>
+    <article class="source" id="s3"><span class="refid">S3</span><b>Manual·powered PDL 기구</b><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4511886/" target="_blank" rel="noopener">Periotome RCT</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9807373/" target="_blank" rel="noopener">Periotome–piezo RCT</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9300340/" target="_blank" rel="noopener">Powered in-vitro 비교</a></p></article>
     <article class="source" id="s4"><span class="refid">S4</span><b>Piezosurgery 체계적 문헌고찰</b><p>제3대구치 수술시간·통증·부종·개구장애. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11676273/" target="_blank" rel="noopener">2024 review</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/36442532/" target="_blank" rel="noopener">2023 meta-analysis</a></p></article>
     <article class="source" id="s5"><span class="refid">S5</span><b>Coronectomy 2025 meta-analysis</b><p>34개 연구·7,115치의 신경손상·건성와·감염·재개입 결과. <a href="https://pubmed.ncbi.nlm.nih.gov/39956152/" target="_blank" rel="noopener">PubMed</a></p></article>
     <article class="source" id="s6"><span class="refid">S6</span><b>EFP 치조제 보존 근거 요약</b><p>자연치유 변화량, ARP의 효과와 술식 비교. <a href="https://www.efp.org/publications-hub/which-is-best-technique-for-preserving-the-alveolar-ridge-after-tooth-extraction/" target="_blank" rel="noopener">EFP</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/31215112/" target="_blank" rel="noopener">Consensus</a></p></article>
@@ -220,13 +305,20 @@
     <article class="source" id="s8"><span class="refid">S8</span><b>Cochrane — 건성와·항생제</b><p><a href="https://www.cochrane.org/evidence/CD006968_what-treatments-can-be-used-prevent-and-treat-alveolar-osteitis-dry-socket" target="_blank" rel="noopener">건성와 예방·치료</a> · <a href="https://www.cochrane.org/evidence/CD003811_are-antibiotics-effective-way-prevent-infection-following-tooth-removal" target="_blank" rel="noopener">발치 후 항생제</a></p></article>
     <article class="source" id="s9"><span class="refid">S9</span><b>Extraction of Roots</b><p>잔존치근 평가·회수·잔존 판단의 기본 원칙. <a href="https://www.ncbi.nlm.nih.gov/books/NBK589696/" target="_blank" rel="noopener">NCBI Bookshelf</a></p></article>
     <article class="source" id="s10"><span class="refid">S10</span><b>제3대구치 봉합 방식 Cochrane review</b><p>일차·이차/부분 봉합의 술후 결과와 불확실성. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7389870/" target="_blank" rel="noopener">원문</a></p></article>
+    <article class="source" id="s11"><span class="refid">S11</span><b>축방향 치근 견인</b><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11352974/" target="_blank" rel="noopener">Benex 2024 임상연구</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12839802/" target="_blank" rel="noopener">2026 1년 RCT</a> · <a href="https://meisingerusa.com/medias/CBE00%20IFU.pdf" target="_blank" rel="noopener">Benex-Control IFU</a></p></article>
+    <article class="source" id="s12"><span class="refid">S12</span><b>Physics Forceps</b><p>11개 연구·1,028치 review: 높은 비뚤림 위험과 낮은 근거 확실성. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8871009/" target="_blank" rel="noopener">2022 review</a> · <a href="https://directadental.com/wp-content/uploads/2025/03/106775-2022-09-20_PhysicsForceps_na_ifu_ext.pdf" target="_blank" rel="noopener">제조사 IFU</a></p></article>
+    <article class="source" id="s13"><span class="refid">S13</span><b>현행 piezo extraction tip</b><p>기구 형태·용도·모델별 출력은 제조사 IFU 확인. <a href="https://dental.mectron.com/products/piezosurgeryr-piezodrillr/insert-sets/extraction-set/" target="_blank" rel="noopener">Mectron extraction set</a> · <a href="https://dental.mectron.com/products/piezosurgeryr-piezodrillr/insert-sets/third-molar-extraction-set/" target="_blank" rel="noopener">Mectron third-molar set</a> · <a href="https://www.wh.com/en_na/dental-products/oralsurgery-implantology/accessories/piezomed-instruments" target="_blank" rel="noopener">W&amp;H</a> · <a href="https://www.nsk-dental.com/products/surgical/surgical-variosurg/tip-surgery/sg_us_tips_extraction/" target="_blank" rel="noopener">NSK</a></p></article>
+    <article class="source" id="s14"><span class="refid">S14</span><b>Magnetic mallet</b><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10047157/" target="_blank" rel="noopener">2023 pilot 연구</a> · <a href="https://www.mdpi.com/2076-3417/16/2/749" target="_blank" rel="noopener">2026 review</a> · <a href="https://www.osseotouch.com/en/devices/magnetic-mallet/kit-estrazione/" target="_blank" rel="noopener">현행 extraction kit</a></p></article>
+    <article class="source" id="s15"><span class="refid">S15</span><b>잔존치근 전용 기구</b><p><a href="https://fomm.amegroups.org/article/view/82144/html" target="_blank" rel="noopener">2024 manual extractor 연구</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10404123/" target="_blank" rel="noopener">H-file 술식</a> · <a href="https://www.hufriedygroup.com/en/products/categories/root-tip-picks-8112" target="_blank" rel="noopener">Root-tip instruments</a></p></article>
+    <article class="source" id="s16"><span class="refid">S16</span><b>AR·laser·robot-assisted extraction</b><p><a href="https://www.mdpi.com/2076-3417/15/17/9723" target="_blank" rel="noopener">2025 AR review·case</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/39727445/" target="_blank" rel="noopener">2024 Er:YAG RCT</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12066062/" target="_blank" rel="noopener">2025 robot 임상보고</a></p></article>
+    <article class="source" id="s17"><span class="refid">S17</span><b>현행 축방향 견인기 자료</b><p>제품별 drill·screw·지지대 구성은 서로 다름. <a href="https://www.meisinger.de/en/shop/surgery/bone-management-systems/extraction/benex-control-root-extraction-cbe00-79CBE00" target="_blank" rel="noopener">Benex-Control 제품</a> · <a href="https://easyxtracsystem.com/" target="_blank" rel="noopener">Easy X-Trac 제조사 제품·술식 페이지</a></p></article>
   </div>
   <div class="callout danger" style="margin-top:16px"><b>면책</b> — 본 페이지는 술식 계획을 위한 개인 임상 노트이며 정규 구강외과 수련, 환자별 진단·영상 판독과 기관 프로토콜을 대체하지 않습니다. 고위험 해부학, 예상 밖의 골·신경·출혈 합병증에서는 조작을 중단하고 구강악안면외과에 의뢰합니다.</div>
 </section>
 </main>
 
 <button id="toTop" type="button" title="맨 위로" aria-label="맨 위로"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"/></svg></button>
-<footer class="wrap">현대 발치술: 최소침습 원칙과 고위험 치근 관리 — JH의 덴탈시냅스</footer>
+<footer class="wrap">현대 발치술과 발치 기구: 최소침습 발치와 고위험 치근 관리 — JH의 덴탈시냅스</footer>
 <script>
 (()=>{
   const links=[...document.querySelectorAll('.topbar .links a')],map={};links.forEach(a=>{map[a.getAttribute('href').slice(1)]=a;});

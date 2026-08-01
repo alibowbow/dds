@@ -15,7 +15,7 @@
 | 🫦 **교합학 (Occlusion)** | `occlusion.html` | 교합 심층 정리 — CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·**임플란트 교합(IPO)**·교합과 TMD 근거·스플린트·**교합조정(BULL·MUDL·LUBL·DUML)**·진단 도구. Posselt 외피 SVG·계측 차트 (GPT-9·Okeson·Dawson·Misch) |
 | 🦷 **측두하악장애와 저작근장애의 진단과 치료** | `tmd-mmd.html` | DC/TMD 기반 관절성 TMD·저작근장애(MMD) 분류와 감별, 자가관리·약물·교합장치, **운동·수기치료·물리치료의 구체적 시행 예**, 주사·관절천자·수술 및 의뢰 기준 |
 | 🧬 **PDRN 치과 임상 총정리** | `pdrn.html` | 30년 의료 사용 역사와 **국내 치과 확산**, PDRN의 **A2A/살베이지 기전과 PN 구분**, TMD 프롤로테라피·임플란트·치주·발치·MRONJ 활용을 **실사용/사람/전임상 근거로 분리**. 연구·임상교육 용량, 안전·동의·기록 체크리스트 |
-| 🛠️ **현대 발치술: 최소침습 원칙과 고위험 치근 관리** | `extraction.html` | 술전 평가와 폐쇄·개방 술식 전환, periotome·luxator·축방향 견인·physics forceps·piezosurgery, **관상절제술·잔존치근·치조제 보존·디지털 내비게이션**, 술후 관리와 합병증 대응 |
+| 🛠️ **현대 발치술과 발치 기구: 최소침습 발치와 고위험 치근 관리** | `extraction.html` | elevator·forceps·root pick의 선택부터 manual·powered periotome, **Benex-type 축방향 견인기·Physics Forceps·piezosurgery·magnetic mallet**, 치근 분할·잔존치근 회수·관상절제술·디지털 내비게이션과 기구 구성안 |
 | 💎 **라미네이트 (베니어)** | `veneer.html` | 무삭제·최소삭제 베니어 — 적응증·삭제 연속선·**재료 7종(굴곡강도 차트)**·제작·**접착 5경로**·브랜드 비교·장기 근거. 단면 개념도 SVG, 인용(S1–S10) (ADA·ACP·문헌리뷰·제조사 IFU) |
 | 🩸 **항혈전제 환자 치과치료** | `antithrombotic.html` | 항혈소판제·항응고제(**Warfarin INR**·**DOAC 약물별 조정**)·혈전용해제 — 시술 출혈위험 분류·중단/조정·국소 지혈·상호작용 (SNUH 분당서울대 + **SDCEP 2022**) |
 | 📖 **KCD 치과 코드 뷰어** | `kcd.html` | 한국표준질병·사인분류(KCD) **치과 관련 코드**(K00–K14·M·Q35–Q38·S00–S03·T85·Z) — **장(章)별 계층 트리**, 실시간 검색·하이라이트, **코드 클릭 복사**, 제외/포함 **교차참조 점프**. 474개 코드 (KCD 고시 발췌·재구성) |
@@ -54,7 +54,7 @@ mronj.html          # 하위: MRONJ 임상권고안 2025
 occlusion.html      # 하위: 교합학 (Occlusion)
 tmd-mmd.html        # 하위: 측두하악장애와 저작근장애의 진단과 치료 (TMD·MMD·물리치료·주사·관절 술식)
 pdrn.html           # 하위: PDRN 치과 임상 총정리 (역사·국내현장·기전·TMD·임플란트·치주·구강외과·안전)
-extraction.html     # 하위: 현대 발치술 (최소침습·치근 분할·관상절제술·치조제 보존·디지털 술식·합병증)
+extraction.html     # 하위: 현대 발치술과 발치 기구 (elevator·forceps·PDL 기구·축방향 견인·치근 회수·디지털 술식)
 veneer.html         # 하위: 라미네이트 (베니어)
 antithrombotic.html # 하위: 항혈전제 환자 치과치료
 kcd.html            # 하위: KCD 치과 코드 뷰어 (질병분류 계층 트리·검색·복사)
