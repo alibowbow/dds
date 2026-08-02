@@ -24,6 +24,7 @@
       b.textContent = effectiveDark() ? '☀️' : '🌙'; // fallback
     }
     b.setAttribute('aria-label', effectiveDark() ? '라이트 모드로 전환' : '다크 모드로 전환');
+    b.setAttribute('title', effectiveDark() ? '라이트 모드로 전환' : '다크 모드로 전환');
   }
   function bind() {
     updateIcon();
