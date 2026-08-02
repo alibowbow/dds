@@ -5,194 +5,297 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>JH의 덴탈시냅스</title>
 <meta name="description" content="JH의 덴탈시냅스 — 치과 임상 노트 모음(처방·질환·술식)" />
-<meta name="theme-color" content="#4f46e5" />
+<meta name="theme-color" content="#0b6b5b" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="assets/theme.css?v=5" />
+<link rel="stylesheet" href="assets/theme.css?v=6" />
 <style>
-  header.hero{padding:var(--sp-7) 0 var(--sp-7)}
-  #bg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
-  header.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:radial-gradient(56% 120% at 84% -14%, rgba(255,255,255,.20), transparent 60%)}
-  #greet{font-variant-numeric:tabular-nums}
-  .count{color:var(--ink-2);font-size:var(--text-sm);margin:2px 0 0}
-  /* note entrance + cursor glow */
-  a.note::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .25s;
-    background:radial-gradient(240px circle at var(--mx,50%) var(--my,-30%), color-mix(in srgb,var(--accent2,var(--brand)) 16%,transparent), transparent 60%)}
-  a.note:hover::before{opacity:1}
-  .note .ic{transition:transform .2s var(--ease)}
-  a.note:hover .ic{transform:scale(1.06) rotate(-4deg)}
-  @media (prefers-reduced-motion: no-preference){
-    a.note{opacity:0;transform:translateY(16px);animation:rise .55s var(--ease) forwards}
-    @keyframes rise{to{opacity:1;transform:none}}
+  .hub-page{background:
+    linear-gradient(180deg,color-mix(in srgb,var(--brand-soft) 46%,var(--bg)) 0,transparent 300px),var(--bg)}
+  .hub-header{background:color-mix(in srgb,var(--surface) 96%,transparent);border-bottom:1px solid var(--line)}
+  .hub-header-inner{height:72px;display:flex;align-items:center;gap:16px}
+  .hub-brand{display:inline-flex;align-items:center;gap:11px;min-height:48px;color:var(--ink)}
+  .hub-brand:hover{text-decoration:none}
+  .hub-brand .logo{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--brand);color:#fff}
+  .hub-brand .logo svg{width:23px;height:23px}
+  .hub-wordmark{display:grid;line-height:1.1}
+  .hub-wordmark b{font-size:.96rem;letter-spacing:-.02em}
+  .hub-wordmark small{margin-top:4px;color:var(--ink-3);font-size:.67rem;letter-spacing:.09em;text-transform:uppercase;font-weight:750}
+  .hub-header .themebtn{margin-left:auto}
+
+  .hub-main{padding:24px 0 var(--sp-8)}
+  .hub-intro{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(330px,.72fr);gap:clamp(24px,5vw,64px);align-items:end;overflow:hidden;
+    min-height:350px;padding:clamp(28px,5vw,56px);border-radius:18px;color:#fff;background:#153d35;box-shadow:0 24px 58px rgba(11,52,44,.18)}
+  .hub-intro::before{content:"";position:absolute;inset:0;z-index:-2;background:
+    linear-gradient(100deg,rgba(5,29,25,.1),rgba(13,101,86,.6)),
+    repeating-linear-gradient(90deg,transparent 0,transparent 79px,rgba(255,255,255,.045) 80px),
+    repeating-linear-gradient(0deg,transparent 0,transparent 55px,rgba(255,255,255,.03) 56px)}
+  .hub-intro::after{content:"";position:absolute;width:420px;height:420px;right:-180px;top:-230px;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 142px rgba(255,255,255,.018);z-index:-1}
+  .hub-network{position:absolute;right:20%;top:6%;width:min(48%,520px);height:auto;z-index:-1;opacity:.36;color:#d9fff4}
+  .intro-copy{position:relative;z-index:1;max-width:660px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--brand);font-size:.7rem;line-height:1.2;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  .hub-intro .eyebrow{color:#9ce3d1}
+  .eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+  .hub-intro h1{margin:14px 0 15px;font-size:clamp(2.15rem,5vw,3.55rem);line-height:1.08;letter-spacing:-.052em;max-width:13ch}
+  .hub-intro h1 em{color:#9ce3d1;font-style:normal}
+  .hub-intro .lead{max-width:54ch;margin:0;color:rgba(255,255,255,.78);font-size:var(--text-md);line-height:1.65}
+  .hub-facts{display:flex;flex-wrap:wrap;gap:7px 18px;margin-top:22px;color:rgba(255,255,255,.62);font-size:var(--text-xs);font-weight:650}
+  .hub-facts span{display:inline-flex;align-items:center;gap:7px}
+  .hub-facts span::before{content:"";width:5px;height:5px;border-radius:50%;background:#9ce3d1}
+
+  .quick-panel{position:relative;z-index:1;padding:17px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(5,31,27,.45)}
+  .quick-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .quick-head b{font-size:var(--text-sm)}
+  .quick-head small{color:rgba(255,255,255,.55);font-size:var(--text-xs)}
+  .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .quick-link{display:grid;grid-template-columns:34px minmax(0,1fr);align-items:center;gap:9px;min-height:64px;padding:10px;border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;background:rgba(255,255,255,.07);transition:background-color var(--dur),border-color var(--dur),transform var(--dur)}
+  .quick-link:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.28);transform:translateY(-1px);text-decoration:none}
+  .quick-link .ic{width:34px;height:34px;border-radius:9px;background:rgba(156,227,209,.16);color:#bdf2e5}
+  .quick-link .ic svg{width:19px;height:19px}
+  .quick-link span:last-child{display:grid;min-width:0}
+  .quick-link b{font-size:var(--text-sm);line-height:1.25}
+  .quick-link small{margin-top:3px;color:rgba(255,255,255,.55);font-size:.69rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  .library{padding:40px 0 0}
+  .library-tools{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+  .library-title h2{margin:7px 0 3px;font-size:clamp(1.55rem,3vw,2rem)}
+  .library-title p{margin:0;color:var(--ink-2);font-size:var(--text-sm)}
+  .hub-search{position:relative;display:flex;align-items:center;width:min(100%,390px)}
+  .hub-search>svg{position:absolute;left:15px;width:19px;height:19px;color:var(--ink-3);pointer-events:none}
+  .hub-search input{width:100%;height:50px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);padding:0 54px 0 44px;outline:none;box-shadow:var(--shadow-sm);transition:border-color var(--dur),box-shadow var(--dur)}
+  .hub-search input::placeholder{color:var(--ink-3)}
+  .hub-search input:focus{border-color:var(--brand);box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 15%,transparent)}
+  .hub-search kbd{position:absolute;right:13px;display:grid;place-items:center;min-width:26px;height:25px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:var(--surface-2);color:var(--ink-2);font:700 .72rem/1 system-ui}
+
+  .library-layout{display:grid;grid-template-columns:188px minmax(0,1fr);gap:28px;align-items:start}
+  .library-rail{position:sticky;top:18px;display:grid;gap:5px;padding:7px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 88%,transparent)}
+  .filter{appearance:none;border:0;border-radius:8px;background:transparent;color:var(--ink-2);min-height:44px;padding:0 10px;display:flex;align-items:center;gap:8px;text-align:left;cursor:pointer;font-size:var(--text-sm);font-weight:700;transition:background-color var(--dur),color var(--dur)}
+  .filter:hover{background:var(--surface-2);color:var(--ink)}
+  .filter[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);font-weight:850;transition:none}
+  .filter span{margin-left:auto;min-width:23px;text-align:center;padding:1px 5px;border-radius:var(--r-pill);background:color-mix(in srgb,currentColor 11%,transparent);font-size:.69rem;font-variant-numeric:tabular-nums}
+  :root[data-theme="dark"] .filter[aria-pressed="true"]{background:#8ed9c7;color:#10231e}
+  :root[data-theme="dark"] .filter[aria-pressed="true"] span{background:rgba(16,35,30,.12);color:#10231e}
+  @media (prefers-color-scheme:dark){
+    :root[data-theme="auto"] .filter[aria-pressed="true"]{background:#8ed9c7;color:#10231e}
+    :root[data-theme="auto"] .filter[aria-pressed="true"] span{background:rgba(16,35,30,.12);color:#10231e}
+  }
+  .library-results{min-width:0}
+  .result-head{min-height:28px;display:flex;align-items:center;gap:12px;margin:0 0 10px}
+  .result-head p{margin:0;color:var(--ink-2);font-size:var(--text-xs);font-weight:800;letter-spacing:.035em}
+  .reset-btn{appearance:none;margin-left:auto;border:0;background:transparent;color:var(--brand);min-height:40px;padding:0 6px;cursor:pointer;font-size:var(--text-xs);font-weight:850}
+  .reset-btn:hover{text-decoration:underline}
+  .note-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .note-card{--note-accent:var(--brand);position:relative;display:grid;grid-template-columns:48px minmax(0,1fr) 22px;gap:14px;align-items:start;min-height:166px;padding:18px 17px 17px 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform var(--dur) var(--ease),border-color var(--dur),box-shadow var(--dur)}
+  .note-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--note-accent)}
+  .note-card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--note-accent) 42%,var(--line));box-shadow:var(--shadow);text-decoration:none}
+  .note-card>.ic{width:48px;height:48px;border-radius:11px;background:color-mix(in srgb,var(--note-accent) 13%,transparent);color:var(--note-accent)}
+  .note-card>.ic svg{width:24px;height:24px}
+  .note-copy{min-width:0}
+  .note-meta{display:flex;align-items:center;gap:7px;min-height:20px;color:var(--ink-3);font-size:.68rem;font-weight:750}
+  .note-meta .tagline{color:var(--note-accent)}
+  .note-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--line)}
+  .note-card h3{margin:6px 0 6px;font-size:var(--text-md);line-height:1.35}
+  .note-card p{margin:0;color:var(--ink-2);font-size:var(--text-sm);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .note-arrow{align-self:center;color:var(--note-accent);opacity:.62;transition:transform var(--dur),opacity var(--dur)}
+  .note-arrow svg{width:18px;height:18px}
+  .note-card:hover .note-arrow{opacity:1;transform:translateX(3px)}
+  .empty-state{border:1px dashed var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 55%,transparent);padding:42px 24px;text-align:center;color:var(--ink-2)}
+  .empty-state .ic{width:44px;height:44px;margin:0 auto 10px;border-radius:11px;background:var(--surface-2);color:var(--ink-3)}
+  .empty-state p{margin:0 0 12px}
+  .empty-state button{appearance:none;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);min-height:44px;padding:0 14px;cursor:pointer;font-size:var(--text-sm);font-weight:800}
+
+  .hub-footer{margin-top:56px;padding-bottom:36px;border-top:1px solid var(--line);color:var(--ink-3);font-size:var(--text-xs)}
+  .hub-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:22px}
+  .hub-footer b{color:var(--ink-2)}
+
+  @media (prefers-reduced-motion:no-preference){
+    .note-card{opacity:0;transform:translateY(10px);animation:noteIn .38s var(--ease) forwards;animation-delay:var(--delay,0ms)}
+    @keyframes noteIn{to{opacity:1;transform:none}}
+  }
+  @media (max-width:900px){
+    .hub-intro{grid-template-columns:1fr;align-items:start}.quick-panel{max-width:660px}
+    .library-layout{grid-template-columns:1fr}.library-rail{position:static;display:flex;overflow-x:auto;padding:5px;scrollbar-width:none}.library-rail::-webkit-scrollbar{display:none}
+    .filter{flex:0 0 auto;white-space:nowrap;padding:0 12px}.filter span{margin-left:5px}
+  }
+  @media (max-width:680px){
+    .hub-header-inner{height:64px}.hub-wordmark small{display:none}.hub-main{padding-top:14px}
+    .hub-intro{min-height:0;padding:27px 20px;border-radius:14px;gap:28px}.hub-network{width:95%;right:-30%;top:2%}
+    .hub-intro h1{font-size:clamp(2.05rem,10.4vw,2.75rem);margin-top:12px}.hub-intro .lead{font-size:.97rem}
+    .hub-facts{margin-top:18px}.quick-panel{padding:13px}.quick-head small{display:none}
+    .library{padding-top:32px}.library-tools{align-items:stretch;flex-direction:column;gap:16px}.hub-search{width:100%}
+    .note-list{grid-template-columns:1fr}.note-card{min-height:0;grid-template-columns:44px minmax(0,1fr) 18px;padding:16px 14px 16px 17px;gap:12px}
+    .note-card>.ic{width:44px;height:44px}.note-card p{-webkit-line-clamp:2}
+    .hub-footer-inner{align-items:flex-start;flex-direction:column}
+  }
+  @media (max-width:390px){
+    .quick-grid{grid-template-columns:1fr}.quick-link{min-height:58px}.hub-intro h1{font-size:1.95rem}
   }
 </style>
 </head>
-<body>
+<body class="hub-page">
 
-<header class="hero" id="hero">
-  <canvas id="bg" aria-hidden="true"></canvas>
-  <button class="themebtn hero-toggle" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
-  <div class="wrap">
-    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>JH의 덴탈시냅스</h1>
-    <p class="sub">나의 치과 임상 노트 — 처방·질환·술식을 한곳에 연결합니다.</p>
-    <div class="meta-row">
-      <span id="greet">JH</span>
-      <span id="meta-count">노트 —</span>
-    </div>
+<header class="hub-header">
+  <div class="wrap hub-header-inner">
+    <a class="hub-brand" href="index.html" aria-label="JH의 덴탈시냅스 홈">
+      <span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>
+      <span class="hub-wordmark"><b>JH의 덴탈시냅스</b><small>Clinical knowledge desk</small></span>
+    </a>
+    <button class="themebtn" id="theme" type="button" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
   </div>
 </header>
 
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>JH의 덴탈시냅스</a>
-    <div class="spacer"></div>
-    <div class="search">
-      <span class="field"><svg class="gl" aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg>
-        <input id="q" type="search" placeholder="노트 검색  ( / )" aria-label="노트 검색" /></span>
-    </div>
-  </div>
-</div>
+<main class="hub-main" id="main-content">
+  <div class="wrap">
+    <section class="hub-intro" aria-labelledby="hub-title">
+      <svg class="hub-network" viewBox="0 0 560 300" aria-hidden="true" fill="none">
+        <g stroke="currentColor" stroke-width="1.2">
+          <path d="M55 194 139 96 248 132 326 56 437 96 505 35"/><path d="M139 96 176 225 298 252 437 96"/><path d="M248 132 298 252 505 224"/><path d="M326 56 505 224"/>
+        </g>
+        <g fill="currentColor"><circle cx="55" cy="194" r="5"/><circle cx="139" cy="96" r="7"/><circle cx="248" cy="132" r="5"/><circle cx="326" cy="56" r="6"/><circle cx="437" cy="96" r="4"/><circle cx="505" cy="35" r="5"/><circle cx="176" cy="225" r="4"/><circle cx="298" cy="252" r="7"/><circle cx="505" cy="224" r="5"/></g>
+      </svg>
+      <div class="intro-copy">
+        <span class="eyebrow">JH · Chairside reference</span>
+        <h1 id="hub-title">필요한 임상 근거를 <em>바로 꺼내 쓰는 노트.</em></h1>
+        <p class="lead">처방·응급·전신질환·구강외과부터 근거 문헌까지, 진료 중 빠르게 판단할 수 있도록 연결한 개인 임상 지식 데스크입니다.</p>
+        <div class="hub-facts"><span>12개 임상 노트</span><span>제목·본문 통합 검색</span><span>라이트·다크 모드</span></div>
+      </div>
+      <aside class="quick-panel" aria-label="진료 중 빠른 진입">
+        <div class="quick-head"><b>진료 중 빠른 진입</b><small>자주 찾는 핵심 노트</small></div>
+        <div class="quick-grid">
+          <a class="quick-link" href="drug-guide.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span><span><b>약물·처방</b><small>성인·소아 용량</small></span></a>
+          <a class="quick-link" href="emergency.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span><span><b>응급 대응</b><small>P-A-B-C-D</small></span></a>
+          <a class="quick-link" href="systemic.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span><span><b>전신질환</b><small>진료 전 확인</small></span></a>
+          <a class="quick-link" href="kcd.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><span><b>KCD 코드</b><small>검색·복사</small></span></a>
+        </div>
+      </aside>
+    </section>
 
-<main class="wrap" id="main">
-  <p class="count" id="count"></p>
-  <div class="grid" id="note-grid"></div>
-  <p class="no-results" id="empty" hidden>검색 결과가 없습니다.</p>
+    <section class="library" aria-labelledby="library-title">
+      <div class="library-tools">
+        <div class="library-title">
+          <span class="eyebrow">Clinical library</span>
+          <h2 id="library-title">임상 노트</h2>
+          <p>분야를 고르거나 질환·약물·술식 이름으로 바로 찾을 수 있습니다.</p>
+        </div>
+        <label class="hub-search">
+          <span class="sr-only">임상 노트 검색</span>
+          <svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg>
+          <input id="q" type="search" placeholder="질환, 약물, 술식 검색" autocomplete="off" aria-label="임상 노트 검색" />
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+      </div>
+
+      <div class="library-layout">
+        <aside class="library-rail" aria-label="노트 분야 필터">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">전체 <span>12</span></button>
+          <button class="filter" type="button" data-filter="medication" aria-pressed="false">처방·안전 <span>3</span></button>
+          <button class="filter" type="button" data-filter="disorders" aria-pressed="false">질환·통증 <span>3</span></button>
+          <button class="filter" type="button" data-filter="procedures" aria-pressed="false">술식·보철 <span>3</span></button>
+          <button class="filter" type="button" data-filter="systemic" aria-pressed="false">전신·종양 <span>2</span></button>
+          <button class="filter" type="button" data-filter="codes" aria-pressed="false">분류·청구 <span>1</span></button>
+        </aside>
+
+        <div class="library-results">
+          <div class="result-head">
+            <p id="count" aria-live="polite">전체 · 12개</p>
+            <button class="reset-btn" id="reset" type="button" hidden>검색·필터 초기화</button>
+          </div>
+          <div class="note-list" id="note-grid"></div>
+          <div class="empty-state" id="empty" hidden>
+            <span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg></span>
+            <p>일치하는 임상 노트가 없습니다.</p>
+            <button type="button" id="empty-reset">전체 노트 보기</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
-<footer class="wrap">
-  JH의 덴탈시냅스 · © 2026
+<footer class="hub-footer">
+  <div class="wrap hub-footer-inner"><span><b>JH의 덴탈시냅스</b> · 개인 임상 레퍼런스</span><span>처방·시술 전 원전과 환자 상태를 확인하십시오.</span></div>
 </footer>
 
 <script>
-/* ===== 노트 메타데이터 — 하위 페이지를 여기에 추가하면 자동 노출 ===== */
 const notes = [
-  { title:'치과 약물 · 처방 가이드', href:'drug-guide.html', icon:'i-pill', accent:'#4f46e5', tag:'약물·처방',
-    desc:'술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 알레르기 대체, 소아의 하루 투여 횟수와 20kg 계산 예시, 응급·구강내과 복약지도.',
-    keywords:'약물 처방 항생제 진통제 마취 알러지 소아 용량 하루 복용횟수 20kg 체중 예시 응급 구강내과 mronj 신경병성 tapering' },
-  { title:'MRONJ 임상권고안 2025', href:'mronj.html', icon:'i-bone', accent:'#c01f2f', tag:'가이드라인',
-    desc:'약물관련 악골괴사 — 약물별 한눈 정리 + 진단·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정.',
-    keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 병기 테리파라타이드 재발 골흡수억제제' },
-  { title:'교합학 (Occlusion)', href:'occlusion.html', icon:'i-activity', accent:'#0f7a52', tag:'교합·보철',
-    desc:'CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·임플란트 교합(IPO)·교합과 TMD·스플린트·진단 도구.',
-    keywords:'교합 occlusion gnathology 중심위 cr mip 중심교합 교합양식 상호보호 견치유도 군기능 균형교합 posselt bennett 과두유도 전방유도 교합기 안면궁 hanau articulator 임플란트교합 ipo vdo 수직고경 자유공극 스플린트 브럭시즘 이갈이 tmd tscan 교합조정 selective grinding coronoplasty equilibration bull mudl lubl duml' },
-  { title:'측두하악장애와 저작근장애의 진단과 치료', href:'tmd-mmd.html', icon:'i-activity', accent:'#2563eb', tag:'구강내과·통증',
-    desc:'TMD·MMD의 진단과 감별, 자가관리·약물·교합장치·운동·수기치료·물리치료·주사·관절천자와 의뢰 기준.',
-    keywords:'측두하악장애 tmd tmj 저작근장애 mmd masticatory muscle disorder myalgia 근막통증 교근 측두근 개구장애 스플린트 물리치료 운동 수기치료 초음파 tens laser 관절천자' },
-  { title:'PDRN 치과 임상 총정리', href:'pdrn.html', icon:'i-bolt', accent:'#0f766e', tag:'재생·근거',
-    desc:'의료 사용 역사와 국내 치과 확산, PDRN·PN 기전, TMD 프롤로테라피·임플란트·치주·발치·MRONJ 활용을 실제 사용과 근거수준으로 분리 정리.',
-    keywords:'pdrn pn polydeoxyribonucleotide polynucleotide 연어주사 재생주사 tmd tmj 턱관절 프롤로테라피 prolotherapy dextrose 임플란트 골이식 치주 재생 발치 사랑니 mronj 구강점막염 a2a salvage pathway 허가외 off-label' },
-  { title:'현대 발치술과 발치 기구: 최소침습 발치와 고위험 치근 관리', href:'extraction.html', icon:'i-tool', accent:'#b45309', tag:'구강외과·술식',
-    desc:'기본 elevator·forceps부터 powered periotome, 축방향 치근 견인기, Physics Forceps, piezosurgery·magnetic mallet, 치근 분할·잔존치근 회수·디지털 내비게이션까지 정리.',
-    keywords:'발치 extraction exodontia 발치기구 elevator Coupland Cryer Winter Warwick James root tip pick micro elevator cowhorn bayonet root forceps syndesmotome periotome luxator proximator powered periotome Powertome Luxator LX benex Easy X-Trac vertical screw traction physics forceps piezosurgery magnetic mallet magnetodynamic surgical handpiece Lindemann bur microsuction root sectioning 치근분할 잔존치근 매복치 사랑니 coronectomy 관상절제 발치와 치조제보존 dry socket navigation AR laser robot' },
-  { title:'최소삭제 라미네이트', href:'veneer.html', icon:'i-layers', accent:'#0e8174', tag:'심미·보철',
-    desc:'무삭제·최소삭제 베니어 — 적응증·삭제·재료(7종 강도)·제작·접착(5경로)·브랜드·근거를 근거 수준과 함께.',
-    keywords:'라미네이트 veneer 베니어 무삭제 최소삭제 noprep no-prep emax 리튬디실리케이트 지르코니아 picn enamic zls lumineers minish durathin 접착 bonding hf 실란 silane mdp 레진시멘트 굴곡강도 생존율 심미' },
-  { title:'항혈전제 환자 치과치료', href:'antithrombotic.html', icon:'i-droplet', accent:'#be123c', tag:'전신질환·약물',
-    desc:'항혈소판제·항응고제(Warfarin INR·DOAC)·혈전용해제 — 시술 출혈위험 분류, 약물별 중단/조정, 국소 지혈, 주의·상호작용.',
-    keywords:'항혈전제 항응고제 항혈소판제 warfarin 와파린 inr doac noac apixaban dabigatran edoxaban rivaroxaban aspirin clopidogrel cilostazol 아스트릭스 플라빅스 플레탈 발치 출혈 지혈 tranexamic txa sdcep 브리징 혈전용해 urokinase' },
-  { title:'KCD 치과 코드 뷰어', href:'kcd.html', icon:'i-book', accent:'#7c3aed', tag:'질병분류·청구',
-    desc:'한국표준질병사인분류(KCD) 치과 관련 코드 — 구강·턱·침샘 질환, TMJ, 외상, 임플란트 합병증, 보철 상태를 계층 구조로 검색·복사.',
-    keywords:'kcd 질병분류 질병코드 상병 청구 진단 icd k00 k02 치아우식 k04 치수염 k05 치주염 치은염 k07 부정교합 턱관절 tmj k08 q35 구순구개열 s02 치아파절 외상 t85 임플란트 합병증 z96 보철 코드 검색 복사' },
-  { title:'치과 진료 중 응급상황 대응', href:'emergency.html', icon:'i-siren', accent:'#dc2626', tag:'응급·안전',
-    desc:'실신·저혈압/쇼크·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄 — P-A-B-C-D, 원인 감별, 첫 처치, 응급약물·수액 용량.',
-    keywords:'응급 emergency 실신 syncope 저혈압 hypotension 쇼크 shock 기립성 orthostatic 혈압 90 20 10 수액 saline crystalloid 부신위기 adrenal crisis hydrocortisone 아나필락시스 anaphylaxis 에피네프린 epinephrine 흉통 협심증 심근경색 ntg 니트로글리세린 천식 salbutamol 벤톨린 저혈당 glucagon 경련 seizure 발작 기도폐쇄 heimlich 하임리히 흡인 cpr bls aed 과호흡 응급키트 산소 119' },
-  { title:'암 치료 환자의 치과진료: 임상 평가와 치료 계획', href:'cancer-care.html', icon:'i-shield', accent:'#9f1239', tag:'암·종양치과',
-    desc:'암 수술·항암·두경부 방사선 전·중·후의 발치·임플란트 치료 시기, CBC 기반 감염·출혈 판단, ORN·MRONJ 위험과 협진 기준.',
-    keywords:'암 암수술 항암 화학요법 표적치료 면역항암 두경부방사선 방사선치료 발치 임플란트 치료시기 금기증 cbc anc 혈소판 orn 방사선골괴사 mronj 악골괴사 골흡수억제제 혈관신생억제제 조혈모세포이식 car-t gvhd 협진' },
-  { title:'전신질환자 치과관리', href:'systemic.html', icon:'i-stethoscope', accent:'#0e7490', tag:'전신질환·관리',
-    desc:'심혈관·당뇨·신장(투석)·간·임신·갑상선/부신·항암·면역억제 — 출혈·감염·스트레스·약물 4축 위험과 진료 전 확인, 협진 기준.',
-    keywords:'전신질환 의학적 고려 medically compromised 고혈압 심혈관 epinephrine 한도 당뇨 hba1c 저혈당 신장 투석 dialysis 간경변 간질환 inr 임신 pregnancy 임신부 acetaminophen nsaid 갑상선 부신 스테로이드 커버 항암 화학요법 방사선 orn 골괴사 면역억제 이식 협진 활력징후 vital' },
+  {title:'치과 진료 중 응급상황 대응',href:'emergency.html',icon:'i-siren',accent:'#b9323f',tag:'응급·안전',category:'medication',categoryLabel:'처방·안전',desc:'실신·저혈압/쇼크·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄의 첫 대응과 응급약물.',keywords:'응급 emergency 실신 저혈압 hypotension 쇼크 아나필락시스 epinephrine 흉통 천식 저혈당 경련 기도폐쇄 cpr bls aed 119'},
+  {title:'치과 약물 · 처방 가이드',href:'drug-guide.html',icon:'i-pill',accent:'#315fba',tag:'약물·처방',category:'medication',categoryLabel:'처방·안전',desc:'술식·상황별 처방 프로토콜, 알레르기 대체, 소아 하루 투여 횟수와 20kg 계산 예시, 응급·구강내과 복약지도.',keywords:'약물 처방 항생제 진통제 마취 알러지 소아 용량 하루 복용횟수 20kg 체중 예시 응급 구강내과 신경병성 tapering'},
+  {title:'항혈전제 환자 치과치료',href:'antithrombotic.html',icon:'i-droplet',accent:'#a93450',tag:'항응고·출혈',category:'medication',categoryLabel:'처방·안전',desc:'항혈소판제·Warfarin·DOAC·혈전용해제 환자의 시술 위험 분류, 약물 조정, 국소 지혈과 상호작용.',keywords:'항혈전제 항응고제 항혈소판제 warfarin 와파린 inr doac apixaban dabigatran rivaroxaban aspirin clopidogrel 발치 출혈 지혈 txa'},
+  {title:'측두하악장애와 저작근장애의 진단과 치료',href:'tmd-mmd.html',icon:'i-activity',accent:'#2563a8',tag:'TMD·MMD',category:'disorders',categoryLabel:'질환·통증',desc:'TMD·MMD 진단과 감별, 자가관리·약물·교합장치·운동·수기치료·물리치료·주사와 관절 술식.',keywords:'측두하악장애 tmd tmj 저작근장애 mmd masticatory muscle disorder myalgia 근막통증 교근 개구장애 스플린트 물리치료 운동 수기치료 tens laser 관절천자'},
+  {title:'MRONJ 임상권고안 2025',href:'mronj.html',icon:'i-bone',accent:'#aa3040',tag:'MRONJ',category:'disorders',categoryLabel:'질환·통증',desc:'약물관련 악골괴사의 약물별 정리, 진단·위험요인·예방·휴약·병기·보존/수술·재발과 의사결정.',keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 병기 테리파라타이드 골흡수억제제'},
+  {title:'PDRN 치과 임상 총정리',href:'pdrn.html',icon:'i-bolt',accent:'#0a7769',tag:'재생·근거',category:'disorders',categoryLabel:'질환·통증',desc:'PDRN·PN의 기전과 국내 치과 활용, TMD·임플란트·치주·발치·MRONJ 사용 자료를 근거 유형별로 정리.',keywords:'pdrn pn polynucleotide 재생주사 tmd tmj 프롤로테라피 prolotherapy 임플란트 골이식 치주 재생 발치 mronj a2a salvage pathway 허가외'},
+  {title:'현대 발치술과 발치 기구',href:'extraction.html',icon:'i-tool',accent:'#a65a18',tag:'구강외과',category:'procedures',categoryLabel:'술식·보철',desc:'기본 elevator·forceps부터 powered periotome, 축방향 견인기, Physics Forceps, piezosurgery와 잔존치근 관리.',keywords:'발치 extraction 발치기구 elevator forceps root pick periotome luxator powered benex Easy X-Trac Physics Forceps piezosurgery magnetic mallet 치근분할 잔존치근 매복치 coronectomy'},
+  {title:'교합학 (Occlusion)',href:'occlusion.html',icon:'i-compass',accent:'#20735a',tag:'교합·보철',category:'procedures',categoryLabel:'술식·보철',desc:'CR/MIP·하악운동·교합 양식·결정인자·교합기·임플란트 교합·TMD·스플린트·교합조정과 진단 도구.',keywords:'교합 occlusion gnathology 중심위 cr mip 교합양식 견치유도 posselt bennett 과두유도 교합기 안면궁 임플란트교합 ipo vdo 스플린트 교합조정'},
+  {title:'최소삭제 라미네이트',href:'veneer.html',icon:'i-layers',accent:'#168073',tag:'심미·보철',category:'procedures',categoryLabel:'술식·보철',desc:'무삭제·최소삭제 베니어의 적응증, 삭제, 재료, 제작, 접착 경로, 브랜드와 장기 근거.',keywords:'라미네이트 veneer 베니어 무삭제 최소삭제 no-prep emax 리튬디실리케이트 지르코니아 picn zls 접착 bonding hf silane mdp 레진시멘트'},
+  {title:'전신질환자 치과관리',href:'systemic.html',icon:'i-stethoscope',accent:'#176f7d',tag:'전신질환',category:'systemic',categoryLabel:'전신·종양',desc:'심혈관·당뇨·신장·간·임신·내분비·항암·면역억제 환자의 출혈·감염·스트레스·약물 위험과 협진 기준.',keywords:'전신질환 고혈압 심혈관 epinephrine 당뇨 hba1c 신장 투석 간경변 임신 pregnancy 갑상선 부신 스테로이드 항암 방사선 면역억제 협진 활력징후'},
+  {title:'암 치료 환자의 치과진료',href:'cancer-care.html',icon:'i-shield',accent:'#91324f',tag:'암·종양치과',category:'systemic',categoryLabel:'전신·종양',desc:'암 수술·항암·두경부 방사선 전·중·후 발치·임플란트 시기, CBC 판단, ORN·MRONJ 위험과 협진 기준.',keywords:'암 암수술 항암 화학요법 표적치료 면역항암 두경부방사선 발치 임플란트 cbc anc 혈소판 orn mronj 조혈모세포이식 car-t gvhd 협진'},
+  {title:'KCD 치과 코드 뷰어',href:'kcd.html',icon:'i-book',accent:'#5e569a',tag:'질병분류·청구',category:'codes',categoryLabel:'분류·청구',desc:'치과 관련 KCD 코드를 장별 계층 구조로 검색하고, 코드를 복사하거나 포함·제외 교차참조로 이동합니다.',keywords:'kcd 질병분류 질병코드 상병 청구 진단 icd k00 k02 우식 k04 치수염 k05 치주염 k07 부정교합 tmj 외상 임플란트 합병증 코드 검색 복사'}
 ];
 
-const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
-const grid = document.getElementById('note-grid');
-document.getElementById('count').textContent = `총 ${notes.length}개 노트`;
-document.getElementById('meta-count').textContent = `노트 ${notes.length}개`;
+const grid=document.getElementById('note-grid');
+const query=document.getElementById('q');
+const count=document.getElementById('count');
+const empty=document.getElementById('empty');
+const reset=document.getElementById('reset');
+const filters=[...document.querySelectorAll('.filter')];
+let activeFilter='all';
 
-function render(){
-  grid.innerHTML='';
-  notes.forEach((n,i)=>{
-    grid.appendChild(el(`
-      <a class="note" href="${n.href}" style="--accent2:${n.accent};animation-delay:${i*80}ms"
-         data-text="${(n.title+' '+n.desc+' '+n.tag+' '+(n.keywords||'')).toLowerCase()}">
-        <span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#${n.icon}"/></svg></span>
-        <h3>${n.title}</h3>
-        <p>${n.desc}</p>
-        <div class="row"><span class="tag" style="background:${n.accent}">${n.tag}</span>
-          <span class="go">열기 <svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></span></div>
-      </a>`));
-  });
+function card(note,index){
+  const anchor=document.createElement('a');
+  anchor.className='note-card';
+  anchor.href=note.href;
+  anchor.dataset.category=note.category;
+  anchor.dataset.text=(note.title+' '+note.desc+' '+note.tag+' '+note.categoryLabel+' '+note.keywords).toLowerCase();
+  anchor.style.setProperty('--note-accent',note.accent);
+  anchor.style.setProperty('--delay',(Math.min(index,8)*38)+'ms');
+  anchor.innerHTML=`<span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#${note.icon}"/></svg></span>
+    <span class="note-copy"><span class="note-meta"><span class="tagline">${note.tag}</span><span class="dot"></span><span>${note.categoryLabel}</span></span><h3>${note.title}</h3><p>${note.desc}</p></span>
+    <span class="note-arrow" aria-hidden="true"><svg><use href="assets/icons.svg#i-arrow-right"/></svg></span>`;
+  return anchor;
 }
-render();
 
-/* cursor-follow glow */
-grid.addEventListener('pointermove', (e)=>{
-  const card = e.target.closest('a.note'); if(!card) return;
-  const r = card.getBoundingClientRect();
-  card.style.setProperty('--mx', (e.clientX-r.left)+'px');
-  card.style.setProperty('--my', (e.clientY-r.top)+'px');
-});
+notes.forEach((note,index)=>grid.appendChild(card(note,index)));
 
-/* search */
-const q = document.getElementById('q');
-q.addEventListener('input', ()=>{
-  const term = q.value.trim().toLowerCase(); let shown=0;
-  grid.querySelectorAll('.note').forEach(c=>{
-    const hit = !term || c.dataset.text.includes(term);
-    c.style.display = hit?'':'none'; if(hit) shown++;
+function applyFilters(){
+  const term=query.value.trim().toLowerCase();
+  let shown=0;
+  grid.querySelectorAll('.note-card').forEach(card=>{
+    const categoryHit=activeFilter==='all'||card.dataset.category===activeFilter;
+    const searchHit=!term||card.dataset.text.includes(term);
+    card.hidden=!(categoryHit&&searchHit);
+    if(!card.hidden) shown++;
   });
-  document.getElementById('empty').hidden = shown>0;
-});
-document.addEventListener('keydown', (e)=>{
-  const t=((document.activeElement&&document.activeElement.tagName)||'').toLowerCase();
-  if(e.key==='/' && t!=='input' && t!=='textarea'){ e.preventDefault(); q.focus(); }
-  else if(e.key==='Escape' && document.activeElement===q){ q.value=''; q.dispatchEvent(new Event('input')); q.blur(); }
-});
+  const activeButton=filters.find(button=>button.dataset.filter===activeFilter);
+  const label=activeButton?activeButton.childNodes[0].textContent.trim():'전체';
+  count.textContent=`${label} · ${shown}개`;
+  empty.hidden=shown!==0;
+  reset.hidden=activeFilter==='all'&&!term;
+}
 
-/* time-of-day greeting */
-(function greet(){
-  const g=document.getElementById('greet'); if(!g) return;
-  const d=new Date(), hr=d.getHours();
-  const msg = hr<6?'고요한 새벽이에요' : hr<11?'좋은 아침이에요' : hr<17?'좋은 오후예요' : hr<21?'좋은 저녁이에요' : '늦은 밤이에요';
-  const ds=`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
-  g.textContent = `${msg}, JH · ${ds}`;
-})();
+filters.forEach(button=>button.addEventListener('click',()=>{
+  activeFilter=button.dataset.filter;
+  filters.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+  applyFilters();
+}));
+query.addEventListener('input',applyFilters);
 
-/* interactive synapse particles */
-(function bg(){
-  const canvas=document.getElementById('bg'); if(!canvas) return;
-  const ctx=canvas.getContext && canvas.getContext('2d'); if(!ctx) return;
-  const hero=document.getElementById('hero');
-  const reduce=!!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  let w=0,h=0,parts=[],mouse={x:-1e4,y:-1e4},raf=0,running=false;
-  function size(){
-    const dpr=Math.min(window.devicePixelRatio||1,2);
-    w=hero.clientWidth; h=hero.clientHeight||240;
-    canvas.width=w*dpr; canvas.height=h*dpr; canvas.style.width=w+'px'; canvas.style.height=h+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.max(22,Math.min(64,Math.floor(w/24)));
-    parts=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32,r:Math.random()*1.6+.7}));
+function clearAll(){
+  activeFilter='all';
+  query.value='';
+  filters.forEach(item=>item.setAttribute('aria-pressed',String(item.dataset.filter==='all')));
+  applyFilters();
+  query.focus();
+}
+reset.addEventListener('click',clearAll);
+document.getElementById('empty-reset').addEventListener('click',clearAll);
+document.addEventListener('keydown',event=>{
+  const tag=((document.activeElement&&document.activeElement.tagName)||'').toLowerCase();
+  if(event.key==='/'&&tag!=='input'&&tag!=='textarea'){
+    event.preventDefault();query.focus();
+  }else if(event.key==='Escape'&&document.activeElement===query){
+    clearAll();query.blur();
   }
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    for(const p of parts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1; }
-    for(let i=0;i<parts.length;i++){ const a=parts[i];
-      for(let j=i+1;j<parts.length;j++){ const b=parts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-        if(d<116){ ctx.strokeStyle='rgba(255,255,255,'+(0.10*(1-d/116)).toFixed(3)+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } }
-      const dm=Math.hypot(a.x-mouse.x,a.y-mouse.y);
-      if(dm<170){ ctx.strokeStyle='rgba(255,255,255,'+(0.26*(1-dm/170)).toFixed(3)+')'; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); a.x+=(mouse.x-a.x)*.0016; a.y+=(mouse.y-a.y)*.0016; } }
-    for(const p of parts){ ctx.fillStyle='rgba(255,255,255,.6)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); }
-  }
-  function loop(){ if(!running) return; draw(); raf=requestAnimationFrame(loop); }
-  function start(){ if(running||reduce) return; running=true; loop(); }
-  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); }
-  size(); draw(); if(!reduce && typeof requestAnimationFrame==='function') start();
-  window.addEventListener('resize', size);
-  hero.addEventListener('pointermove',(e)=>{ const r=hero.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
-  hero.addEventListener('pointerleave',()=>{ mouse.x=-1e4; mouse.y=-1e4; });
-  document.addEventListener('visibilitychange',()=>{ document.hidden?stop():start(); });
-})();
+});
 </script>
-<script src="assets/theme.js?v=4"></script>
+<script src="assets/theme.js?v=5"></script>
 </body>
 </html>
