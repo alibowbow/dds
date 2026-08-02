@@ -1,0 +1,3 @@
+## 2024-08-02 - Dynamic Client-Side Filtering Accessibility
+**Learning:** Dynamic client-side filtering (like the local search filtering in `index.html`) requires `aria-live` to announce result changes to screen readers. Sighted users see results change instantly, but without `aria-live`, screen readers remain silent, leaving users unsure if their search did anything. Additionally, icon-only buttons need both `aria-label` (for screen readers) and `title` (for sighted mouse users).
+**Action:** When implementing client-side filtering, ensure the results count element has `role="status"` and `aria-live="polite"`, and dynamically update its text content. Ensure icon buttons use both `aria-label` and `title`.

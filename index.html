@@ -54,7 +54,7 @@
 </div>
 
 <main class="wrap" id="main">
-  <p class="count" id="count"></p>
+  <p class="count" id="count" role="status" aria-live="polite"></p>
   <div class="grid" id="note-grid"></div>
   <p class="no-results" id="empty" hidden>검색 결과가 없습니다.</p>
 </main>
@@ -130,6 +130,12 @@ q.addEventListener('input', ()=>{
     c.style.display = hit?'':'none'; if(hit) shown++;
   });
   document.getElementById('empty').hidden = shown>0;
+  const countEl = document.getElementById('count');
+  if(term){
+    countEl.textContent = shown>0 ? `검색 결과 ${shown}개` : '검색 결과 없음';
+  } else {
+    countEl.textContent = `총 ${notes.length}개 노트`;
+  }
 });
 document.addEventListener('keydown', (e)=>{
   const t=((document.activeElement&&document.activeElement.tagName)||'').toLowerCase();
