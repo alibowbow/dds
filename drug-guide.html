@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>치과 약물 &middot; 처방 가이드 — JH의 덴탈시냅스</title>
-<meta name="theme-color" content="#4f46e5" />
+<meta name="theme-color" content="#0b6b5b" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="assets/theme.css?v=5" />
+<link rel="stylesheet" href="assets/theme.css?v=6" />
 <style>
   /* drug-guide 전용 컴포넌트 — 색/타입/다크모드 토큰은 theme.css에서 상속 */
   *{box-sizing:border-box}
@@ -258,7 +258,7 @@
     <div class="sec-head"><span class="num">5</span><h2>맵 &middot; 시각화</h2></div>
     <p class="sec-desc">분류 체계, 통증·항생제 의사결정, 술식→처방, 전신질환 안전 맵. (다이어그램 렌더에는 인터넷 연결 필요)</p>
 
-    <div class="diagram">
+    <div class="diagram" tabindex="0" aria-label="전체 약물 분류 다이어그램">
       <h3>① 전체 약물 분류 마인드맵</h3>
       <p class="maphint">🎨 분기별 색상은 약물 대분류를 구분합니다.</p>
       <pre class="mermaid">
@@ -318,7 +318,7 @@ mindmap
       </pre>
     </div>
 
-    <div class="diagram">
+    <div class="diagram" tabindex="0" aria-label="급성 치통 진통 의사결정 다이어그램">
       <h3>② 급성 치통 진통 의사결정 (ADA 2024)</h3>
       <pre class="mermaid">
 flowchart TD
@@ -332,7 +332,7 @@ flowchart TD
       </pre>
     </div>
 
-    <div class="diagram">
+    <div class="diagram" tabindex="0" aria-label="항생제 선택 다이어그램">
       <h3>③ 항생제 선택 + 페니실린 알레르기 분기</h3>
       <pre class="mermaid">
 flowchart TD
@@ -350,7 +350,7 @@ flowchart TD
       </pre>
     </div>
 
-    <div class="diagram">
+    <div class="diagram" tabindex="0" aria-label="술식별 처방 다이어그램">
       <h3>④ 술식·상황 → 처방 맵 (핵심)</h3>
       <p class="maphint">💡 왼쪽 <b>술식 박스를 클릭</b>하면 ① 해당 처방 카드로 이동합니다.</p>
       <pre class="mermaid">
@@ -388,7 +388,7 @@ flowchart LR
       </pre>
     </div>
 
-    <div class="diagram">
+    <div class="diagram" tabindex="0" aria-label="전신질환 안전 다이어그램">
       <h3>⑤ 전신질환·특수환자 안전 맵</h3>
       <pre class="mermaid">
 flowchart LR
@@ -409,7 +409,7 @@ flowchart LR
   <section id="emergency">
     <div class="sec-head"><span class="num">6</span><h2>응급상황 → 약물 맵</h2></div>
     <p class="sec-desc">ADA 권장 필수 응급약물 7종(산소·epinephrine·nitroglycerin·albuterol·diphenhydramine·aspirin·glucose) 기반.</p>
-    <div class="diagram">
+    <div class="diagram" tabindex="0" aria-label="응급상황 약물 다이어그램">
       <pre class="mermaid">
 flowchart LR
   E1["아나필락시스"] --> D1["즉시 EMS<br/>epinephrine 1mg/mL<br/>0.01mg/kg IM<br/>20kg: 0.2mg = 0.2mL"]
@@ -492,7 +492,7 @@ const catColors = {
 };
 const scenarioTagColor = {
   '외과·발치':'#0f6e8c', '식립·골이식':'#7c3aed', '급성 감염':'#dc2626',
-  '치주':'#137a63', '점막·바이러스':'#a855f7', '근골격':'#f97316',
+  '치주':'#137a63', '점막·바이러스':'#7e22ce', '근골격':'#9a4308',
   '신경병성 통증':'#4f46e5', '예방':'#0a5066', '특수 환자군':'#475569'
 };
 
@@ -989,33 +989,8 @@ const toTop = document.getElementById('toTop');
 window.addEventListener('scroll', ()=>{ toTop.classList.toggle('show', window.scrollY>600); }, {passive:true});
 toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
 
-/* ============ THEME (persisted) ============ */
-const root = document.documentElement;
-const themeBtn = document.getElementById('theme');
-function effectiveDark(){
-  const t = root.getAttribute('data-theme');
-  if(t==='dark') return true;
-  if(t==='light') return false;
-  return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-}
-function updateThemeIcon(){
-  const id = effectiveDark() ? '#i-sun' : '#i-moon';
-  const u = themeBtn.querySelector('use');
-  if(u){ u.setAttribute('href','assets/icons.svg'+id); u.setAttribute('xlink:href','assets/icons.svg'+id); }
-  themeBtn.setAttribute('aria-label', effectiveDark()?'라이트 모드로 전환':'다크 모드로 전환');
-}
-(function initTheme(){
-  let saved=null; try{ saved=localStorage.getItem('dds-theme'); }catch(_){}
-  if(saved==='dark' || saved==='light') root.setAttribute('data-theme', saved);
-  updateThemeIcon();
-})();
-themeBtn.addEventListener('click', ()=>{
-  const next = effectiveDark() ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  try{ localStorage.setItem('dds-theme', next); }catch(_){}
-  updateThemeIcon();
-});
 </script>
 <script src="assets/charts.js?v=4"></script>
+<script src="assets/theme.js?v=5"></script>
 </body>
 </html>
