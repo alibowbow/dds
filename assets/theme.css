@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 /* =======================================================================
    JH의 덴탈시냅스 — Design System (tokens)  ·  모든 페이지 공유
    ======================================================================= */
@@ -68,9 +70,10 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth; scroll-padding-top:78px}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *{animation-duration:.001ms!important;transition-duration:.001ms!important} }
-body{margin:0;font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+body{margin:0;font-family:"Pretendard Variable", "Pretendard", "Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   font-size:var(--text-base);line-height:var(--lh);background:var(--bg);color:var(--ink);
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  word-break:keep-all;overflow-wrap:break-word;}
 a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:underline}
 h1,h2,h3,h4{line-height:var(--lh-tight);letter-spacing:-.01em}
