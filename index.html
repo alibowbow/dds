@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#4f46e5" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="assets/theme.css?v=7" />
+<link rel="preload" as="image" href="assets/tooth-hero-v2.webp" type="image/webp" />
 <style>
   .hub-page{
     --hub-canvas:#fafaff;
@@ -30,44 +31,22 @@
   .hub-header .themebtn{margin-left:auto}
 
   .hub-main{padding:20px 0 var(--sp-8)}
-  .hub-intro{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);grid-template-rows:auto 1fr;gap:18px clamp(26px,4vw,48px);overflow:hidden;
-    min-height:326px;padding:30px 34px 28px 40px;border:1px solid var(--hero-line);border-radius:18px;color:var(--hero-ink);background:var(--hero-surface);
+  .hub-intro{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.62fr);align-items:center;gap:clamp(24px,5vw,64px);overflow:hidden;
+    min-height:294px;padding:26px 38px 26px 44px;border:1px solid var(--hero-line);border-radius:18px;color:var(--hero-ink);background:var(--hero-surface);
     box-shadow:0 1px 0 rgba(255,255,255,.82) inset,0 20px 54px rgba(56,52,110,.09)}
   .hub-intro::before{content:"";position:absolute;inset:0;z-index:-2;background:
     linear-gradient(90deg,var(--hero-grid) 1px,transparent 1px),
     linear-gradient(0deg,var(--hero-grid) 1px,transparent 1px);
     background-size:52px 52px;mask-image:linear-gradient(90deg,transparent 5%,#000 58%,#000)}
   .hub-intro::after{content:"";position:absolute;inset:28px auto 28px 0;width:4px;border-radius:0 6px 6px 0;background:linear-gradient(180deg,#766df4,var(--brand));box-shadow:0 0 20px rgba(79,70,229,.25)}
-  .intro-copy{position:relative;z-index:1;align-self:end;padding-top:5px}
-  .hub-intro h1{margin:0;color:var(--hero-ink);font-size:clamp(2.35rem,4.2vw,3.45rem);line-height:.98;letter-spacing:-.06em}
+  .intro-copy{position:relative;z-index:1;align-self:center}
+  .hub-intro h1{max-width:650px;margin:0;color:var(--hero-ink);font-size:clamp(2.5rem,5vw,4.25rem);line-height:1.02;letter-spacing:-.07em;text-wrap:balance}
   .hub-intro h1::after{content:"";display:block;width:44px;height:3px;margin-top:17px;border-radius:2px;background:var(--brand)}
 
-  .quick-panel{position:relative;z-index:2;align-self:start}
-  .quick-head{display:flex;align-items:center;gap:9px;margin-bottom:10px;color:var(--hero-muted)}
-  .quick-head::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px color-mix(in srgb,var(--brand) 10%,transparent)}
-  .quick-head b{font-size:var(--text-xs);letter-spacing:.025em}
-  .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-  .quick-link{--quick:var(--brand);position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) 16px;align-items:center;gap:11px;min-height:68px;padding:11px 12px;border:1px solid color-mix(in srgb,var(--quick) 17%,var(--line));border-radius:11px;color:var(--hero-ink);background:color-mix(in srgb,var(--surface) 94%,transparent);box-shadow:var(--shadow-sm);
-    transition:background-color var(--dur),border-color var(--dur),transform var(--dur) var(--ease),box-shadow var(--dur)}
-  .quick-link::after{content:"›";color:var(--quick);font-size:1.35rem;line-height:1;opacity:.68;transition:transform var(--dur),opacity var(--dur)}
-  .quick-link:hover{background:var(--surface);border-color:color-mix(in srgb,var(--quick) 46%,var(--line));transform:translateY(-2px);box-shadow:var(--shadow);text-decoration:none}
-  .quick-link:hover::after{transform:translateX(2px);opacity:1}
-  .quick-link .ic{width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--quick) 11%,var(--surface));color:var(--quick)}
-  .quick-link .ic svg{width:21px;height:21px}
-  .quick-link span:nth-child(2){min-width:0}
-  .quick-link b{font-size:var(--text-sm);line-height:1.25}
-
-  .dental-visual{position:relative;grid-column:2;grid-row:1/3;align-self:stretch;display:grid;place-items:center;min-width:0;min-height:260px}
-  .dental-visual::before{content:"";position:absolute;width:84%;aspect-ratio:1;left:7%;top:6%;border-radius:50%;background:radial-gradient(circle,rgba(111,103,242,.14),rgba(111,103,242,.035) 50%,transparent 70%)}
-  .dental-visual::after{content:"";position:absolute;inset:18% 3% auto auto;width:78%;height:1px;background:linear-gradient(90deg,transparent,var(--hero-line),transparent);transform:rotate(-22deg)}
-  .tooth-art{position:relative;width:min(100%,340px);height:auto;overflow:visible;filter:drop-shadow(0 18px 22px rgba(67,56,202,.12))}
-  .tooth-shell{fill:color-mix(in srgb,var(--brand-soft) 34%,var(--surface));stroke:color-mix(in srgb,var(--brand) 43%,var(--line));stroke-width:2}
-  .tooth-layer{fill:none;stroke:color-mix(in srgb,var(--brand) 29%,var(--line));stroke-width:1.35}
-  .tooth-core{fill:color-mix(in srgb,var(--brand) 18%,transparent);stroke:color-mix(in srgb,var(--brand) 48%,var(--line));stroke-width:1.5}
-  .tooth-nerve{fill:none;stroke:color-mix(in srgb,var(--brand-strong) 76%,transparent);stroke-width:1.6;stroke-linecap:round}
-  .synapse-line{fill:none;stroke:color-mix(in srgb,var(--brand) 38%,transparent);stroke-width:1}
-  .synapse-node{fill:var(--surface);stroke:color-mix(in srgb,var(--brand) 75%,var(--surface));stroke-width:1.8}
-  .synapse-node.is-fill{fill:var(--brand);stroke:color-mix(in srgb,var(--brand) 62%,#fff)}
+  .dental-visual{position:relative;align-self:stretch;display:grid;place-items:center;min-width:0;min-height:242px}
+  .dental-visual::before{content:"";position:absolute;width:min(94%,258px);aspect-ratio:1;border-radius:43% 57% 51% 49%/47% 43% 57% 53%;background:radial-gradient(circle at 32% 24%,#8c85ff 0,#6258ed 35%,#3a308f 100%);box-shadow:0 24px 52px rgba(64,52,174,.26),inset 0 1px 0 rgba(255,255,255,.34);transform:rotate(-6deg)}
+  .dental-visual::after{content:"";position:absolute;width:min(76%,212px);aspect-ratio:1;border:1px solid rgba(255,255,255,.3);border-radius:50%;transform:rotate(16deg) scaleX(.83)}
+  .tooth-art{position:relative;z-index:1;width:auto;height:250px;max-width:70%;object-fit:contain;filter:drop-shadow(0 18px 18px rgba(28,22,91,.28))}
 
   .library{padding:22px 0 0}
   .library-shell{overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 18px 46px rgba(25,30,60,.055)}
@@ -134,19 +113,16 @@
   @media (prefers-reduced-motion:no-preference){
     .note-card{opacity:0;animation:noteIn .35s var(--ease) forwards;animation-delay:var(--delay,0ms)}
     .tooth-art{animation:toothFloat 6s ease-in-out infinite alternate}
-    .synapse-node.is-fill{animation:nodePulse 2.8s ease-in-out infinite alternate}
     @keyframes noteIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
     @keyframes toothFloat{to{transform:translateY(-4px)}}
-    @keyframes nodePulse{to{opacity:.48}}
   }
   @media (max-width:760px){
     .hub-main{padding-top:13px}
-    .hub-intro{grid-template-columns:minmax(0,1fr) 150px;grid-template-rows:auto auto;min-height:0;gap:14px 8px;padding:22px 18px 18px 24px}
-    .intro-copy{grid-column:1;grid-row:1;align-self:center}
-    .hub-intro h1{font-size:clamp(2.05rem,7vw,2.8rem)}
-    .dental-visual{grid-column:2;grid-row:1;min-height:132px}
-    .tooth-art{width:min(100%,150px)}
-    .quick-panel{grid-column:1/-1;grid-row:2}
+    .hub-intro{grid-template-columns:minmax(0,1fr) 164px;min-height:214px;gap:10px;padding:22px 18px 22px 26px}
+    .hub-intro h1{font-size:clamp(2.15rem,7.7vw,3.25rem)}
+    .dental-visual{min-height:170px}
+    .dental-visual::before{width:158px}.dental-visual::after{width:130px}
+    .tooth-art{height:166px;max-width:72%}
     .library-tools{align-items:stretch;flex-direction:column;gap:13px;padding:17px 16px 15px}
     .hub-search{width:100%}
   }
@@ -160,14 +136,10 @@
   }
   @media (max-width:420px){
     .hub-main>.wrap{padding-inline:12px}
-    .hub-intro{grid-template-columns:minmax(0,1fr) 104px;padding:19px 13px 14px 17px;border-radius:13px}
+    .hub-intro{grid-template-columns:minmax(0,1fr) 112px;min-height:172px;padding:18px 10px 18px 18px;border-radius:13px}
     .hub-intro::after{inset-block:20px}
-    .hub-intro h1{font-size:2.02rem}.hub-intro h1::after{width:34px;margin-top:12px}
-    .dental-visual{min-height:100px}.tooth-art{width:108px}
-    .quick-grid{gap:7px}
-    .quick-link{grid-template-columns:34px minmax(0,1fr) 12px;gap:8px;min-height:60px;padding:9px 8px;border-radius:9px}
-    .quick-link .ic{width:34px;height:34px;border-radius:8px}.quick-link .ic svg{width:18px;height:18px}
-    .quick-link b{font-size:.78rem}
+    .hub-intro h1{font-size:2rem}.hub-intro h1::after{width:34px;margin-top:12px}
+    .dental-visual{min-height:134px}.dental-visual::before{width:112px}.dental-visual::after{width:90px}.tooth-art{height:128px;max-width:76%}
     .library-tools{padding-inline:14px}.library-rail{padding-inline:7px}.filter{padding-inline:10px}
     .result-head{padding-inline:14px}.note-card{grid-template-columns:40px minmax(0,1fr) 18px;gap:10px;padding:12px 13px}
     .note-card>.ic{width:40px;height:40px}.note-card h3{font-size:.92rem}
@@ -190,35 +162,10 @@
   <div class="wrap">
     <section class="hub-intro" aria-labelledby="hub-title">
       <div class="intro-copy">
-        <h1 id="hub-title">임상 노트</h1>
+        <h1 id="hub-title">임상의 핵심만.</h1>
       </div>
-      <aside class="quick-panel" aria-label="진료 중 빠른 진입">
-        <div class="quick-head"><b>빠른 진입</b></div>
-        <div class="quick-grid">
-          <a class="quick-link" href="drug-guide.html" style="--quick:#4f46e5"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span><span><b>약물·처방</b></span></a>
-          <a class="quick-link" href="emergency.html" style="--quick:#dc2626"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span><span><b>응급 대응</b></span></a>
-          <a class="quick-link" href="systemic.html" style="--quick:#0e7490"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span><span><b>전신질환</b></span></a>
-          <a class="quick-link" href="kcd.html" style="--quick:#7c3aed"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><span><b>KCD 코드</b></span></a>
-        </div>
-      </aside>
       <div class="dental-visual" aria-hidden="true">
-        <svg class="tooth-art" viewBox="0 0 360 300" fill="none">
-          <path class="tooth-shell" d="M178 27c-23-17-54-12-72 7-26 27-22 67-3 99 14 23 16 48 13 78l-5 55c-1 14 13 20 21 8l28-57c5-11 13-18 20-18s15 7 20 18l28 57c8 12 22 6 21-8l-5-55c-3-30-1-55 13-78 19-32 23-72-3-99-18-19-49-24-72-7-8 6-16 6-24 0Z"/>
-          <path class="tooth-layer" d="M179 42c-21-15-45-11-60 5-20 22-16 54 1 83 16 27 17 53 14 84l-3 37 22-45c7-15 16-24 27-24s20 9 27 24l22 45-3-37c-3-31-2-57 14-84 17-29 21-61 1-83-15-16-39-20-60-5-8 6-14 6-22 0Z"/>
-          <path class="tooth-layer" d="M180 57c-19-12-37-8-48 6-14 18-8 43 6 66 15 26 16 52 13 78l-1 9 8-17c6-13 13-28 22-28s16 15 22 28l8 17-1-9c-3-26-2-52 13-78 14-23 20-48 6-66-11-14-29-18-48-6Z"/>
-          <path class="tooth-core" d="M180 83c-12-8-25-5-32 6-8 13-1 30 9 47 11 20 11 39 9 58 4-11 8-23 14-23s10 12 14 23c-2-19-2-38 9-58 10-17 17-34 9-47-7-11-20-14-32-6Z"/>
-          <path class="tooth-nerve" d="M180 98v67m0 0-17 58m17-58 17 58m-17-87-13-24m13 24 13-24"/>
-          <path class="synapse-line" d="M78 83 128 109 180 98 235 120 299 83M86 186l64-20 30 20 46-38 66 37M128 109l22 57m85-46-9 28"/>
-          <circle class="synapse-node is-fill" cx="78" cy="83" r="5"/>
-          <circle class="synapse-node" cx="128" cy="109" r="4"/>
-          <circle class="synapse-node is-fill" cx="150" cy="166" r="4.5"/>
-          <circle class="synapse-node" cx="180" cy="98" r="5"/>
-          <circle class="synapse-node is-fill" cx="180" cy="186" r="4"/>
-          <circle class="synapse-node" cx="226" cy="148" r="4"/>
-          <circle class="synapse-node is-fill" cx="235" cy="120" r="5"/>
-          <circle class="synapse-node" cx="299" cy="83" r="4.5"/>
-          <circle class="synapse-node is-fill" cx="292" cy="185" r="4"/>
-        </svg>
+        <img class="tooth-art" src="assets/tooth-hero-v2.webp" width="427" height="640" alt="" fetchpriority="high" decoding="async" />
       </div>
     </section>
 
