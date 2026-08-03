@@ -9,111 +9,168 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="assets/theme.css?v=7" />
 <style>
-  .hub-page{background:
-    linear-gradient(180deg,color-mix(in srgb,var(--brand-soft) 46%,var(--bg)) 0,transparent 300px),var(--bg)}
+  .hub-page{
+    --hub-canvas:#fafaff;
+    --hero-surface:rgba(255,255,255,.9);
+    --hero-ink:#171b2b;
+    --hero-muted:#697087;
+    --hero-line:rgba(79,70,229,.16);
+    --hero-grid:rgba(79,70,229,.045);
+    background:
+      radial-gradient(780px 360px at 76% -5%,rgba(99,102,241,.11),transparent 72%),
+      linear-gradient(180deg,var(--hub-canvas) 0,var(--bg) 560px)}
   .hub-header{background:color-mix(in srgb,var(--surface) 96%,transparent);border-bottom:1px solid var(--line)}
-  .hub-header-inner{height:72px;display:flex;align-items:center;gap:16px}
+  .hub-header-inner{height:66px;display:flex;align-items:center;gap:16px}
   .hub-brand{display:inline-flex;align-items:center;gap:11px;min-height:48px;color:var(--ink)}
   .hub-brand:hover{text-decoration:none}
-  .hub-brand .logo{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--brand);color:#fff}
-  .hub-brand .logo svg{width:23px;height:23px}
+  .hub-brand .logo{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(145deg,#6259ef,var(--brand-strong));color:#fff;box-shadow:0 7px 18px rgba(79,70,229,.2)}
+  .hub-brand .logo svg{width:22px;height:22px}
   .hub-wordmark{line-height:1.1}
-  .hub-wordmark b{font-size:.96rem;letter-spacing:-.02em}
+  .hub-wordmark b{font-size:.97rem;letter-spacing:-.025em}
   .hub-header .themebtn{margin-left:auto}
 
-  .hub-main{padding:24px 0 var(--sp-8)}
-  .hub-intro{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,.82fr) minmax(330px,1fr);gap:clamp(22px,4vw,48px);align-items:center;overflow:hidden;
-    min-height:240px;padding:clamp(24px,4vw,40px);border-radius:18px;color:#fff;background:#3a2ea8;box-shadow:0 24px 58px rgba(58,46,168,.2)}
+  .hub-main{padding:20px 0 var(--sp-8)}
+  .hub-intro{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);grid-template-rows:auto 1fr;gap:18px clamp(26px,4vw,48px);overflow:hidden;
+    min-height:326px;padding:30px 34px 28px 40px;border:1px solid var(--hero-line);border-radius:18px;color:var(--hero-ink);background:var(--hero-surface);
+    box-shadow:0 1px 0 rgba(255,255,255,.82) inset,0 20px 54px rgba(56,52,110,.09)}
   .hub-intro::before{content:"";position:absolute;inset:0;z-index:-2;background:
-    linear-gradient(100deg,rgba(31,26,98,.1),rgba(91,81,239,.62)),
-    repeating-linear-gradient(90deg,transparent 0,transparent 79px,rgba(255,255,255,.045) 80px),
-    repeating-linear-gradient(0deg,transparent 0,transparent 55px,rgba(255,255,255,.03) 56px)}
-  .hub-intro::after{content:"";position:absolute;width:420px;height:420px;right:-180px;top:-230px;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 142px rgba(255,255,255,.018);z-index:-1}
-  .hub-network{position:absolute;right:20%;top:6%;width:min(48%,520px);height:auto;z-index:-1;opacity:.36;color:#e1dfff}
-  .intro-copy{position:relative;z-index:1}
-  .hub-intro h1{margin:0;font-size:clamp(2rem,4vw,3rem);line-height:1.08;letter-spacing:-.052em}
+    linear-gradient(90deg,var(--hero-grid) 1px,transparent 1px),
+    linear-gradient(0deg,var(--hero-grid) 1px,transparent 1px);
+    background-size:52px 52px;mask-image:linear-gradient(90deg,transparent 5%,#000 58%,#000)}
+  .hub-intro::after{content:"";position:absolute;inset:28px auto 28px 0;width:4px;border-radius:0 6px 6px 0;background:linear-gradient(180deg,#766df4,var(--brand));box-shadow:0 0 20px rgba(79,70,229,.25)}
+  .intro-copy{position:relative;z-index:1;align-self:end;padding-top:5px}
+  .hub-intro h1{margin:0;color:var(--hero-ink);font-size:clamp(2.35rem,4.2vw,3.45rem);line-height:.98;letter-spacing:-.06em}
+  .hub-intro h1::after{content:"";display:block;width:44px;height:3px;margin-top:17px;border-radius:2px;background:var(--brand)}
 
-  .quick-panel{position:relative;z-index:1;padding:17px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(31,25,96,.46)}
-  .quick-head{margin-bottom:12px}
-  .quick-head b{font-size:var(--text-sm)}
-  .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .quick-link{display:grid;grid-template-columns:34px minmax(0,1fr);align-items:center;gap:9px;min-height:56px;padding:10px;border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;background:rgba(255,255,255,.07);transition:background-color var(--dur),border-color var(--dur),transform var(--dur)}
-  .quick-link:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.28);transform:translateY(-1px);text-decoration:none}
-  .quick-link .ic{width:34px;height:34px;border-radius:9px;background:rgba(203,200,255,.16);color:#dedcff}
-  .quick-link .ic svg{width:19px;height:19px}
-  .quick-link span:last-child{display:grid;min-width:0}
+  .quick-panel{position:relative;z-index:2;align-self:start}
+  .quick-head{display:flex;align-items:center;gap:9px;margin-bottom:10px;color:var(--hero-muted)}
+  .quick-head::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px color-mix(in srgb,var(--brand) 10%,transparent)}
+  .quick-head b{font-size:var(--text-xs);letter-spacing:.025em}
+  .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .quick-link{--quick:var(--brand);position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) 16px;align-items:center;gap:11px;min-height:68px;padding:11px 12px;border:1px solid color-mix(in srgb,var(--quick) 17%,var(--line));border-radius:11px;color:var(--hero-ink);background:color-mix(in srgb,var(--surface) 94%,transparent);box-shadow:var(--shadow-sm);
+    transition:background-color var(--dur),border-color var(--dur),transform var(--dur) var(--ease),box-shadow var(--dur)}
+  .quick-link::after{content:"›";color:var(--quick);font-size:1.35rem;line-height:1;opacity:.68;transition:transform var(--dur),opacity var(--dur)}
+  .quick-link:hover{background:var(--surface);border-color:color-mix(in srgb,var(--quick) 46%,var(--line));transform:translateY(-2px);box-shadow:var(--shadow);text-decoration:none}
+  .quick-link:hover::after{transform:translateX(2px);opacity:1}
+  .quick-link .ic{width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--quick) 11%,var(--surface));color:var(--quick)}
+  .quick-link .ic svg{width:21px;height:21px}
+  .quick-link span:nth-child(2){min-width:0}
   .quick-link b{font-size:var(--text-sm);line-height:1.25}
-  .library{padding:32px 0 0}
-  .library-tools{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
-  .library-title h2{margin:0;font-size:clamp(1.55rem,3vw,2rem)}
-  .hub-search{position:relative;display:flex;align-items:center;width:min(100%,390px)}
-  .hub-search>svg{position:absolute;left:15px;width:19px;height:19px;color:var(--ink-3);pointer-events:none}
-  .hub-search input{width:100%;height:50px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);padding:0 54px 0 44px;outline:none;box-shadow:var(--shadow-sm);transition:border-color var(--dur),box-shadow var(--dur)}
-  .hub-search input::placeholder{color:var(--ink-3)}
-  .hub-search input:focus{border-color:var(--brand);box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 15%,transparent)}
-  .hub-search kbd{position:absolute;right:13px;display:grid;place-items:center;min-width:26px;height:25px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:var(--surface-2);color:var(--ink-2);font:700 .72rem/1 system-ui}
 
-  .library-layout{display:grid;grid-template-columns:188px minmax(0,1fr);gap:28px;align-items:start}
-  .library-rail{position:sticky;top:18px;display:grid;gap:5px;padding:7px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 88%,transparent)}
-  .filter{appearance:none;border:0;border-radius:8px;background:transparent;color:var(--ink-2);min-height:44px;padding:0 10px;display:flex;align-items:center;gap:8px;text-align:left;cursor:pointer;font-size:var(--text-sm);font-weight:700;transition:background-color var(--dur),color var(--dur)}
-  .filter:hover{background:var(--surface-2);color:var(--ink)}
-  .filter[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);font-weight:850;transition:none}
-  .filter span{margin-left:auto;min-width:23px;text-align:center;padding:1px 5px;border-radius:var(--r-pill);background:color-mix(in srgb,currentColor 11%,transparent);font-size:.69rem;font-variant-numeric:tabular-nums}
-  :root[data-theme="dark"] .filter[aria-pressed="true"]{background:#aaa6f9;color:#0e1118}
-  :root[data-theme="dark"] .filter[aria-pressed="true"] span{background:rgba(14,17,24,.12);color:#0e1118}
-  @media (prefers-color-scheme:dark){
-    :root[data-theme="auto"] .filter[aria-pressed="true"]{background:#aaa6f9;color:#0e1118}
-    :root[data-theme="auto"] .filter[aria-pressed="true"] span{background:rgba(14,17,24,.12);color:#0e1118}
-  }
+  .dental-visual{position:relative;grid-column:2;grid-row:1/3;align-self:stretch;display:grid;place-items:center;min-width:0;min-height:260px}
+  .dental-visual::before{content:"";position:absolute;width:84%;aspect-ratio:1;left:7%;top:6%;border-radius:50%;background:radial-gradient(circle,rgba(111,103,242,.14),rgba(111,103,242,.035) 50%,transparent 70%)}
+  .dental-visual::after{content:"";position:absolute;inset:18% 3% auto auto;width:78%;height:1px;background:linear-gradient(90deg,transparent,var(--hero-line),transparent);transform:rotate(-22deg)}
+  .tooth-art{position:relative;width:min(100%,340px);height:auto;overflow:visible;filter:drop-shadow(0 18px 22px rgba(67,56,202,.12))}
+  .tooth-shell{fill:color-mix(in srgb,var(--brand-soft) 34%,var(--surface));stroke:color-mix(in srgb,var(--brand) 43%,var(--line));stroke-width:2}
+  .tooth-layer{fill:none;stroke:color-mix(in srgb,var(--brand) 29%,var(--line));stroke-width:1.35}
+  .tooth-core{fill:color-mix(in srgb,var(--brand) 18%,transparent);stroke:color-mix(in srgb,var(--brand) 48%,var(--line));stroke-width:1.5}
+  .tooth-nerve{fill:none;stroke:color-mix(in srgb,var(--brand-strong) 76%,transparent);stroke-width:1.6;stroke-linecap:round}
+  .synapse-line{fill:none;stroke:color-mix(in srgb,var(--brand) 38%,transparent);stroke-width:1}
+  .synapse-node{fill:var(--surface);stroke:color-mix(in srgb,var(--brand) 75%,var(--surface));stroke-width:1.8}
+  .synapse-node.is-fill{fill:var(--brand);stroke:color-mix(in srgb,var(--brand) 62%,#fff)}
+
+  .library{padding:22px 0 0}
+  .library-shell{overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 18px 46px rgba(25,30,60,.055)}
+  .library-tools{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:19px 20px 16px;border-bottom:1px solid var(--line)}
+  .library-title h2{margin:0;font-size:clamp(1.35rem,2.5vw,1.7rem)}
+  .hub-search{position:relative;display:flex;align-items:center;width:min(100%,460px)}
+  .hub-search>svg{position:absolute;left:15px;width:19px;height:19px;color:var(--ink-3);pointer-events:none}
+  .hub-search input{width:100%;height:46px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);color:var(--ink);padding:0 54px 0 44px;outline:none;transition:border-color var(--dur),box-shadow var(--dur),background-color var(--dur)}
+  .hub-search input::placeholder{color:var(--ink-3)}
+  .hub-search input:focus{border-color:var(--brand);background:var(--surface);box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 15%,transparent)}
+  .hub-search kbd{position:absolute;right:13px;display:grid;place-items:center;min-width:26px;height:25px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:var(--surface);color:var(--ink-2);font:700 .72rem/1 system-ui}
+
+  .library-layout{min-width:0}
+  .library-rail{display:flex;gap:2px;overflow-x:auto;padding:0 14px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface-2) 48%,var(--surface));scrollbar-width:none}
+  .library-rail::-webkit-scrollbar{display:none}
+  .filter{appearance:none;position:relative;flex:0 0 auto;border:0;background:transparent;color:var(--ink-2);min-height:49px;padding:0 12px;display:flex;align-items:center;gap:7px;white-space:nowrap;cursor:pointer;font-size:var(--text-xs);font-weight:750;transition:color var(--dur),background-color var(--dur)}
+  .filter::after{content:"";position:absolute;inset:auto 10px -1px;height:2px;border-radius:2px 2px 0 0;background:var(--brand);transform:scaleX(0);transition:transform var(--dur) var(--ease)}
+  .filter:hover{background:color-mix(in srgb,var(--brand-soft) 42%,transparent);color:var(--ink)}
+  .filter[aria-pressed="true"]{color:var(--brand);font-weight:900}
+  .filter[aria-pressed="true"]::after{transform:scaleX(1)}
+  .filter span{min-width:23px;text-align:center;padding:2px 6px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink-3);font-size:.68rem;font-variant-numeric:tabular-nums}
+  .filter[aria-pressed="true"] span{background:var(--brand-soft);color:var(--brand)}
+
   .library-results{min-width:0}
-  .result-head{min-height:28px;display:flex;align-items:center;gap:12px;margin:0 0 10px}
-  .result-head p{margin:0;color:var(--ink-2);font-size:var(--text-xs);font-weight:800;letter-spacing:.035em}
-  .reset-btn{appearance:none;margin-left:auto;border:0;background:transparent;color:var(--brand);min-height:40px;padding:0 6px;cursor:pointer;font-size:var(--text-xs);font-weight:850}
+  .result-head{min-height:40px;display:flex;align-items:center;gap:12px;margin:0;padding:4px 20px;border-bottom:1px solid var(--line)}
+  .result-head p{margin:0;color:var(--ink-2);font-size:var(--text-xs);font-weight:800;letter-spacing:.025em}
+  .reset-btn{appearance:none;margin-left:auto;border:0;background:transparent;color:var(--brand);min-height:36px;padding:0 4px;cursor:pointer;font-size:var(--text-xs);font-weight:850}
   .reset-btn:hover{text-decoration:underline}
-  .note-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .note-card{--note-accent:var(--brand);position:relative;display:grid;grid-template-columns:48px minmax(0,1fr) 22px;gap:14px;align-items:center;min-height:104px;padding:16px 17px 16px 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform var(--dur) var(--ease),border-color var(--dur),box-shadow var(--dur)}
-  .note-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--note-accent)}
-  .note-card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--note-accent) 42%,var(--line));box-shadow:var(--shadow);text-decoration:none}
-  .note-card>.ic{width:48px;height:48px;border-radius:11px;background:color-mix(in srgb,var(--note-accent) 13%,transparent);color:var(--note-accent)}
-  .note-card>.ic svg{width:24px;height:24px}
+  .note-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}
+  .note-card{--note-accent:var(--brand);position:relative;display:grid;grid-template-columns:42px minmax(0,1fr) 20px;gap:12px;align-items:center;min-height:86px;padding:13px 17px;border:0;border-bottom:1px solid var(--line);background:var(--surface);color:var(--ink);overflow:hidden;transition:background-color var(--dur),color var(--dur)}
+  .note-card:nth-child(odd){border-right:1px solid var(--line)}
+  .note-card:hover{background:color-mix(in srgb,var(--note-accent) 5%,var(--surface));text-decoration:none}
+  .note-card>.ic{width:42px;height:42px;border-radius:10px;background:color-mix(in srgb,var(--note-accent) 11%,var(--surface));color:var(--note-accent);transition:transform var(--dur) var(--ease)}
+  .note-card:hover>.ic{transform:scale(1.05)}
+  .note-card>.ic svg{width:21px;height:21px}
   .note-copy{min-width:0}
-  .note-meta{display:flex;align-items:center;gap:7px;min-height:20px;color:var(--ink-3);font-size:.68rem;font-weight:750}
+  .note-meta{display:flex;align-items:center;gap:7px;min-height:18px;color:var(--ink-3);font-size:.66rem;font-weight:750}
   .note-meta .tagline{color:var(--note-accent)}
   .note-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--line)}
-  .note-card h3{margin:6px 0 0;font-size:var(--text-md);line-height:1.35}
-  .note-arrow{align-self:center;color:var(--note-accent);opacity:.62;transition:transform var(--dur),opacity var(--dur)}
-  .note-arrow svg{width:18px;height:18px}
+  .note-card h3{margin:4px 0 0;font-size:var(--text-base);line-height:1.36}
+  .note-arrow{align-self:center;color:var(--note-accent);opacity:.5;transition:transform var(--dur),opacity var(--dur)}
+  .note-arrow svg{width:17px;height:17px}
   .note-card:hover .note-arrow{opacity:1;transform:translateX(3px)}
-  .empty-state{border:1px dashed var(--line);border-radius:12px;background:color-mix(in srgb,var(--surface) 55%,transparent);padding:42px 24px;text-align:center;color:var(--ink-2)}
-  .empty-state .ic{width:44px;height:44px;margin:0 auto 10px;border-radius:11px;background:var(--surface-2);color:var(--ink-3)}
+  .empty-state{margin:18px;border:1px dashed var(--line);border-radius:11px;background:var(--surface-2);padding:38px 24px;text-align:center;color:var(--ink-2)}
+  .empty-state .ic{width:44px;height:44px;margin:0 auto 10px;border-radius:10px;background:var(--surface);color:var(--ink-3)}
   .empty-state p{margin:0 0 12px}
   .empty-state button{appearance:none;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);min-height:44px;padding:0 14px;cursor:pointer;font-size:var(--text-sm);font-weight:800}
 
-  .hub-footer{margin-top:56px;padding-bottom:36px;border-top:1px solid var(--line);color:var(--ink-3);font-size:var(--text-xs)}
-  .hub-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:22px}
+  .hub-footer{margin-top:42px;padding-bottom:28px;border-top:1px solid var(--line);color:var(--ink-3);font-size:var(--text-xs)}
+  .hub-footer-inner{display:flex;align-items:center;gap:14px;padding-top:20px}
   .hub-footer b{color:var(--ink-2)}
 
-  @media (prefers-reduced-motion:no-preference){
-    .note-card{opacity:0;transform:translateY(10px);animation:noteIn .38s var(--ease) forwards;animation-delay:var(--delay,0ms)}
-    @keyframes noteIn{to{opacity:1;transform:none}}
+  :root[data-theme="dark"] .hub-page{
+    --hub-canvas:#10131d;--hero-surface:rgba(22,27,40,.92);--hero-ink:#eef0f8;--hero-muted:#9da6bc;
+    --hero-line:rgba(141,137,246,.22);--hero-grid:rgba(141,137,246,.055)}
+  :root[data-theme="dark"] .note-meta .tagline{color:color-mix(in srgb,var(--note-accent) 42%,var(--ink))}
+  @media (prefers-color-scheme:dark){
+    :root[data-theme="auto"] .hub-page{
+      --hub-canvas:#10131d;--hero-surface:rgba(22,27,40,.92);--hero-ink:#eef0f8;--hero-muted:#9da6bc;
+      --hero-line:rgba(141,137,246,.22);--hero-grid:rgba(141,137,246,.055)}
+    :root[data-theme="auto"] .note-meta .tagline{color:color-mix(in srgb,var(--note-accent) 42%,var(--ink))}
   }
-  @media (max-width:900px){
-    .hub-intro{grid-template-columns:1fr;align-items:start}.quick-panel{max-width:660px}
-    .library-layout{grid-template-columns:1fr}.library-rail{position:static;display:flex;overflow-x:auto;padding:5px;scrollbar-width:none}.library-rail::-webkit-scrollbar{display:none}
-    .filter{flex:0 0 auto;white-space:nowrap;padding:0 12px}.filter span{margin-left:5px}
+
+  @media (prefers-reduced-motion:no-preference){
+    .note-card{opacity:0;animation:noteIn .35s var(--ease) forwards;animation-delay:var(--delay,0ms)}
+    .tooth-art{animation:toothFloat 6s ease-in-out infinite alternate}
+    .synapse-node.is-fill{animation:nodePulse 2.8s ease-in-out infinite alternate}
+    @keyframes noteIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+    @keyframes toothFloat{to{transform:translateY(-4px)}}
+    @keyframes nodePulse{to{opacity:.48}}
+  }
+  @media (max-width:760px){
+    .hub-main{padding-top:13px}
+    .hub-intro{grid-template-columns:minmax(0,1fr) 150px;grid-template-rows:auto auto;min-height:0;gap:14px 8px;padding:22px 18px 18px 24px}
+    .intro-copy{grid-column:1;grid-row:1;align-self:center}
+    .hub-intro h1{font-size:clamp(2.05rem,7vw,2.8rem)}
+    .dental-visual{grid-column:2;grid-row:1;min-height:132px}
+    .tooth-art{width:min(100%,150px)}
+    .quick-panel{grid-column:1/-1;grid-row:2}
+    .library-tools{align-items:stretch;flex-direction:column;gap:13px;padding:17px 16px 15px}
+    .hub-search{width:100%}
   }
   @media (max-width:680px){
-    .hub-header-inner{height:64px}.hub-main{padding-top:14px}
-    .hub-intro{min-height:0;padding:24px 20px;border-radius:14px;gap:20px}.hub-network{width:95%;right:-30%;top:2%}
-    .hub-intro h1{font-size:clamp(2.05rem,10.4vw,2.75rem)}
-    .quick-panel{padding:13px}
-    .library{padding-top:28px}.library-tools{align-items:stretch;flex-direction:column;gap:14px}.hub-search{width:100%}
-    .note-list{grid-template-columns:1fr}.note-card{min-height:0;grid-template-columns:44px minmax(0,1fr) 18px;padding:15px 14px 15px 17px;gap:12px}
-    .note-card>.ic{width:44px;height:44px}
-    .hub-footer-inner{align-items:flex-start;flex-direction:column}
+    .hub-header-inner{height:62px}
+    .hub-brand .logo{width:36px;height:36px}.hub-brand .logo svg{width:21px;height:21px}
+    .library{padding-top:16px}.library-shell{border-radius:13px}
+    .note-list{grid-template-columns:1fr}
+    .note-card:nth-child(odd){border-right:0}
+    .hub-footer{margin-top:34px}
   }
-  @media (max-width:390px){
-    .quick-grid{grid-template-columns:1fr}.quick-link{min-height:58px}.hub-intro h1{font-size:1.95rem}
+  @media (max-width:420px){
+    .hub-main>.wrap{padding-inline:12px}
+    .hub-intro{grid-template-columns:minmax(0,1fr) 104px;padding:19px 13px 14px 17px;border-radius:13px}
+    .hub-intro::after{inset-block:20px}
+    .hub-intro h1{font-size:2.02rem}.hub-intro h1::after{width:34px;margin-top:12px}
+    .dental-visual{min-height:100px}.tooth-art{width:108px}
+    .quick-grid{gap:7px}
+    .quick-link{grid-template-columns:34px minmax(0,1fr) 12px;gap:8px;min-height:60px;padding:9px 8px;border-radius:9px}
+    .quick-link .ic{width:34px;height:34px;border-radius:8px}.quick-link .ic svg{width:18px;height:18px}
+    .quick-link b{font-size:.78rem}
+    .library-tools{padding-inline:14px}.library-rail{padding-inline:7px}.filter{padding-inline:10px}
+    .result-head{padding-inline:14px}.note-card{grid-template-columns:40px minmax(0,1fr) 18px;gap:10px;padding:12px 13px}
+    .note-card>.ic{width:40px;height:40px}.note-card h3{font-size:.92rem}
   }
 </style>
 </head>
@@ -132,59 +189,74 @@
 <main class="hub-main" id="main-content">
   <div class="wrap">
     <section class="hub-intro" aria-labelledby="hub-title">
-      <svg class="hub-network" viewBox="0 0 560 300" aria-hidden="true" fill="none">
-        <g stroke="currentColor" stroke-width="1.2">
-          <path d="M55 194 139 96 248 132 326 56 437 96 505 35"/><path d="M139 96 176 225 298 252 437 96"/><path d="M248 132 298 252 505 224"/><path d="M326 56 505 224"/>
-        </g>
-        <g fill="currentColor"><circle cx="55" cy="194" r="5"/><circle cx="139" cy="96" r="7"/><circle cx="248" cy="132" r="5"/><circle cx="326" cy="56" r="6"/><circle cx="437" cy="96" r="4"/><circle cx="505" cy="35" r="5"/><circle cx="176" cy="225" r="4"/><circle cx="298" cy="252" r="7"/><circle cx="505" cy="224" r="5"/></g>
-      </svg>
       <div class="intro-copy">
         <h1 id="hub-title">임상 노트</h1>
       </div>
       <aside class="quick-panel" aria-label="진료 중 빠른 진입">
         <div class="quick-head"><b>빠른 진입</b></div>
         <div class="quick-grid">
-          <a class="quick-link" href="drug-guide.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span><span><b>약물·처방</b></span></a>
-          <a class="quick-link" href="emergency.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span><span><b>응급 대응</b></span></a>
-          <a class="quick-link" href="systemic.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span><span><b>전신질환</b></span></a>
-          <a class="quick-link" href="kcd.html"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><span><b>KCD 코드</b></span></a>
+          <a class="quick-link" href="drug-guide.html" style="--quick:#4f46e5"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span><span><b>약물·처방</b></span></a>
+          <a class="quick-link" href="emergency.html" style="--quick:#dc2626"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span><span><b>응급 대응</b></span></a>
+          <a class="quick-link" href="systemic.html" style="--quick:#0e7490"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span><span><b>전신질환</b></span></a>
+          <a class="quick-link" href="kcd.html" style="--quick:#7c3aed"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><span><b>KCD 코드</b></span></a>
         </div>
       </aside>
+      <div class="dental-visual" aria-hidden="true">
+        <svg class="tooth-art" viewBox="0 0 360 300" fill="none">
+          <path class="tooth-shell" d="M178 27c-23-17-54-12-72 7-26 27-22 67-3 99 14 23 16 48 13 78l-5 55c-1 14 13 20 21 8l28-57c5-11 13-18 20-18s15 7 20 18l28 57c8 12 22 6 21-8l-5-55c-3-30-1-55 13-78 19-32 23-72-3-99-18-19-49-24-72-7-8 6-16 6-24 0Z"/>
+          <path class="tooth-layer" d="M179 42c-21-15-45-11-60 5-20 22-16 54 1 83 16 27 17 53 14 84l-3 37 22-45c7-15 16-24 27-24s20 9 27 24l22 45-3-37c-3-31-2-57 14-84 17-29 21-61 1-83-15-16-39-20-60-5-8 6-14 6-22 0Z"/>
+          <path class="tooth-layer" d="M180 57c-19-12-37-8-48 6-14 18-8 43 6 66 15 26 16 52 13 78l-1 9 8-17c6-13 13-28 22-28s16 15 22 28l8 17-1-9c-3-26-2-52 13-78 14-23 20-48 6-66-11-14-29-18-48-6Z"/>
+          <path class="tooth-core" d="M180 83c-12-8-25-5-32 6-8 13-1 30 9 47 11 20 11 39 9 58 4-11 8-23 14-23s10 12 14 23c-2-19-2-38 9-58 10-17 17-34 9-47-7-11-20-14-32-6Z"/>
+          <path class="tooth-nerve" d="M180 98v67m0 0-17 58m17-58 17 58m-17-87-13-24m13 24 13-24"/>
+          <path class="synapse-line" d="M78 83 128 109 180 98 235 120 299 83M86 186l64-20 30 20 46-38 66 37M128 109l22 57m85-46-9 28"/>
+          <circle class="synapse-node is-fill" cx="78" cy="83" r="5"/>
+          <circle class="synapse-node" cx="128" cy="109" r="4"/>
+          <circle class="synapse-node is-fill" cx="150" cy="166" r="4.5"/>
+          <circle class="synapse-node" cx="180" cy="98" r="5"/>
+          <circle class="synapse-node is-fill" cx="180" cy="186" r="4"/>
+          <circle class="synapse-node" cx="226" cy="148" r="4"/>
+          <circle class="synapse-node is-fill" cx="235" cy="120" r="5"/>
+          <circle class="synapse-node" cx="299" cy="83" r="4.5"/>
+          <circle class="synapse-node is-fill" cx="292" cy="185" r="4"/>
+        </svg>
+      </div>
     </section>
 
     <section class="library" aria-labelledby="library-title">
-      <div class="library-tools">
-        <div class="library-title">
-          <h2 id="library-title">전체 노트</h2>
-        </div>
-        <label class="hub-search">
-          <span class="sr-only">임상 노트 검색</span>
-          <svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg>
-          <input id="q" type="search" placeholder="질환, 약물, 술식 검색" autocomplete="off" aria-label="임상 노트 검색" />
-          <kbd aria-hidden="true">/</kbd>
-        </label>
-      </div>
-
-      <div class="library-layout">
-        <aside class="library-rail" aria-label="노트 분야 필터">
-          <button class="filter" type="button" data-filter="all" aria-pressed="true">전체 <span>12</span></button>
-          <button class="filter" type="button" data-filter="medication" aria-pressed="false">처방·안전 <span>3</span></button>
-          <button class="filter" type="button" data-filter="disorders" aria-pressed="false">질환·통증 <span>3</span></button>
-          <button class="filter" type="button" data-filter="procedures" aria-pressed="false">술식·보철 <span>3</span></button>
-          <button class="filter" type="button" data-filter="systemic" aria-pressed="false">전신·종양 <span>2</span></button>
-          <button class="filter" type="button" data-filter="codes" aria-pressed="false">분류·청구 <span>1</span></button>
-        </aside>
-
-        <div class="library-results">
-          <div class="result-head">
-            <p id="count" aria-live="polite">전체 · 12개</p>
-            <button class="reset-btn" id="reset" type="button" hidden>검색·필터 초기화</button>
+      <div class="library-shell">
+        <div class="library-tools">
+          <div class="library-title">
+            <h2 id="library-title">전체 노트</h2>
           </div>
-          <div class="note-list" id="note-grid"></div>
-          <div class="empty-state" id="empty" hidden>
-            <span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg></span>
-            <p>일치하는 임상 노트가 없습니다.</p>
-            <button type="button" id="empty-reset">전체 노트 보기</button>
+          <label class="hub-search">
+            <span class="sr-only">임상 노트 검색</span>
+            <svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg>
+            <input id="q" type="search" placeholder="질환, 약물, 술식 검색" autocomplete="off" aria-label="임상 노트 검색" />
+            <kbd aria-hidden="true">/</kbd>
+          </label>
+        </div>
+
+        <div class="library-layout">
+          <aside class="library-rail" aria-label="노트 분야 필터">
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">전체 <span>12</span></button>
+            <button class="filter" type="button" data-filter="medication" aria-pressed="false">처방·안전 <span>3</span></button>
+            <button class="filter" type="button" data-filter="disorders" aria-pressed="false">질환·통증 <span>3</span></button>
+            <button class="filter" type="button" data-filter="procedures" aria-pressed="false">술식·보철 <span>3</span></button>
+            <button class="filter" type="button" data-filter="systemic" aria-pressed="false">전신·종양 <span>2</span></button>
+            <button class="filter" type="button" data-filter="codes" aria-pressed="false">분류·청구 <span>1</span></button>
+          </aside>
+
+          <div class="library-results">
+            <div class="result-head">
+              <p id="count" aria-live="polite">전체 · 12개</p>
+              <button class="reset-btn" id="reset" type="button" hidden>검색·필터 초기화</button>
+            </div>
+            <div class="note-list" id="note-grid"></div>
+            <div class="empty-state" id="empty" hidden>
+              <span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg></span>
+              <p>일치하는 임상 노트가 없습니다.</p>
+              <button type="button" id="empty-reset">전체 노트 보기</button>
+            </div>
           </div>
         </div>
       </div>
