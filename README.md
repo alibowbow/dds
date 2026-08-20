@@ -1,84 +1,85 @@
 # 🦷 JH의 덴탈시냅스
 
-임상 치과 레퍼런스를 한곳에 모은 **확장형 노트 허브**입니다. 메인(`index.html`)이 허브이고,
-각 주제는 **하위 페이지**로 분리되어 계속 추가됩니다. 공용 디자인(`assets/theme.css`)과
-다크모드(`assets/theme.js`, 사이트 전역 동기화)를 모든 페이지가 공유합니다.
+임상 치과 레퍼런스를 한곳에 모은 **확장형 노트 허브**입니다. 메인(`index.html`)이 허브이고, 각 주제는 독립 하위 페이지로 분리해 계속 추가합니다.
 
-> 기준: 국내 처방 관행 + 국제 가이드라인 · 언어: 한국어 · 개인 임상 노트
+> 기준: 국내 임상 환경 + 국제 가이드라인 · 언어: 한국어 · 개인 임상 노트
 
 ## 페이지 구성
+
 | 페이지 | 파일 | 내용 |
 |---|---|---|
-| 🏠 **메인 허브** | `index.html` | JH의 덴탈시냅스 — 빠른 진입, 분야 필터, 통합 검색을 제공하는 임상 노트 허브 |
-| 💊 **치과 약물·처방 가이드** | `drug-guide.html` | 술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 페니실린 알러지 대체, **소아의 하루 투여 횟수·20kg 계산 예시**, 의사결정 맵(Mermaid), 응급, 구강내과 복약지도, 신경손상 스테로이드 Tapering |
-| 🦴 **MRONJ 임상권고안 2025** | `mronj.html` | 약물관련 악골괴사 **원문 기반 상세** — **약물별 한눈 정리** + 진단·병인·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정. 근거등급 뱃지([권고]/[전문가 의견]/[근거 제한]) (Korean MRONJ Position Paper 2025) |
-| 🫦 **교합학 (Occlusion)** | `occlusion.html` | 교합 심층 정리 — CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·**임플란트 교합(IPO)**·교합과 TMD 근거·스플린트·**교합조정(BULL·MUDL·LUBL·DUML)**·진단 도구. Posselt 외피 SVG·계측 차트 (GPT-9·Okeson·Dawson·Misch) |
-| 🦷 **측두하악장애와 저작근장애의 진단과 치료** | `tmd-mmd.html` | DC/TMD 기반 관절성 TMD·저작근장애(MMD) 분류와 감별, 자가관리·약물·교합장치, **운동·수기치료·물리치료의 구체적 시행 예**, 주사·관절천자·수술 및 의뢰 기준 |
-| 🦷 **임플란트 주위질환 · 합병증** | `peri-implant.html` | 임플란트 주위 건강·점막염·주위염의 **3상태 비교**, 기준 탐침·방사선, **대화형 진단 퀵체크**, 위험요인 매트릭스, 비수술·결손 형태별 수술, 기계적 합병증, 위험별 SPIC 유지관리와 차팅 템플릿 |
-| 🧬 **PDRN 치과 임상 총정리** | `pdrn.html` | 30년 의료 사용 역사와 **국내 치과 확산**, PDRN의 **A2A/살베이지 기전과 PN 구분**, TMD 프롤로테라피·임플란트·치주·발치·MRONJ 활용을 **실사용/사람/전임상 근거로 분리**. 연구·임상교육 용량, 안전·동의·기록 체크리스트 |
-| 🛠️ **현대 발치술과 발치 기구: 최소침습 발치와 고위험 치근 관리** | `extraction.html` | elevator·forceps·root pick의 선택부터 manual·powered periotome, **Benex-type 축방향 견인기·Physics Forceps·piezosurgery·magnetic mallet**, 치근 분할·잔존치근 회수·관상절제술·디지털 내비게이션과 기구 구성안 |
-| 💎 **라미네이트 (베니어)** | `veneer.html` | 무삭제·최소삭제 베니어 — 적응증·삭제 연속선·**재료 7종(굴곡강도 차트)**·제작·**접착 5경로**·브랜드 비교·장기 근거. 단면 개념도 SVG, 인용(S1–S10) (ADA·ACP·문헌리뷰·제조사 IFU) |
-| 🩸 **항혈전제 환자 치과치료** | `antithrombotic.html` | 항혈소판제·항응고제(**Warfarin INR**·**DOAC 약물별 조정**)·혈전용해제 — 시술 출혈위험 분류·중단/조정·국소 지혈·상호작용 (SNUH 분당서울대 + **SDCEP 2022**) |
-| 📖 **KCD 치과 코드 뷰어** | `kcd.html` | 한국표준질병·사인분류(KCD) **치과 관련 코드**(K00–K14·M·Q35–Q38·S00–S03·T85·Z) — **장(章)별 계층 트리**, 실시간 검색·하이라이트, **코드 클릭 복사**, 제외/포함 **교차참조 점프**. 474개 코드 (KCD 고시 발췌·재구성) |
-| 🚨 **치과 진료 중 응급상황 대응** | `emergency.html` | 실신·**저혈압/쇼크**·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄 — **P-A-B-C-D 알고리즘**, 저혈압 원인 감별·119 기준·수액 적용, **응급약물 용량표**, 응급키트 체크리스트, BLS (ADA·AHA/Red Cross·RCUK·NICE) |
-| 🎗️ **암 치료 환자의 치과진료: 임상 평가와 치료 계획** | `cancer-care.html` | 암 수술·항암·두경부 방사선 전·중·후의 **발치·임플란트 치료 시기와 금기**, CBC 기반 감염·출혈 판단, **ORN·MRONJ**, 표적·면역치료, HSCT/CAR-T·GVHD와 협진 기준 |
-| 🩺 **전신질환자 치과관리** | `systemic.html` | 심혈관·당뇨·신장(투석)·간·임신·갑상선/부신·항암/방사선·면역억제 — **출혈·감염·스트레스·약물 4축** 위험, 진료 전 확인, 협진 기준, 활력징후 (Little & Falace·Scully·ADA) |
+| 🏠 **메인 허브** | `index.html` | 빠른 진입, 분야 필터, 통합 검색을 제공하는 임상 노트 허브 |
+| 💊 **치과 약물·처방 가이드** | `drug-guide.html` | 술식·상황별 처방 프로토콜, 약물 카탈로그, 알레르기 대체, 소아 용량, 응급·구강내과 복약지도 |
+| 🦴 **MRONJ 임상권고안 2025** | `mronj.html` | 약물관련 악골괴사의 진단·위험요인·예방/휴약·병기·보존/수술·재발·의사결정 |
+| 🫦 **교합학 (Occlusion)** | `occlusion.html` | CR/MIP·하악운동·교합 양식·교합기·임플란트 교합·TMD·스플린트·교합조정 |
+| 🦷 **측두하악장애와 저작근장애** | `tmd-mmd.html` | DC/TMD 기반 감별, 자가관리·약물·교합장치·운동·물리치료·주사·관절 술식 |
+| 🦷 **임플란트 주위질환 · 합병증** | `peri-implant.html` | **텍스트 중심 임상 핸드북**. 건강·점막염·주위염 진단, 기준 탐침·방사선, 감별진단, 위험요인, 예방, 비수술·수술 치료, 보철·기계적 합병증, SPIC 유지관리, 차팅 템플릿 |
+| 🧬 **PDRN 치과 임상 총정리** | `pdrn.html` | PDRN·PN 기전, 국내 치과 활용, TMD·임플란트·치주·발치·MRONJ 근거와 안전 |
+| 🛠️ **현대 발치술과 발치 기구** | `extraction.html` | elevator·forceps부터 periotome·축방향 견인·piezosurgery·잔존치근·관상절제술 |
+| 💎 **라미네이트 (베니어)** | `veneer.html` | 무삭제·최소삭제 베니어의 적응증·삭제·재료·제작·접착·브랜드·장기 근거 |
+| 🩸 **항혈전제 환자 치과치료** | `antithrombotic.html` | 항혈소판제·Warfarin·DOAC 환자의 시술 출혈위험, 약물 조정, 국소 지혈과 상호작용 |
+| 📖 **KCD 치과 코드 뷰어** | `kcd.html` | 치과 관련 KCD 코드 계층 검색·복사·교차참조 |
+| 🚨 **치과 진료 중 응급상황 대응** | `emergency.html` | 실신·쇼크·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄의 첫 대응, 응급약물, BLS |
+| 🎗️ **암 치료 환자의 치과진료** | `cancer-care.html` | 암 수술·항암·방사선 전후 발치·임플란트, CBC 판단, ORN·MRONJ, 협진 기준 |
+| 🩺 **전신질환자 치과관리** | `systemic.html` | 심혈관·당뇨·신장·간·임신·내분비·항암·면역억제 환자의 치과관리 |
+
+## 임플란트 주위질환 노트 편집 원칙
+
+`peri-implant.html`은 잘못된 해부학적·임상적 인상을 줄 수 있는 자체 SVG 도식과 인터랙티브 시각화를 사용하지 않습니다.
+
+- 진단 기준과 감별은 텍스트·표·체크리스트로 명확하게 기술
+- 한 번의 PD나 방사선 한 장보다 **기준 대비 변화**를 강조
+- 생물학적 질환과 보철·기계적 합병증을 분리해서 평가
+- 특정 기구·보조제보다 원인조절과 청결 가능한 구조를 우선
+- 실제 이미지가 필요할 경우 별도의 검증된 이미지 애셋을 사용하는 방향으로 확장
 
 ## 열람 방법
-- **온라인**: 저장소가 GitHub Pages로 배포되면 루트 주소로 접속 시 메인 허브(`index.html`)가 열립니다.
+
+- **온라인**: GitHub Pages 배포 시 루트 주소의 `index.html`이 메인 허브입니다.
 - **로컬**:
   ```bash
   python3 -m http.server 8000
-  # http://localhost:8000/  → 메인 허브
+  # http://localhost:8000/
   ```
-- 약물 가이드의 다이어그램은 [Mermaid](https://mermaid.js.org/) CDN을 사용하므로 최초 렌더 시 인터넷이 필요합니다(텍스트 콘텐츠는 오프라인 동작).
+- 약물 가이드의 일부 다이어그램은 Mermaid CDN을 사용합니다.
 
-## 새 하위 페이지 추가 (확장 방법)
-1. `새페이지.html` 생성 — `<head>`에 공용 테마 연결:
+## 새 하위 페이지 추가
+
+1. 새 HTML 파일을 만들고 공용 테마를 연결합니다.
    ```html
    <link rel="stylesheet" href="assets/theme.css" />
-   <!-- ...본문... -->
    <script src="assets/theme.js"></script>
    ```
-   헤더에 `index.html`로 돌아가는 `.crumb` 링크와 `#theme` 토글 버튼을 두면 사이트와 일관됩니다.
-2. `index.html`의 `notes` 배열에 한 줄 추가하면 허브 카드가 자동 생성됩니다:
-   ```js
-   { title:'제목', href:'새페이지.html', icon:'i-tool', accent:'#0f6e8c', tag:'분류',
-     desc:'한 줄 설명', keywords:'검색 키워드' },
-   ```
+2. `index.html`의 `notes` 배열에 메타데이터를 추가하면 메인 허브에 노출됩니다.
 
 ## 파일 구조
-```
-index.html          # 메인 허브 (JH의 덴탈시냅스)
-drug-guide.html     # 하위: 약물·처방 가이드
-mronj.html          # 하위: MRONJ 임상권고안 2025
-occlusion.html      # 하위: 교합학 (Occlusion)
-tmd-mmd.html        # 하위: 측두하악장애와 저작근장애의 진단과 치료 (TMD·MMD·물리치료·주사·관절 술식)
-peri-implant.html   # 하위: 임플란트 주위질환·합병증 (진단·위험·치료·기계적 합병증·SPIC)
-pdrn.html           # 하위: PDRN 치과 임상 총정리 (역사·국내현장·기전·TMD·임플란트·치주·구강외과·안전)
-extraction.html     # 하위: 현대 발치술과 발치 기구 (elevator·forceps·PDL 기구·축방향 견인·치근 회수·디지털 술식)
-veneer.html         # 하위: 라미네이트 (베니어)
-antithrombotic.html # 하위: 항혈전제 환자 치과치료
-kcd.html            # 하위: KCD 치과 코드 뷰어 (질병분류 계층 트리·검색·복사)
-emergency.html      # 하위: 치과 진료 중 응급상황 대응 (P-A-B-C-D·저혈압/쇼크·응급약물·수액·키트)
-cancer-care.html    # 하위: 암 치료 환자의 치과진료: 임상 평가와 치료 계획 (암 수술·항암·방사선·발치·임플란트·CBC·ORN/MRONJ)
-systemic.html       # 하위: 전신질환자 치과관리 (출혈·감염·스트레스·약물 4축)
-assets/theme.css    # 체어사이드 임상 핸드북 디자인 시스템(타입·색·간격·컴포넌트·반응형 표)
-assets/theme.js     # 공용 다크모드·모바일 문서 목차·읽기 진행도·접근성 보조
-assets/visual.css   # 임플란트 노트의 고밀도 시각화·대시보드·반응형 레이어
-assets/peri-implant.js # 임플란트 진단 퀵체크·상태 전환·읽기 진행·차팅 복사
-assets/charts.js    # 경량 SVG 차트(범위막대·타임라인·심각도·계단·피라미드)
-assets/icons.svg    # 커스텀 아이콘 스프라이트(<use href="assets/icons.svg#i-...">)
-assets/favicon.svg  # 시냅스 로고 마크
-```
-디자인은 `theme.css`의 CSS 토큰으로 통일(임상 청록 + 따뜻한 중성색 + 상태색)하고 다크모드에 자동 대응합니다. 메인 허브는 빠른 진입·분야 필터·통합 검색을 제공하며, 하위 노트는 모바일 목차와 읽기 진행도를 공유합니다. 정량 데이터는 `charts.js`와 주제별 시각화 레이어로 표 대신 시각화합니다.
 
-## ⚠️ 면책 고지
-본 노트는 **개인 정리 목적**이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.
-처방·시술 전 **원전과 환자 상태(연령·체중·신/간 기능·병력·복용약)**를 반드시 확인하십시오.
+```text
+index.html          # 메인 허브
+drug-guide.html     # 약물·처방
+mronj.html          # MRONJ
+occlusion.html      # 교합학
+tmd-mmd.html        # TMD·MMD
+peri-implant.html   # 임플란트 주위질환·합병증 — 텍스트 중심
+pdrn.html           # PDRN
+extraction.html     # 발치술·기구
+veneer.html         # 라미네이트
+antithrombotic.html # 항혈전제
+kcd.html            # KCD 코드
+emergency.html      # 응급상황
+cancer-care.html    # 암 치료 환자
+systemic.html       # 전신질환
+assets/theme.css    # 공용 디자인 시스템
+assets/theme.js     # 다크모드·모바일 목차·읽기 진행도
+assets/charts.js    # 기존 노트에서 사용하는 경량 차트
+assets/icons.svg    # 공용 아이콘 스프라이트
+assets/favicon.svg  # 사이트 아이콘
+```
 
-## 출처(요약)
-ADA Oral Health Topics · ADA 2019/2024 가이드 · AHA 2021 IE 예방 · AAPD Reference Manual ·
-NeuPSIG 2015(Lancet Neurol) · 약업신문 · **Korean MRONJ Position Paper 2025 (onjcohort.org)** ·
-2017 World Workshop · EFP S3 Peri-implant Guideline · AO/AAP Consensus · Korean Academy of Periodontology ·
-식약처/health.kr · 대한치과의사협회·치의신보. 각 페이지 하단/내부 참고문헌 참조.
+## 면책 고지
+
+본 노트는 **개인 정리 및 임상 보조 목적**이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다. 처방·시술 전 원전과 환자 상태를 확인하십시오.
+
+## 주요 출처
+
+ADA Oral Health Topics · AHA · AAPD · Korean MRONJ Position Paper 2025 · 2017 World Workshop · EFP S3 Peri-implant Guideline · AO/AAP Consensus · Korean Academy of Periodontology · 식약처/health.kr · 대한치과의사협회·치의신보. 각 페이지의 참고문헌을 우선합니다.
