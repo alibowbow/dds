@@ -4,87 +4,291 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>임플란트 주위질환 · 합병증 — JH의 덴탈시냅스</title>
-<meta name="description" content="임플란트 주위 건강·점막염·주위염 진단, 위험평가, 예방, 비수술·수술 치료, 기계적 합병증과 유지관리 임상 노트" />
+<meta name="description" content="임플란트 주위 건강·점막염·주위염의 진단, 감별, 위험평가, 예방, 비수술·수술 치료, 보철·기계적 합병증과 유지관리 텍스트 임상 노트" />
 <meta name="theme-color" content="#0f766e" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="assets/theme.css?v=4" />
-<link rel="stylesheet" href="assets/visual.css?v=1" />
+<link rel="stylesheet" href="assets/theme.css?v=7" />
 <style>
-.peri-note{--brand:#0f766e;--brand-strong:#0b625c;--brand-soft:#e2f3ef}.clinical-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.tiny{font-size:var(--text-xs);color:var(--ink-3)}.keyline{display:inline-flex;align-items:center;gap:6px;font-weight:750;color:var(--visual-teal)}.keyline:before{content:"";width:16px;height:3px;border-radius:999px;background:currentColor}.compare-note,.mechanical-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}.mechanical-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.compare-note>div,.mechanical-card{padding:12px 13px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-size:var(--text-xs);color:var(--ink-2)}.compare-note b,.mechanical-card h3{display:block;color:var(--ink);font-size:var(--text-sm);margin:0 0 4px}.mechanical-card{border-left:3px solid var(--mechanical)}.mechanical-card p{margin:0}.mechanical-card span{display:inline-flex;margin-top:8px;padding:3px 7px;border-radius:999px;background:color-mix(in srgb,var(--mechanical) 11%,transparent);color:var(--mechanical);font-size:10px;font-weight:850}@media(max-width:760px){.mechanical-grid,.compare-note{grid-template-columns:1fr}}
+.peri-note{--brand:#0f766e;--brand-strong:#0b625c;--brand-soft:#e2f3ef;--hero-1:#0a4b4a;--hero-2:#0f766e;--hero-3:#238595}
+.peri-note header.hero{padding-top:24px;padding-bottom:26px}
+.peri-note header.hero h1{max-width:none}
+.peri-note .hero-summary{max-width:84ch;margin-top:10px;font-size:var(--text-sm);line-height:1.6;color:rgba(255,255,255,.82)}
+.peri-note .hero-summary b{color:#fff}
+.peri-note .topbar .actions{display:flex;gap:7px;align-items:center}
+.text-btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:var(--r-sm);min-height:40px;padding:0 11px;cursor:pointer;font-size:var(--text-xs);font-weight:800}
+.text-btn:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-soft)}
+.clinical-main{padding-bottom:34px}
+.lede{font-size:var(--text-md);color:var(--ink-2);max-width:86ch;margin:6px 0 18px}
+.rule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 18px}
+.rule-card{border:1px solid var(--line);border-top:4px solid var(--tone);border-radius:var(--r);background:var(--surface);padding:15px 16px;box-shadow:var(--shadow-sm)}
+.rule-card .label{font-size:var(--text-xs);font-weight:850;color:var(--tone);margin-bottom:4px}.rule-card h3{margin:0 0 6px;font-size:var(--text-md)}.rule-card p{margin:0;color:var(--ink-2);font-size:var(--text-sm)}
+.fact-list{display:grid;gap:8px;margin:12px 0}.fact{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface)}.fact .n{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand);font-size:var(--text-xs);font-weight:900}.fact b{font-size:var(--text-sm)}.fact p{margin:2px 0 0;color:var(--ink-2);font-size:var(--text-sm)}
+.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.text-card{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:15px 16px;box-shadow:var(--shadow-sm)}.text-card h3{margin:0 0 7px;font-size:var(--text-base)}.text-card p{margin:0 0 7px;color:var(--ink-2);font-size:var(--text-sm)}.text-card ul{margin:7px 0 0;padding-left:18px}.text-card li{margin:4px 0;font-size:var(--text-sm)}
+.priority{border-left:4px solid var(--tone)}
+.mini-title{margin:20px 0 8px;font-size:var(--text-md)}
+.decision-list{counter-reset:step;display:grid;gap:9px;margin:12px 0}.decision-step{counter-increment:step;position:relative;padding:13px 14px 13px 52px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}.decision-step::before{content:counter(step);position:absolute;left:13px;top:13px;width:27px;height:27px;border-radius:8px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand);font-size:var(--text-xs);font-weight:900}.decision-step b{font-size:var(--text-sm)}.decision-step p{margin:3px 0 0;color:var(--ink-2);font-size:var(--text-sm)}
+.note-box{padding:12px 14px;border:1px solid color-mix(in srgb,var(--tone,var(--brand)) 28%,var(--line));border-left:4px solid var(--tone,var(--brand));border-radius:var(--r-sm);background:color-mix(in srgb,var(--tone,var(--brand)) 7%,var(--surface));font-size:var(--text-sm);margin:12px 0}.note-box b{color:var(--ink)}
+.clinical-table td:first-child,.clinical-table th:first-child{font-weight:800}.clinical-table td{line-height:1.55}
+.chart-box{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);margin:12px 0}.chart-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--surface-2);border-bottom:1px solid var(--line)}.chart-head h3{margin:0;font-size:var(--text-sm)}.chart-head button{margin-left:auto}.chart-template{margin:0;padding:15px 16px;white-space:pre-wrap;font:var(--text-sm)/1.7 inherit;color:var(--ink)}
+.ref-list{display:grid;gap:8px;margin:12px 0}.ref{padding:11px 13px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);font-size:var(--text-sm);color:var(--ink-2)}.ref b{color:var(--ink)}
+.clinical-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,12px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);padding:8px 12px;border-radius:999px;font-size:var(--text-xs);transition:.18s;z-index:120}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){.rule-grid,.three-col{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}}
+@media(max-width:680px){.topbar .actions{display:none}.fact{grid-template-columns:26px minmax(0,1fr)}.rule-card,.text-card{padding:13px 14px}}
+@media print{.topbar,.themebtn,.text-btn,.toast{display:none!important}.rule-card,.text-card,.chart-box,.tablewrap{box-shadow:none;break-inside:avoid}header.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
 </head>
 <body class="peri-note">
-<div class="read-progress" aria-hidden="true"><span id="read-progress-bar"></span></div>
-<header class="hero visual-hero peri-hero">
-<button class="themebtn hero-toggle" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
-<div class="wrap hero-layout">
-<div class="hero-copy">
-<a class="crumb" href="index.html"><svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg> JH의 덴탈시냅스 홈</a>
-<div class="hero-eyebrow"><span class="pulse"></span> NEW NOTE · BIOLOGIC + MECHANICAL</div>
-<div class="hero-title-row"><span class="hero-mark"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span><h1>임플란트 주위질환 · 합병증</h1></div>
-<p class="sub">건강–점막염–주위염을 구분하고, 기준 기록부터 위험조절·비수술 치료·결손 형태별 수술·기계적 합병증·장기 유지관리까지 임상 동선대로 정리합니다.</p>
-<div class="hero-kpis"><span><i></i><b>6점</b> 탐침</span><span><i></i><b>6–12주</b> 재평가</span><span><i></i><b>3–6개월</b> 위험별 SPIC</span></div>
-<div class="hero-actions"><a class="hero-btn primary" href="#quick">60초 진단</a><a class="hero-btn" href="#checklist">차팅 템플릿</a></div>
-</div>
-<div class="synapse-art" aria-hidden="true">
-<svg viewBox="0 0 500 280"><defs><linearGradient id="hb" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f5d6ad"/><stop offset="1" stop-color="#ca8b58"/></linearGradient><linearGradient id="hf"><stop stop-color="#8290a3"/><stop offset=".5" stop-color="#f5f8fb"/><stop offset="1" stop-color="#758398"/></linearGradient></defs><ellipse class="orbit" cx="250" cy="138" rx="210" ry="105"/><path class="wire" d="M60 95C145 34 190 62 250 126s125 101 190 38"/><path class="signal" d="M60 95C145 34 190 62 250 126s125 101 190 38"/><path d="M45 188c55-38 110-26 156-3 45 23 93 17 137-12 40-27 87-22 123 8v76H45z" fill="url(#hb)"/><g transform="translate(252 44)"><rect x="-35" width="70" height="30" rx="9" fill="#eff4f8" stroke="#8390a2"/><path d="M-25 29h50l-6 124Q0 181-19 153z" fill="url(#hf)" stroke="#64748b" stroke-width="2"/><path d="M-20 49h40M-19 64h38M-17 79h34M-15 94h30M-13 109h26M-11 124h22M-9 139h18" stroke="#64748b" stroke-width="3"/></g><path d="M180 174c14-35 33-48 53-39m38 1c22-10 45 3 60 27" fill="none" stroke="#f43f5e" stroke-width="7" stroke-linecap="round"/><path d="M158 176c19-55 48-74 76-62m36 1c36-17 67 6 84 46" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5 7"/><g transform="translate(252 232)"><rect class="label-box" x="-66" y="-17" width="132" height="34" rx="11"/><text class="label-text" text-anchor="middle" y="5">DIAGNOSE → TREAT</text></g></svg>
-</div>
-</div>
+<header class="hero">
+  <button class="themebtn hero-toggle" id="theme" type="button" aria-label="다크 모드로 전환"></button>
+  <div class="wrap">
+    <a class="crumb" href="index.html">← JH의 덴탈시냅스 홈</a>
+    <h1>임플란트 주위질환 · 합병증</h1>
+    <p class="sub">건강–점막염–주위염을 정확히 구분하고, 기준 기록·감별·원인조절·비수술·수술·보철 합병증·유지관리까지 실제 진료 순서로 정리한 텍스트 중심 임상 노트.</p>
+    <p class="hero-summary"><b>핵심 원칙:</b> 한 번의 깊은 PD나 한 장의 방사선으로 진단하지 않는다. 현재 염증, 기준 대비 PD 변화, 초기 치유 이후의 골소실을 묶어서 판단하고, 생물학적 문제와 보철·기계적 문제를 항상 함께 확인한다.</p>
+  </div>
 </header>
-<div class="topbar"><div class="wrap topbar-inner"><a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-home"/></svg></span>홈</a><nav class="links" id="section-nav" aria-label="섹션 바로가기"><a href="#quick">Quick</a><a href="#diagnosis">진단</a><a href="#risk">위험</a><a href="#prevention">예방</a><a href="#mucositis">점막염</a><a href="#nonsurgical">주위염</a><a href="#surgery">수술</a><a href="#complications">합병증</a><a href="#maintenance">유지</a><a href="#checklist">차팅</a><a href="#references">근거</a></nav><div class="spacer"></div><button class="print-btn" id="print-page" type="button" aria-label="페이지 인쇄"><svg viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div></div>
-<main class="wrap clinical-main">
-<div class="disclaimer" style="margin-top:16px"><svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg><div><b>임상 보조 노트</b> — 교육·정리 목적입니다. 실제 진단과 치료는 기준 기록, 전신상태, 보철 구조, 결손 형태, 술자 숙련도와 최신 원문을 함께 판단하십시오.</div></div>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html">홈</a>
+    <nav class="links" aria-label="섹션 바로가기">
+      <a href="#quick">핵심</a><a href="#diagnosis">진단</a><a href="#differential">감별</a><a href="#risk">위험</a><a href="#prevention">예방</a><a href="#mucositis">점막염</a><a href="#periimplantitis">주위염</a><a href="#surgery">수술</a><a href="#prosthetic">보철·기계</a><a href="#maintenance">유지</a><a href="#charting">차팅</a><a href="#referral">의뢰</a><a href="#references">근거</a>
+    </nav>
+    <div class="spacer"></div>
+    <div class="actions"><button class="text-btn" id="print-page" type="button">인쇄</button></div>
+  </div>
+</div>
+
+<main class="wrap clinical-main" id="main-content">
+<div class="disclaimer" style="margin-top:16px"><div><b>임상 보조 노트</b> — 교육·정리 목적입니다. 실제 진단과 치료는 환자의 전신상태, 기준 기록, 보철 구조, 결손 형태, 술자 숙련도와 최신 원문을 함께 판단하십시오.</div></div>
 
 <section id="quick">
-<p class="section-kicker">Clinical snapshot</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-bolt"/></svg></span><h2>60초 진단: 염증과 골소실을 분리해서 본다</h2></div>
-<p class="section-lead"><b>현재 염증(BOP·화농)</b>, <b>기준 대비 탐침 깊이 변화</b>, <b>초기 치유 이후의 진행성 골소실</b>을 한 세트로 기록합니다. 단일 수치나 한 장의 방사선만으로 분류하지 않습니다.</p>
-<div class="quick-ribbon"><div class="qitem" style="--q:#0f766e"><small>기준 탐침</small><b>최종 보철 후 3개월 이내</b></div><div class="qitem" style="--q:#0891b2"><small>탐침 방식</small><b>둘레 6점 · 약한 힘(≈0.2 N)</b></div><div class="qitem" style="--q:#6d5ce7"><small>기준 영상</small><b>생리적 재형성 후 골수준</b></div><div class="qitem" style="--q:#d97706"><small>모든 환자</small><b>개별화 SPIC 유지관리</b></div></div>
-<div class="diagnosis-grid">
-<article class="state-card" style="--state:#0f7a52"><div class="state-head"><span class="state-index">01</span><div><h3>주위 건강</h3><p class="state-sub">Peri-implant health</p></div></div><div class="state-visual"><svg viewBox="0 0 300 110"><path d="M10 70c60-18 105-10 140 5 42 18 85-12 140-4v35H10z" fill="#e3bd90"/><g transform="translate(150 5)"><rect x="-22" width="44" height="17" rx="5" fill="#e9eef3" stroke="#8090a4"/><path d="M-16 16h32L6 96Q0 108-6 96z" fill="#b9c3ce" stroke="#748195"/><path d="M-12 30h24M-10 43h20M-8 56h16M-6 69h12" stroke="#718095" stroke-width="2"/></g><path d="M108 68c18-22 28-20 35-14m15 0c10-8 21-7 34 12" fill="none" stroke="#f3b7b7" stroke-width="6"/></svg></div><ul><li>염증 징후 없음</li><li>BOP·화농 없음</li><li>진행성 골소실 없음</li></ul><div class="state-rule"><b>핵심:</b> 기준 PD와 골수준이 안정적입니다.</div></article>
-<article class="state-card" style="--state:#d97706"><div class="state-head"><span class="state-index">02</span><div><h3>주위 점막염</h3><p class="state-sub">Peri-implant mucositis</p></div></div><div class="state-visual"><svg viewBox="0 0 300 110"><path d="M10 70c60-18 105-10 140 5 42 18 85-12 140-4v35H10z" fill="#e3bd90"/><g transform="translate(150 5)"><rect x="-22" width="44" height="17" rx="5" fill="#e9eef3" stroke="#8090a4"/><path d="M-16 16h32L6 96Q0 108-6 96z" fill="#b9c3ce" stroke="#748195"/><path d="M-12 30h24M-10 43h20M-8 56h16M-6 69h12" stroke="#718095" stroke-width="2"/></g><path d="M101 68c18-32 32-31 43-19m14 0c15-14 32-8 43 16" fill="none" stroke="#ef4444" stroke-width="9"/><circle cx="118" cy="40" r="4" fill="#ef4444"/><circle cx="187" cy="39" r="4" fill="#ef4444"/></svg></div><ul><li>BOP 중심의 염증</li><li>발적·종창·화농 가능</li><li>추가 골소실은 없음</li></ul><div class="state-rule"><b>분기점:</b> 염증은 있으나 골수준은 안정적입니다.</div></article>
-<article class="state-card" style="--state:#c01f2f"><div class="state-head"><span class="state-index">03</span><div><h3>임플란트 주위염</h3><p class="state-sub">Peri-implantitis</p></div></div><div class="state-visual"><svg viewBox="0 0 300 110"><path d="M10 82c55-18 98-9 119 10 14 12 29 12 43-1 25-22 65-23 118-10v25H10z" fill="#e3bd90"/><g transform="translate(150 5)"><rect x="-22" width="44" height="17" rx="5" fill="#e9eef3" stroke="#8090a4"/><path d="M-16 16h32L6 96Q0 108-6 96z" fill="#b9c3ce" stroke="#748195"/><path d="M-12 30h24M-10 43h20M-8 56h16M-6 69h12" stroke="#718095" stroke-width="2"/></g><path d="M96 76c20-41 37-42 48-29m14 0c18-16 38-6 49 26" fill="none" stroke="#dc2626" stroke-width="9"/><path d="M119 82c9-18 18-23 25-16m14 0c10-9 19-2 26 13" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="4 4"/></svg></div><ul><li>BOP 및/또는 화농</li><li>기준 대비 PD 증가</li><li>초기 치유 후 골소실</li></ul><div class="state-rule"><b>기준 없음:</b> BOP/화농 + PD ≥6 mm + 골수준 ≥3 mm이면 주위염을 시사합니다.</div></article>
-</div>
-<div class="tool-grid">
-<div class="diagnosis-tool"><div class="panel-head"><span class="panel-icon"><svg><use href="assets/icons.svg#i-activity"/></svg></span><div><h3>진단 퀵체크</h3><p>교육용 분류 패턴을 확인합니다.</p></div></div><div class="switch-list"><label class="switch-row"><input id="bop" type="checkbox"><span class="switch-ui"></span><span class="switch-copy"><b>탐침 시 출혈(BOP)</b><span>둘레 6점 중 한 곳 이상</span></span></label><label class="switch-row"><input id="suppuration" type="checkbox"><span class="switch-ui"></span><span class="switch-copy"><b>화농</b><span>자발적 또는 탐침/압박 시</span></span></label><label class="switch-row"><input id="pd-increase" type="checkbox"><span class="switch-ui"></span><span class="switch-copy"><b>기준 대비 PD 증가</b><span>동일 위치·유사 탐침력 비교</span></span></label><label class="switch-row"><input id="bone-loss" type="checkbox"><span class="switch-ui"></span><span class="switch-copy"><b>초기 치유 후 추가 골소실</b><span>기준 영상과 비교</span></span></label></div><div class="tool-inline"><div class="tool-field"><label for="baseline">기준 자료</label><select id="baseline"><option value="yes">있음</option><option value="no">없음</option></select></div><div class="tool-field"><label for="max-pd">최대 PD (mm)</label><input id="max-pd" type="number" min="1" max="15" value="4"></div><div class="tool-field" id="bone-field" hidden><label for="bone-level">현재 골수준 (mm)</label><input id="bone-level" type="number" min="0" max="15" step=".5" value="2"></div></div><div class="result-panel" id="diagnosis-result" style="--result:#0f7a52" aria-live="polite"><span class="result-label">교육용 패턴</span><strong>임플란트 주위 건강에 가까움</strong><p>염증과 진행성 골소실 신호가 없습니다. 기준 기록과 연속 비교를 유지합니다.</p></div></div>
-<div class="visual-panel"><div class="panel-head"><span class="panel-icon"><svg><use href="assets/icons.svg#i-bone"/></svg></span><div><h3>골수준 변화</h3><p>염증과 골소실 조합을 비교합니다.</p></div></div><div class="implant-stage"><svg viewBox="0 0 390 280"><defs><linearGradient id="sf"><stop stop-color="#8190a2"/><stop offset=".5" stop-color="#f1f5f9"/><stop offset="1" stop-color="#718095"/></linearGradient><linearGradient id="sb" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f0d2ad"/><stop offset="1" stop-color="#c98d5e"/></linearGradient></defs><path id="stage-bone" d="M20 174c65-29 114-18 175 3 58 20 112-31 175-6v95H20z" fill="url(#sb)"/><path id="stage-crest" d="M20 165c64-29 115-18 175 3 60 20 114-31 175-6" fill="none" stroke="#faead7" stroke-width="17"/><g transform="translate(195 32)"><rect x="-39" width="78" height="32" rx="10" fill="#f1f5f9" stroke="#8290a2"/><path d="M-28 31h56l-8 159Q0 219-20 190z" fill="url(#sf)" stroke="#64748b" stroke-width="2"/><path d="M-22 56h44M-20 76h40M-18 96h36M-16 116h32M-14 136h28M-12 156h24M-10 176h20" stroke="#65758a" stroke-width="3"/></g><path id="stage-tissue" d="M126 164c18-32 42-35 57-22m25 0c21-14 46-5 59 18" fill="none" stroke="#efb3b3" stroke-width="10"/><g id="stage-drops" opacity="0"><circle cx="147" cy="125" r="5" fill="#e11d48"/><circle cx="246" cy="124" r="5" fill="#e11d48"/></g><path id="stage-defect" d="M151 173c9-20 22-29 33-22m23 0c15-8 26 2 34 19" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5 5" opacity="0"/><text id="stage-label" x="195" y="255" text-anchor="middle" font-size="13" font-weight="800" fill="currentColor">건강 · 안정 골수준</text></svg></div><div class="stage-controls"><button class="stage-btn" data-stage="health" aria-pressed="true">건강</button><button class="stage-btn" data-stage="mucositis" aria-pressed="false">점막염</button><button class="stage-btn" data-stage="peri" aria-pressed="false">주위염</button></div><div class="stage-legend"><span><i style="--legend:#efb3b3"></i>연조직</span><span><i style="--legend:#f59e0b"></i>골결손</span><span><i style="--legend:#e11d48"></i>염증</span></div></div>
-</div>
+  <div class="sec-head"><h2>1. 가장 먼저 기억할 세 가지 분류</h2></div>
+  <p class="lede">임플란트 주위질환은 <b>염증이 있는가</b>, 그리고 <b>초기 치유 이후 추가 골소실이 있는가</b>로 큰 틀을 잡습니다. PD는 절대값 자체보다 기준값에서 얼마나 변했는지가 더 중요합니다.</p>
+  <div class="rule-grid">
+    <article class="rule-card" style="--tone:#0f7a52"><div class="label">HEALTH</div><h3>임플란트 주위 건강</h3><p>임상적 염증 징후가 없고 BOP·화농이 없으며, 초기 생리적 재형성 이후 진행성 골소실이 없습니다. 깊은 PD가 존재하더라도 안정적이고 염증이 없으면 그 자체로 주위염은 아닙니다.</p></article>
+    <article class="rule-card" style="--tone:#b35c00"><div class="label">MUCOSITIS</div><h3>임플란트 주위 점막염</h3><p>BOP를 중심으로 발적·종창·화농 등의 연조직 염증이 있지만, 초기 재형성을 넘어서는 추가 골소실은 없습니다. 원인조절로 회복 가능한 단계라는 점이 중요합니다.</p></article>
+    <article class="rule-card" style="--tone:#c01f2f"><div class="label">PERI-IMPLANTITIS</div><h3>임플란트 주위염</h3><p>BOP 및/또는 화농과 함께 기준 대비 PD 증가가 있고, 초기 치유 이후 진행성 골소실이 확인되는 상태입니다. 염증과 골소실이 함께 있어야 합니다.</p></article>
+  </div>
+
+  <h3 class="mini-title">진료실 10초 체크</h3>
+  <div class="fact-list">
+    <div class="fact"><span class="n">1</span><div><b>기준자료가 있는가?</b><p>이전 PD·BOP·방사선이 있으면 반드시 같은 부위끼리 비교합니다.</p></div></div>
+    <div class="fact"><span class="n">2</span><div><b>현재 염증이 있는가?</b><p>6점 탐침에서 BOP와 화농을 기록하고, 플라크·발적·종창을 함께 봅니다.</p></div></div>
+    <div class="fact"><span class="n">3</span><div><b>PD가 증가했는가?</b><p>한 번의 깊은 수치보다 동일 위치의 변화가 중요합니다.</p></div></div>
+    <div class="fact"><span class="n">4</span><div><b>골소실이 진행했는가?</b><p>표준화된 구내 방사선으로 기준 영상과 비교합니다.</p></div></div>
+    <div class="fact"><span class="n">5</span><div><b>보철·기계적 원인이 숨어 있는가?</b><p>잔여 시멘트, 과풍융, 청결 불가 구조, 접촉점 상실, 나사 문제와 임플란트 자체 동요를 분리합니다.</p></div></div>
+  </div>
 </section>
 
-<section id="diagnosis"><p class="section-kicker">Baseline first</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-search"/></svg></span><h2>진단의 출발점: 같은 위치의 기준값</h2></div><p class="section-lead">기준 탐침과 기준 방사선이 없으면 ‘현재 깊다’와 ‘진행하고 있다’를 구분하기 어렵습니다.</p><div class="baseline-layout"><div class="visual-panel"><div class="timeline"><div class="timeline-item" style="--time:#0f766e"><span class="timeline-dot"></span><h3>보철 장착</h3><p>청결 구조, 잔여 시멘트, 접촉점, 교합과 연조직 확인</p></div><div class="timeline-item" style="--time:#0891b2"><span class="timeline-dot"></span><h3>3개월 이내</h3><p>6점 PD·BOP·화농·점막변연·각화점막 기준 기록</p></div><div class="timeline-item" style="--time:#6d5ce7"><span class="timeline-dot"></span><h3>생리적 재형성 후</h3><p>표준화 구내 방사선으로 기준 골수준 기록</p></div><div class="timeline-item" style="--time:#d97706"><span class="timeline-dot"></span><h3>정기 SPIC</h3><p>동일 지점의 변화와 위험도를 비교</p></div><div class="timeline-item" style="--time:#c01f2f"><span class="timeline-dot"></span><h3>PD 증가 + BOP/화농</h3><p>추가 영상으로 진행성 골소실 확인</p></div></div></div><div class="probe-map"><h3>둘레 6점 탐침 맵</h3><svg viewBox="0 0 300 260"><ellipse cx="150" cy="130" rx="75" ry="100" fill="var(--surface-2)" stroke="var(--line)"/><ellipse cx="150" cy="130" rx="40" ry="67" fill="#d5dde7" stroke="#7c8ca1" stroke-width="3"/><g font-size="11" font-weight="800" text-anchor="middle" fill="#fff"><circle cx="105" cy="55" r="15" fill="#0f766e"/><text x="105" y="59">MB</text><circle cx="150" cy="37" r="15" fill="#0f766e"/><text x="150" y="41">B</text><circle cx="195" cy="55" r="15" fill="#0f766e"/><text x="195" y="59">DB</text><circle cx="105" cy="205" r="15" fill="#6d5ce7"/><text x="105" y="209">ML</text><circle cx="150" cy="223" r="15" fill="#6d5ce7"/><text x="150" y="227">L</text><circle cx="195" cy="205" r="15" fill="#6d5ce7"/><text x="195" y="209">DL</text></g></svg><div class="probe-note"><b>가벼운 힘 ≈0.2 N</b><br>PD · BOP · 화농을 동일 지점에서 기록</div></div></div><div class="definition-flow"><div class="def-box"><span class="keyline">기준 있음</span><h3>변화량으로 진단</h3><ul><li>BOP 및/또는 화농</li><li>기준 대비 PD 증가</li><li>초기 치유 후 골소실</li></ul></div><div class="def-arrow"><svg><use href="assets/icons.svg#i-arrow-right"/></svg></div><div class="def-box"><span class="keyline" style="color:var(--visual-amber)">기준 없음</span><h3>보수적 문턱</h3><ul><li>BOP 및/또는 화농</li><li>PD ≥6 mm</li><li>골수준 ≥3 mm</li></ul></div></div><div class="callout warn"><b>방사선만 보고 확정하지 않기</b> — 초기 재형성, 투영오차, 기존 결손을 고려하고, 반복 BOP와 PD 증가가 있다면 기준 영상과 비교합니다.</div></section>
+<section id="diagnosis">
+  <div class="sec-head"><h2>2. 진단: 기준값을 먼저 확보한다</h2></div>
+  <p class="lede">임플란트의 정상 PD 범위는 환자·부위·연조직 두께·보철 형태에 따라 다릅니다. 따라서 <b>현재 수치가 몇 mm인가</b>보다 <b>기준에서 증가했는가</b>가 더 중요합니다.</p>
 
-<section id="risk"><p class="section-kicker">Risk architecture</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-stethoscope"/></svg></span><h2>위험평가: 환자·부위·보철·관리체계</h2></div><p class="section-lead"><b>치주염 병력, 불량한 플라크 조절, 유지관리 부재</b>는 핵심 축입니다. 흡연·당뇨·보철·연조직 요인은 맥락과 조절 정도를 함께 봅니다.</p><div class="risk-summary"><article class="risk-column" style="--risk:#c01f2f"><h3>확립된 핵심 축</h3><p>반복 강조되는 위험</p><div class="risk-list"><div class="risk-item"><b>치주염 병력</b> · 특히 중증/비조절</div><div class="risk-item"><b>불량한 플라크 조절</b></div><div class="risk-item"><b>SPIC 부재</b></div></div></article><article class="risk-column" style="--risk:#d97706"><h3>중요한 위험 지표</h3><p>노출량·조절도와 해석</p><div class="risk-list"><div class="risk-item"><b>흡연</b> · 현재량/누적노출</div><div class="risk-item"><b>당뇨</b> · 혈당조절 불량</div><div class="risk-item"><b>기존 주위질환 치료력</b></div></div></article><article class="risk-column" style="--risk:#6d5ce7"><h3>부위·보철 증폭요인</h3><p>청결 방해 요인</p><div class="risk-list"><div class="risk-item"><b>잔여 시멘트·과풍융</b></div><div class="risk-item"><b>청결 불가능한 보철</b></div><div class="risk-item"><b>부적절한 3차원 위치</b></div></div></article></div><div class="risk-matrix"><div class="mh">요인</div><div class="mh">즉시</div><div class="mh">중기</div><div class="mh">고정</div><div class="mr">플라크·접근</div><div class="cell"><span class="risk-dot" style="--dot:#0f7a52"></span></div><div class="cell"><span class="risk-dot" style="--dot:#0f7a52"></span></div><div class="cell"><span class="risk-dot off"></span></div><div class="mr">시멘트·풍융</div><div class="cell"><span class="risk-dot" style="--dot:#0f7a52"></span></div><div class="cell"><span class="risk-dot" style="--dot:#d97706"></span></div><div class="cell"><span class="risk-dot off"></span></div><div class="mr">흡연·혈당</div><div class="cell"><span class="risk-dot off"></span></div><div class="cell"><span class="risk-dot" style="--dot:#d97706"></span></div><div class="cell"><span class="risk-dot off"></span></div><div class="mr">위치·골결손</div><div class="cell"><span class="risk-dot off"></span></div><div class="cell"><span class="risk-dot" style="--dot:#d97706"></span></div><div class="cell"><span class="risk-dot" style="--dot:#c01f2f"></span></div></div><div class="callout"><b>차팅:</b> 오늘 바꿀 것, 협력해 줄일 것, 치료계획에 반영할 고정 요인으로 나눕니다.</div></section>
+  <div class="two-col">
+    <article class="text-card priority" style="--tone:#0f766e"><h3>기준자료가 있을 때</h3><ul><li>BOP 및/또는 화농을 확인</li><li>동일 위치의 PD가 이전보다 증가했는지 확인</li><li>초기 치유 이후 추가 골소실이 생겼는지 방사선 비교</li><li>세 요소가 함께 모이면 주위염 가능성이 높아짐</li></ul></article>
+    <article class="text-card priority" style="--tone:#b35c00"><h3>기준자료가 없을 때</h3><ul><li>BOP 및/또는 화농</li><li>PD ≥ 6 mm</li><li>임플란트의 가장 치관측 골내 부분에서 약 3 mm 이상 치근단측의 골수준</li><li>세 조건을 만족하면 주위염을 시사하며, 과거 재형성·기존 결손·영상 오차를 함께 감별</li></ul></article>
+  </div>
 
-<section id="prevention"><p class="section-kicker">Prevention by design</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-layers"/></svg></span><h2>예방은 치료계획에서 시작한다</h2></div><div class="care-path"><article class="care-step" style="--step:#0f766e"><h3>식립 전</h3><p>활성 치주질환 안정화, 흡연·혈당·자가관리·순응도 평가</p><span class="step-tag">위험 기반 선택</span></article><article class="care-step" style="--step:#0891b2"><h3>식립·치유</h3><p>청결과 보철이 가능한 3차원 위치, 골·연조직과 접근성 고려</p><span class="step-tag">Position</span></article><article class="care-step" style="--step:#6d5ce7"><h3>보철</h3><p>시멘트 제거, 과풍융 회피, 위생기구가 통과하는 형태</p><span class="step-tag">Cleanability</span></article><article class="care-step" style="--step:#d97706"><h3>SPIC</h3><p>기준 기록, 개별 위생도구, 전문관리, 위험 재평가</p><span class="step-tag">평생 추적</span></article></div><div class="compare-note"><div><b>좋은 보철은 청결 가능한 보철</b>환자와 술자가 경계부를 반복해서 닦고 검사할 수 있어야 합니다.</div><div><b>기준 자료는 예방 도구</b>안정 상태의 기록이 진행을 더 일찍 보여줍니다.</div></div></section>
+  <h3 class="mini-title">기준 기록에 포함할 항목</h3>
+  <div class="tablewrap"><table class="clinical-table cards">
+    <thead><tr><th>항목</th><th>무엇을 남길까</th><th>왜 필요한가</th></tr></thead>
+    <tbody>
+      <tr><td data-label="항목">탐침</td><td data-label="무엇을">MB / B / DB / ML / L / DL의 6점 PD, BOP, 화농</td><td data-label="이유">추후 같은 위치의 변화량을 비교하기 위해</td></tr>
+      <tr><td data-label="항목">탐침 힘</td><td data-label="무엇을">가볍고 일관된 힘, 대략 0.2–0.25 N 수준을 목표</td><td data-label="이유">강한 힘은 조직 손상과 과도한 출혈을 유발할 수 있음</td></tr>
+      <tr><td data-label="항목">연조직</td><td data-label="무엇을">점막변연, 퇴축, 각화점막, 부종, 환자 불편감</td><td data-label="이유">위생 접근성과 심미·연조직 안정성을 함께 평가</td></tr>
+      <tr><td data-label="항목">영상</td><td data-label="무엇을">가능하면 표준화된 평행촬영 구내 방사선</td><td data-label="이유">크레스트 골수준의 연속 비교에 가장 실용적</td></tr>
+      <tr><td data-label="항목">보철</td><td data-label="무엇을">시멘트, 풍융, 접촉점, 스크루, 청결 접근, 교합</td><td data-label="이유">생물학적 질환을 지속시키는 국소 원인을 찾기 위해</td></tr>
+    </tbody>
+  </table></div>
 
-<section id="mucositis"><p class="section-kicker">Reversible window</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-droplet"/></svg></span><h2>점막염: 골소실 전 개입 창</h2></div><p class="section-lead">중심은 <b>자가 플라크 조절 + 전문 기계적/물리적 바이오필름 제거</b>입니다. 보조제가 핵심 치료를 대신하지 않습니다.</p><div class="treatment-ladder"><div class="ladder-row" style="--ladder:#0f766e"><div class="ladder-no">1</div><div class="ladder-main"><h3>염증 범위와 원인 지도화</h3><p>6점 BOP·PD·화농, 플라크, 보철 경계, 시멘트와 접근성 기록</p></div><div class="ladder-side"><h4>국소 출혈</h4><p>특정 면이면 보철·시멘트 문제를 먼저 확인</p></div></div><div class="ladder-row" style="--ladder:#0891b2"><div class="ladder-no">2</div><div class="ladder-main"><h3>개별화 자가관리</h3><p>치간칫솔 직경, 슈퍼플로스, 단일모 칫솔 등 실제 통과 도구를 맞춤</p></div><div class="ladder-side"><h4>성공 기준</h4><p>환자가 집에서 같은 부위를 재현해 닦음</p></div></div><div class="ladder-row" style="--ladder:#6d5ce7"><div class="ladder-no">3</div><div class="ladder-main"><h3>전문 기계적 계측</h3><p>표면 손상을 줄이며 치은연상·연하 바이오필름 제거</p></div><div class="ladder-side"><h4>핵심</h4><p>기구보다 완전한 접근과 원인 제거</p></div></div><div class="ladder-row" style="--ladder:#d97706"><div class="ladder-no">4</div><div class="ladder-main"><h3>보철 요인 수정·재평가</h3><p>과풍융, 시멘트, 접촉점, 위생 통로를 교정</p></div><div class="ladder-side"><h4>지속 시</h4><p>초기 주위염을 다시 배제</p></div></div></div></section>
+  <div class="note-box" style="--tone:#0b62c4"><b>CBCT는 기본검사가 아닙니다.</b> 2D 영상만으로 결손의 협·설측 골벽이나 3차원 형태를 판단하기 어렵고 수술계획에 실제로 영향을 줄 때 선택적으로 사용합니다.</div>
+</section>
 
-<section id="nonsurgical"><p class="section-kicker">Stepwise therapy</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-activity"/></svg></span><h2>주위염 비수술 단계</h2></div><p class="section-lead">비수술 치료는 염증을 줄이고 위생 가능성을 높여 수술 필요성과 예후를 판단하는 필수 단계입니다.</p><div class="treatment-ladder"><div class="ladder-row" style="--ladder:#0f766e"><div class="ladder-no">A</div><div class="ladder-main"><h3>환자 수준 염증원 조절</h3><p>자가관리, 금연·혈당·치주질환 관리</p></div><div class="ladder-side"><h4>동시에</h4><p>유지관리 순응도와 기대치 확인</p></div></div><div class="ladder-row" style="--ladder:#0891b2"><div class="ladder-no">B</div><div class="ladder-main"><h3>보철 접근성 확보</h3><p>필요 시 보철 수정·제거, 시멘트·과풍융·음식물 끼임 교정</p></div><div class="ladder-side"><h4>목표</h4><p>자가·전문 관리가 가능한 구조</p></div></div><div class="ladder-row" style="--ladder:#6d5ce7"><div class="ladder-no">C</div><div class="ladder-main"><h3>치은연상·연하 계측</h3><p>표면 손상을 줄이며 바이오필름과 침착물 제거</p></div><div class="ladder-side"><h4>원칙</h4><p>장비가 불완전한 접근을 대신하지 못함</p></div></div><div class="ladder-row" style="--ladder:#d97706"><div class="ladder-no">D</div><div class="ladder-main"><h3>6–12주 후 재평가</h3><p>같은 6점 PD·BOP·화농·플라크 재측정</p></div><div class="ladder-side"><h4>다음 결정</h4><p>유지·추가 비수술·수술·제거/의뢰</p></div></div></div><h3>실용적 종결 목표</h3><div class="endpoint"><div class="endpoint-card" style="--endpoint:#0f7a52"><b>≤5 mm</b><span>잔존 PD</span></div><div class="endpoint-card" style="--endpoint:#0891b2"><b>0</b><span>화농</span></div><div class="endpoint-card" style="--endpoint:#6d5ce7"><b>≤1</b><span>BOP 양성 지점</span></div></div><div class="evidence-board"><div class="evidence-row" style="--meter:#0f7a52"><div class="evidence-name"><b>자가관리 + 계측</b><span>치료의 중심</span></div><div class="evidence-meter" data-level="3"><i></i><i></i><i></i></div><div class="evidence-note">반드시 포함</div></div><div class="evidence-row" style="--meter:#0f7a52"><div class="evidence-name"><b>보철·위험요인 수정</b><span>원인 접근</span></div><div class="evidence-meter" data-level="3"><i></i><i></i><i></i></div><div class="evidence-note">청결 불가 구조 교정</div></div><div class="evidence-row" style="--meter:#d97706"><div class="evidence-name"><b>Air-polishing·레이저·PDT</b><span>선택적 보조</span></div><div class="evidence-meter" data-level="2"><i></i><i></i><i></i></div><div class="evidence-note">단독 해결책 아님</div></div><div class="evidence-row" style="--meter:#c01f2f"><div class="evidence-name"><b>전신 항생제</b><span>Routine 금지</span></div><div class="evidence-meter" data-level="1"><i></i><i></i><i></i></div><div class="evidence-note">중증·선별 증례만 검토</div></div></div><div class="callout danger"><b>항생제를 자동 처방하지 않기</b> — 전신 증상, 광범위 화농, 깊고 복잡한 병변 등 선별 상황에서 stewardship와 함께 검토합니다.</div></section>
+<section id="differential">
+  <div class="sec-head"><h2>3. 주위염처럼 보이지만 다른 문제들</h2></div>
+  <p class="lede">골소실이나 염증이 보인다고 즉시 주위염으로 결론 내리면 원인을 놓칠 수 있습니다. 특히 국소적으로 갑자기 생긴 병변은 다음 항목을 먼저 확인합니다.</p>
+  <div class="three-col">
+    <article class="text-card"><h3>초기 재형성 또는 과거 안정 골소실</h3><p>보철 직후의 생리적 재형성이나 과거 치료 후 안정된 골수준은 진행성 주위염과 다릅니다. 연속 영상을 비교합니다.</p></article>
+    <article class="text-card"><h3>잔여 시멘트</h3><p>특정 면에 국한된 BOP·화농이 있고 시멘트 유지형 보철이라면 우선 의심합니다. 방사선에서 보이지 않는 시멘트도 있습니다.</p></article>
+    <article class="text-card"><h3>인접치 근관·치근단 병소</h3><p>임플란트 근단부 방사선 투과상은 인접 자연치의 치수·근관 문제와 연결될 수 있습니다. 인접치 생활력과 증상을 확인합니다.</p></article>
+    <article class="text-card"><h3>역행성 임플란트 주위염</h3><p>치관측 조직은 비교적 정상인데 근단부에 국한된 병소가 나타나는 패턴. 식립부 잔존 감염, 인접치 병소 등을 감별합니다.</p></article>
+    <article class="text-card"><h3>보철·나사 동요</h3><p>환자가 “임플란트가 흔들린다”고 해도 실제로는 크라운·어버트먼트·나사만 움직이는 경우가 있습니다. 구성요소별로 분리 확인합니다.</p></article>
+    <article class="text-card"><h3>임플란트 자체 동요</h3><p>골유착 상실을 우선 의심해야 하는 중요한 신호입니다. 단순 점막염이나 나사 풀림과 같은 수준으로 취급하지 않습니다.</p></article>
+    <article class="text-card"><h3>MRONJ·방사선골괴사·종양</h3><p>관련 약물, 두경부 방사선, 암 병력이 있거나 비전형적 골파괴·감각이상·치유지연이 있으면 별도 감별이 필요합니다.</p></article>
+    <article class="text-card"><h3>과부하·교합 문제</h3><p>나사 풀림·파절 등 기계적 문제와 연관될 수 있지만, 플라크성 주위염을 교합 하나로 설명하지 않습니다. 두 축을 따로 평가합니다.</p></article>
+    <article class="text-card"><h3>위치·연조직 문제</h3><p>너무 협측 또는 깊은 식립, 청결 불가 emergence profile, 얇은 연조직은 염증 관리와 심미를 어렵게 만들 수 있습니다.</p></article>
+  </div>
+</section>
 
-<section id="surgery"><p class="section-kicker">Defect-driven surgery</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-bone"/></svg></span><h2>수술 선택: 결손 형태와 청결 가능성</h2></div><p class="section-lead">비수술 후 염증과 깊은 포켓이 남으면 수술을 검토합니다. 복잡 증례는 관련 수련을 받은 술자에게 의뢰합니다.</p><div class="decision-grid"><article class="decision-card" style="--decision:#0891b2"><div class="decision-figure"><svg viewBox="0 0 260 110"><path d="M10 70c45-15 75-12 105 2m30 0c35-17 70-16 105-3v36H10z" fill="#dfb98e"/><g transform="translate(130 5)"><rect x="-20" width="40" height="15" rx="5" fill="#e8eef4"/><path d="M-14 14h28L6 93Q0 103-6 93z" fill="#b8c2ce" stroke="#718095"/></g></svg></div><div class="decision-copy"><span class="decision-label">ACCESS / RESECTIVE</span><h3>접근·절제 중심</h3><p>수평·비포함성·얕은 결손에서 청결 가능한 형태 확보</p></div></article><article class="decision-card" style="--decision:#6d5ce7"><div class="decision-figure"><svg viewBox="0 0 260 110"><path d="M10 65c45-17 78-12 99 10 15 17 26 25 42-1 26-24 62-25 99-10v41H10z" fill="#dfb98e"/><g transform="translate(130 5)"><rect x="-20" width="40" height="15" rx="5" fill="#e8eef4"/><path d="M-14 14h28L6 93Q0 103-6 93z" fill="#b8c2ce" stroke="#718095"/></g><path d="M107 74c12-27 18-30 23-26m0 0c9 0 17 13 23 25" fill="none" stroke="#8b5cf6" stroke-width="5" stroke-dasharray="4 4"/></svg></div><div class="decision-copy"><span class="decision-label">RECONSTRUCTIVE</span><h3>재건 중심</h3><p>벽이 지지하는 포함성 수직/복합 결손에서 고려</p></div></article><article class="decision-card" style="--decision:#c01f2f"><div class="decision-figure"><svg viewBox="0 0 260 110"><path d="M10 84c55-17 88-6 105 10m30 0c30-20 67-25 105-11v22H10z" fill="#dfb98e"/><g transform="translate(130 5)"><rect x="-20" width="40" height="15" rx="5" fill="#e8eef4"/><path d="M-14 14h28L6 93Q0 103-6 93z" fill="#b8c2ce" stroke="#718095"/></g><path d="M102 28l56 56m0-56-56 56" stroke="#dc2626" stroke-width="3"/></svg></div><div class="decision-copy"><span class="decision-label">REMOVAL</span><h3>제거 고려</h3><p>임플란트 동요, 광범위 골소실·불량 위치, 반복 실패</p></div></article></div><div class="callout warn"><b>2D 영상만으로 선택하지 않기</b> — 탐침, 보철 제거 후 접근성, 3차원 골벽, 심미 위험과 유지관리 능력을 함께 봅니다.</div><div class="callout"><b>수술 후 재평가</b> — AO/AAP 구현 흐름은 최소 약 4개월 후 재평가를 제시하며 실제 시점은 술식과 치유에 맞춥니다.</div></section>
+<section id="risk">
+  <div class="sec-head"><h2>4. 위험요인: 원인과 증폭요인을 구분한다</h2></div>
+  <p class="lede">모든 위험요인의 근거가 같은 수준은 아닙니다. 진료에서는 <b>반복적으로 확인되는 핵심 위험</b>, <b>수정 가능한 위험</b>, <b>국소 구조적 위험</b>으로 나누면 관리가 쉽습니다.</p>
+  <div class="three-col">
+    <article class="text-card priority" style="--tone:#c01f2f"><h3>핵심 위험 축</h3><ul><li>치주염 병력, 특히 미조절 또는 중증 병력</li><li>불량한 플라크 조절</li><li>정기적인 supportive peri-implant care 부재</li></ul></article>
+    <article class="text-card priority" style="--tone:#b35c00"><h3>수정 가능한 전신·행동 요인</h3><ul><li>흡연</li><li>불량한 혈당 조절</li><li>자가관리 부족</li><li>리콜 불순응</li></ul></article>
+    <article class="text-card priority" style="--tone:#6d5ce7"><h3>국소·보철 증폭요인</h3><ul><li>잔여 시멘트</li><li>과풍융과 청결 불가 구조</li><li>부적절한 3차원 식립 위치</li><li>접촉점·embrasure 문제</li><li>환자가 실제로 사용할 수 없는 위생 접근</li></ul></article>
+  </div>
+  <div class="note-box" style="--tone:#6d5ce7"><b>각화점막은 단독 진단 기준이 아닙니다.</b> 부족한 각화점막이 불편감과 플라크 조절 어려움에 기여할 수 있으므로 환자가 실제로 닦을 수 있는지와 함께 평가합니다.</div>
+</section>
 
-<section id="complications"><p class="section-kicker">Troubleshooting</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-layers"/></svg></span><h2>생물학적 질환과 기계적 합병증 감별</h2></div><div class="mechanical-grid"><article class="mechanical-card" style="--mechanical:#c01f2f"><h3>동요</h3><p>보철/나사 풀림인지 임플란트 자체 동요인지 분리. 자체 동요는 골유착 상실 신호입니다.</p><span>우선 감별</span></article><article class="mechanical-card" style="--mechanical:#d97706"><h3>나사 풀림·파절</h3><p>부적합, cantilever, 접촉 변화, 반복 하중, 토크와 부품 마모 확인</p><span>기계적</span></article><article class="mechanical-card" style="--mechanical:#6d5ce7"><h3>잔여 시멘트</h3><p>국소 BOP·화농이 특정 면에 집중되면 방사선 비가시 시멘트도 의심</p><span>염증 유발</span></article><article class="mechanical-card" style="--mechanical:#0891b2"><h3>접촉점 상실</h3><p>인접치 이동, 접촉 강도, embrasure와 세척 통로를 평가</p><span>보철 수정</span></article><article class="mechanical-card" style="--mechanical:#0f766e"><h3>교합 과부하</h3><p>파절·풀림 신호는 평가하되 플라크 염증을 교합만의 문제로 단정하지 않음</p><span>동시 평가</span></article><article class="mechanical-card" style="--mechanical:#be123c"><h3>위치·심미</h3><p>청결 불가·퇴축·금속 노출이 보철 수정만으로 해결 가능한지 재평가</p><span>의뢰 고려</span></article></div><div class="alert-grid"><div class="alert-card" style="--alert:#c01f2f"><span class="alert-icon"><svg><use href="assets/icons.svg#i-siren"/></svg></span><div><h3>조기 의뢰 신호</h3><p>깊은 다면성 결손, 빠른 진행, 광범위 화농, 심미부 복합 결손, 반복 실패</p></div></div><div class="alert-card" style="--alert:#d97706"><span class="alert-icon"><svg><use href="assets/icons.svg#i-bone"/></svg></span><div><h3>제거 논의 신호</h3><p>임플란트 자체 동요, 유지 불가능한 위치, 광범위 골소실, 반복 수술 부담</p></div></div></div></section>
+<section id="prevention">
+  <div class="sec-head"><h2>5. 예방: 식립 전부터 유지관리까지</h2></div>
+  <div class="decision-list">
+    <div class="decision-step"><b>식립 전 — 활성 치주질환을 안정화</b><p>치주염 병력, 흡연, 당뇨, 위생능력, 리콜 순응도를 확인하고 조절 가능한 위험을 먼저 낮춥니다.</p></div>
+    <div class="decision-step"><b>식립 — 보철과 청결이 가능한 3차원 위치</b><p>단순히 골이 있는 곳이 아니라 최종 보철의 emergence profile, 위생 접근, 연조직과 심미까지 고려합니다.</p></div>
+    <div class="decision-step"><b>보철 — 잔여 시멘트와 과풍융을 최소화</b><p>환자의 칫솔·치간칫솔·플로스가 실제로 경계부에 접근할 수 있는 형태가 장기적으로 중요합니다.</p></div>
+    <div class="decision-step"><b>기준 기록 — 안정 상태를 남긴다</b><p>6점 PD·BOP·화농과 기준 방사선을 남겨야 나중에 “깊다”와 “진행했다”를 구분할 수 있습니다.</p></div>
+    <div class="decision-step"><b>유지관리 — 모든 임플란트 환자에게 필요</b><p>위험도에 따라 간격을 조절하며, 안정적이라고 장기간 완전히 방치하지 않습니다.</p></div>
+  </div>
+</section>
 
-<section id="maintenance"><p class="section-kicker">Supportive peri-implant care</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-activity"/></svg></span><h2>유지관리: 안정이 반복되는 기간</h2></div><p class="section-lead">SPIC는 모든 임플란트 환자에게 필요하며 간격은 치주염 병력, 흡연·혈당, 자가관리, 보철 접근, 주위염 치료력과 현재 염증에 따라 개별화합니다.</p><div class="recall-track"><article class="recall-card" style="--recall:#0f766e"><div class="month">BASELINE</div><h3>안정 기록</h3><p>6점 PD·BOP·화농·골수준·보철</p></article><article class="recall-card" style="--recall:#0891b2"><div class="month">6–12주</div><h3>비수술 재평가</h3><p>염증 감소와 잔존 깊은 부위</p></article><article class="recall-card" style="--recall:#6d5ce7"><div class="month">≥4개월</div><h3>수술 후 평가</h3><p>치유·PD·BOP·화농·영상 안정</p></article><article class="recall-card" style="--recall:#d97706"><div class="month">LONG TERM</div><h3>위험별 SPIC</h3><p>안정 반복 때만 신중히 연장</p></article></div><div class="recall-summary"><div class="recall-band" style="--band:#0f7a52"><b>낮은 위험 · 안정 반복</b><span>약 5–6개월 간격 고려</span></div><div class="recall-band" style="--band:#c01f2f"><b>높은 위험 · 치료력/염증</b><span>약 3–4개월 중심의 촘촘한 추적</span></div></div></section>
+<section id="mucositis">
+  <div class="sec-head"><h2>6. 임플란트 주위 점막염 치료</h2></div>
+  <p class="lede">점막염 치료의 중심은 복잡한 장비가 아니라 <b>바이오필름 제거와 원인 교정</b>입니다. 골소실이 없는 단계에서 염증을 끊어내는 것이 목표입니다.</p>
+  <div class="decision-list">
+    <div class="decision-step"><b>염증 위치를 지도화</b><p>6점 BOP·화농·PD를 기록하고 플라크가 어느 면에 집중되는지 확인합니다.</p></div>
+    <div class="decision-step"><b>환자에게 실제로 맞는 위생도구를 선택</b><p>치간칫솔 직경, 단일모 칫솔, 슈퍼플로스 등 보철 구조에 맞는 도구를 직접 통과시켜 봅니다.</p></div>
+    <div class="decision-step"><b>전문적 기계적 바이오필름 제거</b><p>임플란트 표면 손상을 최소화하면서 접근 가능한 침착물과 바이오필름을 제거합니다.</p></div>
+    <div class="decision-step"><b>잔여 시멘트·과풍융·접근 불량을 수정</b><p>특정 면의 염증이 반복되면 보철 원인을 적극적으로 의심합니다.</p></div>
+    <div class="decision-step"><b>수 주 후 재평가</b><p>BOP와 플라크가 줄었는지 확인합니다. 지속적인 깊은 PD·화농·골변화가 있으면 초기 주위염을 다시 평가합니다.</p></div>
+  </div>
+  <div class="note-box" style="--tone:#b35c00"><b>보조제가 기본치료를 대신하지 않습니다.</b> 항균제, 레이저, PDT, air-polishing 등은 선택적 보조수단일 수 있지만, 접근·자가관리·기계적 원인 제거보다 우선하지 않습니다.</div>
+</section>
 
-<section id="checklist"><p class="section-kicker">Chairside charting</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-book"/></svg></span><h2>진료실 차팅 체크리스트</h2></div><div class="checklist-wrap"><div class="checklist-card"><div class="checklist-head"><h3>임플란트 주위 조직 평가</h3><button id="copy-checklist" type="button">복사</button></div><pre class="checklist-code" id="chart-template">[임플란트 주위 조직 평가]
-• 부위 / 보철 유형:
-• 증상: 통증( ) 불편감( ) 음식물 끼임( ) 동요감( )
-• Plaque:  BOP(6점):  Suppuration:
-• PD 6점(MB/B/DB/ML/L/DL):
-• 기준 PD 대비 증가 부위:
-• 점막변연 / 퇴축 / 각화점막:
-• 기준 방사선 날짜 및 골수준:
-• 현재 영상상 추가 골소실:
-• 보철 요인: 시멘트 / 과풍융 / 접촉점 / 청결 접근 / 나사·파절
-• 위험: 치주염 병력 / 흡연 / 당뇨 / SPIC 순응도
-• 분류: 건강 / 점막염 / 주위염 / 기계적 합병증
-• 오늘 처치 / 자가관리 교육:
-• 재평가 시점 및 의뢰·수술·제거 고려:</pre></div><div class="mini-checks"><div class="mini-check">기준 자료 유무를 명시</div><div class="mini-check">PD와 BOP·화농 위치를 함께 기록</div><div class="mini-check">골소실 존재와 진행을 구분</div><div class="mini-check">보철·기계 요인을 별도 평가</div><div class="mini-check">재평가 날짜와 성공 기준 기록</div></div></div></section>
+<section id="periimplantitis">
+  <div class="sec-head"><h2>7. 임플란트 주위염: 비수술 치료부터 시작</h2></div>
+  <p class="lede">비수술 치료만으로 모든 주위염이 해결되지는 않지만, 수술 전 반드시 해야 할 원인조절 단계입니다. 이 단계의 목적은 <b>염증을 줄이고, 보철 접근을 개선하고, 수술이 필요한 잔존 병변을 선별</b>하는 것입니다.</p>
+  <div class="decision-list">
+    <div class="decision-step"><b>환자 수준 위험요인을 조절</b><p>자가관리, 치주염, 흡연, 혈당, 리콜 순응도를 함께 다룹니다.</p></div>
+    <div class="decision-step"><b>보철 접근성을 확보</b><p>필요하면 상부 보철을 제거하거나 수정해 시멘트·과풍융·음식물 끼임·청결 불가 구조를 해결합니다.</p></div>
+    <div class="decision-step"><b>치은연상·연하 기계적 계측</b><p>접근 가능한 바이오필름과 침착물을 제거합니다. 특정 기구나 장비 하나가 불완전한 접근을 보완하지는 못합니다.</p></div>
+    <div class="decision-step"><b>약 6–12주 후 같은 지점으로 재평가</b><p>PD, BOP, 화농, 플라크와 증상을 다시 기록합니다. 필요하면 영상 변화를 확인합니다.</p></div>
+    <div class="decision-step"><b>잔존 병변의 다음 단계를 결정</b><p>얕고 염증이 크게 감소한 부위는 유지관리로, 깊은 포켓·화농·접근 불가 결손이 남으면 수술 또는 의뢰를 검토합니다.</p></div>
+  </div>
 
-<section id="references"><p class="section-kicker">Evidence map</p><div class="sec-head"><span class="ic"><svg><use href="assets/icons.svg#i-book"/></svg></span><h2>핵심 근거</h2></div><p class="section-lead">진단은 2017 World Workshop, 예방·치료는 EFP S3 지침을 중심으로 AO/AAP 흐름도와 한국 치주학 문헌을 교차 참고했습니다.</p><div class="references"><div class="ref-item"><b>Herrera D, et al. 2023.</b> EFP S3 clinical practice guideline. <a href="https://doi.org/10.1111/jcpe.13823" target="_blank" rel="noopener">J Clin Periodontol.</a></div><div class="ref-item"><b>Renvert S, et al. 2018.</b> Case definitions and diagnostic considerations. <a href="https://doi.org/10.1111/jcpe.12956" target="_blank" rel="noopener">J Clin Periodontol.</a></div><div class="ref-item"><b>Berglundh T, et al. 2018.</b> 2017 World Workshop consensus. <a href="https://doi.org/10.1111/jcpe.12957" target="_blank" rel="noopener">J Clin Periodontol.</a></div><div class="ref-item"><b>AO/AAP 2024 Consensus, published 2025.</b> <a href="https://www.perio.org/research-science/2024-aapao-consensus-on-prevention-and-management-of-peri-implant-diseases-and-conditions/" target="_blank" rel="noopener">Summary and flowcharts.</a></div><div class="ref-item"><b>Korean Academy of Periodontology, 2024.</b> <a href="https://doi.org/10.5051/jpis.2403920196" target="_blank" rel="noopener">Narrative review.</a></div><div class="ref-item"><b>EFP implementation resources, 2025.</b> <a href="https://www.efp.org/for-patients/gum-disease-other-diseases/peri-implant-diseases/" target="_blank" rel="noopener">Infographics.</a></div></div><div class="callout warn"><b>지침 차이</b> — 일부 흐름도는 다양한 보조치료를 나열하지만 EFP S3는 일상 사용에 더 보수적입니다. 이 노트는 기계적 원인 제거와 위험조절을 기본으로 두었습니다.</div><p class="source-note">최종 검토: 2026-08-20. 처치 전 최신 원문과 국내 환경을 확인하십시오.</p></section>
+  <h3 class="mini-title">전신 항생제는 기본 처방이 아니다</h3>
+  <div class="note-box" style="--tone:#c01f2f"><b>주위염이라는 이유만으로 자동 처방하지 않습니다.</b> 기계적 원인 제거 없이 항생제만 사용하는 것은 기본 치료가 아닙니다. 확산성 감염, 전신 증상 등 일반적인 감염 치료 적응이 있을 때 별도로 판단합니다.</div>
+
+  <h3 class="mini-title">재평가에서 보고 싶은 변화</h3>
+  <div class="two-col">
+    <article class="text-card"><h3>좋은 방향</h3><ul><li>화농 소실</li><li>BOP의 뚜렷한 감소</li><li>PD 감소 또는 안정</li><li>자가관리 가능한 구조 확보</li><li>추가 방사선학적 진행 없음</li></ul></article>
+    <article class="text-card"><h3>다음 단계가 필요한 신호</h3><ul><li>깊은 잔존 포켓</li><li>지속적 화농</li><li>다면성 반복 BOP</li><li>접근 불가능한 결손</li><li>진행성 골소실</li><li>보철·식립 위치가 원인인데 수정 불가</li></ul></article>
+  </div>
+</section>
+
+<section id="surgery">
+  <div class="sec-head"><h2>8. 수술 치료: 결손 형태와 유지 가능성으로 선택</h2></div>
+  <p class="lede">비수술 치료 후에도 깊은 포켓과 염증이 남는다면 수술을 고려합니다. 수술법은 “더 강한 방법”을 고르는 문제가 아니라 <b>골결손의 형태, 식립 위치, 보철 수정 가능성, 심미, 환자의 유지관리 능력</b>에 따라 결정됩니다.</p>
+  <div class="three-col">
+    <article class="text-card priority" style="--tone:#0b62c4"><h3>Access flap / debridement</h3><p>비수술로 접근하기 어려운 임플란트 표면에 시야와 접근을 확보해 육아조직·바이오필름을 제거하는 기본 수술 단계.</p></article>
+    <article class="text-card priority" style="--tone:#b35c00"><h3>Resective approach</h3><p>비포함성·수평성 결손, 청결 가능한 형태를 만드는 것이 중요한 경우 고려. 심미부에서는 퇴축 위험을 반드시 따집니다.</p></article>
+    <article class="text-card priority" style="--tone:#6d5ce7"><h3>Reconstructive approach</h3><p>벽이 남아 공간 유지가 가능한 포함성 수직·복합 결손에서 재건을 고려. 모든 결손이 재생의 적응증은 아닙니다.</p></article>
+  </div>
+  <div class="note-box" style="--tone:#0f766e"><b>표면 제독에는 단일한 절대적 표준법이 없습니다.</b> 기계적·화학적·air-abrasive·레이저 등 다양한 방법이 사용되지만, 핵심은 충분한 접근과 철저한 오염 제거, 그리고 이후 청결 가능한 환경을 만드는 것입니다.</div>
+
+  <h3 class="mini-title">임플란트 제거를 진지하게 고려할 상황</h3>
+  <ul class="tight"><li><b>임플란트 자체 동요</b>가 확인됨</li><li>광범위하고 진행성인 골소실로 장기 유지 예후가 매우 불량함</li><li>식립 위치가 지나치게 불량해 위생·보철·심미를 재구성하기 어려움</li><li>반복 치료에도 지속적으로 재발함</li><li>보철적으로 회복 불가능하거나 파절이 심함</li><li>환자의 전신상태·치료 부담을 고려할 때 보존의 이득이 작음</li></ul>
+</section>
+
+<section id="prosthetic">
+  <div class="sec-head"><h2>9. 보철·기계적 합병증: 염증과 따로 기록한다</h2></div>
+  <div class="tablewrap"><table class="clinical-table cards">
+    <thead><tr><th>문제</th><th>확인 포인트</th><th>임상적 의미</th></tr></thead>
+    <tbody>
+      <tr><td data-label="문제">환자가 느끼는 동요</td><td data-label="확인">크라운 → 나사 → 어버트먼트 → 임플란트 본체 순으로 분리 확인</td><td data-label="의미">구성요소 동요와 골유착 상실은 처치가 완전히 다름</td></tr>
+      <tr><td data-label="문제">나사 풀림</td><td data-label="확인">적합, cantilever, 교합, 토크, 부품 마모, 반복 여부</td><td data-label="의미">단순 재조임보다 반복 원인을 찾아야 함</td></tr>
+      <tr><td data-label="문제">나사·어버트먼트 파절</td><td data-label="확인">파절편 회수 가능성, 내부 나사산 손상, 보철 설계</td><td data-label="의미">회복 가능성과 임플란트 제거 필요성을 함께 평가</td></tr>
+      <tr><td data-label="문제">임플란트 파절</td><td data-label="확인">파절 위치, 골수준, 보철 재구성 가능성</td><td data-label="의미">대부분 고난도 salvage 또는 제거 논의가 필요</td></tr>
+      <tr><td data-label="문제">잔여 시멘트</td><td data-label="확인">국소 BOP·화농, 시멘트 유지형 여부, 경계 위치</td><td data-label="의미">제거 가능한 국소 염증 원인</td></tr>
+      <tr><td data-label="문제">접촉점 상실</td><td data-label="확인">음식물 끼임, 인접치 이동, embrasure, 위생 접근</td><td data-label="의미">환자 불편과 국소 염증을 반복시킬 수 있음</td></tr>
+      <tr><td data-label="문제">과풍융·청결 불가</td><td data-label="확인">치간칫솔과 플로스가 실제로 통과하는지</td><td data-label="의미">보철 수정 자체가 원인 치료가 될 수 있음</td></tr>
+      <tr><td data-label="문제">교합</td><td data-label="확인">파절·풀림·재료 마모, 편심 간섭, parafunction</td><td data-label="의미">기계적 위험을 평가하되 주위염의 플라크성 염증과 혼동하지 않음</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="maintenance">
+  <div class="sec-head"><h2>10. 유지관리: 안정 상태를 반복해서 확인한다</h2></div>
+  <p class="lede">Supportive peri-implant care는 치료가 끝난 뒤의 부가 서비스가 아니라 장기 예후의 일부입니다. 일반적으로 <b>3–6개월 범위에서 시작해 위험도와 안정성에 따라 개별화</b>하는 접근이 실용적입니다.</p>
+  <div class="two-col">
+    <article class="text-card priority" style="--tone:#0f7a52"><h3>간격을 늘릴 수 있는 방향</h3><ul><li>여러 차례 안정된 PD·BOP</li><li>좋은 플라크 조절</li><li>치주 상태 안정</li><li>금연·혈당 관리</li><li>청결 가능한 보철</li><li>이전 주위염 병력 없음</li></ul></article>
+    <article class="text-card priority" style="--tone:#c01f2f"><h3>더 촘촘히 볼 상황</h3><ul><li>주위염 치료 병력</li><li>치주염 고위험</li><li>흡연 또는 혈당조절 불량</li><li>반복 BOP·화농</li><li>자가관리 어려운 보철</li><li>리콜 불순응</li></ul></article>
+  </div>
+  <h3 class="mini-title">리콜 때 반복해서 기록할 것</h3>
+  <ul class="tight"><li>플라크와 환자의 위생도구 사용 가능성</li><li>6점 PD, BOP, 화농</li><li>점막변연·퇴축·불편감</li><li>보철 동요·나사·접촉점·파절</li><li>위험요인의 변화: 흡연, 혈당, 치주상태, 약물·전신상태</li><li>임상 변화가 있을 때 기준 방사선과 비교</li></ul>
+  <div class="note-box" style="--tone:#0b62c4"><b>방사선은 모든 리콜마다 자동 촬영하지 않습니다.</b> PD 증가, 새로운 BOP·화농, 증상, 동요 등 임상 변화가 있거나 치료 후 골수준 확인이 필요한 경우에 적응증을 두고 촬영합니다.</div>
+</section>
+
+<section id="charting">
+  <div class="sec-head"><h2>11. 진료실 차팅 템플릿</h2></div>
+  <div class="chart-box">
+    <div class="chart-head"><h3>임플란트 주위 조직·보철 평가</h3><button class="text-btn" id="copy-checklist" type="button">복사</button></div>
+    <pre class="chart-template" id="chart-template">[임플란트 주위 조직·보철 평가]
+부위 / 임플란트 / 보철 유형:
+증상: 통증( ) 불편감( ) 음식물 끼임( ) 동요감( )
+Plaque:
+PD 6점(MB/B/DB/ML/L/DL):
+BOP 6점:
+Suppuration:
+기준 PD 대비 증가 부위:
+점막변연 / 퇴축 / 각화점막 / 종창:
+기준 방사선 날짜:
+기준 골수준:
+현재 영상상 추가 골소실:
+보철: 시멘트 / 과풍융 / 청결 접근 / 접촉점 / 나사 / 파절 / 교합
+동요: 보철( ) 어버트먼트·나사( ) 임플란트 본체( )
+위험: 치주염 병력 / 흡연 / 당뇨 / SPIC 순응도
+감별: 인접치 병소 / 역행성 병소 / MRONJ·ORN / 기타
+분류: 건강 / 점막염 / 주위염 / 보철·기계적 합병증 / 기타
+오늘 처치:
+자가관리 교육:
+재평가 시점:
+수술·제거·의뢰 고려사항:</pre>
+  </div>
+</section>
+
+<section id="referral">
+  <div class="sec-head"><h2>12. 조기 의뢰 또는 고난도 평가가 필요한 경우</h2></div>
+  <div class="two-col">
+    <article class="text-card priority" style="--tone:#c01f2f"><h3>질환 측면</h3><ul><li>빠른 진행성 골소실</li><li>깊고 다면성인 결손</li><li>반복적인 화농과 치료 실패</li><li>심미부의 복합 연조직·골결손</li><li>MRONJ·ORN·종양 등 비전형 병변 의심</li></ul></article>
+    <article class="text-card priority" style="--tone:#b35c00"><h3>보철·기계 측면</h3><ul><li>임플란트 본체 동요</li><li>임플란트 또는 내부 연결부 파절</li><li>제거가 어려운 파절 나사</li><li>식립 위치가 매우 불량해 재보철로 해결 불가</li><li>제거 후 재건을 포함한 복합 치료가 필요</li></ul></article>
+  </div>
+</section>
+
+<section id="references">
+  <div class="sec-head"><h2>13. 핵심 근거</h2></div>
+  <p class="lede">진단은 2017 World Workshop 정의를 중심으로, 치료와 예방은 EFP S3 임상진료지침과 AAP/AO 합의 자료를 교차 참고합니다.</p>
+  <div class="ref-list">
+    <div class="ref"><b>Renvert S, et al. 2018.</b> Case definitions and diagnostic considerations. <a href="https://doi.org/10.1111/jcpe.12956" target="_blank" rel="noopener">J Clin Periodontol.</a></div>
+    <div class="ref"><b>Berglundh T, et al. 2018.</b> Peri-implant diseases and conditions: Consensus report of Workgroup 4 of the 2017 World Workshop. <a href="https://doi.org/10.1111/jcpe.12957" target="_blank" rel="noopener">J Clin Periodontol.</a></div>
+    <div class="ref"><b>Herrera D, et al. 2023.</b> EFP S3 level clinical practice guideline for prevention and treatment of peri-implant diseases. <a href="https://doi.org/10.1111/jcpe.13823" target="_blank" rel="noopener">J Clin Periodontol.</a></div>
+    <div class="ref"><b>AAP / Academy of Osseointegration 2024 Consensus Conference, published 2025.</b> Prevention and management of peri-implant diseases and conditions. <a href="https://www.perio.org/research-science/2024-aapao-consensus-on-prevention-and-management-of-peri-implant-diseases-and-conditions/" target="_blank" rel="noopener">Consensus resources.</a></div>
+    <div class="ref"><b>Korean Academy of Periodontology, 2024.</b> Contemporary review of peri-implant diseases and management. <a href="https://doi.org/10.5051/jpis.2403920196" target="_blank" rel="noopener">Journal of Periodontal & Implant Science.</a></div>
+  </div>
+  <div class="note-box" style="--tone:#b35c00"><b>근거의 한계:</b> 특정 표면 제독법, 보조 레이저·PDT, 항균제, 재건재료 등은 연구마다 결과가 일관되지 않은 영역이 있습니다. 기본 원인조절과 청결 가능한 구조 확보를 우선합니다.</div>
+</section>
 </main>
-<footer class="wrap clinical-footer"><span>JH의 덴탈시냅스 · 임플란트 주위질환</span><span>개인 임상 정리 · 원전과 환자별 판단 우선</span></footer>
+
+<footer class="wrap clinical-footer"><span>JH의 덴탈시냅스 · 임플란트 주위질환</span><span>텍스트 임상 핸드북 · 최종 검토 2026-08-20</span></footer>
 <div class="toast" id="toast" role="status" aria-live="polite">차팅 템플릿을 복사했습니다.</div>
-<script src="assets/peri-implant.js?v=1"></script><script src="assets/theme.js"></script>
+<script>
+(function(){
+  var copy=document.getElementById('copy-checklist');
+  var template=document.getElementById('chart-template');
+  var toast=document.getElementById('toast');
+  if(copy&&template){copy.addEventListener('click',async function(){
+    var text=template.textContent.trim();
+    try{await navigator.clipboard.writeText(text);}catch(e){
+      var range=document.createRange();range.selectNodeContents(template);var sel=getSelection();sel.removeAllRanges();sel.addRange(range);document.execCommand('copy');sel.removeAllRanges();
+    }
+    toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},1600);
+  });}
+  var printButton=document.getElementById('print-page');if(printButton)printButton.addEventListener('click',function(){window.print();});
+})();
+</script>
+<script src="assets/theme.js?v=5"></script>
 </body>
 </html>
