@@ -4,189 +4,340 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>JH의 덴탈시냅스</title>
-<meta name="description" content="JH의 덴탈시냅스 — 치과 임상 노트 모음(처방·질환·술식)" />
+<meta name="description" content="JH의 덴탈시냅스 — 치과 임상 노트를 진단·약물·전신질환·보철·응급 흐름으로 연결한 시각형 레퍼런스 허브" />
 <meta name="theme-color" content="#4f46e5" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="assets/theme.css?v=4" />
+<link rel="stylesheet" href="assets/visual.css?v=1" />
 <style>
-  header.hero{padding:var(--sp-7) 0 var(--sp-7)}
-  #bg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
-  header.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:radial-gradient(56% 120% at 84% -14%, rgba(255,255,255,.20), transparent 60%)}
-  #greet{font-variant-numeric:tabular-nums}
-  .count{color:var(--ink-2);font-size:var(--text-sm);margin:2px 0 0}
-  /* note entrance + cursor glow */
-  a.note::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .25s;
-    background:radial-gradient(240px circle at var(--mx,50%) var(--my,-30%), color-mix(in srgb,var(--accent2,var(--brand)) 16%,transparent), transparent 60%)}
-  a.note:hover::before{opacity:1}
-  .note .ic{transition:transform .2s var(--ease)}
-  a.note:hover .ic{transform:scale(1.06) rotate(-4deg)}
-  @media (prefers-reduced-motion: no-preference){
-    a.note{opacity:0;transform:translateY(16px);animation:rise .55s var(--ease) forwards}
-    @keyframes rise{to{opacity:1;transform:none}}
+  .hub-hero{padding:40px 0 38px}
+  .hub-hero h1{margin-bottom:8px}
+  .hub-hero .hero-copy{padding:10px 0}
+  .hub-count{color:var(--ink-2);font-size:var(--text-sm);margin:10px 0 0}
+  .hub-search{width:min(100%,390px)}
+  .hub-search input{width:100%}
+  .hub-section-title{display:flex;align-items:end;gap:12px;margin-top:22px}
+  .hub-section-title h2{margin:0;font-size:var(--text-xl)}
+  .hub-section-title p{margin:0 0 2px;color:var(--ink-3);font-size:var(--text-xs)}
+  .hub-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .no-results{padding:44px 20px;text-align:center;background:var(--surface);border:1px dashed var(--line);border-radius:var(--r-lg);color:var(--ink-2)}
+  .no-results b{display:block;color:var(--ink);font-size:var(--text-md);margin-bottom:4px}
+  @media (max-width:760px){
+    .hub-hero{padding:30px 0 28px}
+    .hub-section-title{display:block}
+    .hub-section-title p{margin-top:4px}
+    .hub-search{width:100%}
   }
 </style>
 </head>
 <body>
 
-<header class="hero" id="hero">
-  <canvas id="bg" aria-hidden="true"></canvas>
-  <button class="themebtn hero-toggle" id="theme" aria-label="다크 모드로 전환"><svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg></button>
-  <div class="wrap">
-    <h1><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>JH의 덴탈시냅스</h1>
-    <p class="sub">나의 치과 임상 노트 — 처방·질환·술식을 한곳에 연결합니다.</p>
-    <div class="meta-row">
-      <span id="greet">JH</span>
-      <span id="meta-count">노트 —</span>
+<header class="hero visual-hero hub-hero" id="hero">
+  <button class="themebtn hero-toggle" id="theme" aria-label="다크 모드로 전환">
+    <svg aria-hidden="true"><use href="assets/icons.svg#i-moon"/></svg>
+  </button>
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="pulse"></span> CLINICAL KNOWLEDGE MAP · 2026</div>
+      <div class="hero-title-row">
+        <span class="hero-mark"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>
+        <h1>JH의 덴탈시냅스</h1>
+      </div>
+      <p class="sub">치과 진료에서 자주 부딪히는 판단을 약물·질환·술식·응급 흐름으로 연결한 개인 임상 레퍼런스입니다.</p>
+      <div class="hero-kpis" aria-label="노트 현황">
+        <span><i></i><b id="hero-note-count">9</b>개 임상 노트</span>
+        <span><i></i><b>4</b>개 핵심 영역</span>
+        <span><i></i><b>1</b>개 신규 주제</span>
+      </div>
+      <div class="hero-actions">
+        <a class="hero-btn primary" href="peri-implant.html">신규 노트 열기 <svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></a>
+        <a class="hero-btn" href="#notes">전체 노트 보기</a>
+      </div>
+    </div>
+
+    <div class="synapse-art" aria-hidden="true">
+      <svg viewBox="0 0 500 270" role="img">
+        <ellipse class="orbit" cx="250" cy="136" rx="205" ry="96"/>
+        <ellipse class="orbit" cx="250" cy="136" rx="155" ry="122" transform="rotate(23 250 136)"/>
+        <path class="wire" d="M78 95 C142 28 208 65 250 132 S364 224 430 160"/>
+        <path class="wire" d="M98 203 C150 162 170 101 250 132 S358 108 407 54"/>
+        <path class="wire" d="M134 51 C182 87 208 121 250 132 S302 161 369 213"/>
+        <path class="signal" d="M78 95 C142 28 208 65 250 132 S364 224 430 160"/>
+        <path class="signal" d="M98 203 C150 162 170 101 250 132 S358 108 407 54" style="animation-delay:-1.7s"/>
+        <g transform="translate(250 132)"><circle class="node-ring" r="48"/><circle class="node-ring" r="34"/><circle class="node-core" r="11"/><circle class="node-hot" cx="17" cy="-15" r="5"/></g>
+        <g transform="translate(78 95)"><circle class="node-ring" r="23"/><circle class="node-core" r="7"/></g>
+        <g transform="translate(98 203)"><circle class="node-ring" r="19"/><circle class="node-hot" r="6"/></g>
+        <g transform="translate(134 51)"><circle class="node-ring" r="18"/><circle class="node-core" r="6"/></g>
+        <g transform="translate(407 54)"><circle class="node-ring" r="20"/><circle class="node-hot" r="6"/></g>
+        <g transform="translate(430 160)"><circle class="node-ring" r="23"/><circle class="node-core" r="7"/></g>
+        <g transform="translate(369 213)"><circle class="node-ring" r="18"/><circle class="node-hot" r="6"/></g>
+        <g transform="translate(183 188)"><rect class="label-box" x="-42" y="-16" width="84" height="32" rx="10"/><text class="label-text" text-anchor="middle" y="4">DIAGNOSIS</text></g>
+        <g transform="translate(341 86)"><rect class="label-box" x="-38" y="-16" width="76" height="32" rx="10"/><text class="label-text" text-anchor="middle" y="4">SAFETY</text></g>
+        <g transform="translate(250 132)"><text class="label-text" text-anchor="middle" y="74">CLINICAL CORE</text></g>
+      </svg>
     </div>
   </div>
 </header>
 
 <div class="topbar">
   <div class="wrap topbar-inner">
-    <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>JH의 덴탈시냅스</a>
+    <a class="brand" href="index.html"><span class="logo"><svg aria-hidden="true"><use href="assets/icons.svg#i-logo"/></svg></span>덴탈시냅스</a>
     <div class="spacer"></div>
-    <div class="search">
-      <span class="field"><svg class="gl" aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg>
-        <input id="q" type="search" placeholder="노트 검색  ( / )" aria-label="노트 검색" /></span>
+    <div class="search hub-search">
+      <span class="field">
+        <svg class="gl" aria-hidden="true"><use href="assets/icons.svg#i-search"/></svg>
+        <input id="q" type="search" placeholder="질환·약물·술식 검색  ( / )" aria-label="임상 노트 검색" autocomplete="off" />
+      </span>
     </div>
   </div>
 </div>
 
-<main class="wrap" id="main">
-  <p class="count" id="count" role="status" aria-live="polite"></p>
-  <div class="grid" id="note-grid"></div>
-  <p class="no-results" id="empty" hidden>검색 결과가 없습니다.</p>
+<main class="wrap hub-main" id="main">
+  <section aria-labelledby="overview-title" style="padding-top:0">
+    <h2 id="overview-title" class="sr-only">노트 현황</h2>
+    <div class="overview-grid">
+      <article class="stat-tile" style="--tile:#4f46e5">
+        <p class="stat-label">전체 임상 노트</p><div class="stat-value" id="stat-total">9</div><div class="stat-note">독립형 상세 HTML</div>
+        <svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg>
+      </article>
+      <article class="stat-tile" style="--tile:#0f766e">
+        <p class="stat-label">판단 알고리즘</p><div class="stat-value">6</div><div class="stat-note">응급·약물·위험평가</div>
+        <svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg>
+      </article>
+      <article class="stat-tile" style="--tile:#be123c">
+        <p class="stat-label">환자 안전 노트</p><div class="stat-value">4</div><div class="stat-note">응급·항혈전·전신질환</div>
+        <svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg>
+      </article>
+      <article class="stat-tile" style="--tile:#0891b2">
+        <p class="stat-label">이번 업데이트</p><div class="stat-value">+1</div><div class="stat-note">임플란트 주위질환</div>
+        <svg aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg>
+      </article>
+    </div>
+
+    <a class="spotlight" href="peri-implant.html" aria-label="신규 노트 임플란트 주위질환과 합병증 열기">
+      <div class="spotlight-copy">
+        <div class="spotlight-label">New clinical note</div>
+        <h2>임플란트 주위질환 · 합병증</h2>
+        <p>건강–점막염–주위염을 구분하고, 6점 탐침·기준 방사선·위험평가·비수술 치료·결손 형태별 수술·유지관리까지 하나의 임상 동선으로 연결했습니다.</p>
+        <div class="spotlight-tags">
+          <span class="micro-tag">60초 진단</span><span class="micro-tag">대화형 퀵체크</span><span class="micro-tag">결손 형태 도식</span><span class="micro-tag">차팅 복사</span>
+        </div>
+        <span class="spotlight-link">상세 노트 열기 <svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></span>
+      </div>
+      <div class="spotlight-visual" aria-hidden="true">
+        <svg viewBox="0 0 330 190">
+          <defs>
+            <linearGradient id="boneHub" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d3ad"/><stop offset="1" stop-color="#dca470"/></linearGradient>
+            <linearGradient id="implantHub" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a8b4c4"/><stop offset=".5" stop-color="#eef3f8"/><stop offset="1" stop-color="#8b98aa"/></linearGradient>
+          </defs>
+          <path d="M15 116 C50 89 89 95 119 111 C151 127 190 125 219 106 C252 85 291 92 319 114 L319 180 L15 180Z" fill="url(#boneHub)" opacity=".96"/>
+          <path d="M15 107 C49 84 86 89 120 103 C158 119 187 119 220 98 C256 76 290 84 319 105" fill="none" stroke="#f6e7d1" stroke-width="14" stroke-linecap="round"/>
+          <g transform="translate(166 25)">
+            <rect x="-27" y="0" width="54" height="22" rx="7" fill="#eef3f8" stroke="#8796a9"/>
+            <path d="M-19 21 L19 21 L15 106 Q0 126 -15 106Z" fill="url(#implantHub)" stroke="#748195" stroke-width="1.5"/>
+            <path d="M-14 35 L14 35 M-13 45 L13 45 M-12 55 L12 55 M-11 65 L11 65 M-10 75 L10 75 M-9 85 L9 85 M-8 95 L8 95" stroke="#6f7e91" stroke-width="2"/>
+          </g>
+          <path d="M120 104 C131 84 142 78 153 83 M179 84 C192 77 205 85 216 100" fill="none" stroke="#e11d48" stroke-width="5" stroke-linecap="round"/>
+          <path d="M106 104 C119 77 134 67 151 72 M181 73 C202 65 218 77 230 99" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="4 5" opacity=".85"/>
+          <circle cx="116" cy="62" r="19" fill="#fff" stroke="#0f766e" stroke-width="2"/><text x="116" y="67" text-anchor="middle" font-size="17" font-weight="800" fill="#0f766e">6</text>
+          <text x="116" y="88" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" opacity=".62">PROBING</text>
+          <circle cx="249" cy="54" r="25" fill="#0f766e" opacity=".12"/><path d="M237 54h24M249 42v24" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </a>
+
+    <div class="quick-route" aria-label="자주 쓰는 임상 바로가기">
+      <a class="route-card" style="--route:#dc2626" href="emergency.html">
+        <span class="route-icon"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span>
+        <span class="route-copy"><b>진료 중 응급</b><span>P-A-B-C-D · 응급약물 · BLS</span></span>
+        <svg class="route-arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg>
+      </a>
+      <a class="route-card" style="--route:#4f46e5" href="drug-guide.html">
+        <span class="route-icon"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span>
+        <span class="route-copy"><b>처방 빠른 확인</b><span>항생제 · 진통제 · 소아 용량</span></span>
+        <svg class="route-arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg>
+      </a>
+      <a class="route-card" style="--route:#0f766e" href="peri-implant.html#quick">
+        <span class="route-icon"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span>
+        <span class="route-copy"><b>임플란트 염증 분류</b><span>건강 · 점막염 · 주위염</span></span>
+        <svg class="route-arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <section id="notes" aria-labelledby="notes-title" style="padding-top:12px">
+    <div class="hub-section-title">
+      <h2 id="notes-title">임상 노트 라이브러리</h2>
+      <p>카드를 누르면 각 주제의 독립형 상세 노트로 이동합니다.</p>
+    </div>
+
+    <div class="filterbar" role="group" aria-label="노트 분야 필터">
+      <span class="filter-label">분야</span>
+      <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">전체</button>
+      <button class="filter-chip" type="button" data-filter="safety" aria-pressed="false">약물·안전</button>
+      <button class="filter-chip" type="button" data-filter="implant" aria-pressed="false">임플란트·보철</button>
+      <button class="filter-chip" type="button" data-filter="diagnosis" aria-pressed="false">진단·코드</button>
+      <button class="filter-chip" type="button" data-filter="systemic" aria-pressed="false">전신질환</button>
+      <span class="filter-spacer"></span>
+      <span class="filter-hint">검색 단축키 <kbd>/</kbd> · 닫기 <kbd>Esc</kbd></span>
+    </div>
+
+    <p class="hub-count" id="count" role="status" aria-live="polite"></p>
+    <div class="grid" id="note-grid"></div>
+    <div class="no-results" id="empty" hidden>
+      <b>일치하는 노트가 없습니다.</b>
+      다른 질환명·약물명·술식명으로 검색해 보세요.
+    </div>
+  </section>
 </main>
 
-<footer class="wrap">
-  JH의 덴탈시냅스 · © 2026
+<footer class="wrap hub-footer">
+  <span>JH의 덴탈시냅스 · © 2026</span>
+  <span>개인 임상 정리 · 원전 및 환자별 판단 우선</span>
 </footer>
 
 <script>
-/* ===== 노트 메타데이터 — 하위 페이지를 여기에 추가하면 자동 노출 ===== */
 const notes = [
-  { title:'치과 약물 · 처방 가이드', href:'drug-guide.html', icon:'i-pill', accent:'#4f46e5', tag:'약물·처방',
-    desc:'술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 페니실린 알러지 대체, 소아 용량, 의사결정 맵, 응급, 구강내과 복약지도.',
-    keywords:'약물 처방 항생제 진통제 마취 알러지 소아 응급 구강내과 mronj 신경병성 tapering' },
-  { title:'MRONJ 임상권고안 2025', href:'mronj.html', icon:'i-bone', accent:'#c01f2f', tag:'가이드라인',
-    desc:'약물관련 악골괴사 — 약물별 한눈 정리 + 진단·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정.',
-    keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 병기 테리파라타이드 재발 골흡수억제제' },
-  { title:'교합학 (Occlusion)', href:'occlusion.html', icon:'i-activity', accent:'#0f7a52', tag:'교합·보철',
-    desc:'CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·임플란트 교합(IPO)·교합과 TMD·스플린트·진단 도구.',
-    keywords:'교합 occlusion gnathology 중심위 cr mip 중심교합 교합양식 상호보호 견치유도 군기능 균형교합 posselt bennett 과두유도 전방유도 교합기 안면궁 hanau articulator 임플란트교합 ipo vdo 수직고경 자유공극 스플린트 브럭시즘 이갈이 tmd tscan 교합조정 selective grinding coronoplasty equilibration bull mudl lubl duml' },
-  { title:'최소삭제 라미네이트', href:'veneer.html', icon:'i-layers', accent:'#0e8174', tag:'심미·보철',
-    desc:'무삭제·최소삭제 베니어 — 적응증·삭제·재료(7종 강도)·제작·접착(5경로)·브랜드·근거를 근거 수준과 함께.',
-    keywords:'라미네이트 veneer 베니어 무삭제 최소삭제 noprep no-prep emax 리튬디실리케이트 지르코니아 picn enamic zls lumineers minish durathin 접착 bonding hf 실란 silane mdp 레진시멘트 굴곡강도 생존율 심미' },
-  { title:'항혈전제 환자 치과치료', href:'antithrombotic.html', icon:'i-droplet', accent:'#be123c', tag:'전신질환·약물',
-    desc:'항혈소판제·항응고제(Warfarin INR·DOAC)·혈전용해제 — 시술 출혈위험 분류, 약물별 중단/조정, 국소 지혈, 주의·상호작용.',
-    keywords:'항혈전제 항응고제 항혈소판제 warfarin 와파린 inr doac noac apixaban dabigatran edoxaban rivaroxaban aspirin clopidogrel cilostazol 아스트릭스 플라빅스 플레탈 발치 출혈 지혈 tranexamic txa sdcep 브리징 혈전용해 urokinase' },
-  { title:'KCD 치과 코드 뷰어', href:'kcd.html', icon:'i-book', accent:'#7c3aed', tag:'질병분류·청구',
-    desc:'한국표준질병사인분류(KCD) 치과 관련 코드 — 구강·턱·침샘 질환, TMJ, 외상, 임플란트 합병증, 보철 상태를 계층 구조로 검색·복사.',
-    keywords:'kcd 질병분류 질병코드 상병 청구 진단 icd k00 k02 치아우식 k04 치수염 k05 치주염 치은염 k07 부정교합 턱관절 tmj k08 q35 구순구개열 s02 치아파절 외상 t85 임플란트 합병증 z96 보철 코드 검색 복사' },
-  { title:'치과 진료 중 응급상황 대응', href:'emergency.html', icon:'i-siren', accent:'#dc2626', tag:'응급·안전',
-    desc:'실신·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄 — P-A-B-C-D 알고리즘, 상황별 첫 처치, 응급약물 용량, 키트 체크리스트.',
-    keywords:'응급 emergency 실신 syncope 아나필락시스 anaphylaxis 에피네프린 epinephrine 흉통 협심증 심근경색 ntg 니트로글리세린 천식 salbutamol 벤톨린 저혈당 glucagon 경련 seizure 발작 기도폐쇄 heimlich 하임리히 흡인 cpr bls aed 과호흡 응급키트 산소 119' },
-  { title:'전신질환자 치과관리', href:'systemic.html', icon:'i-stethoscope', accent:'#0e7490', tag:'전신질환·관리',
-    desc:'심혈관·당뇨·신장(투석)·간·임신·갑상선/부신·항암·면역억제 — 출혈·감염·스트레스·약물 4축 위험과 진료 전 확인, 협진 기준.',
-    keywords:'전신질환 의학적 고려 medically compromised 고혈압 심혈관 epinephrine 한도 당뇨 hba1c 저혈당 신장 투석 dialysis 간경변 간질환 inr 임신 pregnancy 임신부 acetaminophen nsaid 갑상선 부신 스테로이드 커버 항암 화학요법 방사선 orn 골괴사 면역억제 이식 협진 활력징후 vital' },
+  {
+    title:'임플란트 주위질환 · 합병증', href:'peri-implant.html', icon:'i-activity', accent:'#0f766e',
+    tag:'임플란트·치주', category:'implant', year:'2026', depth:'실전 알고리즘', featured:true, isNew:true,
+    desc:'건강·점막염·주위염 진단, 6점 탐침과 기준 방사선, 위험요인, 비수술–수술–유지관리 의사결정.',
+    keywords:'임플란트 주위염 점막염 peri implantitis mucositis probing bop suppuration 골소실 유지관리 spic debridement 재생수술 절제수술 explant 제거'
+  },
+  {
+    title:'치과 약물 · 처방 가이드', href:'drug-guide.html', icon:'i-pill', accent:'#4f46e5',
+    tag:'약물·처방', category:'safety', year:'2026', depth:'21개 프로토콜',
+    desc:'술식·상황별 처방, 약물 카탈로그, 페니실린 알레르기 대체, 소아 용량, 응급·구강내과 복약지도.',
+    keywords:'약물 처방 항생제 진통제 마취 알러지 알레르기 소아 응급 구강내과 신경병성 tapering'
+  },
+  {
+    title:'MRONJ 임상권고안 2025', href:'mronj.html', icon:'i-bone', accent:'#c01f2f',
+    tag:'가이드라인', category:'safety systemic implant', year:'2025', depth:'원문 상세',
+    desc:'약물관련 악골괴사 — 약물별 요약, 진단·위험요인·예방/휴약·병기·보존/수술·재발·의사결정.',
+    keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 병기 골흡수억제제'
+  },
+  {
+    title:'교합학 (Occlusion)', href:'occlusion.html', icon:'i-activity', accent:'#0f7a52',
+    tag:'교합·보철', category:'implant', year:'2026', depth:'심층 정리',
+    desc:'CR/MIP·하악운동·교합 양식·교합기·임플란트 교합·TMD·스플린트·선택삭제와 진단 도구.',
+    keywords:'교합 occlusion 중심위 cr mip 중심교합 견치유도 군기능 posselt bennett 임플란트교합 tmd 스플린트 교합조정'
+  },
+  {
+    title:'최소삭제 라미네이트', href:'veneer.html', icon:'i-layers', accent:'#0e8174',
+    tag:'심미·보철', category:'implant', year:'2026', depth:'재료·접착',
+    desc:'무삭제·최소삭제 베니어 — 적응증, 삭제 연속선, 재료 강도, 제작, 5개 접착 경로, 브랜드와 장기 근거.',
+    keywords:'라미네이트 veneer 베니어 무삭제 최소삭제 emax 리튬디실리케이트 지르코니아 접착 실란 mdp 레진시멘트 심미'
+  },
+  {
+    title:'항혈전제 환자 치과치료', href:'antithrombotic.html', icon:'i-droplet', accent:'#be123c',
+    tag:'전신질환·약물', category:'safety systemic', year:'2026', depth:'약물별 조정',
+    desc:'항혈소판제·Warfarin·DOAC — 시술 출혈위험 분류, 중단/조정, 국소 지혈과 주요 상호작용.',
+    keywords:'항혈전제 항응고제 항혈소판제 warfarin 와파린 inr doac apixaban dabigatran rivaroxaban aspirin 발치 출혈 지혈'
+  },
+  {
+    title:'KCD 치과 코드 뷰어', href:'kcd.html', icon:'i-book', accent:'#7c3aed',
+    tag:'질병분류·청구', category:'diagnosis', year:'2026', depth:'474개 코드',
+    desc:'K00–K14와 관련 외상·기형·임플란트 합병증·보철 상태를 계층 구조로 검색하고 클릭 복사.',
+    keywords:'kcd 질병분류 질병코드 상병 청구 진단 icd k00 k02 우식 치수염 치주염 턱관절 임플란트 합병증 코드'
+  },
+  {
+    title:'치과 진료 중 응급상황 대응', href:'emergency.html', icon:'i-siren', accent:'#dc2626',
+    tag:'응급·안전', category:'safety', year:'2026', depth:'즉시 대응',
+    desc:'실신·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄 — P-A-B-C-D, 응급약물, 키트와 BLS.',
+    keywords:'응급 emergency 실신 아나필락시스 에피네프린 흉통 심근경색 천식 저혈당 경련 기도폐쇄 cpr bls aed 산소 119'
+  },
+  {
+    title:'전신질환자 치과관리', href:'systemic.html', icon:'i-stethoscope', accent:'#0e7490',
+    tag:'전신질환·관리', category:'systemic', year:'2026', depth:'8개 질환군',
+    desc:'심혈관·당뇨·투석·간·임신·내분비·항암·면역억제를 출혈·감염·스트레스·약물 4축으로 평가.',
+    keywords:'전신질환 고혈압 심혈관 당뇨 hba1c 신장 투석 간경변 임신 갑상선 부신 항암 방사선 면역억제 협진 활력징후'
+  }
 ];
 
-const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
 const grid = document.getElementById('note-grid');
-document.getElementById('count').textContent = `총 ${notes.length}개 노트`;
-document.getElementById('meta-count').textContent = `노트 ${notes.length}개`;
+const countEl = document.getElementById('count');
+const emptyEl = document.getElementById('empty');
+const q = document.getElementById('q');
+const chips = [...document.querySelectorAll('.filter-chip')];
+let activeFilter = 'all';
+
+const esc = (value) => String(value).replace(/[&<>'"]/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+
+function cardTemplate(note, index){
+  const searchable = `${note.title} ${note.desc} ${note.tag} ${note.keywords}`.toLowerCase();
+  return `
+    <a class="note" href="${esc(note.href)}" data-category="${esc(note.category)}" data-text="${esc(searchable)}"
+       data-featured="${note.featured ? 'true' : 'false'}" style="--accent2:${esc(note.accent)};animation-delay:${index * 55}ms">
+      <div class="note-topline">
+        <span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#${esc(note.icon)}"/></svg></span>
+        <span class="note-badges">
+          ${note.isNew ? '<span class="new-badge">NEW</span>' : ''}
+          <span class="depth-badge">${esc(note.depth)}</span>
+        </span>
+      </div>
+      <h3>${esc(note.title)}</h3>
+      <p>${esc(note.desc)}</p>
+      <div class="note-meta"><span>${esc(note.year)}</span><span>${esc(note.tag)}</span></div>
+      <div class="row"><span class="tag" style="background:${esc(note.accent)}">${esc(note.tag)}</span>
+        <span class="go">열기 <svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></span>
+      </div>
+    </a>`;
+}
 
 function render(){
-  grid.innerHTML='';
-  notes.forEach((n,i)=>{
-    grid.appendChild(el(`
-      <a class="note" href="${n.href}" style="--accent2:${n.accent};animation-delay:${i*80}ms"
-         data-text="${(n.title+' '+n.desc+' '+n.tag+' '+(n.keywords||'')).toLowerCase()}">
-        <span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#${n.icon}"/></svg></span>
-        <h3>${n.title}</h3>
-        <p>${n.desc}</p>
-        <div class="row"><span class="tag" style="background:${n.accent}">${n.tag}</span>
-          <span class="go">열기 <svg aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></span></div>
-      </a>`));
-  });
+  grid.innerHTML = notes.map(cardTemplate).join('');
+  applyFilters();
 }
-render();
 
-/* cursor-follow glow */
-grid.addEventListener('pointermove', (e)=>{
-  const card = e.target.closest('a.note'); if(!card) return;
-  const r = card.getBoundingClientRect();
-  card.style.setProperty('--mx', (e.clientX-r.left)+'px');
-  card.style.setProperty('--my', (e.clientY-r.top)+'px');
-});
-
-/* search */
-const q = document.getElementById('q');
-q.addEventListener('input', ()=>{
-  const term = q.value.trim().toLowerCase(); let shown=0;
-  grid.querySelectorAll('.note').forEach(c=>{
-    const hit = !term || c.dataset.text.includes(term);
-    c.style.display = hit?'':'none'; if(hit) shown++;
+function applyFilters(){
+  const term = q.value.trim().toLowerCase();
+  let shown = 0;
+  grid.querySelectorAll('.note').forEach((card) => {
+    const categoryHit = activeFilter === 'all' || card.dataset.category.split(' ').includes(activeFilter);
+    const textHit = !term || card.dataset.text.includes(term);
+    const visible = categoryHit && textHit;
+    card.hidden = !visible;
+    if(visible) shown += 1;
   });
-  document.getElementById('empty').hidden = shown>0;
-  const countEl = document.getElementById('count');
+  emptyEl.hidden = shown !== 0;
+  const filterName = chips.find((chip) => chip.dataset.filter === activeFilter)?.textContent || '전체';
   if(term){
-    countEl.textContent = shown>0 ? `검색 결과 ${shown}개` : '검색 결과 없음';
-  } else {
-    countEl.textContent = `총 ${notes.length}개 노트`;
+    countEl.textContent = shown ? `“${q.value.trim()}” · ${filterName}에서 ${shown}개 노트` : `“${q.value.trim()}” 검색 결과 없음`;
+  }else{
+    countEl.textContent = activeFilter === 'all' ? `총 ${shown}개 노트` : `${filterName} ${shown}개 노트`;
   }
-});
-document.addEventListener('keydown', (e)=>{
-  const t=((document.activeElement&&document.activeElement.tagName)||'').toLowerCase();
-  if(e.key==='/' && t!=='input' && t!=='textarea'){ e.preventDefault(); q.focus(); }
-  else if(e.key==='Escape' && document.activeElement===q){ q.value=''; q.dispatchEvent(new Event('input')); q.blur(); }
+}
+
+chips.forEach((chip) => {
+  chip.addEventListener('click', () => {
+    activeFilter = chip.dataset.filter;
+    chips.forEach((item) => item.setAttribute('aria-pressed', String(item === chip)));
+    applyFilters();
+  });
 });
 
-/* time-of-day greeting */
-(function greet(){
-  const g=document.getElementById('greet'); if(!g) return;
-  const d=new Date(), hr=d.getHours();
-  const msg = hr<6?'고요한 새벽이에요' : hr<11?'좋은 아침이에요' : hr<17?'좋은 오후예요' : hr<21?'좋은 저녁이에요' : '늦은 밤이에요';
-  const ds=`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
-  g.textContent = `${msg}, JH · ${ds}`;
-})();
+q.addEventListener('input', applyFilters);
+document.addEventListener('keydown', (event) => {
+  const tag = (document.activeElement?.tagName || '').toLowerCase();
+  if(event.key === '/' && tag !== 'input' && tag !== 'textarea' && tag !== 'select'){
+    event.preventDefault(); q.focus();
+  }else if(event.key === 'Escape' && document.activeElement === q){
+    q.value = ''; applyFilters(); q.blur();
+  }
+});
 
-/* interactive synapse particles */
-(function bg(){
-  const canvas=document.getElementById('bg'); if(!canvas) return;
-  const ctx=canvas.getContext && canvas.getContext('2d'); if(!ctx) return;
-  const hero=document.getElementById('hero');
-  const reduce=!!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  let w=0,h=0,parts=[],mouse={x:-1e4,y:-1e4},raf=0,running=false;
-  function size(){
-    const dpr=Math.min(window.devicePixelRatio||1,2);
-    w=hero.clientWidth; h=hero.clientHeight||240;
-    canvas.width=w*dpr; canvas.height=h*dpr; canvas.style.width=w+'px'; canvas.style.height=h+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.max(22,Math.min(64,Math.floor(w/24)));
-    parts=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32,r:Math.random()*1.6+.7}));
-  }
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    for(const p of parts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1; }
-    for(let i=0;i<parts.length;i++){ const a=parts[i];
-      for(let j=i+1;j<parts.length;j++){ const b=parts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-        if(d<116){ ctx.strokeStyle='rgba(255,255,255,'+(0.10*(1-d/116)).toFixed(3)+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } }
-      const dm=Math.hypot(a.x-mouse.x,a.y-mouse.y);
-      if(dm<170){ ctx.strokeStyle='rgba(255,255,255,'+(0.26*(1-dm/170)).toFixed(3)+')'; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); a.x+=(mouse.x-a.x)*.0016; a.y+=(mouse.y-a.y)*.0016; } }
-    for(const p of parts){ ctx.fillStyle='rgba(255,255,255,.6)'; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); }
-  }
-  function loop(){ if(!running) return; draw(); raf=requestAnimationFrame(loop); }
-  function start(){ if(running||reduce) return; running=true; loop(); }
-  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); }
-  size(); draw(); if(!reduce && typeof requestAnimationFrame==='function') start();
-  window.addEventListener('resize', size);
-  hero.addEventListener('pointermove',(e)=>{ const r=hero.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
-  hero.addEventListener('pointerleave',()=>{ mouse.x=-1e4; mouse.y=-1e4; });
-  document.addEventListener('visibilitychange',()=>{ document.hidden?stop():start(); });
-})();
+grid.addEventListener('pointermove', (event) => {
+  const card = event.target.closest('a.note');
+  if(!card) return;
+  const rect = card.getBoundingClientRect();
+  card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+  card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+});
+
+render();
+document.getElementById('hero-note-count').textContent = notes.length;
+document.getElementById('stat-total').textContent = notes.length;
 </script>
-<script src="assets/theme.js?v=4"></script>
+<script src="assets/theme.js"></script>
 </body>
 </html>
