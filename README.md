@@ -1,71 +1,116 @@
 # 🦷 JH의 덴탈시냅스
 
-임상 치과 레퍼런스를 한곳에 모은 **확장형 노트 허브**입니다. 메인(`index.html`)이 허브이고,
-각 주제는 **하위 페이지**로 분리되어 계속 추가됩니다. 공용 디자인(`assets/theme.css`)과
-다크모드(`assets/theme.js`, 사이트 전역 동기화)를 모든 페이지가 공유합니다.
+치과 임상에서 자주 부딪히는 판단을 **약물·질환·술식·응급·진단 흐름**으로 연결한 확장형 개인 레퍼런스입니다.
+메인 `index.html`이 시각형 허브이며, 각 주제는 독립 HTML 노트로 계속 확장됩니다.
 
-> 기준: 국내 처방 관행 + 국제 가이드라인 · 언어: 한국어 · 개인 임상 노트
+> 기준: 국내 임상 맥락 + 국제 가이드라인 · 언어: 한국어 · 용도: 개인 임상 정리
+
+## 2026-08 시각화 업데이트
+
+- 메인 허브를 단순 카드 목록에서 **임상 지식 대시보드**로 개편
+- 전체 검색 + 분야별 필터(약물·안전 / 임플란트·보철 / 진단·코드 / 전신질환)
+- 신규 노트 스포트라이트와 자주 쓰는 임상 바로가기 추가
+- 카드에 업데이트 연도·깊이·분류·NEW 상태 표시
+- 모바일·태블릿 반응형, 키보드 검색(`/`, `Esc`), 다크모드 유지
+- 공용 시각화 레이어 `assets/visual.css` 추가
 
 ## 페이지 구성
+
 | 페이지 | 파일 | 내용 |
 |---|---|---|
-| 🏠 **메인 허브** | `index.html` | JH의 덴탈시냅스 — 노트 카드 그리드 + 검색. 하위 페이지 진입점 |
-| 💊 **치과 약물·처방 가이드** | `drug-guide.html` | 술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 페니실린 알러지 대체, 소아 용량, 의사결정 맵(Mermaid), 응급, **구강내과 복약지도**, 신경손상 스테로이드 Tapering |
-| 🦴 **MRONJ 임상권고안 2025** | `mronj.html` | 약물관련 악골괴사 **원문 기반 상세** — **약물별 한눈 정리** + 진단·병인·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정. 근거등급 뱃지([권고]/[전문가 의견]/[근거 제한]) (Korean MRONJ Position Paper 2025) |
-| 🫦 **교합학 (Occlusion)** | `occlusion.html` | 교합 심층 정리 — CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·**임플란트 교합(IPO)**·교합과 TMD 근거·스플린트·**교합조정(BULL·MUDL·LUBL·DUML)**·진단 도구. Posselt 외피 SVG·계측 차트 (GPT-9·Okeson·Dawson·Misch) |
-| 💎 **라미네이트 (베니어)** | `veneer.html` | 무삭제·최소삭제 베니어 — 적응증·삭제 연속선·**재료 7종(굴곡강도 차트)**·제작·**접착 5경로**·브랜드 비교·장기 근거. 단면 개념도 SVG, 인용(S1–S10) (ADA·ACP·문헌리뷰·제조사 IFU) |
-| 🩸 **항혈전제 환자 치과치료** | `antithrombotic.html` | 항혈소판제·항응고제(**Warfarin INR**·**DOAC 약물별 조정**)·혈전용해제 — 시술 출혈위험 분류·중단/조정·국소 지혈·상호작용 (SNUH 분당서울대 + **SDCEP 2022**) |
-| 📖 **KCD 치과 코드 뷰어** | `kcd.html` | 한국표준질병·사인분류(KCD) **치과 관련 코드**(K00–K14·M·Q35–Q38·S00–S03·T85·Z) — **장(章)별 계층 트리**, 실시간 검색·하이라이트, **코드 클릭 복사**, 제외/포함 **교차참조 점프**. 474개 코드 (KCD 고시 발췌·재구성) |
-| 🚨 **치과 진료 중 응급상황 대응** | `emergency.html` | 실신·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄 — **P-A-B-C-D 알고리즘**, 상황별 첫 처치, **응급약물 용량표**, 응급키트 체크리스트, BLS (ADA·Malamed·소생술 지침) |
-| 🩺 **전신질환자 치과관리** | `systemic.html` | 심혈관·당뇨·신장(투석)·간·임신·갑상선/부신·항암/방사선·면역억제 — **출혈·감염·스트레스·약물 4축** 위험, 진료 전 확인, 협진 기준, 활력징후 (Little & Falace·Scully·ADA) |
+| 🏠 **메인 허브** | `index.html` | 9개 임상 노트를 검색·필터·바로가기로 탐색하는 시각형 대시보드 |
+| 🦷 **임플란트 주위질환·합병증** | `peri-implant.html` | **신규** — 건강/점막염/주위염 진단, 기준 탐침·방사선, 위험평가, 예방, 비수술·수술, 기계적 합병증, SPIC 유지관리, 차팅 템플릿 |
+| 💊 **치과 약물·처방 가이드** | `drug-guide.html` | 술식·상황별 처방 프로토콜, 약물 카탈로그, 알레르기 대체, 소아 용량, 응급·구강내과 복약지도 |
+| 🦴 **MRONJ 임상권고안 2025** | `mronj.html` | 약물관련 악골괴사 — 진단·위험요인·예방/휴약·병기·보존/수술·재발·의사결정 |
+| 🫦 **교합학 (Occlusion)** | `occlusion.html` | CR/MIP·하악운동·교합 양식·교합기·임플란트 교합·TMD·스플린트·선택삭제 |
+| 💎 **최소삭제 라미네이트** | `veneer.html` | 적응증·삭제 연속선·재료·제작·접착 경로·브랜드·장기 근거 |
+| 🩸 **항혈전제 환자 치과치료** | `antithrombotic.html` | 항혈소판제·Warfarin·DOAC의 시술 위험분류·중단/조정·국소 지혈·상호작용 |
+| 📖 **KCD 치과 코드 뷰어** | `kcd.html` | K00–K14 및 관련 외상·기형·임플란트 합병증·보철 상태 코드 474개 검색·복사 |
+| 🚨 **치과 진료 중 응급상황 대응** | `emergency.html` | 실신·아나필락시스·흉통·천식·저혈당·경련·기도폐쇄의 P-A-B-C-D, 약물, BLS |
+| 🩺 **전신질환자 치과관리** | `systemic.html` | 심혈관·당뇨·투석·간·임신·내분비·항암·면역억제를 4축 위험으로 평가 |
 
-## 열람 방법
-- **온라인**: 저장소가 GitHub Pages로 배포되면 루트 주소로 접속 시 메인 허브(`index.html`)가 열립니다.
-- **로컬**:
-  ```bash
-  python3 -m http.server 8000
-  # http://localhost:8000/  → 메인 허브
-  ```
-- 약물 가이드의 다이어그램은 [Mermaid](https://mermaid.js.org/) CDN을 사용하므로 최초 렌더 시 인터넷이 필요합니다(텍스트 콘텐츠는 오프라인 동작).
+## 신규 노트: 임플란트 주위질환·합병증
 
-## 새 하위 페이지 추가 (확장 방법)
-1. `새페이지.html` 생성 — `<head>`에 공용 테마 연결:
-   ```html
-   <link rel="stylesheet" href="assets/theme.css" />
-   <!-- ...본문... -->
-   <script src="assets/theme.js"></script>
-   ```
-   헤더에 `index.html`로 돌아가는 `.crumb` 링크와 `#theme` 토글 버튼을 두면 사이트와 일관됩니다.
-2. `index.html`의 `notes` 배열에 한 줄 추가하면 허브 카드가 자동 생성됩니다:
-   ```js
-   { title:'제목', href:'새페이지.html', icon:'🦷', accent:'#0f6e8c', tag:'분류',
-     desc:'한 줄 설명', keywords:'검색 키워드' },
-   ```
+`peri-implant.html`은 텍스트 요약을 넘어 다음 요소를 한 페이지에 통합합니다.
+
+- 건강–점막염–주위염 **3상태 단면 도식**
+- 입력 소견에 반응하는 **교육용 진단 퀵체크**
+- 기준 탐침·방사선 **추적 타임라인**과 6점 탐침 맵
+- 환자·전신·보철·부위 요인의 **위험도 매트릭스**
+- 점막염과 주위염의 **단계별 치료 경로**
+- 비수술 종결 목표와 보조치료 **근거 강도 보드**
+- 결손 형태별 접근/절제·재건·제거 **수술 선택 도식**
+- 생물학적 질환과 나사 풀림·파절·잔여 시멘트 등 **기계적 합병증 감별**
+- 위험별 3–6개월 SPIC 유지관리 타임라인
+- 진료실 차팅 템플릿 원클릭 복사, 인쇄 최적화
+
+### 핵심 근거
+
+- Herrera D, et al. *J Clin Periodontol.* 2023 — EFP S3 prevention/treatment guideline
+- Renvert S, et al. *J Clin Periodontol.* 2018 — case definitions and diagnostic considerations
+- Berglundh T, et al. *J Clin Periodontol.* 2018 — 2017 World Workshop consensus
+- AO/AAP 2024 Consensus Conference (published 2025) — summary report and clinical flowcharts
+- Korean Academy of Periodontology narrative review, 2024
+
+세부 DOI와 구현 자료는 `peri-implant.html` 하단 참고문헌에 수록했습니다.
 
 ## 파일 구조
-```
-index.html          # 메인 허브 (JH의 덴탈시냅스)
-drug-guide.html     # 하위: 약물·처방 가이드
-mronj.html          # 하위: MRONJ 임상권고안 2025
-occlusion.html      # 하위: 교합학 (Occlusion)
-veneer.html         # 하위: 라미네이트 (베니어)
-antithrombotic.html # 하위: 항혈전제 환자 치과치료
-kcd.html            # 하위: KCD 치과 코드 뷰어 (질병분류 계층 트리·검색·복사)
-emergency.html      # 하위: 치과 진료 중 응급상황 대응 (P-A-B-C-D·응급약물·키트)
-systemic.html       # 하위: 전신질환자 치과관리 (출혈·감염·스트레스·약물 4축)
-assets/theme.css    # 디자인 시스템(토큰: 타입 스케일·시맨틱 색·간격·컴포넌트·반응형 표)
-assets/theme.js     # 공용 다크모드(전역 'dds-theme' 동기화)
-assets/charts.js    # 경량 SVG 차트(범위막대·타임라인·심각도·계단·피라미드)
-assets/icons.svg    # 커스텀 아이콘 스프라이트(<use href="assets/icons.svg#i-...">)
-assets/favicon.svg  # 시냅스 로고 마크
-```
-디자인은 `theme.css`의 CSS 토큰으로 통일(인디고 브랜드 + 상태색), 다크모드 자동 대응. 정량 데이터는 `charts.js`로 표 대신 시각화.
 
-## ⚠️ 면책 고지
-본 노트는 **개인 정리 목적**이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.
-처방·시술 전 **원전과 환자 상태(연령·체중·신/간 기능·병력·복용약)**를 반드시 확인하십시오.
+```text
+index.html             # 메인 시각형 허브
+peri-implant.html      # 신규: 임플란트 주위질환·합병증
+drug-guide.html        # 약물·처방
+mronj.html             # MRONJ 2025
+occlusion.html         # 교합학
+veneer.html            # 라미네이트
+antithrombotic.html    # 항혈전제
+kcd.html               # KCD 코드 뷰어
+emergency.html         # 응급상황
+systemic.html          # 전신질환자 관리
+assets/theme.css       # 공용 디자인 시스템
+assets/visual.css      # 대시보드·임상 도식·치료 흐름·인쇄 시각화
+assets/theme.js        # 공용 다크모드
+assets/charts.js       # 경량 SVG 차트
+assets/icons.svg       # 커스텀 아이콘 스프라이트
+assets/favicon.svg     # 시냅스 로고
+```
 
-## 출처(요약)
-ADA Oral Health Topics · ADA 2019/2024 가이드 · AHA 2021 IE 예방 · AAPD Reference Manual ·
-NeuPSIG 2015(Lancet Neurol) · 약업신문 · **Korean MRONJ Position Paper 2025 (onjcohort.org)** ·
-식약처/health.kr · 대한치과의사협회·치의신보. 각 페이지 하단/내부 참고문헌 참조.
+## 열람
+
+```bash
+python3 -m http.server 8000
+# http://localhost:8000/
+```
+
+정적 HTML/CSS/JavaScript만으로 동작합니다. 일부 기존 노트의 Mermaid 다이어그램은 CDN 렌더링을 사용합니다.
+
+## 새 노트 추가
+
+1. 새 HTML에서 공용 스타일을 연결합니다.
+
+```html
+<link rel="stylesheet" href="assets/theme.css?v=4" />
+<link rel="stylesheet" href="assets/visual.css?v=1" />
+<script src="assets/theme.js"></script>
+```
+
+2. `index.html`의 `notes` 배열에 메타데이터를 추가합니다.
+
+```js
+{
+  title: '새 노트',
+  href: 'new-note.html',
+  icon: 'i-book',
+  accent: '#0f766e',
+  tag: '분류',
+  category: 'diagnosis',
+  year: '2026',
+  depth: '상세 정리',
+  desc: '한 줄 설명',
+  keywords: '검색 키워드'
+}
+```
+
+## 면책
+
+본 저장소는 개인 학습·임상 정리 목적이며 최신 가이드라인, 허가사항, 전문의 협진과 환자별 임상판단을 대체하지 않습니다. 처방·수술·침습 처치 전 환자의 연령·체중·장기기능·병력·복용약·치료 목표와 원전을 확인하십시오.
