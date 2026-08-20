@@ -190,7 +190,9 @@
         <div class="quick-grid">
           <a class="quick-link" href="drug-guide.html" style="--quick:#4f46e5"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-pill"/></svg></span><span><b>약물·처방</b></span></a>
           <a class="quick-link" href="emergency.html" style="--quick:#dc2626"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-siren"/></svg></span><span><b>응급 대응</b></span></a>
+          <a class="quick-link" href="peri-implant.html" style="--quick:#0f766e"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-activity"/></svg></span><span><b>임플란트 주위염</b></span></a>
           <a class="quick-link" href="systemic.html" style="--quick:#0e7490"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-stethoscope"/></svg></span><span><b>전신질환</b></span></a>
+          <a class="quick-link" href="cancer-care.html" style="--quick:#9f1239"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-shield"/></svg></span><span><b>암 치료</b></span></a>
           <a class="quick-link" href="kcd.html" style="--quick:#7c3aed"><span class="ic"><svg aria-hidden="true"><use href="assets/icons.svg#i-book"/></svg></span><span><b>KCD 코드</b></span></a>
         </div>
       </aside>
@@ -215,9 +217,9 @@
 
         <div class="library-layout">
           <aside class="library-rail" aria-label="노트 분야 필터">
-            <button class="filter" type="button" data-filter="all" aria-pressed="true">전체 <span>12</span></button>
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">전체 <span>13</span></button>
             <button class="filter" type="button" data-filter="medication" aria-pressed="false">처방·안전 <span>3</span></button>
-            <button class="filter" type="button" data-filter="disorders" aria-pressed="false">질환·통증 <span>3</span></button>
+            <button class="filter" type="button" data-filter="disorders" aria-pressed="false">질환·통증 <span>4</span></button>
             <button class="filter" type="button" data-filter="procedures" aria-pressed="false">술식·보철 <span>3</span></button>
             <button class="filter" type="button" data-filter="systemic" aria-pressed="false">전신·종양 <span>2</span></button>
             <button class="filter" type="button" data-filter="codes" aria-pressed="false">분류·청구 <span>1</span></button>
@@ -225,7 +227,7 @@
 
           <div class="library-results">
             <div class="result-head">
-              <p id="count" aria-live="polite">전체 · 12개</p>
+              <p id="count" aria-live="polite">전체 · 13개</p>
               <button class="reset-btn" id="reset" type="button" hidden>검색·필터 초기화</button>
             </div>
             <div class="note-list" id="note-grid"></div>
@@ -251,6 +253,7 @@ const notes = [
   {title:'치과 약물 · 처방 가이드',href:'drug-guide.html',icon:'i-pill',accent:'#4f46e5',tag:'약물·처방',category:'medication',categoryLabel:'처방·안전',desc:'술식·상황별 처방 프로토콜, 알레르기 대체, 소아 하루 투여 횟수와 20kg 계산 예시, 응급·구강내과 복약지도.',keywords:'약물 처방 항생제 진통제 마취 알러지 소아 용량 하루 복용횟수 20kg 체중 예시 응급 구강내과 신경병성 tapering'},
   {title:'항혈전제 환자 치과치료',href:'antithrombotic.html',icon:'i-droplet',accent:'#be123c',tag:'항응고·출혈',category:'medication',categoryLabel:'처방·안전',desc:'항혈소판제·Warfarin·DOAC·혈전용해제 환자의 시술 위험 분류, 약물 조정, 국소 지혈과 상호작용.',keywords:'항혈전제 항응고제 항혈소판제 warfarin 와파린 inr doac apixaban dabigatran rivaroxaban aspirin clopidogrel 발치 출혈 지혈 txa'},
   {title:'측두하악장애와 저작근장애의 진단과 치료',href:'tmd-mmd.html',icon:'i-activity',accent:'#2563eb',tag:'TMD·MMD',category:'disorders',categoryLabel:'질환·통증',desc:'TMD·MMD 진단과 감별, 자가관리·약물·교합장치·운동·수기치료·물리치료·주사와 관절 술식.',keywords:'측두하악장애 tmd tmj 저작근장애 mmd masticatory muscle disorder myalgia 근막통증 교근 개구장애 스플린트 물리치료 운동 수기치료 tens laser 관절천자'},
+  {title:'임플란트 주위질환 · 합병증',href:'peri-implant.html',icon:'i-activity',accent:'#0f766e',tag:'임플란트·주위염',category:'disorders',categoryLabel:'질환·통증',desc:'건강·점막염·주위염의 진단, 6점 탐침·기준 방사선, 위험요인, 단계별 치료, 기계적 합병증과 SPIC 유지관리.',keywords:'임플란트 주위염 peri-implantitis peri implant mucositis 점막염 bop probing depth 골소실 bone loss spic 유지관리 implant complication 시멘트 나사 동요'},
   {title:'MRONJ 임상권고안 2025',href:'mronj.html',icon:'i-bone',accent:'#c01f2f',tag:'MRONJ',category:'disorders',categoryLabel:'질환·통증',desc:'약물관련 악골괴사의 약물별 정리, 진단·위험요인·예방·휴약·병기·보존/수술·재발과 의사결정.',keywords:'mronj 악골괴사 비스포스포네이트 데노수맙 졸레드로네이트 발치 임플란트 휴약 병기 테리파라타이드 골흡수억제제'},
   {title:'PDRN 치과 임상 총정리',href:'pdrn.html',icon:'i-bolt',accent:'#0f766e',tag:'재생·근거',category:'disorders',categoryLabel:'질환·통증',desc:'PDRN·PN의 기전과 국내 치과 활용, TMD·임플란트·치주·발치·MRONJ 사용 자료를 근거 유형별로 정리.',keywords:'pdrn pn polynucleotide 재생주사 tmd tmj 프롤로테라피 prolotherapy 임플란트 골이식 치주 재생 발치 mronj a2a salvage pathway 허가외'},
   {title:'현대 발치술과 발치 기구',href:'extraction.html',icon:'i-tool',accent:'#b45309',tag:'구강외과',category:'procedures',categoryLabel:'술식·보철',desc:'기본 elevator·forceps부터 powered periotome, 축방향 견인기, Physics Forceps, piezosurgery와 잔존치근 관리.',keywords:'발치 extraction 발치기구 elevator forceps root pick periotome luxator powered benex Easy X-Trac Physics Forceps piezosurgery magnetic mallet 치근분할 잔존치근 매복치 coronectomy'},
