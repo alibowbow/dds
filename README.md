@@ -9,11 +9,12 @@
 ## 페이지 구성
 | 페이지 | 파일 | 내용 |
 |---|---|---|
-| 🏠 **메인 허브** | `index.html` | JH의 덴탈시냅스 — 노트 카드 그리드 + 검색. 하위 페이지 진입점 |
+| 🏠 **메인 허브** | `index.html` | JH의 덴탈시냅스 — 빠른 진입, 분야 필터, 통합 검색을 제공하는 임상 노트 허브 |
 | 💊 **치과 약물·처방 가이드** | `drug-guide.html` | 술식·상황별 처방 프로토콜(21종), 약물 카탈로그(14분류), 페니실린 알러지 대체, **소아의 하루 투여 횟수·20kg 계산 예시**, 의사결정 맵(Mermaid), 응급, 구강내과 복약지도, 신경손상 스테로이드 Tapering |
 | 🦴 **MRONJ 임상권고안 2025** | `mronj.html` | 약물관련 악골괴사 **원문 기반 상세** — **약물별 한눈 정리** + 진단·병인·위험요인·예방/휴약(BP·데노수맙)·병기·보존/수술·테리파라타이드·재발·의사결정. 근거등급 뱃지([권고]/[전문가 의견]/[근거 제한]) (Korean MRONJ Position Paper 2025) |
 | 🫦 **교합학 (Occlusion)** | `occlusion.html` | 교합 심층 정리 — CR/MIP·하악운동(Posselt·Bennett)·교합 양식·결정인자·교합기/안면궁·**임플란트 교합(IPO)**·교합과 TMD 근거·스플린트·**교합조정(BULL·MUDL·LUBL·DUML)**·진단 도구. Posselt 외피 SVG·계측 차트 (GPT-9·Okeson·Dawson·Misch) |
 | 🦷 **측두하악장애와 저작근장애의 진단과 치료** | `tmd-mmd.html` | DC/TMD 기반 관절성 TMD·저작근장애(MMD) 분류와 감별, 자가관리·약물·교합장치, **운동·수기치료·물리치료의 구체적 시행 예**, 주사·관절천자·수술 및 의뢰 기준 |
+| 🦷 **임플란트 주위질환 · 합병증** | `peri-implant.html` | 임플란트 주위 건강·점막염·주위염의 **3상태 비교**, 기준 탐침·방사선, **대화형 진단 퀵체크**, 위험요인 매트릭스, 비수술·결손 형태별 수술, 기계적 합병증, 위험별 SPIC 유지관리와 차팅 템플릿 |
 | 🧬 **PDRN 치과 임상 총정리** | `pdrn.html` | 30년 의료 사용 역사와 **국내 치과 확산**, PDRN의 **A2A/살베이지 기전과 PN 구분**, TMD 프롤로테라피·임플란트·치주·발치·MRONJ 활용을 **실사용/사람/전임상 근거로 분리**. 연구·임상교육 용량, 안전·동의·기록 체크리스트 |
 | 🛠️ **현대 발치술과 발치 기구: 최소침습 발치와 고위험 치근 관리** | `extraction.html` | elevator·forceps·root pick의 선택부터 manual·powered periotome, **Benex-type 축방향 견인기·Physics Forceps·piezosurgery·magnetic mallet**, 치근 분할·잔존치근 회수·관상절제술·디지털 내비게이션과 기구 구성안 |
 | 💎 **라미네이트 (베니어)** | `veneer.html` | 무삭제·최소삭제 베니어 — 적응증·삭제 연속선·**재료 7종(굴곡강도 차트)**·제작·**접착 5경로**·브랜드 비교·장기 근거. 단면 개념도 SVG, 인용(S1–S10) (ADA·ACP·문헌리뷰·제조사 IFU) |
@@ -53,6 +54,7 @@ drug-guide.html     # 하위: 약물·처방 가이드
 mronj.html          # 하위: MRONJ 임상권고안 2025
 occlusion.html      # 하위: 교합학 (Occlusion)
 tmd-mmd.html        # 하위: 측두하악장애와 저작근장애의 진단과 치료 (TMD·MMD·물리치료·주사·관절 술식)
+peri-implant.html   # 하위: 임플란트 주위질환·합병증 (진단·위험·치료·기계적 합병증·SPIC)
 pdrn.html           # 하위: PDRN 치과 임상 총정리 (역사·국내현장·기전·TMD·임플란트·치주·구강외과·안전)
 extraction.html     # 하위: 현대 발치술과 발치 기구 (elevator·forceps·PDL 기구·축방향 견인·치근 회수·디지털 술식)
 veneer.html         # 하위: 라미네이트 (베니어)
@@ -63,11 +65,13 @@ cancer-care.html    # 하위: 암 치료 환자의 치과진료: 임상 평가�
 systemic.html       # 하위: 전신질환자 치과관리 (출혈·감염·스트레스·약물 4축)
 assets/theme.css    # 체어사이드 임상 핸드북 디자인 시스템(타입·색·간격·컴포넌트·반응형 표)
 assets/theme.js     # 공용 다크모드·모바일 문서 목차·읽기 진행도·접근성 보조
+assets/visual.css   # 임플란트 노트의 고밀도 시각화·대시보드·반응형 레이어
+assets/peri-implant.js # 임플란트 진단 퀵체크·상태 전환·읽기 진행·차팅 복사
 assets/charts.js    # 경량 SVG 차트(범위막대·타임라인·심각도·계단·피라미드)
 assets/icons.svg    # 커스텀 아이콘 스프라이트(<use href="assets/icons.svg#i-...">)
 assets/favicon.svg  # 시냅스 로고 마크
 ```
-디자인은 `theme.css`의 CSS 토큰으로 통일(임상 청록 + 따뜻한 중성색 + 상태색)하고 다크모드에 자동 대응합니다. 메인 허브는 빠른 진입·분야 필터·통합 검색을 제공하며, 하위 노트는 모바일 목차와 읽기 진행도를 공유합니다. 정량 데이터는 `charts.js`로 표 대신 시각화합니다.
+디자인은 `theme.css`의 CSS 토큰으로 통일(임상 청록 + 따뜻한 중성색 + 상태색)하고 다크모드에 자동 대응합니다. 메인 허브는 빠른 진입·분야 필터·통합 검색을 제공하며, 하위 노트는 모바일 목차와 읽기 진행도를 공유합니다. 정량 데이터는 `charts.js`와 주제별 시각화 레이어로 표 대신 시각화합니다.
 
 ## ⚠️ 면책 고지
 본 노트는 **개인 정리 목적**이며 식약처 허가사항·최신 가이드라인·개별 임상판단을 대체하지 않습니다.
@@ -76,4 +80,5 @@ assets/favicon.svg  # 시냅스 로고 마크
 ## 출처(요약)
 ADA Oral Health Topics · ADA 2019/2024 가이드 · AHA 2021 IE 예방 · AAPD Reference Manual ·
 NeuPSIG 2015(Lancet Neurol) · 약업신문 · **Korean MRONJ Position Paper 2025 (onjcohort.org)** ·
+2017 World Workshop · EFP S3 Peri-implant Guideline · AO/AAP Consensus · Korean Academy of Periodontology ·
 식약처/health.kr · 대한치과의사협회·치의신보. 각 페이지 하단/내부 참고문헌 참조.
